@@ -14,6 +14,8 @@
 		9FC228B522CB339500D8871D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FC228B322CB339500D8871D /* Main.storyboard */; };
 		9FC228C122CB339500D8871D /* ProjectLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228C022CB339500D8871D /* ProjectLifeTests.swift */; };
 		9FC228CC22CB339500D8871D /* ProjectLifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228CB22CB339500D8871D /* ProjectLifeUITests.swift */; };
+		9FC2291722CB43B400D8871D /* MasterWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2291522CB43B400D8871D /* MasterWindowController.swift */; };
+		9FC2291822CB43B400D8871D /* MasterWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC2291622CB43B400D8871D /* MasterWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		9FC228C722CB339500D8871D /* ProjectLifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectLifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC228CB22CB339500D8871D /* ProjectLifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLifeUITests.swift; sourceTree = "<group>"; };
 		9FC228CD22CB339500D8871D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FC2291522CB43B400D8871D /* MasterWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterWindowController.swift; sourceTree = "<group>"; };
+		9FC2291622CB43B400D8871D /* MasterWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		9FC228A922CB339400D8871D /* ProjectLife */ = {
 			isa = PBXGroup;
 			children = (
+				9FC2291422CB437C00D8871D /* WindowControllers */,
 				9FC228AA22CB339400D8871D /* AppDelegate.swift */,
 				9FC228AC22CB339400D8871D /* ViewController.swift */,
 				9FC228B122CB339500D8871D /* Assets.xcassets */,
@@ -125,6 +130,15 @@
 				9FC228CD22CB339500D8871D /* Info.plist */,
 			);
 			path = ProjectLifeUITests;
+			sourceTree = "<group>";
+		};
+		9FC2291422CB437C00D8871D /* WindowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9FC2291522CB43B400D8871D /* MasterWindowController.swift */,
+				9FC2291622CB43B400D8871D /* MasterWindowController.xib */,
+			);
+			path = WindowControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FC2291822CB43B400D8871D /* MasterWindowController.xib in Resources */,
 				9FC228B222CB339500D8871D /* Assets.xcassets in Resources */,
 				9FC228B522CB339500D8871D /* Main.storyboard in Resources */,
 			);
@@ -260,6 +275,7 @@
 				9FC228AD22CB339400D8871D /* ViewController.swift in Sources */,
 				9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */,
 				9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */,
+				9FC2291722CB43B400D8871D /* MasterWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
