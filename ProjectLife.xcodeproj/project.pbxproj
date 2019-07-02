@@ -102,6 +102,7 @@
 		9FC228A922CB339400D8871D /* ProjectLife */ = {
 			isa = PBXGroup;
 			children = (
+				9FC2291A22CB5B2800D8871D /* ViewControllers */,
 				9FC2291422CB437C00D8871D /* WindowControllers */,
 				9FC228AA22CB339400D8871D /* AppDelegate.swift */,
 				9FC228AC22CB339400D8871D /* ViewController.swift */,
@@ -139,6 +140,13 @@
 				9FC2291622CB43B400D8871D /* MasterWindowController.xib */,
 			);
 			path = WindowControllers;
+			sourceTree = "<group>";
+		};
+		9FC2291A22CB5B2800D8871D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

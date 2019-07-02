@@ -22,7 +22,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" id="BOF-NM-1cW"/>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -333,6 +333,55 @@
                                                     </menuItem>
                                                 </items>
                                             </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Theme Color" id="YOf-sw-ZxB">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Theme Color" id="cAZ-bX-haj">
+                                    <items>
+                                        <menuItem title="Ivory" id="tuK-f7-flb">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectWhite:" target="Voe-Tx-rLC" id="fng-cs-BYV"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Gun Metal" id="1Jw-iB-5Lr">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectBlack:" target="Voe-Tx-rLC" id="crY-LQ-O6U"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Dark Leaden" id="QFz-IP-Rdl">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectGrey:" target="Voe-Tx-rLC" id="e5f-Bf-2Qi"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Crimson" id="xhE-62-y4V">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectRed:" target="Voe-Tx-rLC" id="Rwk-Br-fu7"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Navy Blue" id="LVa-2b-AUD">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectBlue:" target="Voe-Tx-rLC" id="5r9-EN-XRh"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Army Green" id="ykP-4g-5Qp">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectGreen:" target="Voe-Tx-rLC" id="h8d-3v-9ZZ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Chest Nut" id="gwI-K6-aeg">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectBrown:" target="Voe-Tx-rLC" id="36C-6x-pIS"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -687,19 +736,20 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="241" width="479" height="269"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="Window" destination="IQv-IB-iLA" id="hAk-nc-EhY"/>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="74.5" y="250.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -708,7 +758,35 @@
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="OXP-ZK-RWZ">
+                                <rect key="frame" x="-3" y="-4" width="486" height="239"/>
+                                <view key="contentView" id="CcU-1R-sx5">
+                                    <rect key="frame" x="3" y="3" width="480" height="221"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjx-mv-m84">
+                                <rect key="frame" x="190" y="253" width="101" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="hahahahahahha" id="Syh-Os-wiX">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="OXP-ZK-RWZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="35" id="KX0-Ve-eAe"/>
+                            <constraint firstAttribute="trailing" secondItem="OXP-ZK-RWZ" secondAttribute="trailing" id="g8H-FM-aVu"/>
+                            <constraint firstAttribute="bottom" secondItem="OXP-ZK-RWZ" secondAttribute="bottom" id="jto-hM-KLV"/>
+                            <constraint firstItem="OXP-ZK-RWZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="zH0-zT-25L"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentView" destination="OXP-ZK-RWZ" id="2CA-AI-f6s"/>
+                        <outlet property="headerView" destination="OXP-ZK-RWZ" id="yBX-LU-K66"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
