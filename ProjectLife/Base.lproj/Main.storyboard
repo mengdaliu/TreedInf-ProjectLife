@@ -365,7 +365,7 @@
                                                 <action selector="selectRed:" target="Voe-Tx-rLC" id="Rwk-Br-fu7"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Navy Blue" id="LVa-2b-AUD">
+                                        <menuItem title="Navy Blue" state="on" id="LVa-2b-AUD">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="selectBlue:" target="Voe-Tx-rLC" id="5r9-EN-XRh"/>
@@ -756,28 +756,30 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="ProjectLife" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="588" height="353"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="OXP-ZK-RWZ">
-                                <rect key="frame" x="-3" y="-4" width="486" height="239"/>
+                                <rect key="frame" x="-3" y="-4" width="594" height="309"/>
                                 <view key="contentView" id="CcU-1R-sx5">
-                                    <rect key="frame" x="3" y="3" width="480" height="221"/>
+                                    <rect key="frame" x="3" y="3" width="588" height="291"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
+                                <font key="titleFont" metaFont="smallSystem"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjx-mv-m84">
-                                <rect key="frame" x="190" y="253" width="101" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="hahahahahahha" id="Syh-Os-wiX">
-                                    <font key="font" usesAppearanceFont="YES"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qjx-mv-m84">
+                                <rect key="frame" x="256" y="331" width="77" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Project  Life" id="Syh-Os-wiX">
+                                    <font key="font" size="13" name=".AppleSystemUIFont"/>
                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="OXP-ZK-RWZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="35" id="KX0-Ve-eAe"/>
+                            <constraint firstItem="qjx-mv-m84" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="DcE-46-WaU"/>
+                            <constraint firstItem="OXP-ZK-RWZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="KX0-Ve-eAe"/>
+                            <constraint firstItem="qjx-mv-m84" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="QaD-EL-b19"/>
                             <constraint firstAttribute="trailing" secondItem="OXP-ZK-RWZ" secondAttribute="trailing" id="g8H-FM-aVu"/>
                             <constraint firstAttribute="bottom" secondItem="OXP-ZK-RWZ" secondAttribute="bottom" id="jto-hM-KLV"/>
                             <constraint firstItem="OXP-ZK-RWZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="zH0-zT-25L"/>
@@ -786,11 +788,12 @@
                     <connections>
                         <outlet property="contentView" destination="OXP-ZK-RWZ" id="2CA-AI-f6s"/>
                         <outlet property="headerView" destination="OXP-ZK-RWZ" id="yBX-LU-K66"/>
+                        <outlet property="mainView" destination="OXP-ZK-RWZ" id="8i2-g5-uVr"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="125" y="696.5"/>
         </scene>
     </scenes>
 </document>

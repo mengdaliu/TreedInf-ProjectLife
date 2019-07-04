@@ -14,15 +14,17 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        headerView.boxType = .custom
-        headerView.alphaValue = 1
-        headerView.borderType = .noBorder
-        headerView.wantsLayer = true
-        headerView.layer?.backgroundColor = NSColor.lightGray.cgColor
+        mainView.boxType = .custom
+        mainView.alphaValue = 1
+        mainView.borderType = .noBorder
+        mainView.wantsLayer = true
+        mainView.layer?.backgroundColor = CGColor.init(red: CGFloat(0.9), green: CGFloat(0.9), blue: CGFloat(0.9), alpha: CGFloat(1))
     }
 
     
-    @IBOutlet weak var headerView: NSBox!
+
+    
+    @IBOutlet weak var mainView: NSBox!
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.

@@ -19,6 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         self.windowController = NSApplication.shared.mainWindow?.windowController
         self.window = self.windowController?.window
+        let color = handleStoreColor(data : [0, 0.1, 0.3, 1])
+        handleChangeMainWindowColor(color : color)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -58,12 +60,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func selectBrown(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [139, 0, 0, 1])
+        let color = handleStoreColor(data : [0.37, 0.12, 0.074, 1])
         handleChangeMainWindowColor(color : color)
     }
     @IBAction func selectGrey(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [139, 0, 0, 1])
+        let color = handleStoreColor(data : [0.15, 0.15, 0.15, 1])
         handleChangeMainWindowColor(color : color)
     }
     @IBAction func selectRed(_ sender: NSMenuItem) {
@@ -74,13 +76,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func selectBlue(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [139, 0, 0, 1])
+        let color = handleStoreColor(data : [0, 0.1, 0.3, 1])
         handleChangeMainWindowColor(color : color)
     }
     
     @IBAction func selectGreen(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0, 0, 0, 1])
+        let color = handleStoreColor(data : [0.12, 0.2, 0.1, 1])
         handleChangeMainWindowColor(color : color)
     }
     @IBAction func selectWhite(_ sender: NSMenuItem) {
@@ -90,11 +92,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     @IBAction func selectBlack(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [139, 0, 0, 1])
+        let color = handleStoreColor(data : [0, 0, 0, 1])
         handleChangeMainWindowColor(color : color)
     }
     
-
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows: Bool) -> Bool {
+        if hasVisibleWindows {
+            self.window?.orderFront(self)
+        }
+        else {
+            self.window?.makeKeyAndOrderFront(self)
+        }
+        return true
+    }
+    
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation

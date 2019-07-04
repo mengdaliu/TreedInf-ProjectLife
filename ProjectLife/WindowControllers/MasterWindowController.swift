@@ -31,7 +31,6 @@ class MasterWindowController: NSWindowController {
 
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         self.window?.titlebarAppearsTransparent = true
-        self.window?.backgroundColor = NSColor.black
         self.window?.titleVisibility = .hidden
         self.window?.styleMask.insert(.fullSizeContentView)
     }
