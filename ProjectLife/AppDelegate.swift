@@ -12,15 +12,29 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
 
-    let userDefaults = UserDefaults.standard
+    let userDefaults = UserDefaults.init(suiteName: "Test User")
     var windowController : NSWindowController?
     var window : NSWindow?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         self.windowController = NSApplication.shared.mainWindow?.windowController
         self.window = self.windowController?.window
-        let color = handleStoreColor(data : [0, 0.1, 0.3, 1])
-        handleChangeMainWindowColor(color : color)
+        
+        let loadedData = UserDefaults.standard.data(forKey: "Theme Color")
+        
+        if loadedData != nil{
+            var loadedColor : NSColor?
+            do {
+                try loadedColor =  NSKeyedUnarchiver.unarchivedObject(ofClasses : [NSColor.self], from: loadedData!) as? NSColor
+                handleChangeMainWindowColor(color: loadedColor!)
+            } catch {
+                //let color = handleStoreColor(data : [0, 0.07, 0.21, 1])
+                //handleChangeMainWindowColor(color : color)
+            }
+        } else {
+            let color = handleStoreColor(data : [0, 0.07, 0.21, 1])
+            handleChangeMainWindowColor(color : color)
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -50,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } catch {
             return color
         }
-        self.userDefaults.register(defaults: ["Theme Color": data ?? NSColor.init()])
+        self.userDefaults?.register(defaults: ["Theme Color": data ?? NSColor.init()])
         return color
     }
     
@@ -60,34 +74,42 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func selectBrown(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0.37, 0.12, 0.074, 1])
+        let color = handleStoreColor(data : [0.2775, 0.09, 0.03, 1])
         handleChangeMainWindowColor(color : color)
     }
+    
     @IBAction func selectGrey(_ sender: NSMenuItem) {
         handleSelect(item : sender)
         let color = handleStoreColor(data : [0.15, 0.15, 0.15, 1])
         handleChangeMainWindowColor(color : color)
     }
+    
     @IBAction func selectRed(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0.54, 0, 0, 1])
+        let color = handleStoreColor(data : [0.3, 0, 0, 1])
         handleChangeMainWindowColor(color : color)
     }
     
     @IBAction func selectBlue(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0, 0.1, 0.3, 1])
+        let color = handleStoreColor(data : [0, 0.07, 0.21, 1])
         handleChangeMainWindowColor(color : color)
     }
     
     @IBAction func selectGreen(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0.12, 0.2, 0.1, 1])
+        let color = handleStoreColor(data : [0.09, 0.15, 0.075, 1])
         handleChangeMainWindowColor(color : color)
     }
+    
     @IBAction func selectWhite(_ sender: NSMenuItem) {
         handleSelect(item : sender)
         let color = handleStoreColor(data : [1, 1, 1, 1])
+        handleChangeMainWindowColor(color : color)
+    }
+    @IBAction func selectPeru(_ sender: NSMenuItem) {
+        handleSelect(item : sender)
+        let color = handleStoreColor(data : [0.21, 0.14, 0.05, 1])
         handleChangeMainWindowColor(color : color)
     }
     @IBAction func selectBlack(_ sender: NSMenuItem) {

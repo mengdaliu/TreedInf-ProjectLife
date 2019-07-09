@@ -383,6 +383,12 @@
                                                 <action selector="selectBrown:" target="Voe-Tx-rLC" id="36C-6x-pIS"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Peru" id="kt9-37-09b">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectPeru:" target="Voe-Tx-rLC" id="pZt-jQ-5nJ"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -760,12 +766,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="OXP-ZK-RWZ">
-                                <rect key="frame" x="-3" y="-4" width="594" height="309"/>
+                                <rect key="frame" x="-3" y="-4" width="594" height="302"/>
                                 <view key="contentView" id="CcU-1R-sx5">
-                                    <rect key="frame" x="3" y="3" width="588" height="291"/>
+                                    <rect key="frame" x="3" y="3" width="588" height="284"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
-                                <font key="titleFont" metaFont="smallSystem"/>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qjx-mv-m84">
                                 <rect key="frame" x="256" y="331" width="77" height="17"/>
@@ -778,7 +783,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="qjx-mv-m84" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="DcE-46-WaU"/>
-                            <constraint firstItem="OXP-ZK-RWZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="48" id="KX0-Ve-eAe"/>
+                            <constraint firstItem="OXP-ZK-RWZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="55" id="KX0-Ve-eAe"/>
                             <constraint firstItem="qjx-mv-m84" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="QaD-EL-b19"/>
                             <constraint firstAttribute="trailing" secondItem="OXP-ZK-RWZ" secondAttribute="trailing" id="g8H-FM-aVu"/>
                             <constraint firstAttribute="bottom" secondItem="OXP-ZK-RWZ" secondAttribute="bottom" id="jto-hM-KLV"/>

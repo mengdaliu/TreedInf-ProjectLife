@@ -2,4 +2,192 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLifeTests/ProjectLifeTests.swift"
+            timestampString = "584343365.651284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "testImageFromURL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/ViewController.swift"
+            timestampString = "584352914.454179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ProjectLife.ViewController"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewController.swift"
+                  timestampString = "584346885.217348"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "178">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ProjectLife.ViewController&gt;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewController.swift"
+                  timestampString = "584346885.219329"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "107">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/ViewControllers/testVC.swift"
+            timestampString = "584352914.454599"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/ViewControllers/ProjectHierarchyViewController.swift"
+            timestampString = "584352914.454664"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "ProjectHierarchyViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ProjectHierarchyViewController.testStackView.getter : Swift.Optional&lt;__C.NSStackView&gt;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewControllers/ProjectHierarchyViewController.swift"
+                  timestampString = "584351666.778391"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ProjectHierarchyViewController.testStackView.setter : Swift.Optional&lt;__C.NSStackView&gt;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewControllers/ProjectHierarchyViewController.swift"
+                  timestampString = "584351666.780859"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ProjectHierarchyViewController.testStackView.modify : Swift.Optional&lt;__C.NSStackView&gt;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewControllers/ProjectHierarchyViewController.swift"
+                  timestampString = "584351666.783052"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "69">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ProjectHierarchyViewController.testStackView.modify : Swift.Optional&lt;__C.NSStackView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewControllers/ProjectHierarchyViewController.swift"
+                  timestampString = "584351666.785072"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ProjectHierarchyViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ProjectLife.ProjectHierarchyViewController"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewControllers/ProjectHierarchyViewController.swift"
+                  timestampString = "584351666.787045"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "178">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ProjectHierarchyViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ProjectLife.ProjectHierarchyViewController&gt;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewControllers/ProjectHierarchyViewController.swift"
+                  timestampString = "584351666.789017"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "107">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

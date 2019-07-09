@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F08CE7522D21F4000B1E984 /* ProjectHierarchyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F08CE7322D21F4000B1E984 /* ProjectHierarchyViewController.swift */; };
+		9F08CE7622D21F4000B1E984 /* ProjectHierarchyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F08CE7422D21F4000B1E984 /* ProjectHierarchyViewController.xib */; };
+		9F08CE7922D38EAF00B1E984 /* FrontPagePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F08CE7722D38EAF00B1E984 /* FrontPagePhotoViewController.swift */; };
+		9F08CE7A22D38EAF00B1E984 /* FrontPagePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F08CE7822D38EAF00B1E984 /* FrontPagePhotoViewController.xib */; };
 		9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AA22CB339400D8871D /* AppDelegate.swift */; };
 		9FC228AD22CB339400D8871D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AC22CB339400D8871D /* ViewController.swift */; };
 		9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AE22CB339400D8871D /* ProjectLife.xcdatamodeld */; };
@@ -36,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F08CE7322D21F4000B1E984 /* ProjectHierarchyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectHierarchyViewController.swift; path = ../ProjectHierarchyViewController.swift; sourceTree = "<group>"; };
+		9F08CE7422D21F4000B1E984 /* ProjectHierarchyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectHierarchyViewController.xib; sourceTree = "<group>"; };
+		9F08CE7722D38EAF00B1E984 /* FrontPagePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FrontPagePhotoViewController.swift; path = ../FrontPagePhotoViewController.swift; sourceTree = "<group>"; };
+		9F08CE7822D38EAF00B1E984 /* FrontPagePhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrontPagePhotoViewController.xib; sourceTree = "<group>"; };
 		9FC228A722CB339400D8871D /* ProjectLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC228AA22CB339400D8871D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FC228AC22CB339400D8871D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9FB716CE22D4875C00423739 /* swiftFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9F08CE7722D38EAF00B1E984 /* FrontPagePhotoViewController.swift */,
+				9F08CE7322D21F4000B1E984 /* ProjectHierarchyViewController.swift */,
+			);
+			path = swiftFiles;
+			sourceTree = "<group>";
+		};
 		9FC2289E22CB339400D8871D = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +162,9 @@
 		9FC2291A22CB5B2800D8871D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9FB716CE22D4875C00423739 /* swiftFiles */,
+				9F08CE7422D21F4000B1E984 /* ProjectHierarchyViewController.xib */,
+				9F08CE7822D38EAF00B1E984 /* FrontPagePhotoViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -253,9 +273,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F08CE7622D21F4000B1E984 /* ProjectHierarchyViewController.xib in Resources */,
 				9FC2291822CB43B400D8871D /* MasterWindowController.xib in Resources */,
 				9FC228B222CB339500D8871D /* Assets.xcassets in Resources */,
 				9FC228B522CB339500D8871D /* Main.storyboard in Resources */,
+				9F08CE7A22D38EAF00B1E984 /* FrontPagePhotoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F08CE7922D38EAF00B1E984 /* FrontPagePhotoViewController.swift in Sources */,
 				9FC228AD22CB339400D8871D /* ViewController.swift in Sources */,
+				9F08CE7522D21F4000B1E984 /* ProjectHierarchyViewController.swift in Sources */,
 				9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */,
 				9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */,
 				9FC2291722CB43B400D8871D /* MasterWindowController.swift in Sources */,
