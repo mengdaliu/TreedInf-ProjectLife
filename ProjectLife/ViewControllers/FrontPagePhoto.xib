@@ -5,32 +5,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="FrontPagePhotoViewController" customModule="ProjectLife" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="FrontPagePhoto" customModule="ProjectLife" customModuleProvider="target">
             <connections>
-                <outlet property="myView" destination="Hz6-mo-xeY" id="WuP-v8-dF1"/>
-                <outlet property="sourceItemView" destination="Hz6-mo-xeY" id="p8F-s1-wUu"/>
-                <outlet property="view" destination="Hz6-mo-xeY" id="DJR-1k-e5S"/>
+                <outlet property="backgroundImage" destination="maA-aS-3HL" id="3xl-Si-zOC"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="291" height="196"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e99-dE-xCr">
-                    <rect key="frame" x="229" y="112" width="81" height="32"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="maA-aS-3HL">
+                    <rect key="frame" x="0.0" y="0.0" width="291" height="196"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="pN0-1c-46p"/>
+                </imageView>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T8C-vh-sIj">
+                    <rect key="frame" x="105" y="55" width="81" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="trD-Na-LuK">
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="C3h-j3-Rkb">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="test:" target="-2" id="LU6-Sg-8j1"/>
+                        <action selector="quikAction:" target="-2" id="q7z-rX-WLK"/>
                     </connections>
                 </button>
             </subviews>
-            <point key="canvasLocation" x="133" y="141"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="maA-aS-3HL" secondAttribute="trailing" id="MaR-73-wmZ"/>
+                <constraint firstItem="maA-aS-3HL" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="NDv-r7-02W"/>
+                <constraint firstItem="maA-aS-3HL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="dOz-eM-guF"/>
+                <constraint firstAttribute="bottom" secondItem="maA-aS-3HL" secondAttribute="bottom" id="n8P-T7-gqp"/>
+            </constraints>
+            <point key="canvasLocation" x="-198" y="-54"/>
         </customView>
     </objects>
 </document>

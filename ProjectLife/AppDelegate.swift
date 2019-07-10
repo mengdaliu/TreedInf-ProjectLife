@@ -49,7 +49,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             i.state = .off
         }
         item.state = .on
-        print(item)
     }
     
     func handleStoreColor(data : [Double]) -> NSColor {

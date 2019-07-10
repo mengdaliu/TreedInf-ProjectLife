@@ -20,22 +20,14 @@ class ViewController: NSViewController {
         mainView.wantsLayer = true
         mainView.layer?.backgroundColor = CGColor.init(red: CGFloat(0.9), green: CGFloat(0.9), blue: CGFloat(0.9), alpha: CGFloat(1))
         
-        var photoController : NSViewController
-        photoController = FrontPagePhoto.init(nibName: "FrontPagePhoto", bundle: nil)
-        //photoController.awakeFromNib()
+        
+        let photoController = FrontPagePhoto.init(nibName: "FrontPagePhoto", bundle: nil)
         self.addChild(photoController)
         mainView.contentView = photoController.view
-        print(mainView.contentView)
-        print(photoController.view)
+    
     }
 
     @IBOutlet weak var mainView: NSBox!
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
 
 }
 

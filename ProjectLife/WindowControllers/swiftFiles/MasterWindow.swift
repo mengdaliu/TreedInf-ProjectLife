@@ -11,20 +11,7 @@ import Cocoa
 class MasterWindowController: NSWindowController {
     
     let userDefaults = UserDefaults.init()
-    var color : NSColor {
-        get {
-            let loadedData = UserDefaults.standard.data(forKey: "color")
-            var loadedColor : NSColor?
-            do {try loadedColor =  NSKeyedUnarchiver.unarchivedObject(ofClasses : [NSColor.self], from: loadedData!) as? NSColor
-            } catch {
-                return NSColor.init()
-            }
-            return loadedColor ?? NSColor.init()
-        }
-        set {
-            self.window?.backgroundColor = color
-        }
-    }
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         
@@ -33,6 +20,7 @@ class MasterWindowController: NSWindowController {
         self.window?.titlebarAppearsTransparent = true
         self.window?.titleVisibility = .hidden
         self.window?.styleMask.insert(.fullSizeContentView)
+        self.window?.setIsZoomed(true)
     }
 
     
