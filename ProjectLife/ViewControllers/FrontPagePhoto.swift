@@ -50,7 +50,7 @@ class FrontPagePhoto: NSViewController {
         let API = UnsplashAPI.init()
         let APIKey =  API.APIKey
         //let Secret =  API.Secret
-        let url = URL(string: "https://api.unsplash.com/photos/random?featured&count=30&orientation=landscape")!
+        let url = URL(string: "https://api.unsplash.com/photos/random?featured&count=30&orientation=landscape&query=nature")!
         var request : URLRequest = URLRequest.init(url: url)
         request.allHTTPHeaderFields = [
             "Authorization" : "Client-ID " + APIKey,
