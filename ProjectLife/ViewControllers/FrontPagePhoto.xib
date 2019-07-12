@@ -21,6 +21,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="291" height="196"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="pN0-1c-46p"/>
                 </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="daN-QQ-HAU">
+                    <rect key="frame" x="0.0" y="0.0" width="291" height="196"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="OEw-sM-m5U"/>
+                    <connections>
+                        <action selector="backgroundImage:" target="-2" id="ghm-DQ-a4K"/>
+                    </connections>
+                </imageView>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="maA-aS-3HL" secondAttribute="trailing" id="MaR-73-wmZ"/>
@@ -28,7 +36,7 @@
                 <constraint firstItem="maA-aS-3HL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="dOz-eM-guF"/>
                 <constraint firstAttribute="bottom" secondItem="maA-aS-3HL" secondAttribute="bottom" id="n8P-T7-gqp"/>
             </constraints>
-            <point key="canvasLocation" x="-440" y="-109"/>
+            <point key="canvasLocation" x="-767.5" y="-212"/>
         </customView>
     </objects>
 </document>

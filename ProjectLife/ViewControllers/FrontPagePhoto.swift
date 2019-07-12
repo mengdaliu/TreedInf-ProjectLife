@@ -12,7 +12,7 @@ class FrontPagePhoto: NSViewController {
     
     var urls : [String] = []
     var maxSize : NSSize = NSSize.init(width: 0, height: 0)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -29,9 +29,6 @@ class FrontPagePhoto: NSViewController {
     }
     
     @IBOutlet weak var backgroundImage: NSImageView!
-    @IBAction func quikAction(_ sender: Any) {
-        keepLoading()
-    }
     
     @objc func loadBackgroundImageFromURL(url : String) {
         print("working")
@@ -65,7 +62,7 @@ class FrontPagePhoto: NSViewController {
             if error == nil {
                 let receivedData = try? JSONSerialization.jsonObject(with: data!, options: []) as? [[String : Any]]
                 for photo in receivedData!{
-
+                    
                     let urls = photo["urls"] as! [String: String]
                     let raw = urls["raw"]
                     let full = NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", raw!, w!, h! - 55) as String

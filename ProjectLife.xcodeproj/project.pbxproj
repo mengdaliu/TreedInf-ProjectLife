@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F08CE7522D21F4000B1E984 /* ProjectHierarchyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F08CE7322D21F4000B1E984 /* ProjectHierarchyViewController.swift */; };
-		9F08CE7622D21F4000B1E984 /* ProjectHierarchyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F08CE7422D21F4000B1E984 /* ProjectHierarchyViewController.xib */; };
-		9F08CE7922D38EAF00B1E984 /* FrontPagePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F08CE7722D38EAF00B1E984 /* FrontPagePhotoViewController.swift */; };
-		9F08CE7A22D38EAF00B1E984 /* FrontPagePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F08CE7822D38EAF00B1E984 /* FrontPagePhotoViewController.xib */; };
 		9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AA22CB339400D8871D /* AppDelegate.swift */; };
 		9FC228AD22CB339400D8871D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AC22CB339400D8871D /* ViewController.swift */; };
 		9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AE22CB339400D8871D /* ProjectLife.xcdatamodeld */; };
@@ -18,8 +14,12 @@
 		9FC228B522CB339500D8871D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FC228B322CB339500D8871D /* Main.storyboard */; };
 		9FC228C122CB339500D8871D /* ProjectLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228C022CB339500D8871D /* ProjectLifeTests.swift */; };
 		9FC228CC22CB339500D8871D /* ProjectLifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228CB22CB339500D8871D /* ProjectLifeUITests.swift */; };
-		9FC2291722CB43B400D8871D /* MasterWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC2291522CB43B400D8871D /* MasterWindowController.swift */; };
-		9FC2291822CB43B400D8871D /* MasterWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC2291622CB43B400D8871D /* MasterWindowController.xib */; };
+		9FD1714622D8D47E00222F24 /* FrontPagePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1714522D8D47E00222F24 /* FrontPagePhoto.swift */; };
+		9FD1714A22D8D58500222F24 /* FrontPagePhoto.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */; };
+		9FD1714E22D8D5A000222F24 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1714C22D8D5A000222F24 /* UI.swift */; };
+		9FD1714F22D8D5A000222F24 /* Unsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1714D22D8D5A000222F24 /* Unsplash.swift */; };
+		9FD1715222D8D5C200222F24 /* MasterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1715122D8D5C200222F24 /* MasterWindow.swift */; };
+		9FD1715422D8D5CE00222F24 /* MasterWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FD1715322D8D5CE00222F24 /* MasterWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9F08CE7322D21F4000B1E984 /* ProjectHierarchyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProjectHierarchyViewController.swift; path = ../ProjectHierarchyViewController.swift; sourceTree = "<group>"; };
-		9F08CE7422D21F4000B1E984 /* ProjectHierarchyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectHierarchyViewController.xib; sourceTree = "<group>"; };
-		9F08CE7722D38EAF00B1E984 /* FrontPagePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FrontPagePhotoViewController.swift; path = ../FrontPagePhotoViewController.swift; sourceTree = "<group>"; };
-		9F08CE7822D38EAF00B1E984 /* FrontPagePhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FrontPagePhotoViewController.xib; sourceTree = "<group>"; };
 		9FC228A722CB339400D8871D /* ProjectLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC228AA22CB339400D8871D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FC228AC22CB339400D8871D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,8 +54,12 @@
 		9FC228C722CB339500D8871D /* ProjectLifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectLifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC228CB22CB339500D8871D /* ProjectLifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLifeUITests.swift; sourceTree = "<group>"; };
 		9FC228CD22CB339500D8871D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FC2291522CB43B400D8871D /* MasterWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterWindowController.swift; sourceTree = "<group>"; };
-		9FC2291622CB43B400D8871D /* MasterWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MasterWindowController.xib; sourceTree = "<group>"; };
+		9FD1714522D8D47E00222F24 /* FrontPagePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FrontPagePhoto.swift; path = ../FrontPagePhoto.swift; sourceTree = "<group>"; };
+		9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FrontPagePhoto.xib; path = ProjectLife/ViewControllers/FrontPagePhoto.xib; sourceTree = SOURCE_ROOT; };
+		9FD1714C22D8D5A000222F24 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
+		9FD1714D22D8D5A000222F24 /* Unsplash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unsplash.swift; sourceTree = "<group>"; };
+		9FD1715122D8D5C200222F24 /* MasterWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterWindow.swift; sourceTree = "<group>"; };
+		9FD1715322D8D5CE00222F24 /* MasterWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MasterWindow.xib; path = ProjectLife/WindowControllers/MasterWindow.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +90,7 @@
 		9FB716CE22D4875C00423739 /* swiftFiles */ = {
 			isa = PBXGroup;
 			children = (
-				9F08CE7722D38EAF00B1E984 /* FrontPagePhotoViewController.swift */,
-				9F08CE7322D21F4000B1E984 /* ProjectHierarchyViewController.swift */,
+				9FD1714522D8D47E00222F24 /* FrontPagePhoto.swift */,
 			);
 			path = swiftFiles;
 			sourceTree = "<group>";
@@ -119,6 +118,7 @@
 		9FC228A922CB339400D8871D /* ProjectLife */ = {
 			isa = PBXGroup;
 			children = (
+				9FD1714B22D8D5A000222F24 /* Config */,
 				9FC2291A22CB5B2800D8871D /* ViewControllers */,
 				9FC2291422CB437C00D8871D /* WindowControllers */,
 				9FC228AA22CB339400D8871D /* AppDelegate.swift */,
@@ -153,8 +153,8 @@
 		9FC2291422CB437C00D8871D /* WindowControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9FC2291522CB43B400D8871D /* MasterWindowController.swift */,
-				9FC2291622CB43B400D8871D /* MasterWindowController.xib */,
+				9FD1715122D8D5C200222F24 /* MasterWindow.swift */,
+				9FD1715022D8D5C200222F24 /* swiftFiles */,
 			);
 			path = WindowControllers;
 			sourceTree = "<group>";
@@ -162,11 +162,27 @@
 		9FC2291A22CB5B2800D8871D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */,
 				9FB716CE22D4875C00423739 /* swiftFiles */,
-				9F08CE7422D21F4000B1E984 /* ProjectHierarchyViewController.xib */,
-				9F08CE7822D38EAF00B1E984 /* FrontPagePhotoViewController.xib */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9FD1714B22D8D5A000222F24 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				9FD1714C22D8D5A000222F24 /* UI.swift */,
+				9FD1714D22D8D5A000222F24 /* Unsplash.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		9FD1715022D8D5C200222F24 /* swiftFiles */ = {
+			isa = PBXGroup;
+			children = (
+				9FD1715322D8D5CE00222F24 /* MasterWindow.xib */,
+			);
+			path = swiftFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,11 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F08CE7622D21F4000B1E984 /* ProjectHierarchyViewController.xib in Resources */,
-				9FC2291822CB43B400D8871D /* MasterWindowController.xib in Resources */,
 				9FC228B222CB339500D8871D /* Assets.xcassets in Resources */,
 				9FC228B522CB339500D8871D /* Main.storyboard in Resources */,
-				9F08CE7A22D38EAF00B1E984 /* FrontPagePhotoViewController.xib in Resources */,
+				9FD1714A22D8D58500222F24 /* FrontPagePhoto.xib in Resources */,
+				9FD1715422D8D5CE00222F24 /* MasterWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,12 +317,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F08CE7922D38EAF00B1E984 /* FrontPagePhotoViewController.swift in Sources */,
+				9FD1714F22D8D5A000222F24 /* Unsplash.swift in Sources */,
+				9FD1715222D8D5C200222F24 /* MasterWindow.swift in Sources */,
 				9FC228AD22CB339400D8871D /* ViewController.swift in Sources */,
-				9F08CE7522D21F4000B1E984 /* ProjectHierarchyViewController.swift in Sources */,
 				9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */,
 				9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */,
-				9FC2291722CB43B400D8871D /* MasterWindowController.swift in Sources */,
+				9FD1714622D8D47E00222F24 /* FrontPagePhoto.swift in Sources */,
+				9FD1714E22D8D5A000222F24 /* UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
