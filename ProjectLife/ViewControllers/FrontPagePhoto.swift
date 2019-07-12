@@ -11,17 +11,19 @@ import Cocoa
 class FrontPagePhoto: NSViewController {
     
     var urls : [String] = []
+    var maxSize : NSSize = NSSize.init(width: 0, height: 0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        backgroundImage.imageScaling = .scaleProportionallyUpOrDown
+        backgroundImage.imageScaling = .scaleNone
         //backgroundImage.animates = true
         backgroundImage.imageFrameStyle = .photo
         backgroundImage.alphaValue = CGFloat(0.25)
         //loadBackgroundImageFromURL(url: "https://source.unsplash.com/featured/random?orientation=landscape&size=full&query=nature")
-        getResponseFromUnsplash()
         DispatchQueue.global(qos: .background).async {
+            sleep(10)
+            self.getResponseFromUnsplash()
             self.keepLoading()
         }
     }
@@ -40,7 +42,7 @@ class FrontPagePhoto: NSViewController {
         sleep(5)
         for image in self.urls {
             
-            performSelector(onMainThread: #selector(loadBackgroundImageFromURL(url:)), with: image, waitUntilDone: true)
+            performSelector(onMainThread: #selector(loadBackgroundImageFromURL(url:)), with: image, waitUntilDone: false)
             sleep(5)
         }
     }
@@ -50,23 +52,24 @@ class FrontPagePhoto: NSViewController {
         let API = UnsplashAPI.init()
         let APIKey =  API.APIKey
         //let Secret =  API.Secret
-        let url = URL(string: "https://api.unsplash.com/photos/random?featured&count=30&orientation=landscape&query=nature")!
+        let picSize = NSScreen.main?.frame.size
+        let w = picSize?.width; let h = picSize?.height
+        let url = URL(string:  "https://api.unsplash.com/photos/random?featured&count=30&orientation=landscape&query=nature")!
         var request : URLRequest = URLRequest.init(url: url)
         request.allHTTPHeaderFields = [
             "Authorization" : "Client-ID " + APIKey,
         ]
         request.httpMethod = "GET"
         let session = URLSession.init(configuration: .default)
-        var URLs : [String] = []
         let fetchTask = session.dataTask(with : request, completionHandler: {data, response, error in
             if error == nil {
-                print("no error")
                 let receivedData = try? JSONSerialization.jsonObject(with: data!, options: []) as? [[String : Any]]
                 for photo in receivedData!{
-                    print("are you fucking working")
+
                     let urls = photo["urls"] as! [String: String]
-                    let full = urls["full"]
-                    self.urls.append(full!)
+                    let raw = urls["raw"]
+                    let full = NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", raw!, w!, h! - 55) as String
+                    self.urls.append(full)
                 }
                 
             } else {

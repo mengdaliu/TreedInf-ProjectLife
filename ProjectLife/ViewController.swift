@@ -22,6 +22,7 @@ class ViewController: NSViewController {
         
         
         let photoController = FrontPagePhoto.init(nibName: "FrontPagePhoto", bundle: nil)
+        photoController.maxSize = mainView.fittingSize
         self.addChild(photoController)
         mainView.contentView = photoController.view
     

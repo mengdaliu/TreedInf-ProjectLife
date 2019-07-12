@@ -73,47 +73,47 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func selectBrown(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0.2775, 0.09, 0.03, 1])
+        let color = handleStoreColor(data : ThemeColor.brown)
         handleChangeMainWindowColor(color : color)
     }
     
     @IBAction func selectGrey(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0.15, 0.15, 0.15, 1])
+        let color = handleStoreColor(data : ThemeColor.grey)
         handleChangeMainWindowColor(color : color)
     }
     
     @IBAction func selectRed(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0.3, 0, 0, 1])
+        let color = handleStoreColor(data : ThemeColor.red)
         handleChangeMainWindowColor(color : color)
     }
     
     @IBAction func selectBlue(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0, 0.07, 0.21, 1])
+        let color = handleStoreColor(data : ThemeColor.blue)
         handleChangeMainWindowColor(color : color)
     }
     
     @IBAction func selectGreen(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0.09, 0.15, 0.075, 1])
+        let color = handleStoreColor(data : ThemeColor.green)
         handleChangeMainWindowColor(color : color)
     }
     
     @IBAction func selectWhite(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [1, 1, 1, 1])
+        let color = handleStoreColor(data : ThemeColor.white)
         handleChangeMainWindowColor(color : color)
     }
     @IBAction func selectPeru(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0.21, 0.14, 0.05, 1])
+        let color = handleStoreColor(data : ThemeColor.peru)
         handleChangeMainWindowColor(color : color)
     }
     @IBAction func selectBlack(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : [0, 0, 0, 1])
+        let color = handleStoreColor(data : ThemeColor.black)
         handleChangeMainWindowColor(color : color)
     }
     
