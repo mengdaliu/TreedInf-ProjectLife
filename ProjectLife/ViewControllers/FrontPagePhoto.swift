@@ -7,40 +7,68 @@
 //
 
 import Cocoa
+import Network
 
 class FrontPagePhoto: NSViewController {
     
     var urls : [String] = []
-    var maxSize : NSSize = NSSize.init(width: 0, height: 0)
+    let picSize = NSScreen.main?.frame.size
+    
+    let monitor = NWPathMonitor()
+    var ImageQueue = DispatchQueue.global(qos: .background)
+    var w : CGFloat?
+    var h : CGFloat?
+    var transition = CATransition.init()
+    @IBOutlet weak var greetingLine: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         backgroundImage.imageScaling = .scaleNone
-        //backgroundImage.animates = true
+        backgroundImage.animates = true
         backgroundImage.imageFrameStyle = .photo
         backgroundImage.alphaValue = CGFloat(0.25)
-        //loadBackgroundImageFromURL(url: "https://source.unsplash.com/featured/random?orientation=landscape&size=full&query=nature")
-        DispatchQueue.global(qos: .background).async {
-            sleep(10)
-            self.getResponseFromUnsplash()
-            self.keepLoading()
-        }
+        self.w = self.picSize?.width
+        self.h = self.picSize?.height
+        self.transition.duration = 5
+        self.transition.type = .fade
+        self.transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+        backgroundImage.wantsLayer = true
+        backgroundImage.layer?.add(transition, forKey: nil)
+        backgroundImage.image = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1524260855046-f743b3cdad07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", self.w!, self.h! - 55) as String)!)
+        monitor.pathUpdateHandler = statusChangeHandler
+        monitor.start(queue : self.ImageQueue)
+        greetingLine.font = .labelFont(ofSize: CGFloat(60))
+        greetingLine.stringValue = "Good afternoon, Mengda!"
+        greetingLine.textColor = ThemeColor.black
     }
     
     @IBOutlet weak var backgroundImage: NSImageView!
     
+    
+    func statusChangeHandler(path: NWPath) {
+        if path.status == .satisfied {
+            monitor.queue?.async {
+                self.getResponseFromUnsplash()
+                self.keepLoading()
+            }
+        }
+    }
+    
     @objc func loadBackgroundImageFromURL(url : String) {
-        print("working")
-        backgroundImage.image = NSImage.init(contentsOf: URL(string: url)!)
+        backgroundImage.layer?.add(self.transition, forKey: nil)
+        backgroundImage.image = NSImage.init(contentsOf: URL(string : url)!)
     }
     
     func keepLoading() {
-        sleep(5)
-        for image in self.urls {
-            
-            performSelector(onMainThread: #selector(loadBackgroundImageFromURL(url:)), with: image, waitUntilDone: false)
-            sleep(5)
+        sleep(10)
+        while true {
+            for image in self.urls {
+                performSelector(onMainThread: #selector(loadBackgroundImageFromURL(url:)), with: image, waitUntilDone: false)
+                sleep(300)
+            }
+            getResponseFromUnsplash()
+            sleep(10)
         }
     }
     
@@ -49,8 +77,8 @@ class FrontPagePhoto: NSViewController {
         let API = UnsplashAPI.init()
         let APIKey =  API.APIKey
         //let Secret =  API.Secret
-        let picSize = NSScreen.main?.frame.size
-        let w = picSize?.width; let h = picSize?.height
+        
+        
         let url = URL(string:  "https://api.unsplash.com/photos/random?featured&count=30&orientation=landscape&query=nature")!
         var request : URLRequest = URLRequest.init(url: url)
         request.allHTTPHeaderFields = [
@@ -61,26 +89,19 @@ class FrontPagePhoto: NSViewController {
         let fetchTask = session.dataTask(with : request, completionHandler: {data, response, error in
             if error == nil {
                 let receivedData = try? JSONSerialization.jsonObject(with: data!, options: []) as? [[String : Any]]
+                var URLs : [String] = []
                 for photo in receivedData!{
-                    
                     let urls = photo["urls"] as! [String: String]
                     let raw = urls["raw"]
-                    let full = NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", raw!, w!, h! - 55) as String
-                    self.urls.append(full)
+                    let sizedRaw = NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", raw!, self.w!, self.h! - 55) as String
+                    URLs.append(sizedRaw)
+
                 }
-                
-            } else {
-                
-            }
+                if  URLs.count >= 25 {
+                    self.urls = URLs
+                }
+            } else {}
         })
         fetchTask.resume()
-    }
-    
-    func loadBackgroundImageFromCache() {
-        
-    }
-    
-    func updateCache() {
-        
     }
 }

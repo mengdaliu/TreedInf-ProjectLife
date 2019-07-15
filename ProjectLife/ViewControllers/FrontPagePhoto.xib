@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="FrontPagePhoto" customModule="ProjectLife" customModuleProvider="target">
             <connections>
                 <outlet property="backgroundImage" destination="maA-aS-3HL" id="3xl-Si-zOC"/>
+                <outlet property="greetingLine" destination="lpg-nB-a5V" id="Yz8-K7-PeM"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -29,14 +30,24 @@
                         <action selector="backgroundImage:" target="-2" id="ghm-DQ-a4K"/>
                     </connections>
                 </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lpg-nB-a5V">
+                    <rect key="frame" x="68" y="131" width="155" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Good Eveninig, Mengda!" id="Joe-jK-SHb">
+                        <font key="font" metaFont="systemMedium" size="13"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="maA-aS-3HL" secondAttribute="trailing" id="MaR-73-wmZ"/>
                 <constraint firstItem="maA-aS-3HL" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="NDv-r7-02W"/>
+                <constraint firstItem="lpg-nB-a5V" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="4:7" id="SVu-35-QG6"/>
                 <constraint firstItem="maA-aS-3HL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="dOz-eM-guF"/>
+                <constraint firstItem="lpg-nB-a5V" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="hsx-Xm-xJ9"/>
                 <constraint firstAttribute="bottom" secondItem="maA-aS-3HL" secondAttribute="bottom" id="n8P-T7-gqp"/>
             </constraints>
-            <point key="canvasLocation" x="-767.5" y="-212"/>
+            <point key="canvasLocation" x="-822" y="-232"/>
         </customView>
     </objects>
 </document>

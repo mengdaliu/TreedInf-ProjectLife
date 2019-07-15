@@ -10,7 +10,7 @@ import Cocoa
 
 class MasterWindowController: NSWindowController {
     
-    let userDefaults = UserDefaults.init()
+    let userDefaults = UserDefaults.standard
     
     override func windowDidLoad() {
         super.windowDidLoad()
@@ -21,8 +21,6 @@ class MasterWindowController: NSWindowController {
         self.window?.titleVisibility = .hidden
         self.window?.styleMask.insert(.fullSizeContentView)
         self.window?.setIsZoomed(true)
+        self.window?.minSize = .init(width: CGFloat(960), height: CGFloat(570))
     }
-
-    
-    
 }

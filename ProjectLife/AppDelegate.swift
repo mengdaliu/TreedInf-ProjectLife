@@ -12,7 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
 
-    let userDefaults = UserDefaults.init(suiteName: "Test User")
+    let userDefaults = UserDefaults.standard
     var windowController : NSWindowController?
     var window : NSWindow?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.windowController = NSApplication.shared.mainWindow?.windowController
         self.window = self.windowController?.window
         
-        let loadedData = UserDefaults.standard.data(forKey: "Theme Color")
+        let loadedData = self.userDefaults.data(forKey: "Theme Color")
         
         if loadedData != nil{
             var loadedColor : NSColor?
@@ -32,8 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 //handleChangeMainWindowColor(color : color)
             }
         } else {
-            let color = handleStoreColor(data : [0, 0.07, 0.21, 1])
-            handleChangeMainWindowColor(color : color)
+            handleStoreColor(color : ThemeColor.blue)
+            handleChangeMainWindowColor(color : ThemeColor.blue)
         }
     }
 
@@ -51,70 +51,66 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         item.state = .on
     }
     
-    func handleStoreColor(data : [Double]) -> NSColor {
-        let red = data[0]
-        let green = data[1]
-        let blue = data[2]
-        let alpha = data[3]
-        let color = NSColor.init(calibratedRed: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(alpha))
+    func handleStoreColor(color : NSColor) {
         var data : Data?
         do {
             try data = NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: true)
-        } catch {
-            return color
-        }
-        self.userDefaults?.register(defaults: ["Theme Color": data ?? NSColor.init()])
-        return color
+        } catch {}
+        self.userDefaults.set(data, forKey: "Theme Color")
     }
     
     func handleChangeMainWindowColor(color : NSColor) {
         window?.backgroundColor = color
+        let rootVC = NSApp.mainWindow?.contentViewController as! ViewController
+        rootVC.projectLifeTitle.textColor = NSColor.init(cgColor: .white)
     }
     
     @IBAction func selectBrown(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : ThemeColor.brown)
-        handleChangeMainWindowColor(color : color)
+        handleStoreColor(color : ThemeColor.brown)
+        handleChangeMainWindowColor(color : ThemeColor.brown)
     }
     
     @IBAction func selectGrey(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : ThemeColor.grey)
-        handleChangeMainWindowColor(color : color)
+        handleStoreColor(color : ThemeColor.grey)
+        handleChangeMainWindowColor(color : ThemeColor.grey)
     }
     
     @IBAction func selectRed(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : ThemeColor.red)
-        handleChangeMainWindowColor(color : color)
+        handleStoreColor(color : ThemeColor.red)
+        handleChangeMainWindowColor(color : ThemeColor.red)
     }
     
     @IBAction func selectBlue(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : ThemeColor.blue)
-        handleChangeMainWindowColor(color : color)
+        handleStoreColor(color : ThemeColor.blue)
+        handleChangeMainWindowColor(color : ThemeColor.blue)
     }
     
     @IBAction func selectGreen(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : ThemeColor.green)
-        handleChangeMainWindowColor(color : color)
+        handleStoreColor(color : ThemeColor.green)
+        handleChangeMainWindowColor(color : ThemeColor.green)
     }
     
     @IBAction func selectWhite(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : ThemeColor.white)
-        handleChangeMainWindowColor(color : color)
+        handleStoreColor(color : ThemeColor.white)
+        handleChangeMainWindowColor(color : ThemeColor.white)
+        let rootVC = NSApp.mainWindow?.contentViewController as! ViewController
+        rootVC.projectLifeTitle.textColor = NSColor.init(cgColor: .black)
     }
     @IBAction func selectPeru(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : ThemeColor.peru)
-        handleChangeMainWindowColor(color : color)
+        handleStoreColor(color : ThemeColor.peru)
+        handleChangeMainWindowColor(color : ThemeColor.peru)
     }
     @IBAction func selectBlack(_ sender: NSMenuItem) {
         handleSelect(item : sender)
-        let color = handleStoreColor(data : ThemeColor.black)
-        handleChangeMainWindowColor(color : color)
+        handleStoreColor(color : ThemeColor.black)
+        handleChangeMainWindowColor(color : ThemeColor.black)
     }
     
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows: Bool) -> Bool {
