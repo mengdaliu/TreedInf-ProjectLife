@@ -13,13 +13,12 @@ class FrontPagePhoto: NSViewController {
     
     var urls : [String] = []
     let picSize = NSScreen.main?.frame.size
-    
+
     let monitor = NWPathMonitor()
     var ImageQueue = DispatchQueue.global(qos: .background)
     var w : CGFloat?
     var h : CGFloat?
     var transition = CATransition.init()
-    @IBOutlet weak var greetingLine: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +37,18 @@ class FrontPagePhoto: NSViewController {
         backgroundImage.image = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1524260855046-f743b3cdad07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", self.w!, self.h! - 55) as String)!)
         monitor.pathUpdateHandler = statusChangeHandler
         monitor.start(queue : self.ImageQueue)
-        greetingLine.font = .labelFont(ofSize: CGFloat(60))
-        greetingLine.stringValue = "Good afternoon, Mengda!"
-        greetingLine.textColor = ThemeColor.black
+        
+        
+        GreetingAndButton.boxType = .custom
+        GreetingAndButton.borderType = .noBorder
+        let signInController = SignIn.init(nibName: "SignIn", bundle : nil)
+        self.addChild(signInController)
+        GreetingAndButton?.contentView = signInController.view
     }
     
     @IBOutlet weak var backgroundImage: NSImageView!
     
+    @IBOutlet weak var GreetingAndButton: NSBox!
     
     func statusChangeHandler(path: NWPath) {
         if path.status == .satisfied {
@@ -74,8 +78,7 @@ class FrontPagePhoto: NSViewController {
     
     
     func getResponseFromUnsplash(){
-        let API = UnsplashAPI.init()
-        let APIKey =  API.APIKey
+        let APIKey = Unsplash.APIKey
         //let Secret =  API.Secret
         
         

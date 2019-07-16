@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SignIn">
+            <connections>
+                <outlet property="buttonOutlet" destination="uUZ-j4-pRT" id="sjC-jQ-3me"/>
+                <outlet property="line1" destination="Z9g-im-hDj" id="XOz-xH-GQV"/>
+                <outlet property="line2" destination="8Ih-ZX-38t" id="SNG-ZV-OAB"/>
+                <outlet property="signInAction" destination="uUZ-j4-pRT" id="RQL-Kj-drf"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z9g-im-hDj">
+                    <rect key="frame" x="132" y="149" width="216" height="19"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Hey There! I've been waiting for you." id="TVL-N7-OBt">
+                        <font key="font" size="13" name="HelveticaNeue"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Ih-ZX-38t">
+                    <rect key="frame" x="63" y="119" width="260" height="19"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Welcome to this remarkable journey of your " id="lN2-ws-2dP">
+                        <font key="font" size="13" name="HelveticaNeue"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uUZ-j4-pRT">
+                    <rect key="frame" x="323" y="116" width="83" height="25"/>
+                    <buttonCell key="cell" type="square" title="Project Life!" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Y58-Yn-edc">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="signInAction:" target="-2" id="TcO-xo-pGa"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="8Ih-ZX-38t" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1:0.95" id="9xd-lB-e5S"/>
+                <constraint firstItem="Z9g-im-hDj" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="HAA-VR-XBe"/>
+                <constraint firstItem="uUZ-j4-pRT" firstAttribute="leading" secondItem="8Ih-ZX-38t" secondAttribute="trailing" constant="2" id="chN-sX-azi"/>
+                <constraint firstItem="uUZ-j4-pRT" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1:0.95" id="f2N-vW-eVY"/>
+                <constraint firstItem="Z9g-im-hDj" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="hTl-Ws-b8R"/>
+                <constraint firstItem="Z9g-im-hDj" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1:1.2" id="uqT-Rw-Qpu"/>
+                <constraint firstItem="8Ih-ZX-38t" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="1 : 1.25" constant="1" id="xBU-ux-yoO"/>
+            </constraints>
+            <point key="canvasLocation" x="181" y="172"/>
+        </customView>
+        <button verticalHuggingPriority="750" id="54l-96-Eao">
+            <rect key="frame" x="0.0" y="0.0" width="82" height="32"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XMm-0t-Jkw">
+                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <font key="font" metaFont="system"/>
+            </buttonCell>
+            <point key="canvasLocation" x="473" y="182"/>
+        </button>
+    </objects>
+</document>

@@ -18,7 +18,8 @@ class ThemeColor {
     static var white = NSColor.init(calibratedRed: CGFloat(1), green: CGFloat(1), blue: CGFloat(1), alpha: CGFloat(1))
     static var peru = NSColor.init(calibratedRed: CGFloat(0.21), green: CGFloat(0.14), blue: CGFloat(0.05), alpha: CGFloat(1))
     static var black = NSColor.init(calibratedRed: CGFloat(0), green: CGFloat(0), blue: CGFloat(0), alpha: CGFloat(1))
-
+    static var Tblue = NSColor.init(calibratedRed: CGFloat(0), green: (0.07), blue: CGFloat(0.21), alpha: CGFloat(0.2))
+    static var Lblue = NSColor.init(calibratedRed: CGFloat(0.5), green: (0.64), blue: CGFloat(0.92), alpha: CGFloat(0.5))
 }
 
 enum FrontPageStyle {

@@ -61,8 +61,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func handleChangeMainWindowColor(color : NSColor) {
         window?.backgroundColor = color
-        let rootVC = NSApp.mainWindow?.contentViewController as! ViewController
-        rootVC.projectLifeTitle.textColor = NSColor.init(cgColor: .white)
+        let rootVC = NSApp.mainWindow?.contentViewController as? ViewController
+        rootVC?.projectLifeTitle.textColor = NSColor.init(cgColor: .white)
     }
     
     @IBAction func selectBrown(_ sender: NSMenuItem) {
