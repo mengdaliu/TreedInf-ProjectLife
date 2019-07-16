@@ -69,7 +69,7 @@ class FrontPagePhoto: NSViewController {
         while true {
             for image in self.urls {
                 performSelector(onMainThread: #selector(loadBackgroundImageFromURL(url:)), with: image, waitUntilDone: false)
-                sleep(300)
+                sleep(60)
             }
             getResponseFromUnsplash()
             sleep(10)

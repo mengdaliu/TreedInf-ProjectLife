@@ -57,6 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             try data = NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: true)
         } catch {}
         self.userDefaults.set(data, forKey: "Theme Color")
+        UIPerferenceChange.ThemeColorHasChanged(color : color)
     }
     
     func handleChangeMainWindowColor(color : NSColor) {

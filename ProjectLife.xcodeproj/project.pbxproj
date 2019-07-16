@@ -14,7 +14,6 @@
 		9FC228B522CB339500D8871D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FC228B322CB339500D8871D /* Main.storyboard */; };
 		9FC228C122CB339500D8871D /* ProjectLifeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228C022CB339500D8871D /* ProjectLifeTests.swift */; };
 		9FC228CC22CB339500D8871D /* ProjectLifeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228CB22CB339500D8871D /* ProjectLifeUITests.swift */; };
-		9FD1714622D8D47E00222F24 /* FrontPagePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1714522D8D47E00222F24 /* FrontPagePhoto.swift */; };
 		9FD1714A22D8D58500222F24 /* FrontPagePhoto.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */; };
 		9FD1714E22D8D5A000222F24 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1714C22D8D5A000222F24 /* UI.swift */; };
 		9FD1715222D8D5C200222F24 /* MasterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1715122D8D5C200222F24 /* MasterWindow.swift */; };
@@ -28,6 +27,10 @@
 		9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF85D6D22DDAD6700FB7494 /* SignIn.xib */; };
 		9FF85D7222DDB8B200FB7494 /* Enter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7022DDB8B200FB7494 /* Enter.swift */; };
 		9FF85D7322DDB8B200FB7494 /* Enter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF85D7122DDB8B200FB7494 /* Enter.xib */; };
+		9FF85D7622DDD7F300FB7494 /* UserDefaultsChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7522DDD7F300FB7494 /* UserDefaultsChange.swift */; };
+		9FF85D7B22DDE2CD00FB7494 /* FrontPagePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */; };
+		9FF85D7F22DDE34D00FB7494 /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7E22DDE34D00FB7494 /* HoverButton.swift */; };
+		9FF85D8122DE188E00FB7494 /* facebook-login-button-png-11.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF85D8022DE188E00FB7494 /* facebook-login-button-png-11.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +65,6 @@
 		9FC228C722CB339500D8871D /* ProjectLifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectLifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC228CB22CB339500D8871D /* ProjectLifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLifeUITests.swift; sourceTree = "<group>"; };
 		9FC228CD22CB339500D8871D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FD1714522D8D47E00222F24 /* FrontPagePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FrontPagePhoto.swift; path = ../FrontPagePhoto.swift; sourceTree = "<group>"; };
 		9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FrontPagePhoto.xib; path = ProjectLife/ViewControllers/FrontPagePhoto.xib; sourceTree = SOURCE_ROOT; };
 		9FD1714C22D8D5A000222F24 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		9FD1715122D8D5C200222F24 /* MasterWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterWindow.swift; sourceTree = "<group>"; };
@@ -76,6 +78,10 @@
 		9FF85D6D22DDAD6700FB7494 /* SignIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignIn.xib; sourceTree = "<group>"; };
 		9FF85D7022DDB8B200FB7494 /* Enter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enter.swift; sourceTree = "<group>"; };
 		9FF85D7122DDB8B200FB7494 /* Enter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Enter.xib; sourceTree = "<group>"; };
+		9FF85D7522DDD7F300FB7494 /* UserDefaultsChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsChange.swift; sourceTree = "<group>"; };
+		9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrontPagePhoto.swift; path = ../FrontPagePhoto.swift; sourceTree = "<group>"; };
+		9FF85D7E22DDE34D00FB7494 /* HoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HoverButton.swift; path = ProjectLife/Middleware/HoverButton.swift; sourceTree = SOURCE_ROOT; };
+		9FF85D8022DE188E00FB7494 /* facebook-login-button-png-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-login-button-png-11.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +112,7 @@
 		9FB716CE22D4875C00423739 /* swiftFiles */ = {
 			isa = PBXGroup;
 			children = (
-				9FD1714522D8D47E00222F24 /* FrontPagePhoto.swift */,
+				9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */,
 				9FF85D6C22DDAD6700FB7494 /* SignIn.swift */,
 				9FF85D7022DDB8B200FB7494 /* Enter.swift */,
 			);
@@ -136,6 +142,8 @@
 		9FC228A922CB339400D8871D /* ProjectLife */ = {
 			isa = PBXGroup;
 			children = (
+				9FF85D8222DE189C00FB7494 /* Pictures */,
+				9FF85D7422DDD7D300FB7494 /* Middleware */,
 				9FD1717D22DD9EE900222F24 /* Model */,
 				9FD1717A22DD9EDF00222F24 /* Dal */,
 				9FD1717522DD9EC900222F24 /* Handlers */,
@@ -183,6 +191,7 @@
 		9FC2291A22CB5B2800D8871D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9FF85D7922DDE28500FB7494 /* ViewObjects */,
 				9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */,
 				9FF85D6D22DDAD6700FB7494 /* SignIn.xib */,
 				9FF85D7122DDB8B200FB7494 /* Enter.xib */,
@@ -247,6 +256,30 @@
 				9FD1718022DD9EE900222F24 /* Model.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9FF85D7422DDD7D300FB7494 /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				9FF85D7522DDD7F300FB7494 /* UserDefaultsChange.swift */,
+			);
+			path = Middleware;
+			sourceTree = "<group>";
+		};
+		9FF85D7922DDE28500FB7494 /* ViewObjects */ = {
+			isa = PBXGroup;
+			children = (
+				9FF85D7E22DDE34D00FB7494 /* HoverButton.swift */,
+			);
+			path = ViewObjects;
+			sourceTree = "<group>";
+		};
+		9FF85D8222DE189C00FB7494 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				9FF85D8022DE188E00FB7494 /* facebook-login-button-png-11.png */,
+			);
+			path = Pictures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +391,7 @@
 				9FC228B522CB339500D8871D /* Main.storyboard in Resources */,
 				9FD1714A22D8D58500222F24 /* FrontPagePhoto.xib in Resources */,
 				9FD1715422D8D5CE00222F24 /* MasterWindow.xib in Resources */,
+				9FF85D8122DE188E00FB7494 /* facebook-login-button-png-11.png in Resources */,
 				9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,15 +420,17 @@
 				9FD1715222D8D5C200222F24 /* MasterWindow.swift in Sources */,
 				9FF85D7222DDB8B200FB7494 /* Enter.swift in Sources */,
 				9FD1717922DD9EC900222F24 /* UnlockHandler.swift in Sources */,
+				9FF85D7F22DDE34D00FB7494 /* HoverButton.swift in Sources */,
 				9FC228AD22CB339400D8871D /* ViewController.swift in Sources */,
 				9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */,
 				9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */,
 				9FD1717822DD9EC900222F24 /* SignInHandler.swift in Sources */,
-				9FD1714622D8D47E00222F24 /* FrontPagePhoto.swift in Sources */,
+				9FF85D7622DDD7F300FB7494 /* UserDefaultsChange.swift in Sources */,
 				9FF85D6E22DDAD6700FB7494 /* SignIn.swift in Sources */,
 				9FD1718222DD9EE900222F24 /* Project.xcdatamodeld in Sources */,
 				9FD1717422DD9E8500222F24 /* API.swift in Sources */,
 				9FD1718322DD9EE900222F24 /* Model.xcdatamodeld in Sources */,
+				9FF85D7B22DDE2CD00FB7494 /* FrontPagePhoto.swift in Sources */,
 				9FD1714E22D8D5A000222F24 /* UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
