@@ -50,6 +50,14 @@ class SignIn: NSViewController {
     }
     
     @IBAction func logInFromFacebook(_ sender: Any) {
+        let facebookViewController = signInWeb.init(nibName: "signInWeb", bundle: nil)
+        self.addChild(facebookViewController)
+       // self.presentAsSheet(facebookViewController)
+        var urlString = NSString(format: NSString.init(string : "https://www.facebook.com/v3.3/dialog/oauth?client_id=%@&redirect_uri=%@&state=%@&response_type=token"), Facebook.AppId, "https://www.facebook.com/connect/login_success.html","CPLASF") as String
+        let facebookUrl = URL(string: urlString)
+        NSWorkspace.shared.open(facebookUrl!)
+        SignInHandler.SignInFromFacebook()
+        print("hello world")
     }
     
     @IBAction func logInFromGoogle(_ sender: Any) {
@@ -96,12 +104,12 @@ class SignIn: NSViewController {
             googleButton.wantsLayer = true
             googleButton.layer?.add(transition, forKey: nil)
             googleButton.image = googleImage
-            googleButton.setFrameSize(.init(width: 502.6628, height: 191))
+            googleButton.setFrameSize(.init(width: 503.96, height: 191.51))
             googleButton.imageScaling = .scaleProportionallyDown
             googleButton.image?.alignmentRect = googleButton.frame
             
             DispatchQueue.main.async {
-                NSAnimationContext.current.duration = 1.5
+                NSAnimationContext.current.duration = 1
                 let fbEndOrigin = NSPoint.init(x: self.facebookButton.frame.origin.x, y: self.facebookButton.frame.origin.y - 250)
                 self.facebookButton.animator().setFrameOrigin(fbEndOrigin)
                 let ConstraintFb = NSLayoutConstraint.init(item: self.facebookButton, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 125)
@@ -117,7 +125,7 @@ class SignIn: NSViewController {
                 self.view.addConstraint(ConstraintGg)
                 self.buttonPushed = true
             }
-        } 
+        }
     }
 
     

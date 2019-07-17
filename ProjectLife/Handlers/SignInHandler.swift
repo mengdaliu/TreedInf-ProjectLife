@@ -24,7 +24,7 @@ class SignInHandler {
             response, data, error in
             print(error == nil)
             print(data)
-            print(response)
+            print(response!)
             print(error)
         })
         fetchTask.resume()

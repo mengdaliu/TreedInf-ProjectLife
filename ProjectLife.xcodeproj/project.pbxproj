@@ -25,6 +25,8 @@
 		9FD1718322DD9EE900222F24 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1718022DD9EE900222F24 /* Model.xcdatamodeld */; };
 		9FD3171B22DEC9C2002C3908 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3171A22DEC3B9002C3908 /* facebook.png */; };
 		9FD3171D22DEE293002C3908 /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3171C22DEE293002C3908 /* google.png */; };
+		9FE138F522DF4057006C4BE5 /* signInWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE138F322DF4057006C4BE5 /* signInWeb.swift */; };
+		9FE138F622DF4057006C4BE5 /* signInWeb.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE138F422DF4057006C4BE5 /* signInWeb.xib */; };
 		9FF85D6E22DDAD6700FB7494 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D6C22DDAD6700FB7494 /* SignIn.swift */; };
 		9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF85D6D22DDAD6700FB7494 /* SignIn.xib */; };
 		9FF85D7222DDB8B200FB7494 /* Enter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7022DDB8B200FB7494 /* Enter.swift */; };
@@ -78,6 +80,8 @@
 		9FD3171522DE245E002C3908 /* facebook-login-button-png-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook-login-button-png-11.png"; path = "../../../Downloads/facebook-login-button-png-11.png"; sourceTree = "<group>"; };
 		9FD3171A22DEC3B9002C3908 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../../../Downloads/facebook.png; sourceTree = "<group>"; };
 		9FD3171C22DEE293002C3908 /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
+		9FE138F322DF4057006C4BE5 /* signInWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInWeb.swift; sourceTree = "<group>"; };
+		9FE138F422DF4057006C4BE5 /* signInWeb.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = signInWeb.xib; sourceTree = "<group>"; };
 		9FF85D6C22DDAD6700FB7494 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		9FF85D6D22DDAD6700FB7494 /* SignIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignIn.xib; sourceTree = "<group>"; };
 		9FF85D7022DDB8B200FB7494 /* Enter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enter.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */,
 				9FF85D6C22DDAD6700FB7494 /* SignIn.swift */,
 				9FF85D7022DDB8B200FB7494 /* Enter.swift */,
+				9FE138F322DF4057006C4BE5 /* signInWeb.swift */,
 			);
 			path = swiftFiles;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */,
 				9FF85D6D22DDAD6700FB7494 /* SignIn.xib */,
 				9FF85D7122DDB8B200FB7494 /* Enter.xib */,
+				9FE138F422DF4057006C4BE5 /* signInWeb.xib */,
 				9FB716CE22D4875C00423739 /* swiftFiles */,
 			);
 			path = ViewControllers;
@@ -398,6 +404,7 @@
 				9FC228B522CB339500D8871D /* Main.storyboard in Resources */,
 				9FD1714A22D8D58500222F24 /* FrontPagePhoto.xib in Resources */,
 				9FD1715422D8D5CE00222F24 /* MasterWindow.xib in Resources */,
+				9FE138F622DF4057006C4BE5 /* signInWeb.xib in Resources */,
 				9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FE138F522DF4057006C4BE5 /* signInWeb.swift in Sources */,
 				9FD1715222D8D5C200222F24 /* MasterWindow.swift in Sources */,
 				9FF85D7222DDB8B200FB7494 /* Enter.swift in Sources */,
 				9FD1717922DD9EC900222F24 /* UnlockHandler.swift in Sources */,
