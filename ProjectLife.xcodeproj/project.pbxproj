@@ -23,6 +23,7 @@
 		9FD1717922DD9EC900222F24 /* UnlockHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1717722DD9EC900222F24 /* UnlockHandler.swift */; };
 		9FD1718222DD9EE900222F24 /* Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1717E22DD9EE900222F24 /* Project.xcdatamodeld */; };
 		9FD1718322DD9EE900222F24 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1718022DD9EE900222F24 /* Model.xcdatamodeld */; };
+		9FD3171B22DEC9C2002C3908 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3171A22DEC3B9002C3908 /* facebook.png */; };
 		9FF85D6E22DDAD6700FB7494 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D6C22DDAD6700FB7494 /* SignIn.swift */; };
 		9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF85D6D22DDAD6700FB7494 /* SignIn.xib */; };
 		9FF85D7222DDB8B200FB7494 /* Enter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7022DDB8B200FB7494 /* Enter.swift */; };
@@ -30,7 +31,6 @@
 		9FF85D7622DDD7F300FB7494 /* UserDefaultsChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7522DDD7F300FB7494 /* UserDefaultsChange.swift */; };
 		9FF85D7B22DDE2CD00FB7494 /* FrontPagePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */; };
 		9FF85D7F22DDE34D00FB7494 /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7E22DDE34D00FB7494 /* HoverButton.swift */; };
-		9FF85D8122DE188E00FB7494 /* facebook-login-button-png-11.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FF85D8022DE188E00FB7494 /* facebook-login-button-png-11.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +74,8 @@
 		9FD1717722DD9EC900222F24 /* UnlockHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockHandler.swift; sourceTree = "<group>"; };
 		9FD1717F22DD9EE900222F24 /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
 		9FD1718122DD9EE900222F24 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9FD3171522DE245E002C3908 /* facebook-login-button-png-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook-login-button-png-11.png"; path = "../../../Downloads/facebook-login-button-png-11.png"; sourceTree = "<group>"; };
+		9FD3171A22DEC3B9002C3908 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../../../Downloads/facebook.png; sourceTree = "<group>"; };
 		9FF85D6C22DDAD6700FB7494 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		9FF85D6D22DDAD6700FB7494 /* SignIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignIn.xib; sourceTree = "<group>"; };
 		9FF85D7022DDB8B200FB7494 /* Enter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enter.swift; sourceTree = "<group>"; };
@@ -81,7 +83,6 @@
 		9FF85D7522DDD7F300FB7494 /* UserDefaultsChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsChange.swift; sourceTree = "<group>"; };
 		9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrontPagePhoto.swift; path = ../FrontPagePhoto.swift; sourceTree = "<group>"; };
 		9FF85D7E22DDE34D00FB7494 /* HoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HoverButton.swift; path = ProjectLife/Middleware/HoverButton.swift; sourceTree = SOURCE_ROOT; };
-		9FF85D8022DE188E00FB7494 /* facebook-login-button-png-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-login-button-png-11.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +154,7 @@
 				9FC228AA22CB339400D8871D /* AppDelegate.swift */,
 				9FC228AC22CB339400D8871D /* ViewController.swift */,
 				9FC228B122CB339500D8871D /* Assets.xcassets */,
+				9FD3171522DE245E002C3908 /* facebook-login-button-png-11.png */,
 				9FC228B322CB339500D8871D /* Main.storyboard */,
 				9FC228B622CB339500D8871D /* Info.plist */,
 				9FC228B722CB339500D8871D /* ProjectLife.entitlements */,
@@ -277,7 +279,7 @@
 		9FF85D8222DE189C00FB7494 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
-				9FF85D8022DE188E00FB7494 /* facebook-login-button-png-11.png */,
+				9FD3171A22DEC3B9002C3908 /* facebook.png */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -386,12 +388,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD3171B22DEC9C2002C3908 /* facebook.png in Resources */,
 				9FF85D7322DDB8B200FB7494 /* Enter.xib in Resources */,
 				9FC228B222CB339500D8871D /* Assets.xcassets in Resources */,
 				9FC228B522CB339500D8871D /* Main.storyboard in Resources */,
 				9FD1714A22D8D58500222F24 /* FrontPagePhoto.xib in Resources */,
 				9FD1715422D8D5CE00222F24 /* MasterWindow.xib in Resources */,
-				9FF85D8122DE188E00FB7494 /* facebook-login-button-png-11.png in Resources */,
 				9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

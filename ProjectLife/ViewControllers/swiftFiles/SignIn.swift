@@ -15,6 +15,7 @@ class SignIn: NSViewController {
     @IBOutlet weak var buttonOutlet: HoverButton!
     static var instance : SignIn?
     
+    @IBOutlet weak var facebookButton: NSButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -36,7 +37,16 @@ class SignIn: NSViewController {
         buttonOutlet.layer?.cornerRadius = 20
         //buttonOutlet.layer?.masksToBounds = true
         buttonOutlet.showsBorderOnlyWhileMouseInside = true
+        let image = NSImage.init(contentsOfFile: Bundle.main.path(forResource: "facebook", ofType: "png")!)
+            // Do whatever you want with the image
+        facebookButton.image = image
+        //facebookButton.isBordered = true
+        facebookButton.setFrameSize(.init(width: 433.33, height: 164.67))
+        facebookButton.imageScaling = .scaleProportionallyDown
+        facebookButton.image?.alignmentRect = facebookButton.frame
         SignIn.instance = self
+    }
+    @IBAction func logInFromFacebook(_ sender: Any) {
     }
     
     @IBAction func buttonPush(_ sender: HoverButton) {

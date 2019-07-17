@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="SignIn">
             <connections>
                 <outlet property="buttonOutlet" destination="uUZ-j4-pRT" id="sjC-jQ-3me"/>
+                <outlet property="facebookButton" destination="FfC-Jn-Mmg" id="B4O-Hz-Bts"/>
                 <outlet property="line1" destination="Z9g-im-hDj" id="XOz-xH-GQV"/>
                 <outlet property="line2" destination="8Ih-ZX-38t" id="SNG-ZV-OAB"/>
                 <outlet property="signInAction" destination="uUZ-j4-pRT" id="RQL-Kj-drf"/>
@@ -46,25 +47,29 @@
                         <action selector="buttonPush:" target="-2" id="Tjh-ZL-EQl"/>
                     </connections>
                 </button>
-                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FfC-Jn-Mmg">
-                    <rect key="frame" x="187" y="88" width="119" height="27"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="56a-l7-WZP">
+                <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FfC-Jn-Mmg">
+                    <rect key="frame" x="238" y="95" width="20" height="5"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="overlaps" alignment="center" controlSize="small" imageScaling="proportionallyUpOrDown" inset="2" id="56a-l7-WZP">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
+                        <font key="font" metaFont="smallSystem"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="logInFromFacebook:" target="-2" id="KLe-jp-TAV"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
                 <constraint firstItem="8Ih-ZX-38t" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1:0.95" priority="250" id="9xd-lB-e5S"/>
+                <constraint firstItem="FfC-Jn-Mmg" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Dfm-Pv-Bcj"/>
                 <constraint firstItem="Z9g-im-hDj" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="HAA-VR-XBe"/>
                 <constraint firstItem="uUZ-j4-pRT" firstAttribute="leading" secondItem="8Ih-ZX-38t" secondAttribute="trailing" constant="2" id="chN-sX-azi"/>
                 <constraint firstItem="uUZ-j4-pRT" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1:0.95" priority="250" id="f2N-vW-eVY"/>
+                <constraint firstItem="FfC-Jn-Mmg" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="fJI-EE-Cq8"/>
                 <constraint firstItem="Z9g-im-hDj" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="hTl-Ws-b8R"/>
                 <constraint firstItem="Z9g-im-hDj" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1:1.2" priority="250" id="uqT-Rw-Qpu"/>
                 <constraint firstItem="8Ih-ZX-38t" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="1 : 1.25" constant="1" id="xBU-ux-yoO"/>
             </constraints>
-            <point key="canvasLocation" x="-446" y="82"/>
+            <point key="canvasLocation" x="-1451" y="78"/>
         </customView>
         <button verticalHuggingPriority="750" id="54l-96-Eao">
             <rect key="frame" x="0.0" y="0.0" width="82" height="32"/>
