@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="buttonOutlet" destination="uUZ-j4-pRT" id="sjC-jQ-3me"/>
                 <outlet property="facebookButton" destination="FfC-Jn-Mmg" id="B4O-Hz-Bts"/>
+                <outlet property="googleButton" destination="hYl-Up-Zuw" id="EOa-VQ-CvJ"/>
                 <outlet property="line1" destination="Z9g-im-hDj" id="XOz-xH-GQV"/>
                 <outlet property="line2" destination="8Ih-ZX-38t" id="SNG-ZV-OAB"/>
                 <outlet property="signInAction" destination="uUZ-j4-pRT" id="RQL-Kj-drf"/>
@@ -57,6 +58,13 @@
                         <action selector="logInFromFacebook:" target="-2" id="KLe-jp-TAV"/>
                     </connections>
                 </button>
+                <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hYl-Up-Zuw">
+                    <rect key="frame" x="210" y="48" width="48" height="48"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="gy7-3a-GsF">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="8Ih-ZX-38t" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1:0.95" priority="250" id="9xd-lB-e5S"/>
@@ -64,12 +72,14 @@
                 <constraint firstItem="Z9g-im-hDj" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="HAA-VR-XBe"/>
                 <constraint firstItem="uUZ-j4-pRT" firstAttribute="leading" secondItem="8Ih-ZX-38t" secondAttribute="trailing" constant="2" id="chN-sX-azi"/>
                 <constraint firstItem="uUZ-j4-pRT" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1:0.95" priority="250" id="f2N-vW-eVY"/>
-                <constraint firstItem="FfC-Jn-Mmg" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="fJI-EE-Cq8"/>
+                <constraint firstItem="FfC-Jn-Mmg" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" priority="250" id="fJI-EE-Cq8"/>
                 <constraint firstItem="Z9g-im-hDj" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="hTl-Ws-b8R"/>
+                <constraint firstItem="hYl-Up-Zuw" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" priority="250" constant="125" id="ldb-xK-LsM"/>
+                <constraint firstItem="hYl-Up-Zuw" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" constant="8" id="oxW-wT-6TZ"/>
                 <constraint firstItem="Z9g-im-hDj" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1:1.2" priority="250" id="uqT-Rw-Qpu"/>
                 <constraint firstItem="8Ih-ZX-38t" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="1 : 1.25" constant="1" id="xBU-ux-yoO"/>
             </constraints>
-            <point key="canvasLocation" x="-1451" y="78"/>
+            <point key="canvasLocation" x="-1725" y="95"/>
         </customView>
         <button verticalHuggingPriority="750" id="54l-96-Eao">
             <rect key="frame" x="0.0" y="0.0" width="82" height="32"/>

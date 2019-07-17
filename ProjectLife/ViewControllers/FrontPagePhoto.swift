@@ -93,12 +93,14 @@ class FrontPagePhoto: NSViewController {
             if error == nil {
                 let receivedData = try? JSONSerialization.jsonObject(with: data!, options: []) as? [[String : Any]]
                 var URLs : [String] = []
-                for photo in receivedData!{
-                    let urls = photo["urls"] as! [String: String]
-                    let raw = urls["raw"]
-                    let sizedRaw = NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", raw!, self.w!, self.h! - 55) as String
-                    URLs.append(sizedRaw)
-
+                if receivedData != nil {
+                    for photo in receivedData!{
+                        let urls = photo["urls"] as! [String: String]
+                        let raw = urls["raw"]
+                        let sizedRaw = NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", raw!, self.w!, self.h! - 55) as String
+                        URLs.append(sizedRaw)
+                        
+                    }
                 }
                 if  URLs.count >= 25 {
                     self.urls = URLs

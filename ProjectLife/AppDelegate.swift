@@ -27,6 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             do {
                 try loadedColor =  NSKeyedUnarchiver.unarchivedObject(ofClasses : [NSColor.self], from: loadedData!) as? NSColor
                 handleChangeMainWindowColor(color: loadedColor!)
+                if loadedColor == ThemeColor.white {
+                    let rootVC = NSApp.mainWindow?.contentViewController as! ViewController
+                    rootVC.projectLifeTitle.textColor = NSColor.init(cgColor: .black)
+                }
             } catch {
                 //let color = handleStoreColor(data : [0, 0.07, 0.21, 1])
                 //handleChangeMainWindowColor(color : color)
