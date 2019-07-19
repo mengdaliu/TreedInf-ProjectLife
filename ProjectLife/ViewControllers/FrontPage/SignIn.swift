@@ -55,14 +55,8 @@ class SignIn: NSViewController {
     }
     
     @IBAction func logInFromFacebook(_ sender: Any) {
-        let facebookViewController = signInWeb.init(nibName: "signInWeb", bundle: nil)
-        self.addChild(facebookViewController)
-       // self.presentAsSheet(facebookViewController)
-        var urlString = NSString(format: NSString.init(string : "https://www.facebook.com/v3.3/dialog/oauth?client_id=%@&redirect_uri=%@&state=%@&response_type=token"), Facebook.AppId, "https://www.facebook.com/connect/login_success.html","CPLASF") as String
-        let facebookUrl = URL(string: urlString)
-        NSWorkspace.shared.open(facebookUrl!)
+        
         SignInHandler.SignInFromFacebook()
-        print("hello world")
     }
     
     @IBAction func logInFromGoogle(_ sender: Any) {

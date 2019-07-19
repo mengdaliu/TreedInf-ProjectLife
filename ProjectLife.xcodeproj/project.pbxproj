@@ -25,8 +25,6 @@
 		9FD1718222DD9EE900222F24 /* Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1717E22DD9EE900222F24 /* Project.xcdatamodeld */; };
 		9FD1718322DD9EE900222F24 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1718022DD9EE900222F24 /* Model.xcdatamodeld */; };
 		9FD3171D22DEE293002C3908 /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3171C22DEE293002C3908 /* google.png */; };
-		9FE138F522DF4057006C4BE5 /* signInWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE138F322DF4057006C4BE5 /* signInWeb.swift */; };
-		9FE138F622DF4057006C4BE5 /* signInWeb.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE138F422DF4057006C4BE5 /* signInWeb.xib */; };
 		9FF85D6E22DDAD6700FB7494 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D6C22DDAD6700FB7494 /* SignIn.swift */; };
 		9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF85D6D22DDAD6700FB7494 /* SignIn.xib */; };
 		9FF85D7222DDB8B200FB7494 /* Enter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D7022DDB8B200FB7494 /* Enter.swift */; };
@@ -69,7 +67,7 @@
 		9FC228C722CB339500D8871D /* ProjectLifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjectLifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC228CB22CB339500D8871D /* ProjectLifeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectLifeUITests.swift; sourceTree = "<group>"; };
 		9FC228CD22CB339500D8871D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FrontPagePhoto.xib; path = ProjectLife/ViewControllers/FrontPagePhoto.xib; sourceTree = SOURCE_ROOT; };
+		9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FrontPagePhoto.xib; path = ProjectLife/ViewControllers/FrontPage/FrontPagePhoto.xib; sourceTree = SOURCE_ROOT; };
 		9FD1714C22D8D5A000222F24 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		9FD1715122D8D5C200222F24 /* MasterWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterWindow.swift; sourceTree = "<group>"; };
 		9FD1715322D8D5CE00222F24 /* MasterWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MasterWindow.xib; path = ProjectLife/WindowControllers/MasterWindow.xib; sourceTree = SOURCE_ROOT; };
@@ -80,14 +78,12 @@
 		9FD1718122DD9EE900222F24 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9FD3171522DE245E002C3908 /* facebook-login-button-png-11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook-login-button-png-11.png"; path = "../../../Downloads/facebook-login-button-png-11.png"; sourceTree = "<group>"; };
 		9FD3171C22DEE293002C3908 /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
-		9FE138F322DF4057006C4BE5 /* signInWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInWeb.swift; sourceTree = "<group>"; };
-		9FE138F422DF4057006C4BE5 /* signInWeb.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = signInWeb.xib; sourceTree = "<group>"; };
 		9FF85D6C22DDAD6700FB7494 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		9FF85D6D22DDAD6700FB7494 /* SignIn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignIn.xib; sourceTree = "<group>"; };
 		9FF85D7022DDB8B200FB7494 /* Enter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enter.swift; sourceTree = "<group>"; };
 		9FF85D7122DDB8B200FB7494 /* Enter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Enter.xib; sourceTree = "<group>"; };
 		9FF85D7522DDD7F300FB7494 /* UserDefaultsChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsChange.swift; sourceTree = "<group>"; };
-		9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrontPagePhoto.swift; path = ../FrontPagePhoto.swift; sourceTree = "<group>"; };
+		9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPagePhoto.swift; sourceTree = "<group>"; };
 		9FF85D7E22DDE34D00FB7494 /* HoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HoverButton.swift; path = ProjectLife/Middleware/HoverButton.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -116,15 +112,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9FB716CE22D4875C00423739 /* swiftFiles */ = {
+		9F7F6EED22E1C99C0020BC02 /* FrontPage */ = {
 			isa = PBXGroup;
 			children = (
+				9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */,
+				9FF85D6D22DDAD6700FB7494 /* SignIn.xib */,
+				9FF85D7122DDB8B200FB7494 /* Enter.xib */,
 				9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */,
 				9FF85D6C22DDAD6700FB7494 /* SignIn.swift */,
 				9FF85D7022DDB8B200FB7494 /* Enter.swift */,
-				9FE138F322DF4057006C4BE5 /* signInWeb.swift */,
 			);
-			path = swiftFiles;
+			path = FrontPage;
 			sourceTree = "<group>";
 		};
 		9FC2289E22CB339400D8871D = {
@@ -192,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				9FD1715122D8D5C200222F24 /* MasterWindow.swift */,
-				9FD1715022D8D5C200222F24 /* swiftFiles */,
+				9FD1715322D8D5CE00222F24 /* MasterWindow.xib */,
 			);
 			path = WindowControllers;
 			sourceTree = "<group>";
@@ -200,12 +198,8 @@
 		9FC2291A22CB5B2800D8871D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9F7F6EED22E1C99C0020BC02 /* FrontPage */,
 				9FF85D7922DDE28500FB7494 /* ViewObjects */,
-				9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */,
-				9FF85D6D22DDAD6700FB7494 /* SignIn.xib */,
-				9FF85D7122DDB8B200FB7494 /* Enter.xib */,
-				9FE138F422DF4057006C4BE5 /* signInWeb.xib */,
-				9FB716CE22D4875C00423739 /* swiftFiles */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -217,14 +211,6 @@
 				9FD1714C22D8D5A000222F24 /* UI.swift */,
 			);
 			path = Config;
-			sourceTree = "<group>";
-		};
-		9FD1715022D8D5C200222F24 /* swiftFiles */ = {
-			isa = PBXGroup;
-			children = (
-				9FD1715322D8D5CE00222F24 /* MasterWindow.xib */,
-			);
-			path = swiftFiles;
 			sourceTree = "<group>";
 		};
 		9FD1717522DD9EC900222F24 /* Handlers */ = {
@@ -404,7 +390,6 @@
 				9FC228B522CB339500D8871D /* Main.storyboard in Resources */,
 				9FD1714A22D8D58500222F24 /* FrontPagePhoto.xib in Resources */,
 				9FD1715422D8D5CE00222F24 /* MasterWindow.xib in Resources */,
-				9FE138F622DF4057006C4BE5 /* signInWeb.xib in Resources */,
 				9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,7 +415,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FE138F522DF4057006C4BE5 /* signInWeb.swift in Sources */,
 				9FD1715222D8D5C200222F24 /* MasterWindow.swift in Sources */,
 				9FF85D7222DDB8B200FB7494 /* Enter.swift in Sources */,
 				9FD1717922DD9EC900222F24 /* UnlockHandler.swift in Sources */,
@@ -610,6 +594,7 @@
 		9FC228D122CB339500D8871D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ProjectLife/ProjectLife.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -620,6 +605,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
 				PRODUCT_BUNDLE_IDENTIFIER = Unprecedented.ProjectLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -629,6 +615,7 @@
 		9FC228D222CB339500D8871D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ProjectLife/ProjectLife.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -639,6 +626,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				"LIBRARY_SEARCH_PATHS[arch=*]" = "${DT_TOOLCHAIN_DIR}/usr/lib/swift/macosx/";
 				PRODUCT_BUNDLE_IDENTIFIER = Unprecedented.ProjectLife;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

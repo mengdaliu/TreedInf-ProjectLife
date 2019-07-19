@@ -791,8 +791,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contentView" destination="OXP-ZK-RWZ" id="2CA-AI-f6s"/>
-                        <outlet property="headerView" destination="OXP-ZK-RWZ" id="yBX-LU-K66"/>
                         <outlet property="mainView" destination="OXP-ZK-RWZ" id="8i2-g5-uVr"/>
                         <outlet property="projectLifeTitle" destination="qjx-mv-m84" id="qSX-KB-i6d"/>
                     </connections>

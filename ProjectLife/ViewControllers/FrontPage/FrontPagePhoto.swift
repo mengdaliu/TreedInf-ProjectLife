@@ -26,7 +26,7 @@ class FrontPagePhoto: NSViewController {
         backgroundImage.imageScaling = .scaleNone
         backgroundImage.animates = true
         backgroundImage.imageFrameStyle = .photo
-        backgroundImage.alphaValue = CGFloat(0.25)
+        backgroundImage.alphaValue = CGFloat(0.3)
         self.w = self.picSize?.width
         self.h = self.picSize?.height
         self.transition.duration = 5

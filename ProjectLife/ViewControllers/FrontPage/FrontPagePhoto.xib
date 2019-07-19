@@ -22,14 +22,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="362" height="227"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="pN0-1c-46p"/>
                 </imageView>
-                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="daN-QQ-HAU">
-                    <rect key="frame" x="0.0" y="0.0" width="362" height="227"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="OEw-sM-m5U"/>
-                    <connections>
-                        <action selector="backgroundImage:" target="-2" id="ghm-DQ-a4K"/>
-                    </connections>
-                </imageView>
                 <box title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Zrz-rX-R9B">
                     <rect key="frame" x="-3" y="-4" width="368" height="231"/>
                     <view key="contentView" id="Pbi-eg-n2H">
@@ -48,7 +40,7 @@
                 <constraint firstItem="Zrz-rX-R9B" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="fbg-by-pfu"/>
                 <constraint firstAttribute="bottom" secondItem="maA-aS-3HL" secondAttribute="bottom" id="n8P-T7-gqp"/>
             </constraints>
-            <point key="canvasLocation" x="-953" y="-216.5"/>
+            <point key="canvasLocation" x="-804" y="-220"/>
         </customView>
     </objects>
 </document>

@@ -12,7 +12,6 @@
                 <outlet property="googleButton" destination="hYl-Up-Zuw" id="EOa-VQ-CvJ"/>
                 <outlet property="line1" destination="Z9g-im-hDj" id="XOz-xH-GQV"/>
                 <outlet property="line2" destination="8Ih-ZX-38t" id="SNG-ZV-OAB"/>
-                <outlet property="signInAction" destination="uUZ-j4-pRT" id="RQL-Kj-drf"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -81,14 +80,5 @@
             </constraints>
             <point key="canvasLocation" x="-1725" y="95"/>
         </customView>
-        <button verticalHuggingPriority="750" id="54l-96-Eao">
-            <rect key="frame" x="0.0" y="0.0" width="82" height="32"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XMm-0t-Jkw">
-                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                <font key="font" metaFont="system"/>
-            </buttonCell>
-            <point key="canvasLocation" x="473" y="182"/>
-        </button>
     </objects>
 </document>
