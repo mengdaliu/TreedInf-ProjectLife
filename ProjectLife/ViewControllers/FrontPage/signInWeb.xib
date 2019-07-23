@@ -8,8 +8,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="signInWeb" customModule="ProjectLife" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="7Bb-n4-bU0" id="vn8-6o-zKK"/>
                 <outlet property="signInWebView" destination="seE-dj-imm" id="tGm-Cf-KHr"/>
-                <outlet property="signInWebViiew" destination="seE-dj-imm" id="bpE-c9-Gtj"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -26,14 +26,26 @@
                         <wkPreferences key="preferences"/>
                     </wkWebViewConfiguration>
                 </wkWebView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Bb-n4-bU0" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                    <rect key="frame" x="385" y="224" width="81" height="32"/>
+                    <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cGq-6C-2Gw">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="goBack:" target="-2" id="euA-95-xFq"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="seE-dj-imm" secondAttribute="bottom" id="67f-DL-wZC"/>
                 <constraint firstItem="seE-dj-imm" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="I3H-id-j33"/>
                 <constraint firstAttribute="trailing" secondItem="seE-dj-imm" secondAttribute="trailing" id="I6i-be-bKh"/>
+                <constraint firstItem="7Bb-n4-bU0" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="I9Q-i0-Ye4"/>
+                <constraint firstAttribute="trailing" secondItem="7Bb-n4-bU0" secondAttribute="trailing" constant="20" symbolic="YES" id="Kqg-Ch-xXe"/>
                 <constraint firstItem="seE-dj-imm" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Ycb-OD-naK"/>
             </constraints>
-            <point key="canvasLocation" x="217" y="154"/>
+            <point key="canvasLocation" x="-3269" y="35"/>
         </customView>
     </objects>
 </document>

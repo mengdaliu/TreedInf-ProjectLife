@@ -73,6 +73,4 @@ class HoverButton: NSButton {
         attributedStr.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: NSRange(location: 0, length:attributedStr.length))
         self.attributedTitle = attributedStr
     }
-    
-    
 }

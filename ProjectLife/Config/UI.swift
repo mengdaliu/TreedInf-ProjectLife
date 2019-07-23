@@ -28,4 +28,3 @@ enum FrontPageStyle {
 class UIConfigs {
     static var maxSize = NSSize.init()
 }
-

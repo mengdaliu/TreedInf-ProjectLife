@@ -17,3 +17,7 @@ class Unsplash {
 class Facebook {
     static var AppId = "2390673297883518"
 }
+
+class AWS {
+    
+}

@@ -25,19 +25,15 @@ class SignIn: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        line1.font = .labelFont(ofSize: CGFloat(60))
-        line2.font = .labelFont(ofSize: CGFloat(60))
-        buttonOutlet.font = .labelFont(ofSize: CGFloat(60))
-        let loadedData = UserDefaults.standard.data(forKey: "Theme Color")
-        var loadedColor : NSColor?
-        do {
-            try loadedColor =  NSKeyedUnarchiver.unarchivedObject(ofClasses : [NSColor.self], from: loadedData!) as? NSColor
-            if loadedColor != ThemeColor.white {
-                buttonOutlet.setText(str: "Project Life!", color: loadedColor!)
-            } else {
-                buttonOutlet.setText(str: "Project Life!", color : ThemeColor.black)
-            }
-        } catch {}
+        line1.font = .labelFont(ofSize: CGFloat(50))
+        line2.font = .labelFont(ofSize: CGFloat(50))
+        buttonOutlet.font = .labelFont(ofSize: CGFloat(50))
+        let loadedColor = ColorGetter.getCurrentThemeColor()
+        if loadedColor != ThemeColor.white {
+            buttonOutlet.setText(str: "Project Life!", color: loadedColor)
+        } else {
+            buttonOutlet.setText(str: "Project Life!", color : ThemeColor.black)
+        }
         //buttonOutlet.frame = .init(origin: buttonOutlet.frame.origin, size: .init(width: CGFloat(120), height: CGFloat(35)))
         buttonOutlet.wantsLayer = true
         buttonOutlet.layer?.cornerRadius = 20
@@ -52,33 +48,38 @@ class SignIn: NSViewController {
     @IBAction func logInFromFacebook(_ sender: Any) {
         let facebookViewController = signInWeb.init(nibName: "signInWeb", bundle: nil)
         self.addChild(facebookViewController)
-       // self.presentAsSheet(facebookViewController)
-        var urlString = NSString(format: NSString.init(string : "https://www.facebook.com/v3.3/dialog/oauth?client_id=%@&redirect_uri=%@&state=%@&response_type=token"), Facebook.AppId, "https://www.facebook.com/connect/login_success.html","CPLASF") as String
-        let facebookUrl = URL(string: urlString)
-        NSWorkspace.shared.open(facebookUrl!)
-        SignInHandler.SignInFromFacebook()
-        print("hello world")
+        self.presentAsSheet(facebookViewController)
     }
     
     @IBAction func logInFromGoogle(_ sender: Any) {
+    }
+    
+    
+    func handleCollapse() {
+        self.dismiss(self.children[0])
+        let web = self.children[0] as! signInWeb
+        self.removeChild(at: 0)
+        if web.gotToken {
+            SignInHandler.SignInFromFacebook()
+        }
     }
     
     @IBAction func buttonPush(_ sender: HoverButton) {
         if !buttonPushed {
             NSAnimationContext.current.duration = 1.5
             let diff = line1.frame.origin.y - line2.frame.origin.y
-            let line1EndOrigin = NSPoint.init(x: line1.frame.origin.x, y: line1.frame.origin.y + 250)
-            let line2EndOrigin = NSPoint.init(x: line2.frame.origin.x,y: line2.frame.origin.y + 250)
-            let buttonEndOrigin = NSPoint.init(x: sender.frame.origin.x, y: sender.frame.origin.y + 250)
+            let line1EndOrigin = NSPoint.init(x: line1.frame.origin.x, y: line1.frame.origin.y + 200)
+            let line2EndOrigin = NSPoint.init(x: line2.frame.origin.x,y: line2.frame.origin.y + 200)
+            let buttonEndOrigin = NSPoint.init(x: sender.frame.origin.x, y: sender.frame.origin.y + 200)
             line1.animator().setFrameOrigin(line1EndOrigin)
             line2.animator().setFrameOrigin(line2EndOrigin)
             sender.animator().setFrameOrigin(buttonEndOrigin)
             //line1.animator().translatesAutoresizingMaskIntoConstraints = true
-            let Constraint1 = NSLayoutConstraint.init(item: line1, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: -250)
+            let Constraint1 = NSLayoutConstraint.init(item: line1, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: -200)
             self.view.addConstraint(Constraint1)
             //self.view.addConstraint(Constraint2)
             line2.animator().setFrameOrigin(line2EndOrigin)
-            let cons = -250 + diff
+            let cons = -200 + diff
             let Constraint2 = NSLayoutConstraint.init(item: line2, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: cons)
             self.view.addConstraint(Constraint2)
             let ConstraintB = NSLayoutConstraint.init(item: sender, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: cons)
@@ -96,7 +97,7 @@ class SignIn: NSViewController {
             facebookButton.layer?.add(transition, forKey: nil)
             facebookButton.image = fbImage
             //facebookButton.isBordered = true
-            facebookButton.setFrameSize(.init(width: 433.33, height: 164.67))
+            facebookButton.setFrameSize(.init(width: 389.997, height: 148.203))
             facebookButton.imageScaling = .scaleProportionallyDown
             facebookButton.image?.alignmentRect = facebookButton.frame
             
@@ -104,7 +105,7 @@ class SignIn: NSViewController {
             googleButton.wantsLayer = true
             googleButton.layer?.add(transition, forKey: nil)
             googleButton.image = googleImage
-            googleButton.setFrameSize(.init(width: 503.96, height: 191.51))
+            googleButton.setFrameSize(.init(width: 465.4832, height: 176.1892))
             googleButton.imageScaling = .scaleProportionallyDown
             googleButton.image?.alignmentRect = googleButton.frame
             

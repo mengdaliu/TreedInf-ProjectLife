@@ -14,5 +14,9 @@ class UIPerferenceChange {
         if SignIn.instance != nil {
             SignIn.instance?.changeButtonColor(color: color)
         }
+        
+        if signInWeb.instance != nil {
+            signInWeb.instance?.changeButtonColor(color: color)
+        }
     }
 }
