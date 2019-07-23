@@ -46,6 +46,7 @@ class SignIn: NSViewController {
     }
     
     @IBAction func logInFromFacebook(_ sender: Any) {
+        HTTPCookieStorage.shared.removeCookies(since: .distantPast)
         let facebookViewController = signInWeb.init(nibName: "signInWeb", bundle: nil)
         self.addChild(facebookViewController)
         self.presentAsSheet(facebookViewController)
@@ -59,9 +60,12 @@ class SignIn: NSViewController {
         self.dismiss(self.children[0])
         let web = self.children[0] as! signInWeb
         self.removeChild(at: 0)
+        
+        HTTPCookieStorage.shared.removeCookies(since: .distantPast)
         if web.gotToken {
-            SignInHandler.SignInFromFacebook()
+            SignInHandler.SignInFromFacebook(token : web.token)
         }
+       
     }
     
     @IBAction func buttonPush(_ sender: HoverButton) {

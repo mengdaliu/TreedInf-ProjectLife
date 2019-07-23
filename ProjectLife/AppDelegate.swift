@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.window = self.windowController?.window
             //sleep(1)
         }
-        
+
         
         let loadedData = self.userDefaults.data(forKey: "Theme Color")
         

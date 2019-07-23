@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="class">
+        <attribute name="action" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Projects" representedClassName="Projects" syncable="YES" codeGenerationType="class">
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projects" inverseName="subProjects" inverseEntity="Projects" syncable="YES"/>
+        <relationship name="subProjects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projects" inverseName="parent" inverseEntity="Projects" syncable="YES"/>
+    </entity>
+    <entity name="UserInfo" representedClassName="UserInfo" syncable="YES" codeGenerationType="class">
+        <attribute name="discountCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plan" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="UserInfo" positionX="-36" positionY="9" width="128" height="135"/>
+        <element name="Projects" positionX="0" positionY="90" width="128" height="105"/>
+        <element name="History" positionX="27" positionY="108" width="128" height="75"/>
+    </elements>
 </model>

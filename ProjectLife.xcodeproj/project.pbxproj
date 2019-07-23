@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F558C3C22E73F4900CAB4CE /* Revenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F558C3B22E73F4900CAB4CE /* Revenue.swift */; };
 		9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AA22CB339400D8871D /* AppDelegate.swift */; };
 		9FC228AD22CB339400D8871D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AC22CB339400D8871D /* ViewController.swift */; };
 		9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AE22CB339400D8871D /* ProjectLife.xcdatamodeld */; };
@@ -21,11 +22,10 @@
 		9FD1717422DD9E8500222F24 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1717322DD9E8500222F24 /* API.swift */; };
 		9FD1717822DD9EC900222F24 /* SignInHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1717622DD9EC900222F24 /* SignInHandler.swift */; };
 		9FD1717922DD9EC900222F24 /* UnlockHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1717722DD9EC900222F24 /* UnlockHandler.swift */; };
-		9FD1718222DD9EE900222F24 /* Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1717E22DD9EE900222F24 /* Project.xcdatamodeld */; };
-		9FD1718322DD9EE900222F24 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FD1718022DD9EE900222F24 /* Model.xcdatamodeld */; };
 		9FD3171B22DEC9C2002C3908 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3171A22DEC3B9002C3908 /* facebook.png */; };
 		9FD3171D22DEE293002C3908 /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3171C22DEE293002C3908 /* google.png */; };
 		9FD56F2022E6CE4D00D6D819 /* ColorGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD56F1F22E6CE4D00D6D819 /* ColorGetter.swift */; };
+		9FD56F2222E7063700D6D819 /* userStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD56F2122E7063700D6D819 /* userStore.swift */; };
 		9FE138F522DF4057006C4BE5 /* signInWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE138F322DF4057006C4BE5 /* signInWeb.swift */; };
 		9FE138F622DF4057006C4BE5 /* signInWeb.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE138F422DF4057006C4BE5 /* signInWeb.xib */; };
 		9FF85D6E22DDAD6700FB7494 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D6C22DDAD6700FB7494 /* SignIn.swift */; };
@@ -55,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F558C3B22E73F4900CAB4CE /* Revenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revenue.swift; sourceTree = "<group>"; };
 		9FC228A722CB339400D8871D /* ProjectLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC228AA22CB339400D8871D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FC228AC22CB339400D8871D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,11 +77,10 @@
 		9FD1717322DD9E8500222F24 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9FD1717622DD9EC900222F24 /* SignInHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInHandler.swift; sourceTree = "<group>"; };
 		9FD1717722DD9EC900222F24 /* UnlockHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockHandler.swift; sourceTree = "<group>"; };
-		9FD1717F22DD9EE900222F24 /* Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project.xcdatamodel; sourceTree = "<group>"; };
-		9FD1718122DD9EE900222F24 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9FD3171A22DEC3B9002C3908 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../../../Downloads/facebook.png; sourceTree = "<group>"; };
 		9FD3171C22DEE293002C3908 /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
 		9FD56F1F22E6CE4D00D6D819 /* ColorGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGetter.swift; sourceTree = "<group>"; };
+		9FD56F2122E7063700D6D819 /* userStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userStore.swift; sourceTree = "<group>"; };
 		9FE138F322DF4057006C4BE5 /* signInWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInWeb.swift; sourceTree = "<group>"; };
 		9FE138F422DF4057006C4BE5 /* signInWeb.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = signInWeb.xib; sourceTree = "<group>"; };
 		9FF85D6C22DDAD6700FB7494 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -200,6 +200,7 @@
 			children = (
 				9FD1717322DD9E8500222F24 /* API.swift */,
 				9FD1714C22D8D5A000222F24 /* UI.swift */,
+				9F558C3B22E73F4900CAB4CE /* Revenue.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -226,6 +227,7 @@
 		9FD1717B22DD9EDF00222F24 /* Local Data */ = {
 			isa = PBXGroup;
 			children = (
+				9FD56F2122E7063700D6D819 /* userStore.swift */,
 			);
 			path = "Local Data";
 			sourceTree = "<group>";
@@ -240,8 +242,6 @@
 		9FD1717D22DD9EE900222F24 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9FD1717E22DD9EE900222F24 /* Project.xcdatamodeld */,
-				9FD1718022DD9EE900222F24 /* Model.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,10 +443,10 @@
 				9FD56F2022E6CE4D00D6D819 /* ColorGetter.swift in Sources */,
 				9FF85D7622DDD7F300FB7494 /* UserDefaultsChange.swift in Sources */,
 				9FF85D6E22DDAD6700FB7494 /* SignIn.swift in Sources */,
-				9FD1718222DD9EE900222F24 /* Project.xcdatamodeld in Sources */,
 				9FD1717422DD9E8500222F24 /* API.swift in Sources */,
-				9FD1718322DD9EE900222F24 /* Model.xcdatamodeld in Sources */,
 				9FF85D7B22DDE2CD00FB7494 /* FrontPagePhoto.swift in Sources */,
+				9F558C3C22E73F4900CAB4CE /* Revenue.swift in Sources */,
+				9FD56F2222E7063700D6D819 /* userStore.swift in Sources */,
 				9FD1714E22D8D5A000222F24 /* UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,26 +778,6 @@
 			);
 			currentVersion = 9FC228AF22CB339400D8871D /* ProjectLife.xcdatamodel */;
 			path = ProjectLife.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		9FD1717E22DD9EE900222F24 /* Project.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9FD1717F22DD9EE900222F24 /* Project.xcdatamodel */,
-			);
-			currentVersion = 9FD1717F22DD9EE900222F24 /* Project.xcdatamodel */;
-			path = Project.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		9FD1718022DD9EE900222F24 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9FD1718122DD9EE900222F24 /* Model.xcdatamodel */,
-			);
-			currentVersion = 9FD1718122DD9EE900222F24 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

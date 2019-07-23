@@ -20,7 +20,7 @@ class signInWeb: NSViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        self.view.setFrameSize(NSSize.init(width: 800, height: 600))
+        self.view.setFrameSize(NSSize.init(width: 1200, height: 900))
 
         let urlString = NSString(format: NSString.init(string : "https://www.facebook.com/v3.3/dialog/oauth?client_id=%@&redirect_uri=%@&response_type=token"), Facebook.AppId, "https://www.facebook.com/connect/login_success.html") as String
         let facebookUrl = URL(string: urlString)
