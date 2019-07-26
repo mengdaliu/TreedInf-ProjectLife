@@ -15,6 +15,7 @@ class signInWeb: NSViewController, WKNavigationDelegate {
     var token = ""
     var gotToken = false
     static var instance : signInWeb?
+    var request : URLRequest?
    
     
     override func viewDidLoad() {
@@ -25,12 +26,8 @@ class signInWeb: NSViewController, WKNavigationDelegate {
         let urlString = NSString(format: NSString.init(string : "https://www.facebook.com/v3.3/dialog/oauth?client_id=%@&redirect_uri=%@&response_type=token"), Facebook.AppId, "https://www.facebook.com/connect/login_success.html") as String
         let facebookUrl = URL(string: urlString)
         var facebookLoginRequest = URLRequest.init(url: facebookUrl!)
-        
-        
-        HTTPCookieStorage.shared.removeCookies(since: .distantPast)
-        facebookLoginRequest.httpShouldHandleCookies = false
-        
-        
+        self.request = facebookLoginRequest
+
         signInWebView.load(facebookLoginRequest)
         signInWebView.navigationDelegate = self
         
@@ -48,12 +45,24 @@ class signInWeb: NSViewController, WKNavigationDelegate {
     
     
     @IBOutlet weak var signInWebView: WKWebView!
+
     
     
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        HTTPCookieStorage.shared.removeCookies(since: .distantPast)
+        
+        
         if let urlStr = navigationAction.request.url?.absoluteString {
+            let dataStore = WKWebsiteDataStore.default()
+            dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
+                for record in records {
+                    if record.displayName.contains("facebook") {
+                        dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: [record], completionHandler: {
+                            print("Deleted: " + record.displayName)
+                        })
+                    }
+                }
+            }
             let components = urlStr.components(separatedBy: "#access_token=")
             if components.count >= 2 {
                 let secondHalf = components[1]
@@ -63,7 +72,7 @@ class signInWeb: NSViewController, WKNavigationDelegate {
                 gotToken = true
                 let parent = self.parent as! SignIn
                 parent.handleCollapse()
-            } 
+            }
         }
         decisionHandler(.allow)
     }

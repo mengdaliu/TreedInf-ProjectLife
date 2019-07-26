@@ -22,5 +22,7 @@ class MasterWindowController: NSWindowController {
         self.window?.styleMask.insert(.fullSizeContentView)
         self.window?.setIsZoomed(true)
         self.window?.minSize = .init(width: CGFloat(960), height: CGFloat(570))
+        let appDelegate = NSApp.delegate as! AppDelegate
+        appDelegate.window = self.window
     }
 }

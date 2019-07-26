@@ -17,13 +17,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window : NSWindow?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        while window == nil {
-            self.windowController = NSApplication.shared.mainWindow?.windowController
-            self.window = self.windowController?.window
-            //sleep(1)
-        }
 
-        
+
         let loadedData = self.userDefaults.data(forKey: "Theme Color")
         
         if loadedData != nil{

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9F558C3C22E73F4900CAB4CE /* Revenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F558C3B22E73F4900CAB4CE /* Revenue.swift */; };
+		9F558C3F22E7456E00CAB4CE /* NickName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F558C3D22E7456E00CAB4CE /* NickName.swift */; };
+		9F558C4022E7456E00CAB4CE /* NickName.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F558C3E22E7456E00CAB4CE /* NickName.xib */; };
+		9F7D3C1522E8AAB800F53A66 /* lineDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7D3C1422E8AAB800F53A66 /* lineDrawer.swift */; };
 		9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AA22CB339400D8871D /* AppDelegate.swift */; };
 		9FC228AD22CB339400D8871D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AC22CB339400D8871D /* ViewController.swift */; };
 		9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FC228AE22CB339400D8871D /* ProjectLife.xcdatamodeld */; };
@@ -56,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		9F558C3B22E73F4900CAB4CE /* Revenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revenue.swift; sourceTree = "<group>"; };
+		9F558C3D22E7456E00CAB4CE /* NickName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickName.swift; sourceTree = "<group>"; };
+		9F558C3E22E7456E00CAB4CE /* NickName.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NickName.xib; sourceTree = "<group>"; };
+		9F7D3C1422E8AAB800F53A66 /* lineDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineDrawer.swift; sourceTree = "<group>"; };
 		9FC228A722CB339400D8871D /* ProjectLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FC228AA22CB339400D8871D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9FC228AC22CB339400D8871D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F7D3C1322E8AA9B00F53A66 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9F7D3C1422E8AAB800F53A66 /* lineDrawer.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9FC2289E22CB339400D8871D = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +203,7 @@
 		9FC2291A22CB5B2800D8871D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9F7D3C1322E8AA9B00F53A66 /* Views */,
 				9FD56F1D22E6B4C300D6D819 /* FrontPage */,
 				9FF85D7922DDE28500FB7494 /* ViewObjects */,
 			);
@@ -249,14 +264,16 @@
 		9FD56F1D22E6B4C300D6D819 /* FrontPage */ = {
 			isa = PBXGroup;
 			children = (
-				9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */,
-				9FF85D6D22DDAD6700FB7494 /* SignIn.xib */,
-				9FF85D7122DDB8B200FB7494 /* Enter.xib */,
-				9FE138F422DF4057006C4BE5 /* signInWeb.xib */,
 				9FF85D7A22DDE2CD00FB7494 /* FrontPagePhoto.swift */,
+				9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */,
 				9FF85D6C22DDAD6700FB7494 /* SignIn.swift */,
+				9FF85D6D22DDAD6700FB7494 /* SignIn.xib */,
 				9FF85D7022DDB8B200FB7494 /* Enter.swift */,
+				9FF85D7122DDB8B200FB7494 /* Enter.xib */,
 				9FE138F322DF4057006C4BE5 /* signInWeb.swift */,
+				9FE138F422DF4057006C4BE5 /* signInWeb.xib */,
+				9F558C3D22E7456E00CAB4CE /* NickName.swift */,
+				9F558C3E22E7456E00CAB4CE /* NickName.xib */,
 			);
 			path = FrontPage;
 			sourceTree = "<group>";
@@ -407,6 +424,7 @@
 				9FD1715422D8D5CE00222F24 /* MasterWindow.xib in Resources */,
 				9FE138F622DF4057006C4BE5 /* signInWeb.xib in Resources */,
 				9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */,
+				9F558C4022E7456E00CAB4CE /* NickName.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,12 +460,14 @@
 				9FD1717822DD9EC900222F24 /* SignInHandler.swift in Sources */,
 				9FD56F2022E6CE4D00D6D819 /* ColorGetter.swift in Sources */,
 				9FF85D7622DDD7F300FB7494 /* UserDefaultsChange.swift in Sources */,
+				9F7D3C1522E8AAB800F53A66 /* lineDrawer.swift in Sources */,
 				9FF85D6E22DDAD6700FB7494 /* SignIn.swift in Sources */,
 				9FD1717422DD9E8500222F24 /* API.swift in Sources */,
 				9FF85D7B22DDE2CD00FB7494 /* FrontPagePhoto.swift in Sources */,
 				9F558C3C22E73F4900CAB4CE /* Revenue.swift in Sources */,
 				9FD56F2222E7063700D6D819 /* userStore.swift in Sources */,
 				9FD1714E22D8D5A000222F24 /* UI.swift in Sources */,
+				9F558C3F22E7456E00CAB4CE /* NickName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

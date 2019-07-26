@@ -24,6 +24,7 @@ class SignInHandler {
             if error == nil {
                 let receivedData = try? JSONSerialization.jsonObject(with: data!, options: []) as! [String : String]
                 id = receivedData!["id"]!
+                print(id)
             } else {}
         })
         fetchTask.resume()

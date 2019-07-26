@@ -68,6 +68,7 @@ class FrontPagePhoto: NSViewController {
         sleep(10)
         while true {
             for image in self.urls {
+                //print(image)
                 performSelector(onMainThread: #selector(loadBackgroundImageFromURL(url:)), with: image, waitUntilDone: true)
                 sleep(60)
             }
