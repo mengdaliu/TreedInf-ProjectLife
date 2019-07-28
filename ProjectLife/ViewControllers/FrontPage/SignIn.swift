@@ -22,6 +22,9 @@ class SignIn: NSViewController {
 
    
     @IBOutlet weak var googleButton: NSButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -39,6 +42,7 @@ class SignIn: NSViewController {
         buttonOutlet.layer?.cornerRadius = 20
         //buttonOutlet.layer?.masksToBounds = true
         buttonOutlet.showsBorderOnlyWhileMouseInside = true
+        buttonOutlet.focusRingType = .none
        
             // Do whatever you want with the image
         
@@ -50,6 +54,13 @@ class SignIn: NSViewController {
         let facebookViewController = signInWeb.init(nibName: "signInWeb", bundle: nil)
         self.addChild(facebookViewController)
         self.presentAsSheet(facebookViewController)
+        
+        
+        self.handleCollapse()   
+        let parent = self.parent as! FrontPagePhoto
+        let welcomeNew = NickName.init(nibName: "NickName", bundle: nil)
+        parent.addChild(welcomeNew)
+        parent.GreetingAndButton.contentView = welcomeNew.view
     }
     
     @IBAction func logInFromGoogle(_ sender: Any) {

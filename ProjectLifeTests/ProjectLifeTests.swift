@@ -32,6 +32,6 @@ class ProjectLifeTests: XCTestCase {
     }
     
     func testFacebookLogin() {
-        SignInHandler.SignInFromFacebook()
+        //SignInHandler.SignInFromFacebook()
     }
 }

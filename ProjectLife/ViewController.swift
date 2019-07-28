@@ -26,6 +26,7 @@ class ViewController: NSViewController {
         self.addChild(photoController)
         mainView.contentView = photoController.view
     
+    
     }
 
     @IBOutlet weak var mainView: NSBox!
