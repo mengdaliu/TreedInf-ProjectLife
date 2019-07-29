@@ -9,13 +9,24 @@
 import Cocoa
 
 class lineDrawer: NSView {
+    var path : CGPath?
+    var context : CGContext?
+
+    static var instance : lineDrawer?
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
 
         // Drawing code here.
+
+
         
-        let context = NSGraphicsContext.current?.cgContext
+        var context = NSGraphicsContext.current?.cgContext
+        if context == nil {
+            context = self.context
+        } else {
+             self.context = context
+        }
         context!.beginPath()
         context!.move(to: CGPoint(x: self.bounds.minX, y: self.bounds.minY))
         let endPoint = CGPoint.init(x: self.bounds.maxX, y: self.bounds.minY)
@@ -24,6 +35,14 @@ class lineDrawer: NSView {
         context!.setStrokeColor(loadedColor.cgColor)
         context!.setLineWidth(5)
         context!.strokePath()
+        lineDrawer.instance = self
+    }
+    
+    
+    func changeLineColor(color : NSColor) {
+        self.context?.clear(self.bounds)
+        self.draw(self.bounds)
+        self.needsDisplay = true
     }
     
 }

@@ -39,7 +39,6 @@ class signInWeb: NSViewController, WKNavigationDelegate {
         } else {
             backButton.setText(str: "Back", color: .black)
         }
-        
         signInWeb.instance = self
     }
     
@@ -57,9 +56,7 @@ class signInWeb: NSViewController, WKNavigationDelegate {
             dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
                 for record in records {
                     if record.displayName.contains("facebook") {
-                        dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: [record], completionHandler: {
-                            print("Deleted: " + record.displayName)
-                        })
+                        dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: [record], completionHandler: {})
                     }
                 }
             }

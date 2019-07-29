@@ -24,7 +24,6 @@ class SignInHandler {
             if error == nil {
                 let receivedData = try? JSONSerialization.jsonObject(with: data!, options: []) as! [String : String]
                 id = receivedData!["id"]!
-                print(id)
             } else {}
         })
         fetchTask.resume()
@@ -36,7 +35,7 @@ class SignInHandler {
             sleep(1)
             count += 1
         }
-        return userStore.getUserStore(id: id)
+        return userInfo.getUserStore(id: id)
     }
 
     static func SignInFromGoogle() {

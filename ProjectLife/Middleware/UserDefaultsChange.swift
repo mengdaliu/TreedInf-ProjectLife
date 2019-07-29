@@ -18,5 +18,9 @@ class UIPerferenceChange {
         if signInWeb.instance != nil {
             signInWeb.instance?.changeButtonColor(color: color)
         }
+        
+        if lineDrawer.instance != nil {
+            lineDrawer.instance?.changeLineColor(color : color)
+        }
     }
 }

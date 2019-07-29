@@ -8,27 +8,3 @@
 
 import Foundation
 
-class Codes {
-    static let codes = [
-        "uglyderrick",
-        "uglydog",
-        "66piggyydogg66",
-        "upfbpg",
-        "23mdmdl33",
-    ]
-    
-    static func validateCode(code: String) {
-    }
-}
-
-
-class Plan {
-    static let plans = [
-        "foreverFree",
-    ]
-}
-
-
-class FreeTrial {
-    static let startTime = "20190723"
-}

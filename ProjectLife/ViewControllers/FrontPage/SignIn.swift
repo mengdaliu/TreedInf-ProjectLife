@@ -54,13 +54,6 @@ class SignIn: NSViewController {
         let facebookViewController = signInWeb.init(nibName: "signInWeb", bundle: nil)
         self.addChild(facebookViewController)
         self.presentAsSheet(facebookViewController)
-        
-        
-        self.handleCollapse()   
-        let parent = self.parent as! FrontPagePhoto
-        let welcomeNew = NickName.init(nibName: "NickName", bundle: nil)
-        parent.addChild(welcomeNew)
-        parent.GreetingAndButton.contentView = welcomeNew.view
     }
     
     @IBAction func logInFromGoogle(_ sender: Any) {

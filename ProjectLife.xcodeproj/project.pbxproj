@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F0E9AD322EDC7DE002D42A2 /* dalGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E9AD222EDC7DE002D42A2 /* dalGlobal.swift */; };
+		9F0E9AD622EEB9BF002D42A2 /* AskForPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E9AD422EEB9BF002D42A2 /* AskForPayment.swift */; };
+		9F0E9AD722EEB9BF002D42A2 /* AskForPayment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E9AD522EEB9BF002D42A2 /* AskForPayment.xib */; };
 		9F558C3C22E73F4900CAB4CE /* Revenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F558C3B22E73F4900CAB4CE /* Revenue.swift */; };
 		9F558C3F22E7456E00CAB4CE /* NickName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F558C3D22E7456E00CAB4CE /* NickName.swift */; };
 		9F558C4022E7456E00CAB4CE /* NickName.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F558C3E22E7456E00CAB4CE /* NickName.xib */; };
@@ -28,7 +31,7 @@
 		9FD3171B22DEC9C2002C3908 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3171A22DEC3B9002C3908 /* facebook.png */; };
 		9FD3171D22DEE293002C3908 /* google.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FD3171C22DEE293002C3908 /* google.png */; };
 		9FD56F2022E6CE4D00D6D819 /* ColorGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD56F1F22E6CE4D00D6D819 /* ColorGetter.swift */; };
-		9FD56F2222E7063700D6D819 /* userStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD56F2122E7063700D6D819 /* userStore.swift */; };
+		9FD56F2222E7063700D6D819 /* userInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD56F2122E7063700D6D819 /* userInfo.swift */; };
 		9FE138F522DF4057006C4BE5 /* signInWeb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE138F322DF4057006C4BE5 /* signInWeb.swift */; };
 		9FE138F622DF4057006C4BE5 /* signInWeb.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FE138F422DF4057006C4BE5 /* signInWeb.xib */; };
 		9FF85D6E22DDAD6700FB7494 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF85D6C22DDAD6700FB7494 /* SignIn.swift */; };
@@ -58,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9F0E9AD222EDC7DE002D42A2 /* dalGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dalGlobal.swift; sourceTree = "<group>"; };
+		9F0E9AD422EEB9BF002D42A2 /* AskForPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskForPayment.swift; sourceTree = "<group>"; };
+		9F0E9AD522EEB9BF002D42A2 /* AskForPayment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AskForPayment.xib; sourceTree = "<group>"; };
 		9F558C3B22E73F4900CAB4CE /* Revenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revenue.swift; sourceTree = "<group>"; };
 		9F558C3D22E7456E00CAB4CE /* NickName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickName.swift; sourceTree = "<group>"; };
 		9F558C3E22E7456E00CAB4CE /* NickName.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NickName.xib; sourceTree = "<group>"; };
@@ -86,7 +92,7 @@
 		9FD3171A22DEC3B9002C3908 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = facebook.png; path = ../../../../Downloads/facebook.png; sourceTree = "<group>"; };
 		9FD3171C22DEE293002C3908 /* google.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google.png; sourceTree = "<group>"; };
 		9FD56F1F22E6CE4D00D6D819 /* ColorGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGetter.swift; sourceTree = "<group>"; };
-		9FD56F2122E7063700D6D819 /* userStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userStore.swift; sourceTree = "<group>"; };
+		9FD56F2122E7063700D6D819 /* userInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfo.swift; sourceTree = "<group>"; };
 		9FE138F322DF4057006C4BE5 /* signInWeb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signInWeb.swift; sourceTree = "<group>"; };
 		9FE138F422DF4057006C4BE5 /* signInWeb.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = signInWeb.xib; sourceTree = "<group>"; };
 		9FF85D6C22DDAD6700FB7494 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -242,7 +248,8 @@
 		9FD1717B22DD9EDF00222F24 /* Local Data */ = {
 			isa = PBXGroup;
 			children = (
-				9FD56F2122E7063700D6D819 /* userStore.swift */,
+				9FD56F2122E7063700D6D819 /* userInfo.swift */,
+				9F0E9AD222EDC7DE002D42A2 /* dalGlobal.swift */,
 			);
 			path = "Local Data";
 			sourceTree = "<group>";
@@ -268,12 +275,14 @@
 				9FD1714922D8D58500222F24 /* FrontPagePhoto.xib */,
 				9FF85D6C22DDAD6700FB7494 /* SignIn.swift */,
 				9FF85D6D22DDAD6700FB7494 /* SignIn.xib */,
-				9FF85D7022DDB8B200FB7494 /* Enter.swift */,
-				9FF85D7122DDB8B200FB7494 /* Enter.xib */,
 				9FE138F322DF4057006C4BE5 /* signInWeb.swift */,
 				9FE138F422DF4057006C4BE5 /* signInWeb.xib */,
 				9F558C3D22E7456E00CAB4CE /* NickName.swift */,
 				9F558C3E22E7456E00CAB4CE /* NickName.xib */,
+				9FF85D7022DDB8B200FB7494 /* Enter.swift */,
+				9FF85D7122DDB8B200FB7494 /* Enter.xib */,
+				9F0E9AD422EEB9BF002D42A2 /* AskForPayment.swift */,
+				9F0E9AD522EEB9BF002D42A2 /* AskForPayment.xib */,
 			);
 			path = FrontPage;
 			sourceTree = "<group>";
@@ -423,6 +432,7 @@
 				9FD1714A22D8D58500222F24 /* FrontPagePhoto.xib in Resources */,
 				9FD1715422D8D5CE00222F24 /* MasterWindow.xib in Resources */,
 				9FE138F622DF4057006C4BE5 /* signInWeb.xib in Resources */,
+				9F0E9AD722EEB9BF002D42A2 /* AskForPayment.xib in Resources */,
 				9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */,
 				9F558C4022E7456E00CAB4CE /* NickName.xib in Resources */,
 			);
@@ -452,8 +462,10 @@
 				9FE138F522DF4057006C4BE5 /* signInWeb.swift in Sources */,
 				9FD1715222D8D5C200222F24 /* MasterWindow.swift in Sources */,
 				9FF85D7222DDB8B200FB7494 /* Enter.swift in Sources */,
+				9F0E9AD622EEB9BF002D42A2 /* AskForPayment.swift in Sources */,
 				9FD1717922DD9EC900222F24 /* UnlockHandler.swift in Sources */,
 				9FF85D7F22DDE34D00FB7494 /* HoverButton.swift in Sources */,
+				9F0E9AD322EDC7DE002D42A2 /* dalGlobal.swift in Sources */,
 				9FC228AD22CB339400D8871D /* ViewController.swift in Sources */,
 				9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */,
 				9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */,
@@ -465,7 +477,7 @@
 				9FD1717422DD9E8500222F24 /* API.swift in Sources */,
 				9FF85D7B22DDE2CD00FB7494 /* FrontPagePhoto.swift in Sources */,
 				9F558C3C22E73F4900CAB4CE /* Revenue.swift in Sources */,
-				9FD56F2222E7063700D6D819 /* userStore.swift in Sources */,
+				9FD56F2222E7063700D6D819 /* userInfo.swift in Sources */,
 				9FD1714E22D8D5A000222F24 /* UI.swift in Sources */,
 				9F558C3F22E7456E00CAB4CE /* NickName.swift in Sources */,
 			);

@@ -365,7 +365,7 @@
                                                 <action selector="selectRed:" target="Voe-Tx-rLC" id="Rwk-Br-fu7"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Navy Blue" state="on" id="LVa-2b-AUD">
+                                        <menuItem title="Navy Blue" id="LVa-2b-AUD">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="selectBlue:" target="Voe-Tx-rLC" id="5r9-EN-XRh"/>
