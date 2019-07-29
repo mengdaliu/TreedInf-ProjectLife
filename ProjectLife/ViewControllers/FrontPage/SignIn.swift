@@ -61,9 +61,11 @@ class SignIn: NSViewController {
     
     
     func handleCollapse() {
-        self.dismiss(self.children[0])
         let web = self.children[0] as! signInWeb
-        self.removeChild(at: 0)
+        DispatchQueue.main.async {
+            self.dismiss(self.children[0])
+            self.removeChild(at: 0)
+        }
         
         //HTTPCookieStorage.shared.removeCookies(since: .distantPast)
         if web.gotToken {
@@ -77,7 +79,7 @@ class SignIn: NSViewController {
     
     @IBAction func buttonPush(_ sender: HoverButton) {
         if !buttonPushed {
-            NSAnimationContext.current.duration = 1.5
+            NSAnimationContext.current.duration = 0.75
             let diff = line1.frame.origin.y - line2.frame.origin.y
             let line1EndOrigin = NSPoint.init(x: line1.frame.origin.x, y: line1.frame.origin.y + 200)
             let line2EndOrigin = NSPoint.init(x: line2.frame.origin.x,y: line2.frame.origin.y + 200)
@@ -121,7 +123,7 @@ class SignIn: NSViewController {
             googleButton.image?.alignmentRect = googleButton.frame
             
             DispatchQueue.main.async {
-                NSAnimationContext.current.duration = 1
+                NSAnimationContext.current.duration = 0.5
                 let fbEndOrigin = NSPoint.init(x: self.facebookButton.frame.origin.x, y: self.facebookButton.frame.origin.y - 250)
                 self.facebookButton.animator().setFrameOrigin(fbEndOrigin)
                 let ConstraintFb = NSLayoutConstraint.init(item: self.facebookButton!, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 125)

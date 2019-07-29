@@ -38,7 +38,7 @@ class NickName: NSViewController {
             DispatchQueue.main.async {
                 
                 let endOrigin = NSPoint.init(x: 41, y: 146)
-                NSAnimationContext.current.duration = 0.8
+                NSAnimationContext.current.duration = 0.5
                 self.greetingLine.animator().setFrameOrigin(endOrigin)
                 NSLayoutConstraint.init(item: self.greetingLine, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 0.8, constant: 0).isActive = true
                 
