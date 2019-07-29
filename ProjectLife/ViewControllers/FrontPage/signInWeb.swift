@@ -58,10 +58,9 @@ class signInWeb: NSViewController, WKNavigationDelegate {
             for( i = 0; i < textFields.length; i++) {
                 var txtField = textFields[i];
                 if(txtField) {
-                    txtField.setAttribute('autocomplete','off');
-                    txtField.setAttribute('autocorrect','off');
+                  
                     txtField.setAttribute('autocapitalize','none');
-                    txtField.setAttribute('spellcheck','false');
+                   
                 }
             }
         }
