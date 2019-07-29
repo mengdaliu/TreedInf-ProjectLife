@@ -20,7 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
         let loadedData = self.userDefaults.data(forKey: "Theme Color")
-        
         if loadedData != nil{
             var loadedColor : NSColor?
             do {

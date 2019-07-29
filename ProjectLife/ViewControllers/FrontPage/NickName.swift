@@ -34,16 +34,17 @@ class NickName: NSViewController {
     override func viewDidAppear() {
         if !loaded {
             loaded = true
+            
             DispatchQueue.main.async {
                 
                 let endOrigin = NSPoint.init(x: 41, y: 146)
-                NSAnimationContext.current.duration = 1.5
+                NSAnimationContext.current.duration = 0.8
                 self.greetingLine.animator().setFrameOrigin(endOrigin)
                 NSLayoutConstraint.init(item: self.greetingLine, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 0.8, constant: 0).isActive = true
                 
             }
         }
-    }
+    }   
 
     
     @IBOutlet weak var nameField: NSTextField!

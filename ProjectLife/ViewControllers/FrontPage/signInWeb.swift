@@ -50,27 +50,68 @@ class signInWeb: NSViewController, WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
+        func disableAutocomplete(w : WKWebView) {
+            let disableAutocompleteScript: String = """
+        var textFields = document.getElementsByTagName('input');
+        if (textFields) {
+            var i;
+            for( i = 0; i < textFields.length; i++) {
+                var txtField = textFields[i];
+                if(txtField) {
+                    txtField.setAttribute('autocomplete','off');
+                    txtField.setAttribute('autocorrect','off');
+                    txtField.setAttribute('autocapitalize','none');
+                    txtField.setAttribute('spellcheck','false');
+                }
+            }
+        }
+    """
+            w.evaluateJavaScript(disableAutocompleteScript, completionHandler: {
+                data, error in})
+        }
+        
+        func disableAutofocus(w: WKWebView) {
+            let disableAutoFocusScript : String = """
+               var elelist = document.getElementsByTagName("input");
+               for(var i = 0; i < elelist.length; i++){
+                    elelist[i].blur();
+               }
+    """
+            w.evaluateJavaScript(disableAutoFocusScript, completionHandler: {data, err in})
+        }
+
+        DispatchQueue.main.async {
+            disableAutocomplete(w: webView)
+            disableAutofocus(w: webView)
+        }
+        
         
         if let urlStr = navigationAction.request.url?.absoluteString {
-            let dataStore = WKWebsiteDataStore.default()
-            dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
-                for record in records {
-                    if record.displayName.contains("facebook") {
-                        dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: [record], completionHandler: {})
+            DispatchQueue.main.async {
+                let dataStore = WKWebsiteDataStore.default()
+                dataStore.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { (records) in
+                    for record in records {
+                        if record.displayName.contains("facebook") {
+                            dataStore.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: [record], completionHandler: {})
+                        }
                     }
                 }
             }
-            let components = urlStr.components(separatedBy: "#access_token=")
-            if components.count >= 2 {
-                let secondHalf = components[1]
-                let paramComponents = secondHalf.components(separatedBy: "&")
-                let token = paramComponents[0]
-                self.token = token
-                gotToken = true
-                let parent = self.parent as! SignIn
-                parent.handleCollapse()
+            
+            DispatchQueue.main.async {
+                let components = urlStr.components(separatedBy: "#access_token=")
+                if components.count >= 2 {
+                    let secondHalf = components[1]
+                    let paramComponents = secondHalf.components(separatedBy: "&")
+                    let token = paramComponents[0]
+                    self.token = token
+                    self.gotToken = true
+                    let parent = self.parent as! SignIn
+                    parent.handleCollapse()
+                }
             }
         }
+        
         decisionHandler(.allow)
     }
     
@@ -89,3 +130,4 @@ class signInWeb: NSViewController, WKNavigationDelegate {
         }
     }
 }
+
