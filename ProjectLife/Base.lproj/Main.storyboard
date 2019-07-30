@@ -780,10 +780,22 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Djw-0B-71g" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                                <rect key="frame" x="508" y="320" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z4j-2o-IdA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="LogOut:" target="XfG-lQ-9wD" id="Efy-ca-bFk"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="Djw-0B-71g" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="3Yl-df-KIO"/>
                             <constraint firstItem="qjx-mv-m84" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="DcE-46-WaU"/>
                             <constraint firstItem="OXP-ZK-RWZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="55" id="KX0-Ve-eAe"/>
+                            <constraint firstAttribute="trailing" secondItem="Djw-0B-71g" secondAttribute="trailing" constant="5" id="LFD-6S-Tj9"/>
                             <constraint firstItem="qjx-mv-m84" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="QaD-EL-b19"/>
                             <constraint firstAttribute="trailing" secondItem="OXP-ZK-RWZ" secondAttribute="trailing" id="g8H-FM-aVu"/>
                             <constraint firstAttribute="bottom" secondItem="OXP-ZK-RWZ" secondAttribute="bottom" id="jto-hM-KLV"/>
@@ -791,6 +803,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Logout" destination="Djw-0B-71g" id="eSA-va-1lm"/>
                         <outlet property="mainView" destination="OXP-ZK-RWZ" id="8i2-g5-uVr"/>
                         <outlet property="projectLifeTitle" destination="qjx-mv-m84" id="qSX-KB-i6d"/>
                     </connections>

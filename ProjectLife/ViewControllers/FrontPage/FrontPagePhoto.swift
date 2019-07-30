@@ -19,6 +19,7 @@ class FrontPagePhoto: NSViewController {
     var w : CGFloat?
     var h : CGFloat?
     var transition = CATransition.init()
+    static var instance : FrontPagePhoto?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,13 @@ class FrontPagePhoto: NSViewController {
         backgroundImage.imageScaling = .scaleNone
         backgroundImage.animates = true
         backgroundImage.imageFrameStyle = .photo
-        backgroundImage.alphaValue = CGFloat(0.33)
+        let color = ColorGetter.getCurrentThemeColor()
+        if color == ThemeColor.white {
+            backgroundImage.alphaValue = 1
+        } else {
+            backgroundImage.alphaValue = CGFloat(0.33)
+        }
+        
         self.w = self.picSize?.width
         self.h = self.picSize?.height
         self.transition.duration = 5
@@ -35,15 +42,40 @@ class FrontPagePhoto: NSViewController {
         backgroundImage.wantsLayer = true
         backgroundImage.layer?.add(transition, forKey: nil)
         backgroundImage.image = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1524260855046-f743b3cdad07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", self.w!, self.h! - 55) as String)!)
+        if ColorGetter.getCurrentThemeColor() == ThemeColor.white {
+            backgroundImage.image = NSImage.init(contentsOf: URL(string: NSString.init(format:"%@?fm=jpg&q=75&w=%f&h=%f&fit=crop","https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", self.w!, self.h! - 55) as String)!)
+        }
         monitor.pathUpdateHandler = statusChangeHandler
         monitor.start(queue : self.ImageQueue)
         
         
         GreetingAndButton.boxType = .custom
         GreetingAndButton.borderType = .noBorder
-        let signInController = SignIn.init(nibName: "SignIn", bundle : nil)
-        self.addChild(signInController)
-        GreetingAndButton?.contentView = signInController.view
+        //UserDefaults.standard.set(nil, forKey: "UserLoggedIn")
+        let userId = UserDefaults.standard.value(forKey: "UserLoggedIn")
+        if userId  == nil {
+            let signInController = SignIn.init(nibName: "SignIn", bundle : nil)
+            self.addChild(signInController)
+            GreetingAndButton?.contentView = signInController.view
+        } else {
+            userInfo.setUserStore(id: userId as! String)
+            userInfo.setUserInfoObject(id: userId as! String)
+            let EnterController = Enter.init(nibName: "Enter", bundle: nil)
+            self.addChild(EnterController)
+            GreetingAndButton?.contentView = EnterController.view
+        }
+        
+        FrontPagePhoto.instance = self
+    }
+    
+    
+    func changePhotoOpacity(color : NSColor) {
+        if color == ThemeColor.white{
+            backgroundImage.alphaValue = 1
+        } else {
+            backgroundImage.alphaValue = 0.33
+        }
+        
     }
     
     @IBOutlet weak var backgroundImage: NSImageView!

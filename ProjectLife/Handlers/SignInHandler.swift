@@ -12,7 +12,7 @@ import Cocoa
 
 class SignInHandler {
     
-    static func SignInFromFacebook(token : String) -> (existed : Bool, store: NSPersistentStore?){
+    static func SignInFromFacebook(token : String){
         //userStore.setUserStore(id: "testUser")
         let url = URL(string: NSString.init(format: "https://graph.facebook.com/me?fields=id&access_token=%@", token) as String)
         
@@ -30,12 +30,16 @@ class SignInHandler {
         var count = 0
         while id == "" {
             if count == 60 {
-                return (false, nil)
             }
             sleep(1)
             count += 1
         }
-        return userInfo.getUserStore(id: id)
+        let userId = "fb_" + id
+        UserDefaults.standard.set(userId, forKey: "UserLoggedIn")
+        ViewController.instance!.Logout.isEnabled = true
+        userInfo.setUserStore(id: userId)
+        userInfo.setUserInfoObject(id: userId)
+        
     }
 
     static func SignInFromGoogle() {
@@ -48,7 +52,13 @@ class SignInHandler {
     
     
     static func LogOutCurrentUser() {
-        //Delete Data
+        UserDefaults.standard.set(nil, forKey: "UserLoggedIn")
+        ViewController.instance!.Logout.isEnabled = false
+        let photoBackground = FrontPagePhoto.init(nibName: "FrontPagePhoto", bundle: nil)
+        ViewController.instance!.mainView.contentView = photoBackground.view
+        print(ViewController.instance!.children[0])
+        ViewController.instance!.removeChild(at: 0)
+        ViewController.instance!.addChild(photoBackground)
     }
 
 }

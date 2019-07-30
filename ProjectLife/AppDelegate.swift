@@ -17,8 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var window : NSWindow?
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-
-
+        
         let loadedData = self.userDefaults.data(forKey: "Theme Color")
         if loadedData != nil{
             var loadedColor : NSColor?
@@ -26,8 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 try loadedColor =  NSKeyedUnarchiver.unarchivedObject(ofClasses : [NSColor.self], from: loadedData!) as? NSColor
                 handleChangeMainWindowColor(color: loadedColor!)
                 if loadedColor == ThemeColor.white {
-                    let rootVC = NSApp.mainWindow?.contentViewController as! ViewController
-                    rootVC.projectLifeTitle.textColor = NSColor.init(cgColor: .black)
+                    let rootVC = ViewController.instance
+                    rootVC?.projectLifeTitle.textColor = NSColor.init(cgColor: .black)
                 }
             } catch {
                 //let color = handleStoreColor(data : [0, 0.07, 0.21, 1])

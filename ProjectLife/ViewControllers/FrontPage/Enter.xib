@@ -1,11 +1,17 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="Enter" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="Enter" customModule="ProjectLife" customModuleProvider="target">
             <connections>
+                <outlet property="AdditionalLIne" destination="Pcn-TW-mfm" id="IwK-Xh-mKt"/>
+                <outlet property="d" destination="Hlg-OO-qUQ" id="Ixr-bZ-m1J"/>
+                <outlet property="date" destination="6tN-I3-xyv" id="9O9-FF-0Oq"/>
+                <outlet property="greetingLine" destination="JrI-PN-nm9" id="2D6-Td-AfQ"/>
+                <outlet property="sentence" destination="Pcn-TW-mfm" id="Dzm-xB-pzV"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -14,6 +20,41 @@
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7nN-sH-8l3">
+                    <rect key="frame" x="165" y="155" width="151" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Good Morning, Mengda!" id="JrI-PN-nm9">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6tN-I3-xyv">
+                    <rect key="frame" x="169" y="128" width="143" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Tuesday, July 30, 2019" id="Hlg-OO-qUQ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pcn-TW-mfm">
+                    <rect key="frame" x="-8" y="-39" width="496" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="「Project Life is an Initiative Management Tool For Dreamers &amp; Innovators.」 " id="P4b-hk-3Om">
+                        <font key="font" size="13" name=".PingFangSC-Regular"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="6tN-I3-xyv" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="EDe-OZ-bvP"/>
+                <constraint firstItem="7nN-sH-8l3" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="0.8" id="MuE-4w-0oI"/>
+                <constraint firstItem="6tN-I3-xyv" firstAttribute="top" secondItem="7nN-sH-8l3" secondAttribute="bottom" constant="10" id="UYH-32-bNH"/>
+                <constraint firstItem="Pcn-TW-mfm" firstAttribute="top" secondItem="6tN-I3-xyv" secondAttribute="bottom" constant="150" id="ZJ1-rv-9YA"/>
+                <constraint firstItem="Pcn-TW-mfm" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="mUR-gu-Bzl"/>
+                <constraint firstItem="7nN-sH-8l3" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="nIy-3L-tnS"/>
+            </constraints>
+            <point key="canvasLocation" x="-659" y="125"/>
         </customView>
     </objects>
 </document>

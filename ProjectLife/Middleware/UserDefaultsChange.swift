@@ -22,5 +22,21 @@ class UIPerferenceChange {
         if lineDrawer.instance != nil {
             lineDrawer.instance?.changeLineColor(color : color)
         }
+        
+        if Enter.instance != nil {
+            Enter.instance?.changeGreetingLineColor(color : color)
+        }
+        if FrontPagePhoto.instance != nil {
+            FrontPagePhoto.instance?.changePhotoOpacity(color : color)
+        }
+        
+        if NickName.instance != nil {
+            NickName.instance?.changeQuestionColor(color: color)
+        }
+
+        
+        
+     
     }
+    
 }

@@ -32,11 +32,9 @@ class SignIn: NSViewController {
         line2.font = .labelFont(ofSize: CGFloat(50))
         buttonOutlet.font = .labelFont(ofSize: CGFloat(50))
         let loadedColor = ColorGetter.getCurrentThemeColor()
-        if loadedColor != ThemeColor.white {
-            buttonOutlet.setText(str: "Project Life!", color: loadedColor)
-        } else {
-            buttonOutlet.setText(str: "Project Life!", color : ThemeColor.black)
-        }
+        buttonOutlet.setText(str: "Project Life!", color: loadedColor)
+        line1.textColor = loadedColor
+        line2.textColor = loadedColor
         //buttonOutlet.frame = .init(origin: buttonOutlet.frame.origin, size: .init(width: CGFloat(120), height: CGFloat(35)))
         buttonOutlet.wantsLayer = true
         buttonOutlet.layer?.cornerRadius = 20
@@ -69,11 +67,21 @@ class SignIn: NSViewController {
         
         //HTTPCookieStorage.shared.removeCookies(since: .distantPast)
         if web.gotToken {
-            let (existed, store) = SignInHandler.SignInFromFacebook(token : web.token)
+            SignInHandler.SignInFromFacebook(token: web.token)
+            
+            let nickName = dalGlobal.userInfo?.nickname
+            
             let parent = self.parent as! FrontPagePhoto
-            let welcomeNew = NickName.init(nibName: "NickName", bundle: nil)
-            parent.addChild(welcomeNew)
-            parent.GreetingAndButton.contentView = welcomeNew.view
+            if nickName == nil {
+                
+                let welcomeNew = NickName.init(nibName: "NickName", bundle: nil)
+                parent.addChild(welcomeNew)
+                parent.GreetingAndButton.contentView = welcomeNew.view
+            } else {
+                let enterView = Enter.init(nibName: "Enter", bundle: nil)
+                parent.addChild(enterView)
+                parent.GreetingAndButton.contentView = enterView.view
+            }
         }
     }
     
@@ -145,11 +153,9 @@ class SignIn: NSViewController {
     
     
     func changeButtonColor(color : NSColor) {
-        if color != ThemeColor.white {
-            buttonOutlet.setText(str: "Project Life!", color: color)
-        } else {
-            buttonOutlet.setText(str: "Project Life!", color : ThemeColor.black)
-        }
+        buttonOutlet.setText(str: "Project Life!", color: color)
+        line1.textColor = color
+        line2.textColor = color
     }
 }
 

@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewController.swift"
-            timestampString = "586019904.086151"
+            timestampString = "586104108.168819"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "ViewController"
             landmarkType = "3">
             <Locations>
@@ -180,12 +180,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/Views/lineDrawer.swift"
-            timestampString = "586019904.086287"
+            timestampString = "586151145.037958"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "draw(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/Dal/Local Data/userInfo.swift"
+            timestampString = "586157160.85394"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "getUserInfoObject(id:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

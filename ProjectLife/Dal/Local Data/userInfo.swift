@@ -16,33 +16,18 @@ class userInfo {
     static var container = appDelegate.persistentContainer
     static var defaultUrl = NSPersistentContainer.defaultDirectoryURL()
     static var context = container.viewContext
-
     
-    static func getUserStore(id: String) -> (Bool, NSPersistentStore?) {
+    static func setUserStore(id : String) {
         
         let url = defaultUrl.appendingPathComponent(NSString.init(format: "%@.sqlite", id) as String)
         var store = container.persistentStoreCoordinator.persistentStore(for: url)
-        
         if store == nil {
-            store = userInfo.setUserStore(id: id)
-            dalGlobal.userStore = store
-            return (false, store)
-        } else {
-            dalGlobal.userStore = store
-            return (true, store)
+            do {
+               store  = try container.persistentStoreCoordinator.addPersistentStore(ofType: "SQLite", configurationName: nil, at: url, options: nil)
+               
+            } catch {}
         }
-    }
-    
-    
-    static func setUserStore(id : String) -> NSPersistentStore? {
-        
-        let url = defaultUrl.appendingPathComponent(NSString.init(format: "%@.sqlite", id) as String)
-        do {
-            let userStore = try container.persistentStoreCoordinator.addPersistentStore(ofType: "SQLite", configurationName: nil, at: url, options: nil)
-            return userStore
-        } catch {
-            return nil
-        }
+      dalGlobal.userStore = store
     }
     
     static func setNickName(nickName: String) {
@@ -56,6 +41,7 @@ class userInfo {
     
     static func createUserInfoObject(id : String) {
          let info = NSEntityDescription.insertNewObject(forEntityName: "UserInfo", into: context) as! UserInfo
+         context.assign(info, to: dalGlobal.userStore!)
          info.id = id
          dalGlobal.userInfo = info
         do {
@@ -63,6 +49,20 @@ class userInfo {
         } catch {
             fatalError("Failure to save context: \(error)")
         }
+    }
+    
+    static func setUserInfoObject(id : String) {
+        let req = NSFetchRequest<NSFetchRequestResult>.init(entityName: "UserInfo")
+        req.affectedStores = [dalGlobal.userStore!]
+        var user : UserInfo?
+        do {
+            let gotData = try context.fetch(req)
+            if gotData.count < 1 {
+                createUserInfoObject(id: id)
+            } else {
+                dalGlobal.userInfo = gotData[0] as! UserInfo
+            }
+        } catch {}
     }
     
     static func setStartTime(time: Date) {

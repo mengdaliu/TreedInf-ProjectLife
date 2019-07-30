@@ -28,6 +28,9 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </textFieldCell>
+                    <connections>
+                        <action selector="enteredName:" target="-2" id="9cM-h8-d82"/>
+                    </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mcr-oy-xEu">
                     <rect key="frame" x="41" y="247" width="399" height="17"/>
@@ -44,7 +47,7 @@
                 <constraint firstItem="TKi-48-Cde" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1.3" id="dwN-0F-rJk"/>
                 <constraint firstItem="TKi-48-Cde" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="m0s-Xe-sKq"/>
             </constraints>
-            <point key="canvasLocation" x="-154" y="-224"/>
+            <point key="canvasLocation" x="-495" y="-275"/>
         </customView>
     </objects>
 </document>
