@@ -33,6 +33,10 @@ class UIPerferenceChange {
         if NickName.instance != nil {
             NickName.instance?.changeQuestionColor(color: color)
         }
+        
+        if ViewController.instance != nil {
+            ViewController.instance?.changeTabColor(color: color)
+        }
 
         
         

@@ -766,9 +766,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="OXP-ZK-RWZ">
-                                <rect key="frame" x="-3" y="-4" width="594" height="302"/>
+                                <rect key="frame" x="-3" y="-4" width="594" height="324"/>
                                 <view key="contentView" id="CcU-1R-sx5">
-                                    <rect key="frame" x="3" y="3" width="588" height="284"/>
+                                    <rect key="frame" x="3" y="3" width="588" height="306"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                             </box>
@@ -781,7 +781,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Djw-0B-71g" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
-                                <rect key="frame" x="508" y="320" width="81" height="32"/>
+                                <rect key="frame" x="507" y="305" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z4j-2o-IdA">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -790,9 +790,9 @@
                                     </connections>
                                 </buttonCell>
                             </button>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMO-uQ-EAG">
-                                <rect key="frame" x="-6" y="274" width="90" height="32"/>
-                                <buttonCell key="cell" type="push" title="Projects" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ozy-ve-idt">
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMO-uQ-EAG" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                                <rect key="frame" x="-6" y="295" width="90" height="42"/>
+                                <buttonCell key="cell" type="square" title="Projects" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ozy-ve-idt">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -800,32 +800,62 @@
                                     <action selector="selectProject:" target="XfG-lQ-9wD" id="Ql9-dO-6hj"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KD1-X4-Ywl">
-                                <rect key="frame" x="72" y="274" width="90" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fwt-bw-R8G">
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KD1-X4-Ywl" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                                <rect key="frame" x="72" y="295" width="90" height="40"/>
+                                <buttonCell key="cell" type="square" title="Days" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fwt-bw-R8G">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectDays:" target="XfG-lQ-9wD" id="5Aa-hY-wVK"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jzc-i7-SVM" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                                <rect key="frame" x="150" y="295" width="81" height="40"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="N6k-oi-HWg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="okG-rb-5Wf" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                                <rect key="frame" x="507" y="324" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="h7Y-md-qht">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="IBLock:" target="XfG-lQ-9wD" id="pBV-8J-wwI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Djw-0B-71g" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="3Yl-df-KIO"/>
-                            <constraint firstItem="KD1-X4-Ywl" firstAttribute="leading" secondItem="fMO-uQ-EAG" secondAttribute="trailing" id="3eU-7e-Ghv"/>
-                            <constraint firstItem="fMO-uQ-EAG" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="AGg-Li-enU"/>
+                            <constraint firstItem="fMO-uQ-EAG" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="0E8-Sd-M2m"/>
+                            <constraint firstAttribute="trailing" secondItem="okG-rb-5Wf" secondAttribute="trailing" constant="6" id="2Pl-4s-oww"/>
+                            <constraint firstItem="KD1-X4-Ywl" firstAttribute="leading" secondItem="fMO-uQ-EAG" secondAttribute="trailing" id="9Ck-9O-Xz5"/>
+                            <constraint firstItem="Jzc-i7-SVM" firstAttribute="leading" secondItem="KD1-X4-Ywl" secondAttribute="trailing" id="AmP-XR-q7u"/>
                             <constraint firstItem="qjx-mv-m84" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="DcE-46-WaU"/>
-                            <constraint firstItem="OXP-ZK-RWZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="55" id="KX0-Ve-eAe"/>
-                            <constraint firstAttribute="trailing" secondItem="Djw-0B-71g" secondAttribute="trailing" constant="5" id="LFD-6S-Tj9"/>
+                            <constraint firstItem="KD1-X4-Ywl" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="33" id="GCN-jd-fS8"/>
+                            <constraint firstItem="fMO-uQ-EAG" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="33" id="IKo-wS-Loz"/>
+                            <constraint firstItem="Jzc-i7-SVM" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="33" id="Imb-kb-KlG"/>
+                            <constraint firstItem="OXP-ZK-RWZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="33" id="KX0-Ve-eAe"/>
                             <constraint firstItem="qjx-mv-m84" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="QaD-EL-b19"/>
+                            <constraint firstItem="Djw-0B-71g" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="Shm-ez-Sf7"/>
+                            <constraint firstItem="okG-rb-5Wf" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="1" id="T7w-gY-BoB"/>
+                            <constraint firstAttribute="trailing" secondItem="Djw-0B-71g" secondAttribute="trailing" constant="6" id="c5i-OK-S3w"/>
                             <constraint firstAttribute="trailing" secondItem="OXP-ZK-RWZ" secondAttribute="trailing" id="g8H-FM-aVu"/>
                             <constraint firstAttribute="bottom" secondItem="OXP-ZK-RWZ" secondAttribute="bottom" id="jto-hM-KLV"/>
+                            <constraint firstAttribute="trailing" secondItem="Jzc-i7-SVM" secondAttribute="trailing" id="uAS-mT-3RB"/>
                             <constraint firstItem="OXP-ZK-RWZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="zH0-zT-25L"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Days" destination="KD1-X4-Ywl" id="hoz-mc-rf1"/>
+                        <outlet property="Lock" destination="okG-rb-5Wf" id="glW-Ev-zxh"/>
                         <outlet property="Logout" destination="Djw-0B-71g" id="eSA-va-1lm"/>
                         <outlet property="Project" destination="fMO-uQ-EAG" id="C5m-QX-9BN"/>
-                        <outlet property="mainView" destination="OXP-ZK-RWZ" id="8i2-g5-uVr"/>
+                        <outlet property="mainView" destination="OXP-ZK-RWZ" id="Zad-gd-Dvb"/>
                         <outlet property="projectLifeTitle" destination="qjx-mv-m84" id="qSX-KB-i6d"/>
+                        <outlet property="trivial" destination="Jzc-i7-SVM" id="DYv-AL-khc"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

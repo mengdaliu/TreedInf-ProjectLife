@@ -15,6 +15,7 @@ class HoverButton: NSButton {
     var hoverBackgroundImage: NSImage!
     var originalBackgroundImage: NSImage!
     var attributedStr: NSMutableAttributedString!
+    var text : String?
     
     // MARK: - Initializers
     override init(frame frameRect: NSRect) {
@@ -72,5 +73,10 @@ class HoverButton: NSButton {
         attributedStr = NSMutableAttributedString(string: str)
         attributedStr.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: NSRange(location: 0, length:attributedStr.length))
         self.attributedTitle = attributedStr
+        self.text = str
+    }
+    
+    func getText() -> String? {
+        return self.text
     }
 }

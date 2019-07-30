@@ -43,10 +43,14 @@ class FrontPagePhoto: NSViewController {
         backgroundImage.layer?.add(transition, forKey: nil)
         backgroundImage.image = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1524260855046-f743b3cdad07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", self.w!, self.h!) as String)!)
         if ColorGetter.getCurrentThemeColor() == ThemeColor.white {
-            backgroundImage.image = NSImage.init(contentsOf: URL(string: NSString.init(format:"%@?fm=jpg&q=75&w=%f&h=%f&fit=crop","https://images.unsplash.com/photo-1480924050808-b82db87192f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", self.w!, self.h! - 55) as String)!)
+            backgroundImage.image = NSImage.init(contentsOf: URL(string: NSString.init(format:"%@?fm=jpg&q=75&w=%f&h=%f&fit=crop","https://images.unsplash.com/photo-1480924050808-b82db87192f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", self.w!, self.h! - 33) as String)!)
         }
         monitor.pathUpdateHandler = statusChangeHandler
         monitor.start(queue : self.ImageQueue)
+        monitor.queue?.async {
+            self.getResponseFromUnsplash()
+            self.keepLoading()
+        }
         
         
         GreetingAndButton.boxType = .custom
@@ -84,10 +88,6 @@ class FrontPagePhoto: NSViewController {
     
     func statusChangeHandler(path: NWPath) {
         if path.status == .satisfied {
-            monitor.queue?.async {
-                self.getResponseFromUnsplash()
-                self.keepLoading()
-            }
         }
     }
     

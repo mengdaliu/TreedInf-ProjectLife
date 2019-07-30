@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9F09BC0822F025DC006D6A7F /* backgroundWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F09BC0622F025DC006D6A7F /* backgroundWall.swift */; };
 		9F09BC0922F025DC006D6A7F /* backgroundWall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F09BC0722F025DC006D6A7F /* backgroundWall.xib */; };
+		9F09BC0B22F07D96006D6A7F /* customTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F09BC0A22F07D96006D6A7F /* customTimer.swift */; };
+		9F09BC0D22F09270006D6A7F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F09BC0C22F09270006D6A7F /* Cache.swift */; };
+		9F09BC1022F09513006D6A7F /* BringToFront.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F09BC0F22F09513006D6A7F /* BringToFront.swift */; };
 		9F0E9AD322EDC7DE002D42A2 /* dalGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E9AD222EDC7DE002D42A2 /* dalGlobal.swift */; };
 		9F0E9AD622EEB9BF002D42A2 /* AskForPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0E9AD422EEB9BF002D42A2 /* AskForPayment.swift */; };
 		9F0E9AD722EEB9BF002D42A2 /* AskForPayment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F0E9AD522EEB9BF002D42A2 /* AskForPayment.xib */; };
@@ -65,6 +68,9 @@
 /* Begin PBXFileReference section */
 		9F09BC0622F025DC006D6A7F /* backgroundWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundWall.swift; sourceTree = "<group>"; };
 		9F09BC0722F025DC006D6A7F /* backgroundWall.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = backgroundWall.xib; sourceTree = "<group>"; };
+		9F09BC0A22F07D96006D6A7F /* customTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTimer.swift; sourceTree = "<group>"; };
+		9F09BC0C22F09270006D6A7F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		9F09BC0F22F09513006D6A7F /* BringToFront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BringToFront.swift; sourceTree = "<group>"; };
 		9F0E9AD222EDC7DE002D42A2 /* dalGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dalGlobal.swift; sourceTree = "<group>"; };
 		9F0E9AD422EEB9BF002D42A2 /* AskForPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskForPayment.swift; sourceTree = "<group>"; };
 		9F0E9AD522EEB9BF002D42A2 /* AskForPayment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AskForPayment.xib; sourceTree = "<group>"; };
@@ -142,6 +148,14 @@
 			path = ProjectPage;
 			sourceTree = "<group>";
 		};
+		9F09BC0E22F094F3006D6A7F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9F09BC0F22F09513006D6A7F /* BringToFront.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9F7D3C1322E8AA9B00F53A66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +202,7 @@
 				9FC228B622CB339500D8871D /* Info.plist */,
 				9FC228B722CB339500D8871D /* ProjectLife.entitlements */,
 				9FC228AE22CB339400D8871D /* ProjectLife.xcdatamodeld */,
+				9F09BC0C22F09270006D6A7F /* Cache.swift */,
 			);
 			path = ProjectLife;
 			sourceTree = "<group>";
@@ -222,6 +237,7 @@
 		9FC2291A22CB5B2800D8871D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9F09BC0E22F094F3006D6A7F /* Extensions */,
 				9F09BC0522F024DA006D6A7F /* ProjectPage */,
 				9F7D3C1322E8AA9B00F53A66 /* Views */,
 				9FD56F1D22E6B4C300D6D819 /* FrontPage */,
@@ -305,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				9FD56F1F22E6CE4D00D6D819 /* ColorGetter.swift */,
+				9F09BC0A22F07D96006D6A7F /* customTimer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -484,7 +501,9 @@
 				9FC228AD22CB339400D8871D /* ViewController.swift in Sources */,
 				9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */,
 				9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */,
+				9F09BC0D22F09270006D6A7F /* Cache.swift in Sources */,
 				9FD1717822DD9EC900222F24 /* SignInHandler.swift in Sources */,
+				9F09BC1022F09513006D6A7F /* BringToFront.swift in Sources */,
 				9FD56F2022E6CE4D00D6D819 /* ColorGetter.swift in Sources */,
 				9FF85D7622DDD7F300FB7494 /* UserDefaultsChange.swift in Sources */,
 				9F09BC0822F025DC006D6A7F /* backgroundWall.swift in Sources */,
@@ -496,6 +515,7 @@
 				9FD56F2222E7063700D6D819 /* userInfo.swift in Sources */,
 				9FD1714E22D8D5A000222F24 /* UI.swift in Sources */,
 				9F558C3F22E7456E00CAB4CE /* NickName.swift in Sources */,
+				9F09BC0B22F07D96006D6A7F /* customTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

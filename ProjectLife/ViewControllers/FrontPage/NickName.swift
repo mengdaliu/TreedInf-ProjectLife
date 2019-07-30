@@ -62,6 +62,16 @@ class NickName: NSViewController {
 
     @IBAction func enteredName(_ sender: NSTextField) {
         userInfo.setNickName(nickName: sender.stringValue)
+        if sender.stringValue.count > 1 {
+            let parent = self.parent as! FrontPagePhoto
+            let enterView = Enter.init(nibName: "Enter", bundle: nil)
+            parent.addChild(enterView)
+            parent.GreetingAndButton.contentView = enterView.view
+            if ViewController.instance != nil {
+                ViewController.instance?.ActivateAll()
+            }
+        }
+        
     }
     
     @IBOutlet weak var nameField: NSTextField!

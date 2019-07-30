@@ -42,7 +42,6 @@ class SignIn: NSViewController {
         buttonOutlet.showsBorderOnlyWhileMouseInside = true
         buttonOutlet.focusRingType = .none
        
-            // Do whatever you want with the image
         
         SignIn.instance = self
     }
@@ -81,8 +80,14 @@ class SignIn: NSViewController {
                 let enterView = Enter.init(nibName: "Enter", bundle: nil)
                 parent.addChild(enterView)
                 parent.GreetingAndButton.contentView = enterView.view
+                if ViewController.instance != nil {
+                    ViewController.instance?.ActivateAll()
+                }
             }
+            
+           
         }
+       
     }
     
     @IBAction func buttonPush(_ sender: HoverButton) {

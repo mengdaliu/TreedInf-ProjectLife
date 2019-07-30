@@ -15,6 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let userDefaults = UserDefaults.standard
     var windowController : NSWindowController?
     var window : NSWindow?
+    var timer : customTimer?
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
@@ -218,6 +220,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         // If we got here, it is time to quit.
         return .terminateNow
+    }
+    
+    
+    func applicationDidResignActive(_ notification: Notification) {
+        let rootVC = ViewController.instance!
+        self.timer = customTimer.init(seconds: 3600, completionHandler: rootVC.lock)
+        
+      
+        DispatchQueue.global(qos: .background).async {
+            self.timer!.start()
+        }
+    }
+    
+   func applicationDidBecomeActive(_ notification: Notification) {
+        self.timer?.stop()
     }
 
 }

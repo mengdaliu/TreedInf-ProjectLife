@@ -24,8 +24,18 @@ class backgroundWall: NSViewController {
        
         wallPic.image = WallPaper.linen
         
+        
         backgroundWall.instance = self
     }
     
     @IBOutlet weak var wallPic: NSImageView!
+    
+    func handleSelectProjects() {
+        
+    }
+    
+    func handleSelectDays(){
+        
+    }
+
 }
