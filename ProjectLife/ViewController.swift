@@ -44,8 +44,11 @@ class ViewController: NSViewController {
             Logout.isEnabled = true
         }
         
-        
+        Project.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.init(item: Project, attribute: .bottom, relatedBy: .equal, toItem: mainView, attribute: .top, multiplier: 1, constant: 1).isActive = true
+        NSLayoutConstraint.init(item: Project, attribute: .width, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 90).isActive = true
         ViewController.instance = self
+        
     }
 
     @IBOutlet weak var mainView: NSBox!
@@ -54,6 +57,21 @@ class ViewController: NSViewController {
     }
     
     
-   
+    @IBAction func selectProject(_ sender: Any) {
+        if backgroundWall.instance != nil {
+            //mainView.contentView = backgroundWall.instance?.view
+            //self.dismiss(self.children[0])
+            //self.children.remove(at: 0)
+            //self.addChild(backgroundWall.instance!)
+        } else {
+            //self.dismiss(self.children[0])
+            self.children.remove(at: 0)
+            let wall = backgroundWall.init(nibName: "backgroundWall", bundle: nil)
+            mainView.contentView = wall.view
+            self.addChild(wall)
+        }
+    }
+    
+    @IBOutlet weak var Project: NSButton!
 }
 

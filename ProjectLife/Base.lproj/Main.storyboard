@@ -790,9 +790,28 @@
                                     </connections>
                                 </buttonCell>
                             </button>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fMO-uQ-EAG">
+                                <rect key="frame" x="-6" y="274" width="90" height="32"/>
+                                <buttonCell key="cell" type="push" title="Projects" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ozy-ve-idt">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectProject:" target="XfG-lQ-9wD" id="Ql9-dO-6hj"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KD1-X4-Ywl">
+                                <rect key="frame" x="72" y="274" width="90" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fwt-bw-R8G">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Djw-0B-71g" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="3Yl-df-KIO"/>
+                            <constraint firstItem="KD1-X4-Ywl" firstAttribute="leading" secondItem="fMO-uQ-EAG" secondAttribute="trailing" id="3eU-7e-Ghv"/>
+                            <constraint firstItem="fMO-uQ-EAG" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="AGg-Li-enU"/>
                             <constraint firstItem="qjx-mv-m84" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="5" id="DcE-46-WaU"/>
                             <constraint firstItem="OXP-ZK-RWZ" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="55" id="KX0-Ve-eAe"/>
                             <constraint firstAttribute="trailing" secondItem="Djw-0B-71g" secondAttribute="trailing" constant="5" id="LFD-6S-Tj9"/>
@@ -804,13 +823,14 @@
                     </view>
                     <connections>
                         <outlet property="Logout" destination="Djw-0B-71g" id="eSA-va-1lm"/>
+                        <outlet property="Project" destination="fMO-uQ-EAG" id="C5m-QX-9BN"/>
                         <outlet property="mainView" destination="OXP-ZK-RWZ" id="8i2-g5-uVr"/>
                         <outlet property="projectLifeTitle" destination="qjx-mv-m84" id="qSX-KB-i6d"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129" y="650"/>
+            <point key="canvasLocation" x="410" y="708.5"/>
         </scene>
     </scenes>
 </document>

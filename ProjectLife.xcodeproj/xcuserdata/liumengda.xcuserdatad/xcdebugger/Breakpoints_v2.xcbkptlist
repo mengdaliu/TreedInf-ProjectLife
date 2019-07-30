@@ -10,43 +10,103 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewController.swift"
-            timestampString = "586104108.168819"
+            timestampString = "586169392.5474631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "ViewController"
             landmarkType = "3">
             <Locations>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ViewController.mainView.getter : Swift.Optional&lt;__C.NSBox&gt;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewController.swift"
+                  timestampString = "586164447.910985"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ViewController.mainView.setter : Swift.Optional&lt;__C.NSBox&gt;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewController.swift"
+                  timestampString = "586164447.914593"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ViewController.mainView.modify : Swift.Optional&lt;__C.NSBox&gt;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewController.swift"
+                  timestampString = "586164447.916971"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "69">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.ViewController.mainView.modify : Swift.Optional&lt;__C.NSBox&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewController.swift"
+                  timestampString = "586164447.919265"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ProjectLife.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; ProjectLife.ViewController"
                   moduleName = "ProjectLife"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewController.swift"
-                  timestampString = "584346885.217348"
+                  timestampString = "586164447.921221"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "178">
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "423">
                </Location>
                <Location
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "ProjectLife.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ProjectLife.ViewController&gt;"
                   moduleName = "ProjectLife"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liumengda/Documents/ProjectLife/ProjectLife/ViewController.swift"
-                  timestampString = "584346885.219329"
+                  timestampString = "586164447.923177"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "30"
-                  endingLineNumber = "30"
-                  offsetFromSymbolStart = "107">
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "322">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -196,12 +256,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/Dal/Local Data/userInfo.swift"
-            timestampString = "586157160.85394"
+            timestampString = "586169392.547904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "getUserInfoObject(id:)"
+            landmarkName = "setUserInfoObject(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/ViewController.swift"
+            timestampString = "586170047.9763989"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -20,11 +20,13 @@ class ThemeColor {
     static var black = NSColor.init(calibratedRed: CGFloat(0), green: CGFloat(0), blue: CGFloat(0), alpha: CGFloat(1))
 }
 
-enum FrontPageStyle {
-    case Pure
-    case Passion
+class WallPaper {
+    
+    static let picSize = NSScreen.main?.frame.size
+    static let w = picSize?.width
+    static let h = picSize?.height
+    static var linen = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", w!, h! - 55) as String)!)
+    static var blackCat = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1496517741878-4c0af85f0991?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", w!, h! - 55) as String)!)
 }
 
-class UIConfigs {
-    static var maxSize = NSSize.init()
-}
+
