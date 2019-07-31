@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="VerticalSplit" customModule="ProjectLife" customModuleProvider="target">
+            <connections>
+                <outlet property="projectHierarchy" destination="oLO-aj-wCh" id="fds-Da-COt"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView focusRingType="none" id="Hz6-mo-xeY" customClass="NSSplitView">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <splitView fixedFrame="YES" arrangesAllSubviews="NO" dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oLO-aj-wCh">
+                    <rect key="frame" x="210" y="112" width="163" height="96"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <customView fixedFrame="YES" id="sHQ-eV-0tF">
+                            <rect key="frame" x="0.0" y="0.0" width="71" height="96"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </customView>
+                        <customView fixedFrame="YES" id="WdF-p7-w7R">
+                            <rect key="frame" x="81" y="0.0" width="82" height="96"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </customView>
+                    </subviews>
+                    <holdingPriorities>
+                        <real value="250"/>
+                        <real value="250"/>
+                    </holdingPriorities>
+                </splitView>
+            </subviews>
+            <point key="canvasLocation" x="-414" y="158"/>
+        </customView>
+    </objects>
+</document>

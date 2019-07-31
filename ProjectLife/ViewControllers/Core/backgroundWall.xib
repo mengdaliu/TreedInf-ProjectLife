@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="backgroundWall" customModule="ProjectLife" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="KeE-Oq-2LG" id="AiW-il-QLG"/>
+                <outlet property="mainView" destination="KeE-Oq-2LG" id="VZl-lB-GKL"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="wallPic" destination="84A-ce-rFq" id="CPX-LK-Rft"/>
             </connections>
@@ -21,14 +23,25 @@
                     <rect key="frame" x="0.0" y="0.0" width="480" height="302"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="rFY-RC-D9j"/>
                 </imageView>
+                <box title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="KeE-Oq-2LG">
+                    <rect key="frame" x="-3" y="-4" width="486" height="276"/>
+                    <view key="contentView" id="Jhd-IB-b4X">
+                        <rect key="frame" x="3" y="3" width="480" height="258"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </box>
             </subviews>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="KeE-Oq-2LG" secondAttribute="trailing" id="S9v-a2-tQX"/>
                 <constraint firstAttribute="trailing" secondItem="84A-ce-rFq" secondAttribute="trailing" id="SbS-8i-kLu"/>
+                <constraint firstItem="KeE-Oq-2LG" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="TlD-rg-xGL"/>
                 <constraint firstItem="84A-ce-rFq" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="-30" id="Yid-N1-Dbm"/>
                 <constraint firstAttribute="bottom" secondItem="84A-ce-rFq" secondAttribute="bottom" id="jbC-I0-YhW"/>
                 <constraint firstItem="84A-ce-rFq" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="k1V-VT-OzH"/>
+                <constraint firstItem="KeE-Oq-2LG" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="ng7-6K-6zT"/>
+                <constraint firstAttribute="bottom" secondItem="KeE-Oq-2LG" secondAttribute="bottom" id="sLS-tM-9Ww"/>
             </constraints>
-            <point key="canvasLocation" x="720" y="124"/>
+            <point key="canvasLocation" x="929" y="124"/>
         </customView>
     </objects>
 </document>

@@ -20,17 +20,28 @@ class backgroundWall: NSViewController {
         wallPic.imageScaling = .scaleNone
         wallPic.imageFrameStyle = .photo
         wallPic.alphaValue = 1
-
-       
         wallPic.image = WallPaper.linen
+        
+        self.mainView.boxType = .custom
+        self.mainView.borderType = .noBorder
+        
         
         
         backgroundWall.instance = self
     }
     
     @IBOutlet weak var wallPic: NSImageView!
+
+    @IBOutlet weak var mainView: NSBox!
     
     func handleSelectProjects() {
+        if VerticalSplit.instance != nil {
+            mainView.contentView = VerticalSplit.instance?.view
+        } else {
+            let splitVC = VerticalSplit.init()
+            mainView.contentView = splitVC.view
+            self.addChild(splitVC)
+        }
         
     }
     

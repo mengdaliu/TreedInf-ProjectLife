@@ -19,15 +19,34 @@ class Enter: NSViewController {
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
+        let minute = calendar.component(.minute, from: date)
         var time : String?
         if 3 <= hour && 11 >= hour {
             time = "Good Morning, "
+            if hour == 8 {
+                time = "Don't forget to grab breakfast, "
+            } else if minute == 0 {
+                time = "What a fresh morning, "
+            }
         } else if 11 < hour && 17 >= hour {
             time = "Good Afternoon, "
+            if hour == 12 {
+                time = "It's lunch time, "
+            }else if minute == 0 {
+                time = "What a lovely afternoon, "
+            }
         } else if 17 < hour && 23 >= hour {
             time = "Good Evening, "
+            if hour == 18 {
+                time = "I hope you enjoy your dinner, "
+            } else if minute == 0 {
+                time = "Look up at the stars, "
+            }
         } else {
             time = "Good Night, "
+            if hour == 24 || hour < 3 {
+                time = "Sleep early, "
+            }
         }
         
         let weekDay = calendar.component(.weekday, from: date)

@@ -341,12 +341,6 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Theme Color" id="cAZ-bX-haj">
                                     <items>
-                                        <menuItem title="Ivory" id="tuK-f7-flb">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="selectWhite:" target="Voe-Tx-rLC" id="fng-cs-BYV"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem title="Gun Metal" id="1Jw-iB-5Lr">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -387,6 +381,12 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="selectPeru:" target="Voe-Tx-rLC" id="pZt-jQ-5nJ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Ivory" id="tuK-f7-flb">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectWhite:" target="Voe-Tx-rLC" id="fng-cs-BYV"/>
                                             </connections>
                                         </menuItem>
                                     </items>
