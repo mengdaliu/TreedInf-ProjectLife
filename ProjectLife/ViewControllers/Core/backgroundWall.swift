@@ -20,7 +20,7 @@ class backgroundWall: NSViewController {
         wallPic.imageScaling = .scaleNone
         wallPic.imageFrameStyle = .photo
         wallPic.alphaValue = 1
-        wallPic.image = WallPaper.linen
+        wallPic.image = WallPaper.blackCat
         
         self.mainView.boxType = .custom
         self.mainView.borderType = .noBorder

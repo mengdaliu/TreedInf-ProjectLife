@@ -37,6 +37,7 @@ class SignInHandler {
         let userId = "fb_" + id
         UserDefaults.standard.set(userId, forKey: "UserLoggedIn")
         ViewController.instance!.Logout.isEnabled = true
+        ViewController.instance!.Lock.isEnabled = true
         userInfo.setUserStore(id: userId)
         userInfo.setUserInfoObject(id: userId)
         
@@ -54,6 +55,7 @@ class SignInHandler {
     static func LogOutCurrentUser() {
         UserDefaults.standard.set(nil, forKey: "UserLoggedIn")
         ViewController.instance!.Logout.isEnabled = false
+        ViewController.instance!.Lock.isEnabled = false
         let photoBackground = FrontPagePhoto.init(nibName: "FrontPagePhoto", bundle: nil)
         ViewController.instance!.mainView.contentView = photoBackground.view
         print(ViewController.instance!.children[0])
