@@ -98,9 +98,13 @@ class FrontPagePhoto: NSViewController {
     
     func keepLoading() {
         sleep(10)
-        while true {
+        while FrontPagePhoto.instance != nil {
             for image in self.urls {
                 //print(image)
+                print("loading")
+                if FrontPagePhoto.instance == nil {
+                    break
+                }
                 performSelector(onMainThread: #selector(loadBackgroundImageFromURL(url:)), with: image, waitUntilDone: true)
                 sleep(60)
             }

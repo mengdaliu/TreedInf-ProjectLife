@@ -38,7 +38,9 @@ class UIPerferenceChange {
             ViewController.instance?.changeTabColor(color: color)
         }
 
-        
+        if VerticalSplit.instance != nil {
+            VerticalSplit.instance?.changeDividerColor(color: color)
+        }
         
      
     }

@@ -8,7 +8,6 @@
         <customObject id="-2" userLabel="File's Owner" customClass="projectTitle" customModule="ProjectLife" customModuleProvider="target">
             <connections>
                 <outlet property="T" destination="A24-Fp-W3j" id="OMN-2f-tYj"/>
-                <outlet property="title" destination="YU8-t4-QKs" id="6GG-ic-Kup"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -31,12 +30,12 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="A24-Fp-W3j" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="AvJ-37-5PE"/>
+                <constraint firstItem="A24-Fp-W3j" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="9it-zm-fEk"/>
                 <constraint firstAttribute="bottom" secondItem="A24-Fp-W3j" secondAttribute="bottom" id="HFe-wk-Mwl"/>
                 <constraint firstItem="A24-Fp-W3j" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="RxT-0P-LVc"/>
                 <constraint firstAttribute="trailing" secondItem="A24-Fp-W3j" secondAttribute="trailing" constant="10" id="nKT-Ge-SQj"/>
             </constraints>
-            <point key="canvasLocation" x="14.5" y="144.5"/>
+            <point key="canvasLocation" x="-498" y="182"/>
         </customView>
     </objects>
 </document>

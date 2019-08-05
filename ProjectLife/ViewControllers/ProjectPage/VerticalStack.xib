@@ -45,7 +45,7 @@
                 <constraint firstItem="ZtY-6m-JHE" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="udc-Im-H6Q"/>
                 <constraint firstAttribute="bottom" secondItem="ZtY-6m-JHE" secondAttribute="bottom" id="xmz-RR-92c"/>
             </constraints>
-            <point key="canvasLocation" x="-296" y="88"/>
+            <point key="canvasLocation" x="-536" y="66"/>
         </customView>
     </objects>
 </document>

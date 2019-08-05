@@ -114,6 +114,8 @@ class ViewController: NSViewController {
     
     
     @IBAction func selectProject(_ sender: HoverButton) {
+        self.dismiss(FrontPagePhoto.instance)
+        FrontPagePhoto.instance = nil
         var wall : backgroundWall
         if backgroundWall.instance != nil {
             
@@ -129,7 +131,7 @@ class ViewController: NSViewController {
             mainView.contentView = wall.view
             self.addChild(wall)
         }
-        FrontPagePhoto.instance = nil
+       
         wall.handleSelectProjects()
         let color = ColorGetter.getCurrentThemeColor()
         Project.layer = nil
@@ -147,6 +149,8 @@ class ViewController: NSViewController {
     }
     
     @IBAction func selectDays(_ sender: HoverButton) {
+        self.dismiss(FrontPagePhoto.instance)
+        FrontPagePhoto.instance = nil
         var wall : backgroundWall
         if backgroundWall.instance != nil {
             self.children.remove(at: 0)
@@ -160,7 +164,7 @@ class ViewController: NSViewController {
             mainView.contentView = wall.view
             self.addChild(wall)
         }
-        FrontPagePhoto.instance = nil
+    
         wall.handleSelectDays()
         let color = ColorGetter.getCurrentThemeColor()
         Days.layer = nil

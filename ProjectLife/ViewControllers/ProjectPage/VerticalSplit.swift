@@ -10,31 +10,50 @@ import Cocoa
 
 class VerticalSplit: NSSplitViewController {
     
-    static var instance : NSSplitViewController?
+    static var instance : VerticalSplit?
+    let minThickness = CGFloat((NSScreen.main?.frame.size.width)!/5)
 
     @IBOutlet weak var projectHierarchy: NSSplitView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        VerticalSplit.instance = self
         self.splitView.dividerStyle = .thin
         splitView.setValue(ColorGetter.getCurrentThemeColor(), forKey: "dividerColor")
-        print(self.splitView.dividerColor)
-        let testVC = VerticalStack.init(nibName: "VerticalStack", bundle: nil)
-        let testSplitItem = NSSplitViewItem.init(viewController: testVC)
-        self.addSplitViewItem(testSplitItem)
-        let testVC2 = VerticalStack.init(nibName: "VerticalStack", bundle: nil)
-        let testSplitItem2 = NSSplitViewItem.init(viewController: testVC2)
-        self.addSplitViewItem(testSplitItem2)
-        let testVC3 = VerticalStack.init(nibName: "VerticalStack", bundle: nil)
-        let testSplitItem3 = NSSplitViewItem.init(viewController: testVC3)
-        self.addSplitViewItem(testSplitItem3)
-        let testVC4 = VerticalStack.init(nibName: "VerticalStack", bundle: nil)
-        let testSplitItem4 = NSSplitViewItem.init(viewController: testVC4)
-        self.addSplitViewItem(testSplitItem4)
-        let testVC5 = VerticalStack.init(nibName: "VerticalStack", bundle: nil)
-        let testSplitItem5 = NSSplitViewItem.init(viewController: testVC5)
-        self.addSplitViewItem(testSplitItem5)
+       
+        let root = RootPage.init(nibName: "RootPage", bundle: nil)
+        let rootSplitItem = NSSplitViewItem.init(viewController: root)
+        self.addSplitViewItem(rootSplitItem)
+        rootSplitItem.minimumThickness = self.minThickness
+        VerticalSplit.instance = self
+    }
+
+    
+    
+    override func mouseDown(with event: NSEvent) {
+        print("hell no")
+        self.view.window?.makeFirstResponder(nil)
+    }
+    
+    
+    func handleAddSplitItem(){
+        let item = NSSplitViewItem.init(viewController: VerticalStack.init(nibName: "VerticalStack", bundle: nil))
+        self.addSplitViewItem(item)
+        item.minimumThickness = self.minThickness
+        if self.splitViewItems.count >= 5 {
+            self.splitViewItems[0].isCollapsed = true
+        }
+    }
+    
+    func handleLoadParentProject(){
+        
+    }
+    func handleLoadSubProjects(){
+        
+    }
+    
+    func changeDividerColor(color : NSColor) {
+        splitView.setValue(color, forKey: "dividerColor")
     }
 }
 

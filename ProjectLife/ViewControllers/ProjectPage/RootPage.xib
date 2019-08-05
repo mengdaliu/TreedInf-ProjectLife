@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="RootPage" customModule="ProjectLife" customModuleProvider="target">
             <connections>
+                <outlet property="holder" destination="e7W-FL-fDW" id="UCk-gN-QlD"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -15,7 +16,22 @@
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <point key="canvasLocation" x="248" y="152"/>
+            <subviews>
+                <box title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="e7W-FL-fDW">
+                    <rect key="frame" x="-3" y="-4" width="486" height="276"/>
+                    <view key="contentView" id="UhT-mh-S1b">
+                        <rect key="frame" x="3" y="3" width="480" height="258"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="e7W-FL-fDW" secondAttribute="trailing" id="Dhw-KC-cme"/>
+                <constraint firstItem="e7W-FL-fDW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Pd7-sX-MS5"/>
+                <constraint firstItem="e7W-FL-fDW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="lAW-EL-gAt"/>
+                <constraint firstAttribute="bottom" secondItem="e7W-FL-fDW" secondAttribute="bottom" id="xJO-4x-KpO"/>
+            </constraints>
+            <point key="canvasLocation" x="-9" y="142"/>
         </customView>
     </objects>
 </document>

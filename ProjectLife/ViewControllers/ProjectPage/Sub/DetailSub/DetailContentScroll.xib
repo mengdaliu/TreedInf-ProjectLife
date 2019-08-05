@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="DetailContentScroll" customModule="ProjectLife" customModuleProvider="target">
+            <connections>
+                <outlet property="scroll" destination="6ni-ki-foY" id="s3v-iV-Gbh"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ni-ki-foY">
+                    <rect key="frame" x="20" y="0.0" width="440" height="272"/>
+                    <clipView key="contentView" id="8jS-qf-4GO">
+                        <rect key="frame" x="1" y="1" width="438" height="270"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mi5-sf-PJV">
+                                <rect key="frame" x="0.0" y="0.0" width="423" height="255"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="e8S-75-etK">
+                        <rect key="frame" x="1" y="255" width="438" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="7Fd-18-BDQ">
+                        <rect key="frame" x="423" y="1" width="16" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="6ni-ki-foY" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="FDo-eK-TL8"/>
+                <constraint firstItem="6ni-ki-foY" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="GH4-5K-TB1"/>
+                <constraint firstAttribute="bottom" secondItem="6ni-ki-foY" secondAttribute="bottom" id="WFE-Gy-tSO"/>
+                <constraint firstAttribute="trailing" secondItem="6ni-ki-foY" secondAttribute="trailing" constant="20" id="hr0-xj-zz7"/>
+            </constraints>
+            <point key="canvasLocation" x="414" y="25"/>
+        </customView>
+    </objects>
+</document>
