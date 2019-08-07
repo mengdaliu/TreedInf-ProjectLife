@@ -40,7 +40,7 @@ class SignInHandler {
         ViewController.instance!.Lock.isEnabled = true
         userInfo.setUserStore(id: userId)
         userInfo.setUserInfoObject(id: userId)
-        
+        project.setUpProjectLife()
     }
 
     static func SignInFromGoogle() {

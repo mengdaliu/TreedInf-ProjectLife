@@ -18,12 +18,11 @@ class userInfo {
     static var context = container.viewContext
     
     static func setUserStore(id : String) {
-        
         let url = defaultUrl.appendingPathComponent(NSString.init(format: "%@.sqlite", id) as String)
         var store = container.persistentStoreCoordinator.persistentStore(for: url)
         if store == nil {
             do {
-               store  = try container.persistentStoreCoordinator.addPersistentStore(ofType: "SQLite", configurationName: nil, at: url, options: nil)
+               store  = try container.persistentStoreCoordinator.addPersistentStore(ofType: "SQLite", configurationName: nil, at: url, options:  [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
                
             } catch {}
         }
@@ -54,13 +53,12 @@ class userInfo {
     static func setUserInfoObject(id : String) {
         let req = NSFetchRequest<NSFetchRequestResult>.init(entityName: "UserInfo")
         req.affectedStores = [dalGlobal.userStore!]
-        var user : UserInfo?
         do {
             let gotData = try context.fetch(req)
             if gotData.count < 1 {
                 createUserInfoObject(id: id)
             } else {
-                dalGlobal.userInfo = gotData[0] as! UserInfo
+                dalGlobal.userInfo = gotData[0] as? UserInfo
             }
         } catch {}
     }

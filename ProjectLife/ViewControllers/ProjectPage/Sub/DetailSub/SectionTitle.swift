@@ -35,7 +35,7 @@ class SectionTitle: NSViewController {
     @IBAction func clickDisclosure(_ sender: NSButton) {
         if !expanded {
             switch DescriptionTitle.stringValue {
-            case "Description" :
+            case "Overview" :
                 var detail : NSViewController
                 if self.detail != nil {
                     detail = self.detail!

@@ -7,6 +7,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VerticalStack" customModule="ProjectLife" customModuleProvider="target">
             <connections>
+                <outlet property="leftButton" destination="PbG-Vk-dYZ" id="v4U-Rw-tBx"/>
+                <outlet property="parentName" destination="zyq-fN-czW" id="8kF-Gt-nY0"/>
+                <outlet property="rightButton" destination="e4S-FD-ixW" id="j9Q-2l-4kZ"/>
+                <outlet property="rigthButton" destination="e4S-FD-ixW" id="vZN-2p-a8l"/>
                 <outlet property="scroll" destination="ZtY-6m-JHE" id="MHe-Wd-NKt"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -18,34 +22,68 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtY-6m-JHE">
-                    <rect key="frame" x="15" y="0.0" width="450" height="172"/>
+                    <rect key="frame" x="15" y="0.0" width="450" height="197"/>
                     <clipView key="contentView" id="Hsw-gx-tss">
-                        <rect key="frame" x="1" y="1" width="448" height="170"/>
+                        <rect key="frame" x="1" y="1" width="448" height="195"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Wd-ud-foa">
-                                <rect key="frame" x="0.0" y="0.0" width="433" height="155"/>
+                                <rect key="frame" x="0.0" y="0.0" width="433" height="180"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </subviews>
                     </clipView>
                     <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="LWs-Zo-7Nb">
-                        <rect key="frame" x="1" y="155" width="448" height="16"/>
+                        <rect key="frame" x="1" y="180" width="448" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="zeH-EZ-i6u">
-                        <rect key="frame" x="433" y="1" width="16" height="170"/>
+                        <rect key="frame" x="433" y="1" width="16" height="195"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PbG-Vk-dYZ">
+                    <rect key="frame" x="9" y="204" width="49" height="32"/>
+                    <buttonCell key="cell" type="push" title="&gt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rLY-Ee-4f9">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="handleLeft:" target="-2" id="ao7-5S-fcI"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e4S-FD-ixW">
+                    <rect key="frame" x="45" y="204" width="49" height="32"/>
+                    <buttonCell key="cell" type="push" title="&lt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KmQ-Ic-N7L">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="handleRight:" target="-2" id="I5C-qm-RKv"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zyq-fN-czW">
+                    <rect key="frame" x="106" y="215" width="37" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="rfz-PD-Dkf">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="ZtY-6m-JHE" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="100" id="bth-x2-g4h"/>
+                <constraint firstItem="PbG-Vk-dYZ" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="5jg-r9-Nzu"/>
+                <constraint firstItem="e4S-FD-ixW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="40" id="CAQ-LK-KXz"/>
+                <constraint firstItem="PbG-Vk-dYZ" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="40" id="LWu-Q4-yhn"/>
+                <constraint firstItem="zyq-fN-czW" firstAttribute="leading" secondItem="e4S-FD-ixW" secondAttribute="trailing" constant="20" id="OW4-BI-M8m"/>
+                <constraint firstItem="zyq-fN-czW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="40" id="a6n-9w-C08"/>
+                <constraint firstItem="ZtY-6m-JHE" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="75" id="bth-x2-g4h"/>
                 <constraint firstAttribute="trailing" secondItem="ZtY-6m-JHE" secondAttribute="trailing" constant="15" id="l04-8F-Pde"/>
+                <constraint firstItem="e4S-FD-ixW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="51" id="lTY-vd-6Bv"/>
                 <constraint firstItem="ZtY-6m-JHE" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="15" id="udc-Im-H6Q"/>
                 <constraint firstAttribute="bottom" secondItem="ZtY-6m-JHE" secondAttribute="bottom" id="xmz-RR-92c"/>
             </constraints>
-            <point key="canvasLocation" x="-536" y="66"/>
+            <point key="canvasLocation" x="-704" y="53"/>
         </customView>
     </objects>
 </document>

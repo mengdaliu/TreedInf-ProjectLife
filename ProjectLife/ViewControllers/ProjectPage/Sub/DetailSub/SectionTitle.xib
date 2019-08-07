@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="ClosureTriangle" destination="FrK-I4-1qV" id="Dg4-Tj-qgK"/>
                 <outlet property="DescriptionTitle" destination="OJn-l8-fhT" id="upb-r6-lcK"/>
-                <outlet property="TriangleButt" destination="FrK-I4-1qV" id="lQo-7M-35d"/>
                 <outlet property="line" destination="M1W-BZ-FaZ" id="O7N-Ca-6tB"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>

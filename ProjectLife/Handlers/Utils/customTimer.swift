@@ -10,22 +10,32 @@ import Foundation
 
 class customTimer : NSObject {
     var timing = false
-    var seconds : UInt32
+    var seconds : UInt32?
+    var useconds : UInt32?
     var endHandler : () -> ()
     
-    init(seconds : UInt32, completionHandler : @escaping () -> ()) {
+    init(seconds : UInt32?, useconds: UInt32?, completionHandler : @escaping () -> ()) {
         self.seconds = seconds
+        self.useconds  = useconds
         self.endHandler = completionHandler
     }
 
 
     func start() {
         self.timing = true
-        sleep(self.seconds)
+        sleep(self.seconds!)
         DispatchQueue.main.sync{
             self.end()
         }
         
+    }
+    
+    func Ustart() {
+        self.timing = true
+        usleep(self.useconds!)
+        DispatchQueue.main.sync{
+            self.end()
+        }
     }
     
     func end() {

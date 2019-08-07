@@ -12,4 +12,5 @@ import Cocoa
 class dalGlobal {
     static var userStore : NSPersistentStore?
     static var userInfo : UserInfo?
+    static var projectLife : Project?
 }

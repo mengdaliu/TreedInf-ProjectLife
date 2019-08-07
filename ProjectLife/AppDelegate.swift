@@ -225,9 +225,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidResignActive(_ notification: Notification) {
         let rootVC = ViewController.instance!
-        self.timer = customTimer.init(seconds: 3600, completionHandler: rootVC.lock)
-        
-      
+        self.timer = customTimer.init(seconds: 3600, useconds: nil, completionHandler: rootVC.lock)
         DispatchQueue.global(qos: .background).async {
             self.timer!.start()
         }

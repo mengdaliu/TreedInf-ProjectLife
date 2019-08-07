@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="History" representedClassName="History" syncable="YES" codeGenerationType="class">
-        <attribute name="action" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="timestamp" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Projects" representedClassName="Projects" syncable="YES" codeGenerationType="class">
-        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Project" representedClassName="Project" syncable="YES" codeGenerationType="class">
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projects" inverseName="subProjects" inverseEntity="Projects" syncable="YES"/>
-        <relationship name="subProjects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Projects" inverseName="parent" inverseEntity="Projects" syncable="YES"/>
+        <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectHistory" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="subProjects" inverseEntity="Project" syncable="YES"/>
+        <relationship name="subProjects" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Project" inverseName="parent" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="ProjectHistory" representedClassName="ProjectHistory" syncable="YES" codeGenerationType="class">
+        <attribute name="action" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="object" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" syncable="YES"/>
     </entity>
     <entity name="UserInfo" representedClassName="UserInfo" syncable="YES" codeGenerationType="class">
         <attribute name="discountCode" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,8 +22,8 @@
         <attribute name="startTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserInfo" positionX="-36" positionY="9" width="128" height="135"/>
-        <element name="Projects" positionX="0" positionY="90" width="128" height="105"/>
-        <element name="History" positionX="27" positionY="108" width="128" height="75"/>
+        <element name="ProjectHistory" positionX="97.56640625" positionY="101.20703125" width="128" height="90"/>
+        <element name="Project" positionX="-201.3671875" positionY="95.921875" width="128" height="133"/>
+        <element name="UserInfo" positionX="-274.29296875" positionY="-85.76953125" width="128" height="133"/>
     </elements>
 </model>

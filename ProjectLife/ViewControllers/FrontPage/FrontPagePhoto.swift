@@ -64,6 +64,7 @@ class FrontPagePhoto: NSViewController {
         } else {
             userInfo.setUserStore(id: userId as! String)
             userInfo.setUserInfoObject(id: userId as! String)
+            project.setUpProjectLife()  
             let EnterController = Enter.init(nibName: "Enter", bundle: nil)
             self.addChild(EnterController)
             GreetingAndButton?.contentView = EnterController.view

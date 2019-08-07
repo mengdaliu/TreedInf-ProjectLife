@@ -36,9 +36,6 @@ class DetailContentScroll: NSViewController {
         detailEnter.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.init(item: detailEnter, attribute: .leading, relatedBy: .equal, toItem: scroll, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint.init(item: detailEnter, attribute: .trailing, relatedBy: .equal, toItem: scroll, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        
-        //NSLayoutConstraint.init(item: detailEnter, attribute: .top, relatedBy: .equal, toItem: scroll, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        //NSLayoutConstraint.init(item: detailEnter, attribute: .bottom, relatedBy: .equal, toItem: scroll, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
         detailEnter.becomeFirstResponder()
         self.textField = detailEnter
     }

@@ -25,8 +25,6 @@ class backgroundWall: NSViewController {
         self.mainView.boxType = .custom
         self.mainView.borderType = .noBorder
         
-        
-        
         backgroundWall.instance = self
     }
     
@@ -42,7 +40,6 @@ class backgroundWall: NSViewController {
             mainView.contentView = splitVC.view
             self.addChild(splitVC)
         }
-        
     }
     
     func handleSelectDays(){

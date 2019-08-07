@@ -18,7 +18,8 @@ class addButton: NSViewController {
         button.bezelStyle = .regularSquare
         button.font = .labelFont(ofSize: 20)
         button.wantsLayer = true
-        button.layer?.backgroundColor = .init(red: 240, green: 256, blue: 240, alpha: 0.8)
+        button.layer?.backgroundColor = .init(red: 0.83, green: 0.87, blue: 0.83, alpha: 0.95)
+        button.showsBorderOnlyWhileMouseInside  = true
         button.layer?.masksToBounds =  true
         button.layer?.cornerRadius = 20
     }

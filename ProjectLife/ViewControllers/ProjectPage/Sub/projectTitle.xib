@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="projectTitle" customModule="ProjectLife" customModuleProvider="target">
             <connections>
                 <outlet property="T" destination="A24-Fp-W3j" id="OMN-2f-tYj"/>
+                <outlet property="textField" destination="A24-Fp-W3j" id="wXQ-3O-ZaJ"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>

@@ -16,7 +16,7 @@ class projectDetail: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Stack.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.init(item: Stack, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint.init(item: Stack!, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: 0).isActive = true
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = .init(CGColor.init(gray: 0.9, alpha: 1))
         smallConstraint = NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 200)
@@ -31,7 +31,7 @@ class projectDetail: NSViewController {
         
         //print(description.view)
         Stack.addArrangedSubview(Section.view)
-        Section.setTitle(title: "Description")
+        Section.setTitle(title: "Overview")
         Section.setStack(stack: Stack)
         self.addChild(Section)
         //self.presentAsSheet(description)
@@ -41,7 +41,7 @@ class projectDetail: NSViewController {
         let doubleTap  = NSClickGestureRecognizer.init(target: self, action: #selector(handleDoubleTap))
         doubleTap.numberOfClicksRequired = 2
         doubleTap.isEnabled = true
-        doubleTap.delaysPrimaryMouseButtonEvents = false
+        //doubleTap.delaysPrimaryMouseButtonEvents = false
         self.view.addGestureRecognizer(doubleTap)
     }
     

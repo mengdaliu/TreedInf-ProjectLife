@@ -7,9 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="Enter" customModule="ProjectLife" customModuleProvider="target">
             <connections>
-                <outlet property="AdditionalLIne" destination="Pcn-TW-mfm" id="IwK-Xh-mKt"/>
                 <outlet property="d" destination="Hlg-OO-qUQ" id="Ixr-bZ-m1J"/>
-                <outlet property="date" destination="6tN-I3-xyv" id="9O9-FF-0Oq"/>
                 <outlet property="greetingLine" destination="JrI-PN-nm9" id="2D6-Td-AfQ"/>
                 <outlet property="sentence" destination="Pcn-TW-mfm" id="Dzm-xB-pzV"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>

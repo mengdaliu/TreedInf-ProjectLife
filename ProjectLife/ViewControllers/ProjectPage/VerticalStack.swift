@@ -12,15 +12,23 @@ class VerticalStack: NSViewController {
 
 
     @IBOutlet weak var scroll: NSScrollView!
+    @IBOutlet weak var parentName: NSTextField!
+    
     var stack : NSStackView?
     var level : Int?
     var items : Int =  -1
     var expandedDetails : [Int]?
     var add : addButton!
+    var parentVC : VerticalStack?
+    var parentProj : Project?
+    var selected : projectStack?
+    var hasParentLoaded = true
+    var hasChildrenRemoved = false
+    
     
     @IBOutlet weak var test: NSButton!
 
-    //@IBOutlet weak var ProjectStack: NSStackView!
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -30,7 +38,6 @@ class VerticalStack: NSViewController {
         
         
         
-        //self.scroll.addSubview(ProjectStack)
         self.scroll.documentView = ProjectStack
         ProjectStack.setClippingResistancePriority(.defaultLow, for: .vertical)
         let add = addButton.init(nibName: "addButton", bundle: nil)
@@ -39,16 +46,15 @@ class VerticalStack: NSViewController {
         self.add = add 
 
     
-       // NSLayoutConstraint.init(item: ProjectStack, attribute: .height, relatedBy: .equal, toItem: scroll, attribute: .height, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint.init(item: ProjectStack, attribute: .leading, relatedBy: .equal, toItem: scroll, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint.init(item: ProjectStack, attribute: .trailing, relatedBy: .equal, toItem: scroll, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        //scroll.addFloatingSubview(ProjectStack, for: .vertical)
         scroll.drawsBackground = false
         scroll.borderType = .noBorder
         scroll.automaticallyAdjustsContentInsets = false
         
-        
-        //scroll.addFloatingSubview(ProjectStack, for: .horizontal)
+        parentName.stringValue = self.parentProj?.title ?? ""
+        parentName.font = .labelFont(ofSize: 20)
+        parentName.textColor = ColorGetter.getCurrentThemeColor()
         
        
        
@@ -57,6 +63,8 @@ class VerticalStack: NSViewController {
         ProjectStack.setHuggingPriority(.defaultLow, for: .vertical)
         ProjectStack.spacing = 15
        
+        leftButton.isEnabled = false
+        rightButton.isEnabled = true
         
         
        self.stack = ProjectStack
@@ -64,16 +72,19 @@ class VerticalStack: NSViewController {
       
     }
     
-    func setLevel(level : Int){
-        self.level = level
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        parentName.stringValue = self.parentProj?.title ?? ""
     }
     
+
     func addProjectItem() {
         self.items = self.items + 1
         let item = projectStack.init(nibName: "projectStack", bundle: nil)
         self.stack!.insertView(item.view, at: self.stack!.arrangedSubviews.count - 1, in: .top)
+        let newProj = project.newProject(for: self.parentProj!, title: "")
+        item.p = newProj
         self.addChild(item)
-        
     }
     
     func addProjectItem(VC : projectStack) {
@@ -81,9 +92,54 @@ class VerticalStack: NSViewController {
         self.stack!.insertView(VC.view, at: self.stack!.arrangedSubviews.count - 1, in: .top)
         self.addChild(VC)
     }
+
+
+    @IBOutlet weak var leftButton: NSButton!
+    @IBOutlet weak var rightButton: NSButton!
+    
+   
+    @IBAction func handleRight(_ sender: NSButton) {
+        if hasParentLoaded {
+             VerticalSplit.instance!.handleCollapseParents(for : self)
+             hasParentLoaded = false
+        }
+        sender.isEnabled = false
+        self.leftButton.isEnabled = true 
+    }
+    
+    @IBAction func handleLeft(_ sender: NSButton) {
+        print(hasParentLoaded)
+        print(hasChildrenRemoved)
+        if !hasParentLoaded {
+            VerticalSplit.instance!.handleLoadParentProject(for: self)
+            self.rightButton.isEnabled = true
+            hasParentLoaded = true
+            if hasChildrenRemoved {
+                sender.isEnabled = false
+            }
+        } else if !hasChildrenRemoved {
+            VerticalSplit.instance!.removeChildren(current: self)
+            if self.selected != nil {
+                self.selected?.returnNormal()
+                self.selected?.pTitle.loadedChildren = false 
+            }
+            hasChildrenRemoved = true
+            sender.isEnabled = false
+        }
+    }
     
     
+    func unSelectCurrent(proj : projectStack) -> VerticalStack? {
+        if self.selected != nil  {
+            self.selected!.returnNormal()
+            self.selected = proj
+            return self
+        }
+        self.selected = proj
+        return nil
+    }
 }
+
 
 class flippedView : NSStackView {
     override var isFlipped: Bool  {

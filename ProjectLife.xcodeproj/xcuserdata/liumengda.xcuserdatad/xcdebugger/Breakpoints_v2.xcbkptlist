@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewController.swift"
-            timestampString = "586340623.130988"
+            timestampString = "586770245.8920799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
@@ -256,11 +256,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/Dal/Local Data/userInfo.swift"
-            timestampString = "586192338.9523261"
+            timestampString = "586875853.695637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "setUserInfoObject(id:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -272,7 +272,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewController.swift"
-            timestampString = "586340623.131402"
+            timestampString = "586770245.892275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -288,7 +288,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/ProjectPage/Sub/projectDetail.swift"
-            timestampString = "586699069.56485"
+            timestampString = "586875853.69575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
@@ -304,11 +304,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/ProjectPage/Sub/DetailSub/DetailContentScroll.swift"
-            timestampString = "586689704.602304"
+            timestampString = "586875853.695815"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/ViewControllers/ProjectPage/Sub/addButton.swift"
+            timestampString = "586875853.695871"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>

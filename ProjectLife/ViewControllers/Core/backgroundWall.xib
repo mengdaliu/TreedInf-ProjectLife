@@ -7,7 +7,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="backgroundWall" customModule="ProjectLife" customModuleProvider="target">
             <connections>
-                <outlet property="contentView" destination="KeE-Oq-2LG" id="AiW-il-QLG"/>
                 <outlet property="mainView" destination="KeE-Oq-2LG" id="VZl-lB-GKL"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
                 <outlet property="wallPic" destination="84A-ce-rFq" id="CPX-LK-Rft"/>

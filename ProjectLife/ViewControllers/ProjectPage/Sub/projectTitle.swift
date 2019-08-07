@@ -11,11 +11,11 @@ import Cocoa
 class projectTitle: NSViewController {
     
     var detail : projectDetail?
-
     var position : Int?
     var loadedDetail = false
     var loadedChildren = false
     
+    @IBOutlet weak var textField: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -26,81 +26,30 @@ class projectTitle: NSViewController {
         self.view.layer?.backgroundColor = color.cgColor
         self.view.layer?.masksToBounds = true
         self.view.layer?.cornerRadius = 10
+        
         T.font = .labelFont(ofSize: 20)
         T.alignment = .center
         T.drawsBackground = true
         T.backgroundColor = color
         T.textColor = .black
-        //T.textColor = .white
         T.focusRingType = .none
-      
-       //let double = NSClickGestureRecognizer.init(target: self, action: #selector(handleDoubleClick))
         
-        let triple  = NSClickGestureRecognizer.init(target: self, action: #selector(self.handleTriple))
-        triple.numberOfClicksRequired = 3
-        triple.isEnabled = true
-        triple.delaysSecondaryMouseButtonEvents = false
-        self.view.addGestureRecognizer(triple)
+        self.view.wantsRestingTouches = true
+        self.view.allowedTouchTypes = .indirect
         
-        
-        let double = NSClickGestureRecognizer.init(target: self, action: #selector(self.handleDouble))
-        double.numberOfClicksRequired = 2
-        double.isEnabled = true
-        self.view.addGestureRecognizer(double)
-        self.T.refusesFirstResponder = true
-
-        
-        
-        //let single = NSClickGestureRecognizer.init(target: self, action: #selector(handleSingle))
-        //single.numberOfClicksRequired = 1
-        //single.isEnabled = true
-       // self.view.addGestureRecognizer(single)
+        self.textField.isAutomaticTextCompletionEnabled = true
     }
     
-    
-    @objc func handleTriple(){
-        if !self.loadedChildren {
-            self.T.backgroundColor = ThemeColor.white
-            self.view.layer?.backgroundColor = ThemeColor.white.cgColor
-            self.view.layer?.cornerRadius = 0
-            VerticalSplit.instance!.handleAddSplitItem()
-            self.loadedChildren = true
-        }
-        self.loadedDetail = false
-        toggleDetail()
-    }
-
-    @objc func handleDouble(){
-        toggleDetail()
-    }
-    
-    func toggleDetail(){
-        var detailVC : projectDetail
-        if self.detail != nil {
-            detailVC = self.detail!
-        } else {
-           detailVC = projectDetail.init(nibName: "projectDetail", bundle: nil)
-            self.detail = detailVC
-        }
-        if !self.loadedDetail {
-            (self.parent as! projectStack).handleDropDownDetail(VC: detailVC)
-            
-            self.view.layer?.cornerRadius = 0
-            self.loadedDetail = true
-        } else {
-            (self.parent as! projectStack).handleCollapseDetail()
-            self.view.layer?.cornerRadius = 10
-            self.loadedDetail = false
-        }
+    override func viewDidAppear() {
+        self.view.window?.makeFirstResponder(self.textField)
     }
     
     @IBOutlet weak var T: RoundedTextFieldCell!
     
     @IBAction func handleTitleEnter(_ sender: NSTextField) {
-        sender.window?.makeFirstResponder(nil)
+        sender.window?.firstResponder?.resignFirstResponder()
+        (self.parent! as! projectStack).handleSetName(title : sender.stringValue)
     }
-    
-
     
     
     func setStringValue(string : String) {
@@ -136,7 +85,58 @@ class projectTitle: NSViewController {
         let color = NSColor.init(red: r, green: g, blue: b, alpha: 1)
         return color
     }
-
+    
+    override func scrollWheel(with event: NSEvent) {
+        if event.deltaX <= -3 {
+            if !self.loadedChildren {
+                self.T.backgroundColor = ThemeColor.white
+                self.view.layer?.backgroundColor = ThemeColor.white.cgColor
+                VerticalSplit.instance!.handleLoadChildren(for: self.parent as! projectStack)
+                self.loadedChildren = true
+            }
+            self.view.window?.makeFirstResponder(nil)
+        } else if event.deltaY >= 3 {
+            var detailVC : projectDetail
+            if self.detail != nil {
+                detailVC = self.detail!
+            } else {
+                detailVC = projectDetail.init(nibName: "projectDetail", bundle: nil)
+                self.detail = detailVC
+            }
+            if !self.loadedDetail {
+                (self.parent as! projectStack).handleDropDownDetail(VC: detailVC)
+                
+                self.view.layer?.cornerRadius = 0
+                self.loadedDetail = true
+            }
+        } else if event.deltaY <= -3 {
+            if self.loadedDetail {
+                (self.parent as! projectStack).handleCollapseDetail()
+                self.view.layer?.cornerRadius = 10
+                self.loadedDetail = false
+            }
+        }
+    }
+    
+    func returnNormal() {
+        self.view.layer?.cornerRadius = 10
+        let color = getRandomeColor()
+        self.view.layer?.backgroundColor = color.cgColor
+        self.T.backgroundColor = color
+    }
+    
+   
 }
 
 
+extension NSView {
+    
+    override open func rightMouseDown(with event: NSEvent) {
+        super.rightMouseDown(with: event)
+    }
+    
+    override open func scrollWheel(with event: NSEvent) {
+        super.scrollWheel(with: event)
+    }
+    
+}
