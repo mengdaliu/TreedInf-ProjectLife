@@ -43,7 +43,13 @@ class backgroundWall: NSViewController {
     }
     
     func handleSelectDays(){
-        
+        if DaysMaster.instance != nil {
+            mainView.contentView = DaysMaster.instance?.view
+        } else {
+            let daysVC = DaysMaster.init()
+            mainView.contentView = daysVC.view
+            self.addChild(daysVC)
+        }
     }
 
 }

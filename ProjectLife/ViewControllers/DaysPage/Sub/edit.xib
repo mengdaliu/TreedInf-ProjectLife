@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="edit" customModule="ProjectLife" customModuleProvider="target">
+            <connections>
+                <outlet property="comment" destination="Tbd-8X-yty" id="H9L-P8-ciF"/>
+                <outlet property="percentMark" destination="HBH-QE-2KW" id="Ljd-4o-VFq"/>
+                <outlet property="percentage" destination="TUU-OU-N2P" id="X2E-cB-K9B"/>
+                <outlet property="projArray" destination="CuI-pD-Omr" id="UWl-7d-QiY"/>
+                <outlet property="search" destination="g2l-f5-Rhs" id="Nvf-e9-oVn"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="77"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TUU-OU-N2P">
+                    <rect key="frame" x="185" y="50" width="31" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="100" drawsBackground="YES" id="sEc-b1-CeE">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HBH-QE-2KW">
+                    <rect key="frame" x="276" y="50" width="15" height="20"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="%" id="abH-OV-39F">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Tbd-8X-yty">
+                    <rect key="frame" x="5" y="5" width="358" height="40"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="gVG-9X-Iaz">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LYf-9r-0tH">
+                    <rect key="frame" x="288" y="44" width="81" height="32"/>
+                    <buttonCell key="cell" type="push" title="Create" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eIo-T3-2Rb">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <searchField wantsLayer="YES" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2l-f5-Rhs">
+                    <rect key="frame" x="5" y="52" width="172" height="22"/>
+                    <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="PeZ-85-o79">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <connections>
+                            <binding destination="CuI-pD-Omr" name="predicate" keyPath="filterPredicate" id="WfP-Gx-Lje">
+                                <dictionary key="options">
+                                    <string key="NSDisplayName">predicate</string>
+                                    <string key="NSPredicateFormat">keyPath contains $value</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </searchFieldCell>
+                    <connections>
+                        <action selector="enteredSearchTerm:" target="-2" id="aRt-ov-9md"/>
+                    </connections>
+                </searchField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Tbd-8X-yty" secondAttribute="bottom" constant="5" id="2oj-p3-ieR"/>
+                <constraint firstItem="TUU-OU-N2P" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="2yf-Wc-8Vc"/>
+                <constraint firstItem="HBH-QE-2KW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="7" id="3Px-aR-nOM"/>
+                <constraint firstItem="TUU-OU-N2P" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="6cL-R5-DSu"/>
+                <constraint firstItem="TUU-OU-N2P" firstAttribute="leading" secondItem="g2l-f5-Rhs" secondAttribute="trailing" constant="5" id="6wv-YM-ard"/>
+                <constraint firstItem="Tbd-8X-yty" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="5" id="7V6-Tc-Oto"/>
+                <constraint firstItem="g2l-f5-Rhs" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="5" id="9Rj-je-PvL"/>
+                <constraint firstItem="LYf-9r-0tH" firstAttribute="leading" secondItem="HBH-QE-2KW" secondAttribute="trailing" constant="5" id="Idd-vs-vsp"/>
+                <constraint firstItem="g2l-f5-Rhs" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="KTZ-T9-4VX"/>
+                <constraint firstAttribute="bottom" secondItem="HBH-QE-2KW" secondAttribute="bottom" constant="50" id="Q9a-Ds-Xob"/>
+                <constraint firstItem="Tbd-8X-yty" firstAttribute="top" secondItem="g2l-f5-Rhs" secondAttribute="bottom" constant="5" id="amf-ln-ATf"/>
+                <constraint firstAttribute="trailing" secondItem="LYf-9r-0tH" secondAttribute="trailing" constant="5" id="fTn-04-V4y"/>
+                <constraint firstAttribute="bottom" secondItem="g2l-f5-Rhs" secondAttribute="bottom" constant="50" id="jGY-IH-P94"/>
+                <constraint firstAttribute="trailing" secondItem="Tbd-8X-yty" secondAttribute="trailing" constant="5" id="qhn-kR-wbH"/>
+                <constraint firstItem="HBH-QE-2KW" firstAttribute="leading" secondItem="TUU-OU-N2P" secondAttribute="trailing" constant="1" id="tLB-xy-B2s"/>
+                <constraint firstItem="LYf-9r-0tH" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="vAA-5D-CqJ"/>
+                <constraint firstAttribute="bottom" secondItem="TUU-OU-N2P" secondAttribute="bottom" constant="50" id="vwN-dy-5OV"/>
+            </constraints>
+            <point key="canvasLocation" x="260" y="261"/>
+        </customView>
+        <arrayController id="CuI-pD-Omr"/>
+    </objects>
+</document>

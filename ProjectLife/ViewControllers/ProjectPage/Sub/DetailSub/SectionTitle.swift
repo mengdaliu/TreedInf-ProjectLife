@@ -62,5 +62,4 @@ class SectionTitle: NSViewController {
     func setStack(stack : flippedView) {
         self.stack = stack
     }
-    
 }

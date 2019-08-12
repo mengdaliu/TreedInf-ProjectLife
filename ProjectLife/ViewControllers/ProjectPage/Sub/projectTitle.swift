@@ -22,7 +22,7 @@ class projectTitle: NSViewController {
         NSLayoutConstraint.init(item: self.T!, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 50).isActive = true
         //NSLayoutConstraint.init(item: self.T, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: -50).isActive = true
         
-        let color = getRandomeColor()
+        let color = getRandomColorTwo()
         self.view.layer?.backgroundColor = color.cgColor
         self.view.layer?.masksToBounds = true
         self.view.layer?.cornerRadius = 10
@@ -62,7 +62,7 @@ class projectTitle: NSViewController {
     
     func getRandomeColor() -> NSColor {
         var diff : Int
-        let mini = 190
+        let mini = 200
         let maxi = 230
         self.view.wantsLayer = true
         let R = Int.random(in: mini...maxi)
@@ -86,12 +86,27 @@ class projectTitle: NSViewController {
         return color
     }
     
+    func getRandomColorTwo() -> NSColor {
+        let mini = 211
+        let maxi = 216
+        self.view.wantsLayer = true
+        let R = Int.random(in: mini...maxi)
+        let G = Int.random(in: mini...maxi) - 1
+        let B = 634 - R - G
+        let r = CGFloat(R)/CGFloat(256)
+        let g = CGFloat(G)/CGFloat(256)
+        let b = CGFloat(B)/CGFloat(256)
+        let color = NSColor.init(red: r, green: g, blue: b, alpha: 1)
+        return color
+    }
+    
     override func scrollWheel(with event: NSEvent) {
         if event.deltaX <= -3 {
             if !self.loadedChildren {
                 self.T.backgroundColor = ThemeColor.white
                 self.view.layer?.backgroundColor = ThemeColor.white.cgColor
                 VerticalSplit.instance!.handleLoadChildren(for: self.parent as! projectStack)
+                self.T.font = .labelFont(ofSize: 21)
                 self.loadedChildren = true
             }
             self.view.window?.makeFirstResponder(nil)
@@ -120,9 +135,10 @@ class projectTitle: NSViewController {
     
     func returnNormal() {
         self.view.layer?.cornerRadius = 10
-        let color = getRandomeColor()
+        let color = getRandomColorTwo()
         self.view.layer?.backgroundColor = color.cgColor
         self.T.backgroundColor = color
+        self.T.font = .labelFont(ofSize: 20)
     }
     
    

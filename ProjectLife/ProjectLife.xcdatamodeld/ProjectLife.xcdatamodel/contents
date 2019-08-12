@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Day" representedClassName="Day" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="dones" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Done" syncable="YES"/>
+        <relationship name="plans" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Plan" syncable="YES"/>
+    </entity>
+    <entity name="Done" representedClassName="Done" syncable="YES" codeGenerationType="class">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="percentage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Plan" representedClassName="Plan" syncable="YES" codeGenerationType="class">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="percentage" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" syncable="YES"/>
+    </entity>
     <entity name="Project" representedClassName="Project" syncable="YES" codeGenerationType="class">
         <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,8 +37,11 @@
         <attribute name="startTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ProjectHistory" positionX="97.56640625" positionY="101.20703125" width="128" height="90"/>
+        <element name="Day" positionX="-83.20703125" positionY="-66.44140625" width="128" height="88"/>
+        <element name="Done" positionX="-51.03515625" positionY="67.44921875" width="128" height="90"/>
+        <element name="Plan" positionX="66.0390625" positionY="-50.03515625" width="128" height="90"/>
         <element name="Project" positionX="-201.3671875" positionY="95.921875" width="128" height="133"/>
-        <element name="UserInfo" positionX="-274.29296875" positionY="-85.76953125" width="128" height="133"/>
+        <element name="ProjectHistory" positionX="97.56640625" positionY="101.20703125" width="128" height="90"/>
+        <element name="UserInfo" positionX="-225.68359375" positionY="-70.65625" width="128" height="133"/>
     </elements>
 </model>

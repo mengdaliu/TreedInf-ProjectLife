@@ -23,7 +23,7 @@ class VerticalStack: NSViewController {
     var parentProj : Project?
     var selected : projectStack?
     var hasParentLoaded = true
-    var hasChildrenRemoved = false
+    var hasChildrenRemoved = true
     
     
     @IBOutlet weak var test: NSButton!
@@ -75,6 +75,17 @@ class VerticalStack: NSViewController {
     override func viewDidAppear() {
         super.viewDidAppear()
         parentName.stringValue = self.parentProj?.title ?? ""
+        if self.hasParentLoaded {
+            self.rightButton.isEnabled = true
+        } else {
+            self.rightButton.isEnabled = false
+        }
+        
+        if !self.hasParentLoaded || !self.hasChildrenRemoved {
+            self.leftButton.isEnabled = true
+        } else {
+            self.leftButton.isEnabled = false 
+        }
     }
     
 
@@ -108,8 +119,6 @@ class VerticalStack: NSViewController {
     }
     
     @IBAction func handleLeft(_ sender: NSButton) {
-        print(hasParentLoaded)
-        print(hasChildrenRemoved)
         if !hasParentLoaded {
             VerticalSplit.instance!.handleLoadParentProject(for: self)
             self.rightButton.isEnabled = true

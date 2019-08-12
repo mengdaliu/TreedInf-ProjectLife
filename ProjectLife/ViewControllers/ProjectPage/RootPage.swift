@@ -35,7 +35,7 @@ class RootPage: NSViewController {
         let nickName = dalGlobal.userInfo?.nickname
         let title = nickName! + "'s Project Life"
         verticalStack.addProjectItem(VC: ProjectLife)
-        ProjectLife.pTitle.setStringValue(string: title)
+        ProjectLife.setTitle(title: title)
         ProjectLife.p = dalGlobal.projectLife!
         
         RootPage.instance = self 

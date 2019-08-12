@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="add" customModule="ProjectLife" customModuleProvider="target">
+            <connections>
+                <outlet property="addButton" destination="oxr-gY-rKC" id="sZp-3L-QaV"/>
+                <outlet property="button" destination="oxr-gY-rKC" id="ggi-vP-Ag8"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="94" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oxr-gY-rKC" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                    <rect key="frame" x="-6" y="-7" width="106" height="32"/>
+                    <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gVf-Ze-pa3">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="add:" target="-2" id="GvS-uP-NyP"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="oxr-gY-rKC" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="4AR-mf-9y7"/>
+                <constraint firstAttribute="bottom" secondItem="oxr-gY-rKC" secondAttribute="bottom" id="CNd-bg-hDI"/>
+                <constraint firstItem="oxr-gY-rKC" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="fMk-VF-QBj"/>
+                <constraint firstAttribute="trailing" secondItem="oxr-gY-rKC" secondAttribute="trailing" id="rp1-qX-D7V"/>
+            </constraints>
+            <point key="canvasLocation" x="-36" y="148"/>
+        </customView>
+    </objects>
+</document>

@@ -25,21 +25,21 @@ class Enter: NSViewController {
             time = "Good Morning, "
             if hour == 8 {
                 time = "Don't forget to grab breakfast, "
-            } else if minute == 0 {
+            } else if minute == 60 {
                 time = "What a fresh morning, "
             }
         } else if 11 < hour && 17 >= hour {
             time = "Good Afternoon, "
             if hour == 12 {
                 time = "It's lunch time, "
-            }else if minute == 0 {
+            }else if minute == 60 {
                 time = "What a lovely afternoon, "
             }
         } else if 17 < hour && 23 >= hour {
             time = "Good Evening, "
             if hour == 18 {
                 time = "I hope you enjoy your dinner, "
-            } else if minute == 0 {
+            } else if minute == 60 {
                 time = "Look up at the stars, "
             }
         } else {

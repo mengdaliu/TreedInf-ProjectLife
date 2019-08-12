@@ -40,6 +40,12 @@ class WallPaper {
     static var brownPaper = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1538645731800-4640c639bba7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", w!, h! - 33) as String)!)
     static var vases = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1503933190776-da31c7700f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", w!, h! - 33) as String)!)
      static var door = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1481277542470-605612bd2d61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", w!, h! - 33) as String)!)
+    
+    static var wood = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/32/Mc8kW4x9Q3aRR3RkP5Im_IMG_4417.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", w!, h! - 33) as String)!)
+    
+    static var eve = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1486691541334-8cbe8b4ea413?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9", w!, h! - 33) as String)!)
+    
+    static var dog = NSImage.init(contentsOf: URL( string: NSString.init(format: "%@?fm=jpg&q=75&w=%f&h=%f&fit=crop", "https://images.unsplash.com/photo-1514895094592-76b5fb7667ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2189&q=80", w!, h! - 33) as String)!)
 }
 
 
