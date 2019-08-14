@@ -151,16 +151,40 @@ class VerticalStack: NSViewController {
     }
     
     func handleDelete(item : projectStack) {
-        project.delete(proj: item.p)
         item.removeFromParent()
         self.stack?.removeView(item.view)
+        project.delete(proj: item.p)
     }
     
     func handleMoveUp(item : projectStack){
-        
+        var i = 0
+        print("here")
+        for ps in self.stack!.arrangedSubviews {
+            if ps == item.view {
+                //i is the index of item
+                if i - 1 >= 0 {
+                    self.stack?.removeView(item.view)
+                    self.stack?.insertView(item.view, at: i - 1, in: .top)
+                }
+                
+                break
+            }
+            i += 1
+        }
     }
     
     func handleMoveDown(item : projectStack) {
+        var i = 0
+        for ps in self.stack!.arrangedSubviews {
+            if ps == item.view {
+                if !(i >= self.stack!.arrangedSubviews.count - 2) {
+                    self.stack?.removeView(item.view)
+                    self.stack?.insertView(item.view, at: i + 1, in: .top)
+                }
+                break
+            }
+            i += 1
+        }
         
     }
 }

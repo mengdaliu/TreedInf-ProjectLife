@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="469" height="17"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="A24-Fp-W3j">
+                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="A24-Fp-W3j" customClass="projectTextField" customModule="ProjectLife" customModuleProvider="target">
                     <rect key="frame" x="10" y="0.0" width="449" height="17"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="center" drawsBackground="YES" id="YU8-t4-QKs" customClass="RoundedTextFieldCell" customModule="ProjectLife" customModuleProvider="target">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -36,7 +36,7 @@
                 <constraint firstItem="A24-Fp-W3j" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="RxT-0P-LVc"/>
                 <constraint firstAttribute="trailing" secondItem="A24-Fp-W3j" secondAttribute="trailing" constant="10" id="nKT-Ge-SQj"/>
             </constraints>
-            <point key="canvasLocation" x="-498" y="182"/>
+            <point key="canvasLocation" x="-547" y="181"/>
         </customView>
     </objects>
 </document>

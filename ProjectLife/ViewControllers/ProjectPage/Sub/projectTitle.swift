@@ -15,10 +15,11 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
     var loadedDetail = false
     var loadedChildren = false
     var shiftPressed = false
-    var commandPressed = false
     var stopScroll = false
     
-    @IBOutlet weak var textField: NSTextField!
+    @IBOutlet weak var textField: projectTextField!
+    @IBOutlet var trivialMenu: NSMenu!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -43,6 +44,13 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
         
         self.textField.isAutomaticTextCompletionEnabled = true
         self.textField.delegate = self
+        self.textField.VC = self
+        
+    }
+    
+    func handleSingle(){
+        self.view.window!.makeFirstResponder(self.textField)
+        moveHelperGlobal.projectTitleListening = self
     }
     
     override func viewDidAppear() {
@@ -55,6 +63,9 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
         sender.window?.makeFirstResponder(nil)
         (self.parent! as! projectStack).handleSetName(title : sender.stringValue)
     }
+    
+    
+    
     
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
@@ -73,10 +84,13 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
                     detailVC = projectDetail.init(nibName: "projectDetail", bundle: nil)
                     self.detail = detailVC
                 }
+                self.view.layer?.cornerRadius = 0
+                self.loadedDetail = true
                 (self.parent as! projectStack).handleDropDownDetail(VC: detailVC)
                 detailVC.handleExpandOverview()
             }
             return true
+            
         }  else if (commandSelector == #selector(NSResponder.insertTab(_:))) {
             
             if !self.loadedChildren {
@@ -151,7 +165,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
             if !self.loadedChildren {
                 self.T.backgroundColor = ThemeColor.white
                 self.view.layer?.backgroundColor = ThemeColor.white.cgColor
-                VerticalSplit.instance!.handleLoadChildren(for: self.parent as! projectStack)
+                let _ = VerticalSplit.instance!.handleLoadChildren(for: self.parent as! projectStack)
                 self.T.font = .labelFont(ofSize: 21)
                 self.loadedChildren = true
             }
@@ -185,6 +199,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
                 (self.parent as! projectStack).handleCollapseDetail()
                 self.view.layer?.cornerRadius = 10
                 self.loadedDetail = false
+                (self.parent as! projectStack).removeChild(at: 1)
                 let temp = self
                 let timer = customTimer.init(seconds: 10, useconds: nil, completionHandler: {
                     temp.stopScroll = false
@@ -215,22 +230,38 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
         }
         
         if event.modifierFlags.contains(.command) {
-            self.commandPressed = true
-        } else {
-            self.commandPressed = false
-        }
-    }
-    
-    override func keyUp(with event: NSEvent) {
-        super.keyUp(with: event)
-        if event.keyCode == 126 {
-            //up
-        } else if event.keyCode == 123 {
-            //left
-        } else if event.keyCode == 124 {
-            //down
-        } else if event.keyCode == 125 {
-            //right
+            NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown, handler: { (event) -> NSEvent? in
+                if event.modifierFlags.contains(.command) && moveHelperGlobal.projectTitleListening == self {
+                    if (event.keyCode == 126){
+                        (self.parent!.parent as! VerticalStack).handleMoveUp(item : self.parent! as! projectStack)
+                        project.moveUp(proj: (self.parent as! projectStack).p)
+                        return nil
+                    } else if (event.keyCode == 123) { //left
+                        (self.parent!.parent!.parent! as! VerticalSplit).handleMoveToParentLevel(proj: self.parent as! projectStack)
+                        project.moveToParentLevel(proj: (self.parent as! projectStack).p)
+                        return nil
+                    } else if (event.keyCode == 125) { //down
+                        (self.parent!.parent as! VerticalStack).handleMoveDown(item: self.parent! as! projectStack)
+                        project.moveDown(proj: (self.parent as! projectStack).p)
+                        return nil
+                    } else if (event.keyCode == 124) { //right
+                        if (self.parent!.parent as! VerticalStack).selected != nil && (self.parent!.parent as! VerticalStack).selected != self.parent {
+                             project.move(proj: (self.parent as! projectStack).p, toChildLevelOf: (self.parent!.parent as! VerticalStack).selected!.p)
+                             print((self.parent!.parent as! VerticalStack).selected)
+                             (self.parent!.parent!.parent! as! VerticalSplit).handleMove(proj: (self.parent as! projectStack), toChildLevelOf: (self.parent!.parent as! VerticalStack).selected!)
+                            print((self.parent as! projectStack).p)
+
+                            print((self.parent!.parent as! VerticalStack).selected)
+                           
+                        }
+                        return nil
+                    }
+                    
+                    
+                    
+                }
+                return event
+            })
         }
     }
 }
@@ -254,11 +285,13 @@ extension NSView {
         super.scrollWheel(with: event)
     }
     
+    override open func flagsChanged(with event: NSEvent) {
+        super.flagsChanged(with: event)
+    }
+    
     override open func keyUp(with event: NSEvent) {
         super.keyUp(with: event)
     }
     
-    override open func flagsChanged(with event: NSEvent) {
-        super.flagsChanged(with: event)
-    }
+   
 }

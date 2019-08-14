@@ -51,6 +51,7 @@
 		9F622784230055340041B60B /* add.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F622782230055340041B60B /* add.xib */; };
 		9F622787230055540041B60B /* edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F622785230055540041B60B /* edit.swift */; };
 		9F622788230055540041B60B /* edit.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F622786230055540041B60B /* edit.xib */; };
+		9F6C6E1123042E3900D1D665 /* moveHelperGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6C6E1023042E3900D1D665 /* moveHelperGlobal.swift */; };
 		9F7D3C1522E8AAB800F53A66 /* lineDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7D3C1422E8AAB800F53A66 /* lineDrawer.swift */; };
 		9F819EEB22F1B61C00CC882A /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F819EEA22F1B61C00CC882A /* RoundedTextField.swift */; };
 		9F9F263B22F440380053463B /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F263922F440380053463B /* SectionTitle.swift */; };
@@ -159,6 +160,7 @@
 		9F622782230055340041B60B /* add.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = add.xib; sourceTree = "<group>"; };
 		9F622785230055540041B60B /* edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit.swift; sourceTree = "<group>"; };
 		9F622786230055540041B60B /* edit.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = edit.xib; sourceTree = "<group>"; };
+		9F6C6E1023042E3900D1D665 /* moveHelperGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moveHelperGlobal.swift; sourceTree = "<group>"; };
 		9F7D3C1422E8AAB800F53A66 /* lineDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lineDrawer.swift; sourceTree = "<group>"; };
 		9F819EEA22F1B61C00CC882A /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		9F9F263922F440380053463B /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				9F62274822F83FDD0041B60B /* projectStack.swift */,
 				9F62274922F83FDD0041B60B /* projectStack.xib */,
+				9F6C6E1023042E3900D1D665 /* moveHelperGlobal.swift */,
 				9F09BC1622F150E6006D6A7F /* projectTitle.swift */,
 				9F09BC1722F150E6006D6A7F /* projectTitle.xib */,
 				9F9F265522F45F720053463B /* projectDetail.swift */,
@@ -714,6 +717,7 @@
 				9FC228B022CB339400D8871D /* ProjectLife.xcdatamodeld in Sources */,
 				9FC228AB22CB339400D8871D /* AppDelegate.swift in Sources */,
 				9F62275222F930D00041B60B /* project.swift in Sources */,
+				9F6C6E1123042E3900D1D665 /* moveHelperGlobal.swift in Sources */,
 				9F09BC1322F14834006D6A7F /* RootPage.swift in Sources */,
 				9F622783230055340041B60B /* add.swift in Sources */,
 				9F819EEB22F1B61C00CC882A /* RoundedTextField.swift in Sources */,

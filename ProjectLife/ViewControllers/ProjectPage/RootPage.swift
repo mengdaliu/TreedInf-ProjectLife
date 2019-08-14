@@ -37,7 +37,6 @@ class RootPage: NSViewController {
         verticalStack.addProjectItem(VC: ProjectLife)
         ProjectLife.setTitle(title: title)
         ProjectLife.p = dalGlobal.projectLife!
-        ProjectLife.p.subProjects = nil
         RootPage.instance = self 
     }
     

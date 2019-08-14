@@ -15,7 +15,7 @@ class projectStack: NSViewController {
     var pDetail : projectDetail!
     var p : Project!
     var firstTime = true
-    var childrenVC : NSViewController?
+    var childrenVC : VerticalStack?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -29,21 +29,10 @@ class project {
         } catch {
             fatalError("Failure to fetch from context: \(error)")
         }
-        let arr = NSArray.init()
-        dalGlobal.projectArray = arr
-        treeTraversal(from: dalGlobal.projectLife!)
+        //treeTraversal(from: dalGlobal.projectLife!)
     }
     
-    static func treeTraversal(from proj : Project) {
-        if proj.title != nil && proj.title != "" {
-            dalGlobal.projectArray = NSArray.init(array: dalGlobal.projectArray!.adding(proj))
-        }
-        if proj.subProjects != nil {
-            for child in Array(proj.subProjects!) {
-                treeTraversal(from: child as! Project)
-            }
-        }
-    }
+    
     
     static func createProjectLifeObject(){
         let projectLife = NSEntityDescription.insertNewObject(forEntityName: "Project", into: context) as! Project
@@ -68,7 +57,6 @@ class project {
         } catch {
             fatalError("Failure to save context: \(error)")
         }
-         dalGlobal.projectArray = NSArray.init(array: dalGlobal.projectArray!.adding(project))
         return project
     }
     
@@ -97,6 +85,7 @@ class project {
     
     
     static func delete(proj : Project) {
+    
         proj.parent!.removeFromSubProjects(proj)
         
         do {
@@ -134,18 +123,23 @@ class project {
     static func moveUp(proj : Project) {
         var front : [Project] = []
         var tail : [Project] = []
-        var found = true
+        var found = false
         for p in (Array(proj.parent!.subProjects ?? []) as! [Project]) {
-            if found {
+            if found { //found之后
                  tail.append(p)
-            } else if p != proj {
+            } else if p != proj { //found之前
                  front.append(p)
-            } else {
-                let last = front[front.count - 1]
-                front.remove(at: front.count - 1)
-                tail.append(last)
-                front.append(p)
-                found = true
+            } else { //found当时
+                if front.count >= 1 {
+                    let last = front[front.count - 1]
+                    front.remove(at: front.count - 1)
+                    tail.append(last)
+                    front.append(p)
+                    found = true
+                } else {
+                    front.append(p)
+                    found = true
+                }
             }
         }
         front.append(contentsOf: tail)
@@ -160,16 +154,14 @@ class project {
     static func moveDown(proj : Project) {
         var new : [Project] = []
         var flip = false
-        var flipped = false
         for p in (Array(proj.parent!.subProjects ?? []) as! [Project]) {
-            if flipped || (!flip && p != proj) {
-                new.append(p)
-            } else if flip {
+            if flip {
                 flip = false
                 new.remove(at: new.count - 1)
                 new.append(p)
                 new.append(proj)
-                flipped = true
+            } else if proj != p {
+                new.append(p)
             } else {
                 new.append(p)
                 flip = true
@@ -186,11 +178,29 @@ class project {
     }
     
     static func moveToParentLevel(proj : Project) {
+        let parent = proj.parent
+        parent!.removeFromSubProjects(proj)
+        let grandParent = parent!.parent
+        grandParent?.addToSubProjects(proj)
+        
+        do {
+            try context.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
         
     }
     
-    static func move(proj : Project, toChildLevelOf: Project) {
+    static func move(proj : Project, toChildLevelOf newParent: Project) {
+        let parent = proj.parent
+        parent!.removeFromSubProjects(proj)
+        newParent.addToSubProjects(proj)
         
+        do {
+            try context.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
     }
 }
 

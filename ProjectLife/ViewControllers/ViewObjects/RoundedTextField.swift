@@ -29,6 +29,7 @@ class RoundedTextFieldCell: NSTextFieldCell {
     override func resetCursorRect(_ cellFrame: NSRect, in controlView: NSView) {
         NSCursor.arrow.set()
     }
+    
     func adjustedFrame(toVerticallyCenterText rect: NSRect) -> NSRect {
         // super would normally draw text at the top of the cell
         var titleRect = super.titleRect(forBounds: rect)
@@ -53,6 +54,13 @@ class RoundedTextFieldCell: NSTextFieldCell {
     }
 }
 
+class projectTextField : NSTextField {
+    var VC : projectTitle?
+    
+    override open func mouseDown(with event: NSEvent) {
+        VC!.handleSingle()
+    }
+}
 
 
 

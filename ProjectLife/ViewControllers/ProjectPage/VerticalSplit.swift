@@ -109,11 +109,31 @@ class VerticalSplit: NSSplitViewController {
     }
     
     func handleMoveToParentLevel(proj : projectStack) {
+        (proj.parent as! VerticalStack).stack!.removeView(proj.view)
+        var i = 0
+        var last : NSViewController?
+        var parent : VerticalStack
+        for item in self.splitViewItems {
+            if item.viewController == proj.parent {
+                if last == nil {
+                    handleLoadParentProject(for: item.viewController as! VerticalStack)
+                    parent = (self.splitViewItems[0].viewController as! VerticalStack)
+                } else {
+                    parent = (self.splitViewItems[i - 1].viewController as! VerticalStack)
+                }
+                parent.addProjectItem(VC: proj)
+                break
+            }
+            i += 1
+            print(item.viewController)
+            last = item.viewController 
+        }
         
     }
     
-    func handleMoveToChildLevel(proj : projectStack) {
-        
+    func handleMove(proj : projectStack, toChildLevelOf otherProj : projectStack) {
+        (proj.parent as! VerticalStack).stack!.removeView(proj.view)
+        otherProj.childrenVC!.addProjectItem(VC: proj)
     }
     
     func removeChildren(current : VerticalStack?) {

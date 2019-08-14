@@ -38,13 +38,6 @@ class edit: NSViewController, NSSearchFieldDelegate {
     }
     
     @IBAction func enteredSearchTerm(_ sender: NSSearchField) {
-        let term = sender.stringValue
-        let predicate = NSPredicate.init(format: "title contains[cd] %@", term)
-        let new = dalGlobal.projectArray?.filtered(using: predicate) as! [Project]?
-        for p in new ?? [] {
-            let item = NSMenuItem.init(title: p.title ?? "", action: nil, keyEquivalent: "")
-            sender.searchMenuTemplate?.addItem(item)
-        }
     }
 
     func load(from plan : Plan) {
