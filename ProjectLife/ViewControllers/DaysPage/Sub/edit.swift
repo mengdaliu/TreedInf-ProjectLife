@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class edit: NSViewController {
+class edit: NSViewController, NSSearchFieldDelegate {
     @IBOutlet weak var search: NSSearchField!
     @IBOutlet weak var percentage: NSTextField!
     @IBOutlet weak var percentMark: NSTextField!
@@ -29,16 +29,37 @@ class edit: NSViewController {
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = .init(gray: 0.9, alpha: 1)
         NSLayoutConstraint.init(item: percentage, attribute: .width, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 30).isActive = true
+        search.sendsWholeSearchString = true
+        search.sendsSearchStringImmediately = true
+        search.searchMenuTemplate = .init()
+        search.menu = .init()
+        search.delegate = self
+        
     }
     
     @IBAction func enteredSearchTerm(_ sender: NSSearchField) {
+        let term = sender.stringValue
+        let predicate = NSPredicate.init(format: "title contains[cd] %@", term)
+        let new = dalGlobal.projectArray?.filtered(using: predicate) as! [Project]?
+        for p in new ?? [] {
+            let item = NSMenuItem.init(title: p.title ?? "", action: nil, keyEquivalent: "")
+            sender.searchMenuTemplate?.addItem(item)
+        }
     }
-    
+
     func load(from plan : Plan) {
         
     }
     
     func load(from done : Done) {
+        
+    }
+    
+    func searchFieldDidStartSearching(_ sender: NSSearchField) {
+       
+    }
+    
+    func searchFieldDidEndSearching(_ sender: NSSearchField) {
         
     }
 }

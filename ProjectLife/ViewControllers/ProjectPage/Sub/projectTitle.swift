@@ -8,12 +8,15 @@
 
 import Cocoa
 
-class projectTitle: NSViewController {
+class projectTitle: NSViewController, NSTextFieldDelegate {
     
     var detail : projectDetail?
     var position : Int?
     var loadedDetail = false
     var loadedChildren = false
+    var shiftPressed = false
+    var commandPressed = false
+    var stopScroll = false
     
     @IBOutlet weak var textField: NSTextField!
     override func viewDidLoad() {
@@ -33,11 +36,13 @@ class projectTitle: NSViewController {
         T.backgroundColor = color
         T.textColor = .black
         T.focusRingType = .none
+
         
         self.view.wantsRestingTouches = true
         self.view.allowedTouchTypes = .indirect
         
         self.textField.isAutomaticTextCompletionEnabled = true
+        self.textField.delegate = self
     }
     
     override func viewDidAppear() {
@@ -47,8 +52,49 @@ class projectTitle: NSViewController {
     @IBOutlet weak var T: RoundedTextFieldCell!
     
     @IBAction func handleTitleEnter(_ sender: NSTextField) {
-        sender.window?.firstResponder?.resignFirstResponder()
+        sender.window?.makeFirstResponder(nil)
         (self.parent! as! projectStack).handleSetName(title : sender.stringValue)
+    }
+    
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
+            // Do something against ENTER key
+            if !self.shiftPressed {
+                if ((self.parent as! projectStack).p.subProjects?.count == 0 && self.T!.stringValue == "") {
+                    (self.parent!.parent as! VerticalStack).handleDelete(item: self.parent as! projectStack)
+                } else {
+                    (self.parent?.parent as! VerticalStack).addProjectItem()
+                }
+            } else {
+                var detailVC : projectDetail
+                if self.detail != nil {
+                    detailVC = self.detail!
+                } else {
+                    detailVC = projectDetail.init(nibName: "projectDetail", bundle: nil)
+                    self.detail = detailVC
+                }
+                (self.parent as! projectStack).handleDropDownDetail(VC: detailVC)
+                detailVC.handleExpandOverview()
+            }
+            return true
+        }  else if (commandSelector == #selector(NSResponder.insertTab(_:))) {
+            
+            if !self.loadedChildren {
+                self.T.backgroundColor = ThemeColor.white
+                self.view.layer?.backgroundColor = ThemeColor.white.cgColor
+                self.T.font = .labelFont(ofSize: 21)
+                let sub = VerticalSplit.instance!.handleLoadChildren(for: self.parent as! projectStack)
+                self.loadedChildren = true
+                sub.addProjectItem()
+            } else {
+                let sub = (self.parent as! projectStack).childrenVC!
+                (sub as! VerticalStack).addProjectItem()
+            }
+            return true
+        }
+    
+        // return true if the action was handled; otherwise false
+        return false
     }
     
     
@@ -123,12 +169,31 @@ class projectTitle: NSViewController {
                 
                 self.view.layer?.cornerRadius = 0
                 self.loadedDetail = true
+                self.stopScroll = true
+                let temp = self
+                let timer = customTimer.init(seconds: 10, useconds: nil, completionHandler: {
+                    temp.stopScroll = false
+                })
+                DispatchQueue.global(qos: .background).async {
+                    timer.start()
+                }
+            } else if !self.stopScroll {
+                super.scrollWheel(with: event)
             }
         } else if event.deltaY <= -3 {
             if self.loadedDetail {
                 (self.parent as! projectStack).handleCollapseDetail()
                 self.view.layer?.cornerRadius = 10
                 self.loadedDetail = false
+                let temp = self
+                let timer = customTimer.init(seconds: 10, useconds: nil, completionHandler: {
+                    temp.stopScroll = false
+                })
+                DispatchQueue.global(qos: .background).async {
+                    timer.start()
+                }
+            } else if !self.stopScroll {
+                super.scrollWheel(with: event)
             }
         }
     }
@@ -141,11 +206,45 @@ class projectTitle: NSViewController {
         self.T.font = .labelFont(ofSize: 20)
     }
     
-   
+    
+    override func flagsChanged(with event: NSEvent) {
+        if event.modifierFlags.contains(.shift) {
+            self.shiftPressed = true
+        } else {
+            self.shiftPressed = false
+        }
+        
+        if event.modifierFlags.contains(.command) {
+            self.commandPressed = true
+        } else {
+            self.commandPressed = false
+        }
+    }
+    
+    override func keyUp(with event: NSEvent) {
+        super.keyUp(with: event)
+        if event.keyCode == 126 {
+            //up
+        } else if event.keyCode == 123 {
+            //left
+        } else if event.keyCode == 124 {
+            //down
+        } else if event.keyCode == 125 {
+            //right
+        }
+    }
 }
 
 
 extension NSView {
+    override open var acceptsFirstResponder: Bool {
+       return true
+    }
+    
+    override open func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
     
     override open func rightMouseDown(with event: NSEvent) {
         super.rightMouseDown(with: event)
@@ -155,4 +254,11 @@ extension NSView {
         super.scrollWheel(with: event)
     }
     
+    override open func keyUp(with event: NSEvent) {
+        super.keyUp(with: event)
+    }
+    
+    override open func flagsChanged(with event: NSEvent) {
+        super.flagsChanged(with: event)
+    }
 }

@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="VerticalStack" customModule="ProjectLife" customModuleProvider="target">
             <connections>
+                <outlet property="clipp" destination="Hsw-gx-tss" id="nFg-to-3KW"/>
                 <outlet property="leftButton" destination="PbG-Vk-dYZ" id="v4U-Rw-tBx"/>
                 <outlet property="parentName" destination="zyq-fN-czW" id="8kF-Gt-nY0"/>
                 <outlet property="rightButton" destination="e4S-FD-ixW" id="j9Q-2l-4kZ"/>

@@ -91,8 +91,22 @@
                 <constraint firstItem="LYf-9r-0tH" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="vAA-5D-CqJ"/>
                 <constraint firstAttribute="bottom" secondItem="TUU-OU-N2P" secondAttribute="bottom" constant="50" id="vwN-dy-5OV"/>
             </constraints>
-            <point key="canvasLocation" x="260" y="261"/>
+            <point key="canvasLocation" x="48" y="238"/>
         </customView>
         <arrayController id="CuI-pD-Omr"/>
+        <menu id="oYV-ui-Jeb">
+            <items>
+                <menuItem title="Item 1" id="mHx-NZ-R49">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item 2" id="gOE-rF-7SR">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item 3" id="qqY-8F-N3G">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-79" y="119"/>
+        </menu>
     </objects>
 </document>

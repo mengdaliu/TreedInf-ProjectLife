@@ -43,6 +43,7 @@ class SectionTitle: NSViewController {
                     detail = DetailContentScroll.init(nibName: "DetailContentScroll", bundle: nil)
                 }
                 self.stack!.addArrangedSubview(detail.view)
+                self.parent?.addChild(detail)
                 self.stack!.setCustomSpacing(0, after: self.view)
                 self.detail = detail
                 self.expanded = true
@@ -53,6 +54,12 @@ class SectionTitle: NSViewController {
             self.stack!.removeView(self.detail!.view)
             self.expanded = false
         }
+    }
+    
+    func expandAndEditOverview(){
+        clickDisclosure(self.ClosureTriangle)
+        self.ClosureTriangle.state = .on
+        self.view.window?.makeFirstResponder((self.detail as! DetailContentScroll).textField)
     }
     
     func setTitle(title : String) {

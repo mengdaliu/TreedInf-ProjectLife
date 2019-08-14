@@ -11,6 +11,7 @@ import Cocoa
 class projectDetail: NSViewController {
     var smallConstraint : NSLayoutConstraint?
     var largeConstraint : NSLayoutConstraint?
+    var overview : SectionTitle?
     @IBOutlet weak var Stack: flippedView!
     
     override func viewDidLoad() {
@@ -33,6 +34,7 @@ class projectDetail: NSViewController {
         Stack.addArrangedSubview(Section.view)
         Section.setTitle(title: "Overview")
         Section.setStack(stack: Stack)
+        overview = Section
         self.addChild(Section)
         //self.presentAsSheet(description)
       
@@ -53,5 +55,9 @@ class projectDetail: NSViewController {
             largeConstraint?.isActive = false
             smallConstraint?.isActive = true
         }
+    }
+    
+    func handleExpandOverview(){
+        self.overview!.expandAndEditOverview()
     }
 }

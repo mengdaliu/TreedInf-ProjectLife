@@ -38,7 +38,7 @@ class VerticalSplit: NSSplitViewController {
     }
     
     
-    func handleLoadChildren(for proj : projectStack) {
+    func handleLoadChildren(for proj : projectStack) -> VerticalStack {
         let current = (proj.parent as! VerticalStack).unSelectCurrent(proj : proj)
         removeChildren(current: current)
         
@@ -46,7 +46,7 @@ class VerticalSplit: NSSplitViewController {
         var item: NSSplitViewItem
         
         newStackVC = VerticalStack.init(nibName: "VerticalStack", bundle: nil)
-        //proj.childrenVC = newStackVC
+        proj.childrenVC = newStackVC
         newStackVC.parentProj = proj.p
         newStackVC.parentVC = proj.parent as? VerticalStack
         item = NSSplitViewItem.init(viewController: newStackVC)
@@ -66,6 +66,7 @@ class VerticalSplit: NSSplitViewController {
         }
         (proj.parent as? VerticalStack)?.hasChildrenRemoved = false
         (proj.parent as? VerticalStack)?.leftButton.isEnabled = true
+        return newStackVC
     }
     
     func handleLoadParentProject(for vStack : VerticalStack){
@@ -105,6 +106,14 @@ class VerticalSplit: NSSplitViewController {
     
     func changeDividerColor(color : NSColor) {
         splitView.setValue(color, forKey: "dividerColor")
+    }
+    
+    func handleMoveToParentLevel(proj : projectStack) {
+        
+    }
+    
+    func handleMoveToChildLevel(proj : projectStack) {
+        
     }
     
     func removeChildren(current : VerticalStack?) {

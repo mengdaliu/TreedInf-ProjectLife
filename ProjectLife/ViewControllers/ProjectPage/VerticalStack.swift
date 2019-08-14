@@ -89,13 +89,16 @@ class VerticalStack: NSViewController {
     }
     
 
+    @IBOutlet weak var clipp: NSClipView!
     func addProjectItem() {
         self.items = self.items + 1
         let item = projectStack.init(nibName: "projectStack", bundle: nil)
         self.stack!.insertView(item.view, at: self.stack!.arrangedSubviews.count - 1, in: .top)
         let newProj = project.newProject(for: self.parentProj!, title: "")
         item.p = newProj
+        item.pTitle.setPosition(at: self.items)
         self.addChild(item)
+        self.scroll!.scroll(clipp, to: .init(x: self.stack!.frame.origin.x, y: self.stack!.frame.origin.y + self.stack!.frame.height))
     }
     
     func addProjectItem(VC : projectStack) {
@@ -103,7 +106,6 @@ class VerticalStack: NSViewController {
         self.stack!.insertView(VC.view, at: self.stack!.arrangedSubviews.count - 1, in: .top)
         self.addChild(VC)
     }
-
 
     @IBOutlet weak var leftButton: NSButton!
     @IBOutlet weak var rightButton: NSButton!
@@ -146,6 +148,20 @@ class VerticalStack: NSViewController {
         }
         self.selected = proj
         return nil
+    }
+    
+    func handleDelete(item : projectStack) {
+        project.delete(proj: item.p)
+        item.removeFromParent()
+        self.stack?.removeView(item.view)
+    }
+    
+    func handleMoveUp(item : projectStack){
+        
+    }
+    
+    func handleMoveDown(item : projectStack) {
+        
     }
 }
 

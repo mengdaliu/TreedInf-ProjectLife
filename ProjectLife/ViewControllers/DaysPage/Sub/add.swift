@@ -36,7 +36,6 @@ class add: NSViewController {
 
     @IBAction func add(_ sender: Any) {
         if self.forSection == "Plans" {
-            print(1)
             (self.parent as! dailyPlan).handleNewEdit()
         }
     }
