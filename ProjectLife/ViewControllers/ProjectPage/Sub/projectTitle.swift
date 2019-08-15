@@ -45,12 +45,13 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
         self.textField.isAutomaticTextCompletionEnabled = true
         self.textField.delegate = self
         self.textField.VC = self
-        
     }
     
     func handleSingle(){
-        self.view.window!.makeFirstResponder(self.textField)
-        moveHelperGlobal.projectTitleListening = self
+        if (self.parent as! projectStack).p != dalGlobal.projectLife {
+            self.view.window!.makeFirstResponder(self.textField)
+            moveHelperGlobal.projectTitleListening = self
+        }
     }
     
     override func viewDidAppear() {
@@ -70,24 +71,26 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
             // Do something against ENTER key
-            if !self.shiftPressed {
-                if ((self.parent as! projectStack).p.subProjects?.count == 0 && self.T!.stringValue == "") {
-                    (self.parent!.parent as! VerticalStack).handleDelete(item: self.parent as! projectStack)
+            if (self.parent as! projectStack).p != dalGlobal.projectLife {
+                if !self.shiftPressed {
+                    if ((self.parent as! projectStack).p.subProjects?.count == 0 && self.T!.stringValue == "") {
+                        (self.parent!.parent as! VerticalStack).handleDelete(item: self.parent as! projectStack)
+                    } else {
+                        (self.parent?.parent as! VerticalStack).addProjectItem()
+                    }
                 } else {
-                    (self.parent?.parent as! VerticalStack).addProjectItem()
+                    var detailVC : projectDetail
+                    if self.detail != nil {
+                        detailVC = self.detail!
+                    } else {
+                        detailVC = projectDetail.init(nibName: "projectDetail", bundle: nil)
+                        self.detail = detailVC
+                    }
+                    self.view.layer?.cornerRadius = 0
+                    self.loadedDetail = true
+                    (self.parent as! projectStack).handleDropDownDetail(VC: detailVC)
+                    detailVC.handleExpandOverview()
                 }
-            } else {
-                var detailVC : projectDetail
-                if self.detail != nil {
-                    detailVC = self.detail!
-                } else {
-                    detailVC = projectDetail.init(nibName: "projectDetail", bundle: nil)
-                    self.detail = detailVC
-                }
-                self.view.layer?.cornerRadius = 0
-                self.loadedDetail = true
-                (self.parent as! projectStack).handleDropDownDetail(VC: detailVC)
-                detailVC.handleExpandOverview()
             }
             return true
             
@@ -102,7 +105,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
                 sub.addProjectItem()
             } else {
                 let sub = (self.parent as! projectStack).childrenVC!
-                (sub as! VerticalStack).addProjectItem()
+                sub.addProjectItem()
             }
             return true
         }
@@ -231,12 +234,12 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
         
         if event.modifierFlags.contains(.command) {
             NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown, handler: { (event) -> NSEvent? in
-                if event.modifierFlags.contains(.command) && moveHelperGlobal.projectTitleListening == self {
+                if  moveHelperGlobal.projectTitleListening == self {
                     if (event.keyCode == 126){
                         (self.parent!.parent as! VerticalStack).handleMoveUp(item : self.parent! as! projectStack)
                         project.moveUp(proj: (self.parent as! projectStack).p)
                         return nil
-                    } else if (event.keyCode == 123) { //left
+                    } else if (event.keyCode == 123 && !(dalGlobal.projectLife?.subProjects?.contains((self.parent as! projectStack).p!))!) { //left
                         (self.parent!.parent!.parent! as! VerticalSplit).handleMoveToParentLevel(proj: self.parent as! projectStack)
                         project.moveToParentLevel(proj: (self.parent as! projectStack).p)
                         return nil
@@ -247,18 +250,10 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
                     } else if (event.keyCode == 124) { //right
                         if (self.parent!.parent as! VerticalStack).selected != nil && (self.parent!.parent as! VerticalStack).selected != self.parent {
                              project.move(proj: (self.parent as! projectStack).p, toChildLevelOf: (self.parent!.parent as! VerticalStack).selected!.p)
-                             print((self.parent!.parent as! VerticalStack).selected)
                              (self.parent!.parent!.parent! as! VerticalSplit).handleMove(proj: (self.parent as! projectStack), toChildLevelOf: (self.parent!.parent as! VerticalStack).selected!)
-                            print((self.parent as! projectStack).p)
-
-                            print((self.parent!.parent as! VerticalStack).selected)
-                           
                         }
                         return nil
                     }
-                    
-                    
-                    
                 }
                 return event
             })

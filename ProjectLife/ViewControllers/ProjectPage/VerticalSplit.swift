@@ -125,8 +125,7 @@ class VerticalSplit: NSSplitViewController {
                 break
             }
             i += 1
-            print(item.viewController)
-            last = item.viewController 
+            last = item.viewController
         }
         
     }
