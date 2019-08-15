@@ -48,7 +48,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
     
     func handleSingle(){
         if (self.parent as! projectStack).p != dalGlobal.projectLife {
-            //self.view.window!.makeFirstResponder(self.textField)
+            //self.view.window!.makeFirsftResponder(self.textField)
             moveHelperGlobal.projectTitleListening = self
         }
     }
@@ -171,6 +171,10 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
                 self.loadedChildren = true
             }
             self.view.window?.makeFirstResponder(nil)
+        } else if event.deltaX >= 3 {
+            if self.loadedChildren && (self.parent! as! projectStack).p != dalGlobal.projectLife {
+                (self.parent!.parent as! VerticalStack).removeChildrenHelper()
+            }
         } else if event.deltaY >= 3 {
             var detailVC : projectDetail
             if self.detail != nil {
@@ -226,7 +230,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
     override func flagsChanged(with event: NSEvent) {
         if event.modifierFlags.contains(.shift) {
             moveHelperGlobal.shiftPressed = true
-            NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown, handler: { (event) -> NSEvent? in
+            NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyUp, handler: { (event) -> NSEvent? in
                 if moveHelperGlobal.shiftPressed && moveHelperGlobal.projectTitleListening == self {
                     if event.keyCode == 48 {
                         if (self.parent as! projectStack).p.parent != dalGlobal.projectLife {
@@ -247,7 +251,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
         
         if event.modifierFlags.contains(.command) {
             moveHelperGlobal.commandPressed = true
-            NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown, handler: { (event) -> NSEvent? in
+            NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyUp, handler: { (event) -> NSEvent? in
                 if  moveHelperGlobal.commandPressed && moveHelperGlobal.projectTitleListening == self {
                     if (event.keyCode == 126){
                         (self.parent!.parent as! VerticalStack).handleMoveUp(item : self.parent! as! projectStack)
@@ -302,6 +306,10 @@ extension NSView {
     
     override open func keyUp(with event: NSEvent) {
         super.keyUp(with: event)
+    }
+    
+    override open func keyDown(with event: NSEvent) {
+        super.keyDown(with: event)
     }
     
 }

@@ -36,22 +36,27 @@ class SectionTitle: NSViewController {
         if !expanded {
             switch DescriptionTitle.stringValue {
             case "Overview" :
-                var detail : NSViewController
+                var detail : DetailContentScroll
                 if self.detail != nil {
-                    detail = self.detail!
+                    detail = self.detail! as! DetailContentScroll
+                    (self.parent as! SectionStack).Stack.addArrangedSubview(detail.view)
+                    self.parent?.addChild(detail)
                 } else {
                     detail = DetailContentScroll.init(nibName: "DetailContentScroll", bundle: nil)
+                    (self.parent as! SectionStack).Stack.addArrangedSubview(detail.view)
+                    self.parent?.addChild(detail)
+                    if (self.parent!.parent!.parent as! projectStack).p.overview != nil {
+                        detail.textField!.string = (self.parent!.parent!.parent as! projectStack).p.overview!
+                    }
                 }
-                self.stack!.addArrangedSubview(detail.view)
-                self.parent?.addChild(detail)
-                self.stack!.setCustomSpacing(0, after: self.view)
+                (self.parent as! SectionStack).Stack.setCustomSpacing(0, after: self.view)
                 self.detail = detail
                 self.expanded = true
             default :
                 break
             }
         } else {
-            self.stack!.removeView(self.detail!.view)
+            (self.parent as! SectionStack).Stack.removeView(self.detail!.view)
             self.expanded = false
         }
     }

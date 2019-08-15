@@ -7,7 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="projectDetail" customModule="ProjectLife" customModuleProvider="target">
             <connections>
-                <outlet property="Stack" destination="COk-C9-XgN" id="sXC-mu-k57"/>
+                <outlet property="scroll" destination="aUF-Au-Kir" id="E1h-69-QcE"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -17,13 +17,33 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COk-C9-XgN" customClass="flippedView" customModule="ProjectLife" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="272" width="0.0" height="0.0"/>
-                </stackView>
+                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUF-Au-Kir">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                    <clipView key="contentView" id="TlT-Qu-JTW">
+                        <rect key="frame" x="1" y="1" width="478" height="270"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vr6-5M-1xp">
+                                <rect key="frame" x="0.0" y="0.0" width="463" height="255"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="MxY-08-8SR">
+                        <rect key="frame" x="1" y="255" width="478" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="n8k-QD-dWy">
+                        <rect key="frame" x="463" y="1" width="16" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
             <constraints>
-                <constraint firstItem="COk-C9-XgN" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="1zX-w5-4iX"/>
-                <constraint firstItem="COk-C9-XgN" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="KUW-iS-F0V"/>
+                <constraint firstAttribute="bottom" secondItem="aUF-Au-Kir" secondAttribute="bottom" id="1AI-v4-Rtz"/>
+                <constraint firstAttribute="trailing" secondItem="aUF-Au-Kir" secondAttribute="trailing" id="1rY-x4-pOO"/>
+                <constraint firstItem="aUF-Au-Kir" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="8oE-uh-NqH"/>
+                <constraint firstItem="aUF-Au-Kir" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="vOn-nx-SyD"/>
             </constraints>
             <point key="canvasLocation" x="76" y="159"/>
         </customView>

@@ -130,14 +130,18 @@ class VerticalStack: NSViewController {
                 sender.isEnabled = false
             }
         } else if !hasChildrenRemoved {
-            VerticalSplit.instance!.removeChildren(current: self)
-            if self.selected != nil {
-                self.selected?.returnNormal()
-                self.selected?.pTitle.loadedChildren = false 
-            }
-            hasChildrenRemoved = true
-            sender.isEnabled = false
+            removeChildrenHelper()
         }
+    }
+    
+    func removeChildrenHelper(){
+        VerticalSplit.instance!.removeChildren(current: self)
+        if self.selected != nil {
+            self.selected?.returnNormal()
+            self.selected?.pTitle.loadedChildren = false
+        }
+        hasChildrenRemoved = true
+        self.leftButton.isEnabled = false
     }
     
     

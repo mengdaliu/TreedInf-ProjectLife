@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import Cocoa
 
 class moveHelperGlobal {
     static var projectTitleListening : projectTitle?
     static var commandPressed = false
     static var shiftPressed = false 
+}
+
+class detailEditingGlobal {
+    static var editingTextView : NSViewController?
 }

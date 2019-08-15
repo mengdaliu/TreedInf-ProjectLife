@@ -181,6 +181,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         // Save changes in the application's managed object context before the application terminates.
+        if detailEditingGlobal.editingTextView != nil {
+            detailEditingGlobal.editingTextView!.storeEditing()
+        }
         let context = persistentContainer.viewContext
         
         if !context.commitEditing() {
@@ -224,6 +227,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     func applicationDidResignActive(_ notification: Notification) {
+        if detailEditingGlobal.editingTextView != nil {
+            detailEditingGlobal.editingTextView!.storeEditing()
+        }
         let rootVC = ViewController.instance!
         self.timer = customTimer.init(seconds: 3600, useconds: nil, completionHandler: rootVC.lock)
         DispatchQueue.global(qos: .background).async {
