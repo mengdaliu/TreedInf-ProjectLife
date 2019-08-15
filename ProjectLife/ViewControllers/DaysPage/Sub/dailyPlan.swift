@@ -55,9 +55,6 @@ class dailyPlan: NSViewController {
     
     func handleNewEdit(){
         let e = edit.init(nibName: "edit", bundle: nil)
-        print(e)
-        print(stack)
-        print(stack?.arrangedSubviews)
         stack!.insertView(e.view, at: stack!.arrangedSubviews.count - 1, in: .top)
         self.addChild(e)
     }

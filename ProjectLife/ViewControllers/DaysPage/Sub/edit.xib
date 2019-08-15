@@ -91,7 +91,7 @@
                 <constraint firstItem="LYf-9r-0tH" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="vAA-5D-CqJ"/>
                 <constraint firstAttribute="bottom" secondItem="TUU-OU-N2P" secondAttribute="bottom" constant="50" id="vwN-dy-5OV"/>
             </constraints>
-            <point key="canvasLocation" x="48" y="238"/>
+            <point key="canvasLocation" x="-19" y="228"/>
         </customView>
         <arrayController id="CuI-pD-Omr"/>
         <menu id="oYV-ui-Jeb">

@@ -56,6 +56,19 @@
 		9F819EEB22F1B61C00CC882A /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F819EEA22F1B61C00CC882A /* RoundedTextField.swift */; };
 		9F8DB3EA2305487F0097A6B4 /* SectionStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DB3E82305487F0097A6B4 /* SectionStack.swift */; };
 		9F8DB3EB2305487F0097A6B4 /* SectionStack.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F8DB3E92305487F0097A6B4 /* SectionStack.xib */; };
+		9F8DB3F0230568640097A6B4 /* options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DB3EE230568640097A6B4 /* options.swift */; };
+		9F8DB3F1230568640097A6B4 /* options.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F8DB3EF230568640097A6B4 /* options.xib */; };
+		9F8DB3F423056BA10097A6B4 /* reactivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DB3F223056BA10097A6B4 /* reactivate.swift */; };
+		9F8DB3F523056BA10097A6B4 /* reactivate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F8DB3F323056BA10097A6B4 /* reactivate.xib */; };
+		9F8DB3FE230594520097A6B4 /* planForDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DB3FC230594520097A6B4 /* planForDay.swift */; };
+		9F8DB3FF230594520097A6B4 /* planForDay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F8DB3FD230594520097A6B4 /* planForDay.xib */; };
+		9F8DB403230594A40097A6B4 /* recordWorkForDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DB401230594A40097A6B4 /* recordWorkForDay.swift */; };
+		9F8DB404230594A40097A6B4 /* recordWorkForDay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F8DB402230594A40097A6B4 /* recordWorkForDay.xib */; };
+		9F8DB407230594FC0097A6B4 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DB405230594FC0097A6B4 /* Archive.swift */; };
+		9F8DB408230594FC0097A6B4 /* Archive.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F8DB406230594FC0097A6B4 /* Archive.xib */; };
+		9F8DB40A23059C650097A6B4 /* dateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DB40923059C650097A6B4 /* dateUtils.swift */; };
+		9F8DB40D2305B72A0097A6B4 /* optionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8DB40B2305B72A0097A6B4 /* optionWrapper.swift */; };
+		9F8DB40E2305B72A0097A6B4 /* optionWrapper.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F8DB40C2305B72A0097A6B4 /* optionWrapper.xib */; };
 		9F9F263B22F440380053463B /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F263922F440380053463B /* SectionTitle.swift */; };
 		9F9F263C22F440380053463B /* SectionTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F9F263A22F440380053463B /* SectionTitle.xib */; };
 		9F9F263F22F4416F0053463B /* HistoryContentScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9F263D22F4416F0053463B /* HistoryContentScroll.swift */; };
@@ -167,6 +180,19 @@
 		9F819EEA22F1B61C00CC882A /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		9F8DB3E82305487F0097A6B4 /* SectionStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionStack.swift; sourceTree = "<group>"; };
 		9F8DB3E92305487F0097A6B4 /* SectionStack.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionStack.xib; sourceTree = "<group>"; };
+		9F8DB3EE230568640097A6B4 /* options.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = options.swift; sourceTree = "<group>"; };
+		9F8DB3EF230568640097A6B4 /* options.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = options.xib; sourceTree = "<group>"; };
+		9F8DB3F223056BA10097A6B4 /* reactivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reactivate.swift; sourceTree = "<group>"; };
+		9F8DB3F323056BA10097A6B4 /* reactivate.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = reactivate.xib; sourceTree = "<group>"; };
+		9F8DB3FC230594520097A6B4 /* planForDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = planForDay.swift; sourceTree = "<group>"; };
+		9F8DB3FD230594520097A6B4 /* planForDay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = planForDay.xib; sourceTree = "<group>"; };
+		9F8DB401230594A40097A6B4 /* recordWorkForDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordWorkForDay.swift; sourceTree = "<group>"; };
+		9F8DB402230594A40097A6B4 /* recordWorkForDay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = recordWorkForDay.xib; sourceTree = "<group>"; };
+		9F8DB405230594FC0097A6B4 /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
+		9F8DB406230594FC0097A6B4 /* Archive.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Archive.xib; sourceTree = "<group>"; };
+		9F8DB40923059C650097A6B4 /* dateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateUtils.swift; sourceTree = "<group>"; };
+		9F8DB40B2305B72A0097A6B4 /* optionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionWrapper.swift; sourceTree = "<group>"; };
+		9F8DB40C2305B72A0097A6B4 /* optionWrapper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = optionWrapper.xib; sourceTree = "<group>"; };
 		9F9F263922F440380053463B /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		9F9F263A22F440380053463B /* SectionTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTitle.xib; sourceTree = "<group>"; };
 		9F9F263D22F4416F0053463B /* HistoryContentScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContentScroll.swift; sourceTree = "<group>"; };
@@ -277,6 +303,13 @@
 				9F9F265622F45F720053463B /* projectDetail.xib */,
 				9F62274422F82F970041B60B /* addButton.swift */,
 				9F62274522F82F970041B60B /* addButton.xib */,
+				9F8DB40B2305B72A0097A6B4 /* optionWrapper.swift */,
+				9F8DB40C2305B72A0097A6B4 /* optionWrapper.xib */,
+				9F8DB3EE230568640097A6B4 /* options.swift */,
+				9F8DB3EF230568640097A6B4 /* options.xib */,
+				9F8DB3F223056BA10097A6B4 /* reactivate.swift */,
+				9F8DB3F323056BA10097A6B4 /* reactivate.xib */,
+				9F8DB400230594880097A6B4 /* optionSub */,
 				9F9F263822F43FE80053463B /* DetailSub */,
 			);
 			path = Sub;
@@ -332,6 +365,19 @@
 				9F7D3C1422E8AAB800F53A66 /* lineDrawer.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9F8DB400230594880097A6B4 /* optionSub */ = {
+			isa = PBXGroup;
+			children = (
+				9F8DB3FD230594520097A6B4 /* planForDay.xib */,
+				9F8DB3FC230594520097A6B4 /* planForDay.swift */,
+				9F8DB401230594A40097A6B4 /* recordWorkForDay.swift */,
+				9F8DB402230594A40097A6B4 /* recordWorkForDay.xib */,
+				9F8DB405230594FC0097A6B4 /* Archive.swift */,
+				9F8DB406230594FC0097A6B4 /* Archive.xib */,
+			);
+			path = optionSub;
 			sourceTree = "<group>";
 		};
 		9F9F263822F43FE80053463B /* DetailSub */ = {
@@ -509,6 +555,7 @@
 			children = (
 				9FD56F1F22E6CE4D00D6D819 /* ColorGetter.swift */,
 				9F09BC0A22F07D96006D6A7F /* customTimer.swift */,
+				9F8DB40923059C650097A6B4 /* dateUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -669,16 +716,22 @@
 				9F62275622FD55350041B60B /* DaysMaster.xib in Resources */,
 				9F09BC2522F17309006D6A7F /* VerticalSplit.xib in Resources */,
 				9FE138F622DF4057006C4BE5 /* signInWeb.xib in Resources */,
+				9F8DB40E2305B72A0097A6B4 /* optionWrapper.xib in Resources */,
 				9F0E9AD722EEB9BF002D42A2 /* AskForPayment.xib in Resources */,
 				9F9F264822F4419F0053463B /* ChallengesContentScroll.xib in Resources */,
 				9FF85D6F22DDAD6700FB7494 /* SignIn.xib in Resources */,
 				9F558C4022E7456E00CAB4CE /* NickName.xib in Resources */,
 				9F09BC1922F150E6006D6A7F /* projectTitle.xib in Resources */,
 				9F9F264C22F442FE0053463B /* Adds.xib in Resources */,
+				9F8DB3FF230594520097A6B4 /* planForDay.xib in Resources */,
 				9F8DB3EB2305487F0097A6B4 /* SectionStack.xib in Resources */,
+				9F8DB3F523056BA10097A6B4 /* reactivate.xib in Resources */,
 				9F9F264422F441810053463B /* CustomContentScroll.xib in Resources */,
+				9F8DB404230594A40097A6B4 /* recordWorkForDay.xib in Resources */,
+				9F8DB408230594FC0097A6B4 /* Archive.xib in Resources */,
 				9F09BC0922F025DC006D6A7F /* backgroundWall.xib in Resources */,
 				9F9F265022F449900053463B /* DetailContentScroll.xib in Resources */,
+				9F8DB3F1230568640097A6B4 /* options.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +760,7 @@
 				9FE138F522DF4057006C4BE5 /* signInWeb.swift in Sources */,
 				9F622768230013DC0041B60B /* day.swift in Sources */,
 				9FD1715222D8D5C200222F24 /* MasterWindow.swift in Sources */,
+				9F8DB407230594FC0097A6B4 /* Archive.swift in Sources */,
 				9F62276F23004E9B0041B60B /* dailyPlan.swift in Sources */,
 				9FF85D7222DDB8B200FB7494 /* Enter.swift in Sources */,
 				9FF1BB282301798400C87BCF /* ProjectArray.swift in Sources */,
@@ -727,6 +781,7 @@
 				9F6C6E1123042E3900D1D665 /* moveHelperGlobal.swift in Sources */,
 				9F09BC1322F14834006D6A7F /* RootPage.swift in Sources */,
 				9F622783230055340041B60B /* add.swift in Sources */,
+				9F8DB3F0230568640097A6B4 /* options.swift in Sources */,
 				9F819EEB22F1B61C00CC882A /* RoundedTextField.swift in Sources */,
 				9F62274A22F83FDD0041B60B /* projectStack.swift in Sources */,
 				9FD1717822DD9EC900222F24 /* SignInHandler.swift in Sources */,
@@ -743,9 +798,14 @@
 				9F09BC1822F150E6006D6A7F /* projectTitle.swift in Sources */,
 				9FF85D6E22DDAD6700FB7494 /* SignIn.swift in Sources */,
 				9FD1717422DD9E8500222F24 /* API.swift in Sources */,
+				9F8DB3FE230594520097A6B4 /* planForDay.swift in Sources */,
+				9F8DB403230594A40097A6B4 /* recordWorkForDay.swift in Sources */,
+				9F8DB40D2305B72A0097A6B4 /* optionWrapper.swift in Sources */,
+				9F8DB40A23059C650097A6B4 /* dateUtils.swift in Sources */,
 				9FF85D7B22DDE2CD00FB7494 /* FrontPagePhoto.swift in Sources */,
 				9F9F264F22F449900053463B /* DetailContentScroll.swift in Sources */,
 				9F558C3C22E73F4900CAB4CE /* Revenue.swift in Sources */,
+				9F8DB3F423056BA10097A6B4 /* reactivate.swift in Sources */,
 				9F8DB3EA2305487F0097A6B4 /* SectionStack.swift in Sources */,
 				9F62275522FD55350041B60B /* DaysMaster.swift in Sources */,
 				9F62277B23004EFA0041B60B /* singleDone.swift in Sources */,

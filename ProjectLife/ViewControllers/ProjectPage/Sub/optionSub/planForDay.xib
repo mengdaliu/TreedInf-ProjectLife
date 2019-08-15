@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="planForDay" customModule="ProjectLife" customModuleProvider="target">
+            <connections>
+                <outlet property="comment" destination="aKw-B3-i9g" id="cnm-4t-T2e"/>
+                <outlet property="customDatePicker" destination="QBT-wo-jyM" id="lBn-dk-wgI"/>
+                <outlet property="dateMenu" destination="MZN-LR-GFL" id="p4F-Hh-On8"/>
+                <outlet property="percentage" destination="1xG-Gu-1EL" id="XDf-6r-uLC"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="338" height="102"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="efV-U5-AEb">
+                    <rect key="frame" x="-2" y="78" width="38" height="25"/>
+                    <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="zzE-4w-qrD">
+                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="MZN-LR-GFL"/>
+                    </popUpButtonCell>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5F0-Vc-vhp">
+                    <rect key="frame" x="243" y="81" width="15" height="21"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="%" id="9lP-iH-sYJ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FkN-JF-a1Y">
+                    <rect key="frame" x="255" y="74" width="89" height="32"/>
+                    <buttonCell key="cell" type="push" title="Confirm" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e5c-Pz-0hF">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xG-Gu-1EL">
+                    <rect key="frame" x="112" y="81" width="130" height="21"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="optional percentage" drawsBackground="YES" id="cxz-RZ-RfB">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView ambiguous="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGn-Yf-Ban">
+                    <rect key="frame" x="0.0" y="0.0" width="338" height="73"/>
+                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="a3T-4I-xW1">
+                        <rect key="frame" x="0.0" y="0.0" width="338" height="73"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="aKw-B3-i9g" customClass="TextViewWithHolder" customModule="ProjectLife" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="338" height="73"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="338" height="73"/>
+                                <size key="maxSize" width="338" height="10000000"/>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="0w2-Qs-15T">
+                        <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="BMg-xa-U0a">
+                        <rect key="frame" x="322" y="0.0" width="16" height="73"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-wo-jyM">
+                    <rect key="frame" x="33" y="79" width="100" height="27"/>
+                    <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="ft7-R5-CAs">
+                        <font key="font" metaFont="system"/>
+                        <date key="date" timeIntervalSinceReferenceDate="-595929600">
+                            <!--1982-02-12 16:00:00 +0000-->
+                        </date>
+                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                    </datePickerCell>
+                    <connections>
+                        <action selector="sendCustomValue:" target="-2" id="L0G-37-Y5g"/>
+                    </connections>
+                </datePicker>
+            </subviews>
+            <constraints>
+                <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="FkN-JF-a1Y" secondAttribute="bottom" constant="5" id="023-pG-Rr2"/>
+                <constraint firstAttribute="trailing" secondItem="FkN-JF-a1Y" secondAttribute="trailing" id="3Ne-Yq-zFU"/>
+                <constraint firstItem="5F0-Vc-vhp" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="AHk-b7-83r"/>
+                <constraint firstItem="QBT-wo-jyM" firstAttribute="leading" secondItem="efV-U5-AEb" secondAttribute="trailing" id="BWy-dt-6Sv"/>
+                <constraint firstItem="FkN-JF-a1Y" firstAttribute="leading" secondItem="5F0-Vc-vhp" secondAttribute="trailing" constant="5" id="CIf-y6-MPh"/>
+                <constraint firstItem="1xG-Gu-1EL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="HKh-KC-7n0"/>
+                <constraint firstItem="efV-U5-AEb" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Hfq-qH-M6V"/>
+                <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="efV-U5-AEb" secondAttribute="bottom" constant="5" id="Hx0-7m-AdO"/>
+                <constraint firstItem="5F0-Vc-vhp" firstAttribute="leading" secondItem="1xG-Gu-1EL" secondAttribute="trailing" constant="1" id="MKG-Bw-ega"/>
+                <constraint firstItem="QBT-wo-jyM" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Y04-WT-LdB"/>
+                <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="1xG-Gu-1EL" secondAttribute="bottom" constant="5" id="b3Y-nz-Gf1"/>
+                <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="5F0-Vc-vhp" secondAttribute="bottom" constant="5" id="bBi-VV-QqA"/>
+                <constraint firstItem="efV-U5-AEb" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="gPk-Gg-wIc"/>
+                <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="efV-U5-AEb" secondAttribute="bottom" constant="5" id="uTx-nF-Qal"/>
+                <constraint firstItem="FkN-JF-a1Y" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="un5-Ue-8yI"/>
+            </constraints>
+            <point key="canvasLocation" x="-88" y="167"/>
+        </customView>
+        <textField verticalHuggingPriority="750" id="GDB-VZ-np1">
+            <rect key="frame" x="0.0" y="0.0" width="33" height="14"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="fgk-0f-duB">
+                <font key="font" metaFont="system"/>
+                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+            <point key="canvasLocation" x="397.5" y="209"/>
+        </textField>
+    </objects>
+</document>
