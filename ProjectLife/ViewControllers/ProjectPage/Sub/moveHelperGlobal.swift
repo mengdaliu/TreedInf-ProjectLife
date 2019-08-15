@@ -10,4 +10,6 @@ import Foundation
 
 class moveHelperGlobal {
     static var projectTitleListening : projectTitle?
+    static var commandPressed = false
+    static var shiftPressed = false 
 }

@@ -99,6 +99,7 @@ class VerticalStack: NSViewController {
         item.pTitle.setPosition(at: self.items)
         self.addChild(item)
         self.scroll!.scroll(clipp, to: .init(x: self.stack!.frame.origin.x, y: self.stack!.frame.origin.y + self.stack!.frame.height))
+        moveHelperGlobal.projectTitleListening = item.pTitle
     }
     
     func addProjectItem(VC : projectStack) {

@@ -14,7 +14,6 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
     var position : Int?
     var loadedDetail = false
     var loadedChildren = false
-    var shiftPressed = false
     var stopScroll = false
     
     @IBOutlet weak var textField: projectTextField!
@@ -49,7 +48,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
     
     func handleSingle(){
         if (self.parent as! projectStack).p != dalGlobal.projectLife {
-            self.view.window!.makeFirstResponder(self.textField)
+            //self.view.window!.makeFirstResponder(self.textField)
             moveHelperGlobal.projectTitleListening = self
         }
     }
@@ -72,7 +71,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
         if (commandSelector == #selector(NSResponder.insertNewline(_:))) {
             // Do something against ENTER key
             if (self.parent as! projectStack).p != dalGlobal.projectLife {
-                if !self.shiftPressed {
+                if !moveHelperGlobal.shiftPressed {
                     if ((self.parent as! projectStack).p.subProjects?.count == 0 && self.T!.stringValue == "") {
                         (self.parent!.parent as! VerticalStack).handleDelete(item: self.parent as! projectStack)
                     } else {
@@ -95,7 +94,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
             return true
             
         }  else if (commandSelector == #selector(NSResponder.insertTab(_:))) {
-            
+            handleTitleEnter(self.textField)
             if !self.loadedChildren {
                 self.T.backgroundColor = ThemeColor.white
                 self.view.layer?.backgroundColor = ThemeColor.white.cgColor
@@ -109,7 +108,6 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
             }
             return true
         }
-    
         // return true if the action was handled; otherwise false
         return false
     }
@@ -227,14 +225,30 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
     
     override func flagsChanged(with event: NSEvent) {
         if event.modifierFlags.contains(.shift) {
-            self.shiftPressed = true
+            moveHelperGlobal.shiftPressed = true
+            NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown, handler: { (event) -> NSEvent? in
+                if moveHelperGlobal.shiftPressed && moveHelperGlobal.projectTitleListening == self {
+                    if event.keyCode == 48 {
+                        if (self.parent as! projectStack).p.parent != dalGlobal.projectLife {
+                            if !(self.parent!.parent as! VerticalStack).hasParentLoaded {
+                                (self.parent!.parent as! VerticalStack).handleLeft((self.parent!.parent as! VerticalStack).leftButton)
+                            }
+                            (self.parent!.parent as! VerticalStack).parentVC?.addProjectItem()
+                        }
+                        return nil
+                    }
+                }
+                return event
+            })
+        
         } else {
-            self.shiftPressed = false
+            moveHelperGlobal.shiftPressed = false
         }
         
         if event.modifierFlags.contains(.command) {
+            moveHelperGlobal.commandPressed = true
             NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.keyDown, handler: { (event) -> NSEvent? in
-                if  moveHelperGlobal.projectTitleListening == self {
+                if  moveHelperGlobal.commandPressed && moveHelperGlobal.projectTitleListening == self {
                     if (event.keyCode == 126){
                         (self.parent!.parent as! VerticalStack).handleMoveUp(item : self.parent! as! projectStack)
                         project.moveUp(proj: (self.parent as! projectStack).p)
@@ -257,6 +271,8 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
                 }
                 return event
             })
+        } else {
+            moveHelperGlobal.commandPressed = false
         }
     }
 }
@@ -288,5 +304,4 @@ extension NSView {
         super.keyUp(with: event)
     }
     
-   
 }
