@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Action" representedClassName="Action" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="done" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Done" syncable="YES"/>
+        <relationship name="plan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Plan" syncable="YES"/>
+    </entity>
     <entity name="Day" representedClassName="Day" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="dones" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Done" syncable="YES"/>
@@ -24,9 +29,8 @@
         <relationship name="subProjects" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Project" inverseName="parent" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="ProjectHistory" representedClassName="ProjectHistory" syncable="YES" codeGenerationType="class">
-        <attribute name="action" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="object" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" syncable="YES"/>
+        <relationship name="action" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Action" syncable="YES"/>
     </entity>
     <entity name="UserInfo" representedClassName="UserInfo" syncable="YES" codeGenerationType="class">
         <attribute name="discountCode" optional="YES" attributeType="String" syncable="YES"/>
@@ -41,7 +45,8 @@
         <element name="Done" positionX="-51.03515625" positionY="67.44921875" width="128" height="90"/>
         <element name="Plan" positionX="66.0390625" positionY="-50.03515625" width="128" height="90"/>
         <element name="Project" positionX="-201.3671875" positionY="95.921875" width="128" height="133"/>
-        <element name="ProjectHistory" positionX="97.56640625" positionY="101.20703125" width="128" height="90"/>
+        <element name="ProjectHistory" positionX="97.56640625" positionY="101.20703125" width="128" height="75"/>
         <element name="UserInfo" positionX="-225.68359375" positionY="-70.65625" width="128" height="133"/>
+        <element name="Action" positionX="-54" positionY="81" width="128" height="90"/>
     </elements>
 </model>

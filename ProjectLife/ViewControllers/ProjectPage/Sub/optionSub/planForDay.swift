@@ -18,7 +18,7 @@ class planForDay: NSViewController {
     var yes : Date!
     var dayBeforeYes : Date!
     var dayAfterTom : Date!
-    var Selected : Date?
+    var Selected : Date!
     
     @IBOutlet weak var datePicker: NSPopUpButton!
     @IBOutlet weak var customDatePicker: NSDatePicker!
@@ -50,6 +50,7 @@ class planForDay: NSViewController {
         customDatePicker.translatesAutoresizingMaskIntoConstraints = false
         percentage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 100).isActive = true
+        NSLayoutConstraint.init(item: percentage, attribute: .width, relatedBy: .lessThanOrEqual, toItem: .none, attribute: .notAnAttribute, multiplier: 0, constant: 400).isActive = true
         
         NSLayoutConstraint.init(item: scroll!, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 74).isActive = true
         NSLayoutConstraint.init(item: comment!, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 74).isActive = true
@@ -57,37 +58,38 @@ class planForDay: NSViewController {
         
         let today = Date.init()
         self.today = today
+        self.Selected = today
         let todayHelper = dateUtils.init(date: today, relativeIndicator: 0)
         let todayString = todayHelper.forProjectSet()
-        dateMenu.addItem(withTitle: todayString, action: #selector(self.handleSelectToday), keyEquivalent: "tab")
+        dateMenu.addItem(withTitle: todayString, action: #selector(self.handleSelectToday), keyEquivalent: "")
         
         
         let tommorrow = todayHelper.getDay(addBy: 1)
         self.tom = tommorrow
         let tommorrowHelper = dateUtils.init(date: tommorrow, relativeIndicator: 1)
         let tommorrowString = tommorrowHelper.forProjectSet()
-        dateMenu.addItem(withTitle: tommorrowString, action: #selector(self.handleSelectTom), keyEquivalent: "command + 1")
+        dateMenu.addItem(withTitle: tommorrowString, action: #selector(self.handleSelectTom), keyEquivalent: "")
         
         let dayAfterTom = todayHelper.getDay(addBy: 2)
         self.dayAfterTom = dayAfterTom
         let dayAfterTomHelper = dateUtils.init(date: dayAfterTom, relativeIndicator: 2)
         let dayAfterTomString = dayAfterTomHelper.forProjectSet()
-        dateMenu.addItem(withTitle: dayAfterTomString, action: #selector(self.handleSelectDayAfterTom), keyEquivalent: "command + 2")
+        dateMenu.addItem(withTitle: dayAfterTomString, action: #selector(self.handleSelectDayAfterTom), keyEquivalent: "")
         
         let yesterday = todayHelper.getDay(addBy: -1)
         self.yes = yesterday
         let yesterdayHelper = dateUtils.init(date: yesterday, relativeIndicator: -1)
         let yesterdayString = yesterdayHelper.forProjectSet()
-        dateMenu.addItem(withTitle: yesterdayString, action: #selector(self.handleSelectYes), keyEquivalent: "command + 3")
+        dateMenu.addItem(withTitle: yesterdayString, action: #selector(self.handleSelectYes), keyEquivalent: "")
         
         let dayBeforeYes = todayHelper.getDay(addBy: -2)
         self.dayBeforeYes = dayBeforeYes
         let dayBeforeYesHelper = dateUtils.init(date: dayBeforeYes, relativeIndicator: 2)
         let dayBeforeYesString = dayBeforeYesHelper.forProjectSet()
-        dateMenu.addItem(withTitle: dayBeforeYesString, action: #selector(self.handleSelectDayBeforeYes), keyEquivalent: "command + 4")
+        dateMenu.addItem(withTitle: dayBeforeYesString, action: #selector(self.handleSelectDayBeforeYes), keyEquivalent: "")
         
-        dateMenu.addItem(withTitle: "custom", action: #selector(self.handleCustom)
-            , keyEquivalent: "command + 5")
+        dateMenu.addItem(withTitle: "Custom Date", action: #selector(self.handleCustom)
+            , keyEquivalent: "")
         
        
         
@@ -97,6 +99,7 @@ class planForDay: NSViewController {
         
         for item in dateMenu.items {
             item.isEnabled = true
+            item.target = self
         }
     }
     
@@ -140,7 +143,7 @@ class planForDay: NSViewController {
         self.Selected = sender.dateValue
     }
     @IBAction func Confirm(_ sender: Any) {
-        print("fuckfuckfuck")
+        
     }
     
 }
