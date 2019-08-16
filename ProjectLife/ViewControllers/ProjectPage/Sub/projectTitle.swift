@@ -15,6 +15,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
     var loadedDetail = false
     var loadedChildren = false
     var stopScroll = false
+    var expandedOptions = false
     
     @IBOutlet weak var textField: projectTextField!
     @IBOutlet var trivialMenu: NSMenu!
@@ -278,6 +279,22 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
         } else {
             moveHelperGlobal.commandPressed = false
         }
+    }
+    
+    
+    override func rightMouseDown(with event: NSEvent) {
+        if self.expandedOptions {
+            (self.parent as! projectStack).handleCollapseOptions()
+            optionSetterGlobal.selectedProjectStack = nil
+            self.expandedOptions = false
+        } else {
+            (self.parent as! projectStack).handleLoadOptions()
+            optionSetterGlobal.selectedProjectStack = (self.parent as! projectStack);         self.expandedOptions = true
+        }
+    }
+    
+    func handleCollapseOptions() {
+        
     }
 }
 

@@ -59,10 +59,14 @@ class VerticalSplit: NSSplitViewController {
         item.minimumThickness = self.minThickness
         item.maximumThickness  = self.maxThickness
 
-        if self.splitViewItems.count >= 6 {
+        if self.splitViewItems.count >= 6 && optionSetterGlobal.selectedProjectStack    == nil {
             self.removeSplitViewItem(self.splitViewItems[0])
             (self.splitViewItems[0].viewController as! VerticalStack).hasParentLoaded = false
             (self.splitViewItems[0].viewController as! VerticalStack).rightButton.isEnabled = false 
+        } else if self.splitViewItems.count >= 5 {
+            self.removeSplitViewItem(self.splitViewItems[0])
+            (self.splitViewItems[0].viewController as! VerticalStack).hasParentLoaded = false
+            (self.splitViewItems[0].viewController as! VerticalStack).rightButton.isEnabled = false
         }
         (proj.parent as? VerticalStack)?.hasChildrenRemoved = false
         (proj.parent as? VerticalStack)?.leftButton.isEnabled = true
@@ -77,6 +81,13 @@ class VerticalSplit: NSSplitViewController {
             let newLast = self.splitViewItems[self.splitViewItems.count - 1].viewController as! VerticalStack
             newLast.hasChildrenRemoved = true
             newLast.rightButton.isEnabled = false 
+            (self.splitViewItems[self.splitViewItems.count-1].viewController as! VerticalStack).hasChildrenRemoved = true
+            (self.splitViewItems[self.splitViewItems.count-1].viewController as! VerticalStack).leftButton.isEnabled = false
+        } else if optionSetterGlobal.selectedProjectStack != nil && self.splitViewItems.count >= 5 {
+            self.removeSplitViewItem(self.splitViewItems[self.splitViewItems.count - 1])
+            let newLast = self.splitViewItems[self.splitViewItems.count - 1].viewController as! VerticalStack
+            newLast.hasChildrenRemoved = true
+            newLast.rightButton.isEnabled = false
             (self.splitViewItems[self.splitViewItems.count-1].viewController as! VerticalStack).hasChildrenRemoved = true
             (self.splitViewItems[self.splitViewItems.count-1].viewController as! VerticalStack).leftButton.isEnabled = false
         }

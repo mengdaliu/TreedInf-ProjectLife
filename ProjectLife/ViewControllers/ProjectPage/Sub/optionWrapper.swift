@@ -14,13 +14,14 @@ class optionWrapper: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        optionBox.borderType = .noBorder    
         
     }
     
     func setUpForActiveProject(){
         let optionVC = options.init(nibName: "options", bundle : nil)
-        optionBox.contentView = optionVC.view
         self.addChild(optionVC)
+        optionBox.contentView = optionVC.view
     }
     
     func setUpForDeactivatedProject(){

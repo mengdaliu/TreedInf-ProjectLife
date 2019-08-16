@@ -28,7 +28,7 @@ class projectDetail: NSViewController {
         NSLayoutConstraint.init(item: Stack!, attribute: .leading, relatedBy: .equal, toItem: self.scroll, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint.init(item: Stack!, attribute: .trailing, relatedBy: .equal, toItem: self.scroll, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         self.view.wantsLayer = true
-        self.view.layer?.backgroundColor = .init(CGColor.init(gray: 0.9, alpha: 1))
+        self.view.layer?.backgroundColor = .init(CGColor.init(gray: 0.9, alpha: 0.7))
         smallConstraint = NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 200)
         largeConstraint = NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: NSScreen.main!.frame.height - 300)
         //NSLayoutConstraint.init(item: Stack, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 1, constant: 0).isActive = true

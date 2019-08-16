@@ -18,3 +18,7 @@ class moveHelperGlobal {
 class detailEditingGlobal {
     static var editingTextView : NSViewController?
 }
+
+class optionSetterGlobal {
+    static var selectedProjectStack : projectStack?
+}

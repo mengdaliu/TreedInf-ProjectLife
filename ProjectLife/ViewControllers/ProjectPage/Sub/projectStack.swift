@@ -16,6 +16,8 @@ class projectStack: NSViewController {
     var p : Project!
     var firstTime = true
     var childrenVC : VerticalStack?
+    var deactivated = false
+    var optionVC : optionWrapper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +77,38 @@ class projectStack: NSViewController {
     func handleSetName(title : String) {
         project.setTitle(for: self.p, title: title)
     }
-
+    
+    func handleLoadOptions(){
+        if optionSetterGlobal.selectedProjectStack != nil {
+            optionSetterGlobal.selectedProjectStack?.handleCollapseOptions()
+            optionSetterGlobal.selectedProjectStack?.pTitle.expandedOptions = false 
+        }
+        
+        optionSetterGlobal.selectedProjectStack = self
+        
+        if !self.deactivated {
+            let options = optionWrapper.init(nibName: "optionWrapper", bundle: nil)
+            self.Stack!.insertArrangedSubview(options.view, at: 1)
+            self.Stack!.setCustomSpacing(0, after: self.pTitle.view)
+            self.Stack!.setCustomSpacing(0, after: options.view)
+            self.addChild(options)
+            options.view.translatesAutoresizingMaskIntoConstraints = false 
+            options.setUpForActiveProject()
+            self.optionVC = options
+        } else {
+            let options = optionWrapper.init(nibName: "optionWrapper", bundle: nil)
+            self.Stack!.insertArrangedSubview(options.view, at: 1)
+            self.Stack!.setCustomSpacing(0, after: options.view)
+            self.addChild(options)
+            options.setUpForDeactivatedProject()
+            self.optionVC = options
+        }
+        
+    }
+    
+    func handleCollapseOptions(){
+        self.Stack!.removeView(self.optionVC!.view)
+        self.optionVC?.removeFromParent()
+    }
     
 }

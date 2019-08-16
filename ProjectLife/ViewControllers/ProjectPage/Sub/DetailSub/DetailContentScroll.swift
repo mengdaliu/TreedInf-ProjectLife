@@ -22,8 +22,7 @@ class DetailContentScroll: NSViewController, NSTextViewDelegate {
         // Do view setup here.
         
         let detailEnter = myTextView.init()
-        detailEnter.backgroundColor = NSColor.init(cgColor: CGColor.init(gray: 0.92, alpha: 1))!
-        scroll.backgroundColor = NSColor.init(cgColor: CGColor.init(gray: 0.9, alpha: 1))!
+        detailEnter.drawsBackground = true
         detailEnter.font = .labelFont(ofSize: 15)
         detailEnter.isEditable = true
         //detailEnter.isGrammarCheckingEnabled = true
@@ -32,7 +31,9 @@ class DetailContentScroll: NSViewController, NSTextViewDelegate {
         //detailEnter.isAutomaticLinkDetectionEnabled = true
         //detailEnter.isAutomaticSpellingCorrectionEnabled = true
         detailEnter.isVerticallyResizable = true
+        detailEnter.backgroundColor = NSColor.init(cgColor: CGColor.init(gray: 0.92, alpha: 0.5))!
         scroll.borderType = .noBorder
+        scroll.drawsBackground  = false
         self.smallConstraint = NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 75)
         self.largeConstraint = NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: NSScreen.main!.frame.height - 350)
         if !self.largeConstraint.isActive {
@@ -59,8 +60,8 @@ class DetailContentScroll: NSViewController, NSTextViewDelegate {
     
     override func keyUp(with event: NSEvent) {
         if event.keyCode == 36 {
-            if self.shiftPressed && (self.parent!.parent as! projectStack).p != dalGlobal.projectLife {
-                (self.parent!.parent!.parent as! VerticalStack).addProjectItem()
+            if self.shiftPressed && (self.parent!.parent!.parent as! projectStack).p != dalGlobal.projectLife {
+                (self.parent!.parent!.parent!.parent as! VerticalStack).addProjectItem()
             }
         }
     }
@@ -133,7 +134,6 @@ extension NSTextView {
             return layoutManager.usedRect(for: textContainer).size
         }
     }
-
 }
 
 extension NSViewController {

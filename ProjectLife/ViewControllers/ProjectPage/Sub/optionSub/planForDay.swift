@@ -43,25 +43,25 @@ class planForDay: NSViewController {
         self.tom = tommorrow
         let tommorrowHelper = dateUtils.init(date: tommorrow, relativeIndicator: 1)
         let tommorrowString = tommorrowHelper.forProjectSet()
-        dateMenu.addItem(withTitle: todayString, action: #selector(self.handleSelectTom), keyEquivalent: "tab")
+        dateMenu.addItem(withTitle: tommorrowString, action: #selector(self.handleSelectTom), keyEquivalent: "tab")
         
         let dayAfterTom = todayHelper.getDay(addBy: 2)
         self.dayAfterTom = dayAfterTom
         let dayAfterTomHelper = dateUtils.init(date: dayAfterTom, relativeIndicator: 2)
         let dayAfterTomString = dayAfterTomHelper.forProjectSet()
-        dateMenu.addItem(withTitle: todayString, action: #selector(self.handleSelectDayAfterTom), keyEquivalent: "tab")
+        dateMenu.addItem(withTitle: dayAfterTomString, action: #selector(self.handleSelectDayAfterTom), keyEquivalent: "tab")
         
         let yesterday = todayHelper.getDay(addBy: -1)
         self.yes = yesterday
         let yesterdayHelper = dateUtils.init(date: yesterday, relativeIndicator: -1)
         let yesterdayString = yesterdayHelper.forProjectSet()
-        dateMenu.addItem(withTitle: todayString, action: #selector(self.handleSelectYes), keyEquivalent: "tab")
+        dateMenu.addItem(withTitle: yesterdayString, action: #selector(self.handleSelectYes), keyEquivalent: "tab")
         
         let dayBeforeYes = todayHelper.getDay(addBy: -2)
         self.dayBeforeYes = dayBeforeYes
         let dayBeforeYesHelper = dateUtils.init(date: dayBeforeYes, relativeIndicator: 2)
         let dayBeforeYesString = dayBeforeYesHelper.forProjectSet()
-        dateMenu.addItem(withTitle: todayString, action: #selector(self.handleSelectDayBeforeYes), keyEquivalent: "tab")
+        dateMenu.addItem(withTitle: dayBeforeYesString, action: #selector(self.handleSelectDayBeforeYes), keyEquivalent: "tab")
         
         dateMenu.addItem(withTitle: "custom", action: #selector(self.handleCustom)
             , keyEquivalent: "tab")
