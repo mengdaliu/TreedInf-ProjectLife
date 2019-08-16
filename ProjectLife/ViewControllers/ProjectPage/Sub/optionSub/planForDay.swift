@@ -40,7 +40,7 @@ class planForDay: NSViewController {
             NSAttributedString.Key(rawValue : NSAttributedString.Key.font.rawValue) : NSFont.labelFont(ofSize: 14)
         ]
         
-        NSLayoutConstraint.init(item: datePicker, attribute: .width, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 200).isActive = true
+        NSLayoutConstraint.init(item: datePicker!, attribute: .width, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 200).isActive = true
         comment.placeholderAttributedString = NSAttributedString.init(string: "optional comment", attributes: attributes)
         comment.drawsBackground = true
         comment.backgroundColor = NSColor.init(cgColor: CGColor.init(gray: 0.92, alpha: 0.5))!
@@ -91,8 +91,8 @@ class planForDay: NSViewController {
         
        
         
-        customDatePicker.isEnabled = true
-        customDatePicker.isHidden = false
+        customDatePicker.isEnabled = false
+        customDatePicker.isHidden = true
         //customDatePicker.dateValue = today
         
         for item in dateMenu.items {
