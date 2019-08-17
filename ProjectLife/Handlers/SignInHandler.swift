@@ -58,9 +58,9 @@ class SignInHandler {
         ViewController.instance!.Lock.isEnabled = false
         let photoBackground = FrontPagePhoto.init(nibName: "FrontPagePhoto", bundle: nil)
         ViewController.instance!.mainView.contentView = photoBackground.view
-        print(ViewController.instance!.children[0])
         ViewController.instance!.removeChild(at: 0)
         ViewController.instance!.addChild(photoBackground)
+        VerticalSplit.instance = nil
+        DaysMaster.instance = nil 
     }
-
 }

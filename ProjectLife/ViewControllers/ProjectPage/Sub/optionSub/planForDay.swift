@@ -19,6 +19,7 @@ class planForDay: NSViewController {
     var dayBeforeYes : Date!
     var dayAfterTom : Date!
     var Selected : Date!
+    var forPlan = true
     
     @IBOutlet weak var datePicker: NSPopUpButton!
     @IBOutlet weak var customDatePicker: NSDatePicker!
@@ -56,42 +57,74 @@ class planForDay: NSViewController {
         NSLayoutConstraint.init(item: comment!, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 74).isActive = true
         
         
-        let today = Date.init()
-        self.today = today
-        self.Selected = today
-        let todayHelper = dateUtils.init(date: today, relativeIndicator: 0)
-        let todayString = todayHelper.forProjectSet()
-        dateMenu.addItem(withTitle: todayString, action: #selector(self.handleSelectToday), keyEquivalent: "")
         
-        
-        let tommorrow = todayHelper.getDay(addBy: 1)
-        self.tom = tommorrow
-        let tommorrowHelper = dateUtils.init(date: tommorrow, relativeIndicator: 1)
-        let tommorrowString = tommorrowHelper.forProjectSet()
-        dateMenu.addItem(withTitle: tommorrowString, action: #selector(self.handleSelectTom), keyEquivalent: "")
-        
-        let dayAfterTom = todayHelper.getDay(addBy: 2)
-        self.dayAfterTom = dayAfterTom
-        let dayAfterTomHelper = dateUtils.init(date: dayAfterTom, relativeIndicator: 2)
-        let dayAfterTomString = dayAfterTomHelper.forProjectSet()
-        dateMenu.addItem(withTitle: dayAfterTomString, action: #selector(self.handleSelectDayAfterTom), keyEquivalent: "")
-        
-        let yesterday = todayHelper.getDay(addBy: -1)
-        self.yes = yesterday
-        let yesterdayHelper = dateUtils.init(date: yesterday, relativeIndicator: -1)
-        let yesterdayString = yesterdayHelper.forProjectSet()
-        dateMenu.addItem(withTitle: yesterdayString, action: #selector(self.handleSelectYes), keyEquivalent: "")
-        
-        let dayBeforeYes = todayHelper.getDay(addBy: -2)
-        self.dayBeforeYes = dayBeforeYes
-        let dayBeforeYesHelper = dateUtils.init(date: dayBeforeYes, relativeIndicator: 2)
-        let dayBeforeYesString = dayBeforeYesHelper.forProjectSet()
-        dateMenu.addItem(withTitle: dayBeforeYesString, action: #selector(self.handleSelectDayBeforeYes), keyEquivalent: "")
+    }
+    
+    override func viewDidAppear() {
+        setUpMenu()
+    }
+    
+    func setUpMenu(){
+        if forPlan {
+            let today = Date.init()
+            self.today = today
+            self.Selected = today
+            let todayHelper = dateUtils.init(date: today, relativeIndicator: 0)
+            let todayString = todayHelper.forProjectSet()
+            dateMenu.addItem(withTitle: todayString, action: #selector(self.handleSelectToday), keyEquivalent: "")
+            customDatePicker.dateValue = today
+            
+            
+            let tommorrow = todayHelper.getDay(addBy: 1)
+            self.tom = tommorrow
+            let tommorrowHelper = dateUtils.init(date: tommorrow, relativeIndicator: 1)
+            let tommorrowString = tommorrowHelper.forProjectSet()
+            dateMenu.addItem(withTitle: tommorrowString, action: #selector(self.handleSelectTom), keyEquivalent: "")
+            
+            let dayAfterTom = todayHelper.getDay(addBy: 2)
+            self.dayAfterTom = dayAfterTom
+            let dayAfterTomHelper = dateUtils.init(date: dayAfterTom, relativeIndicator: 2)
+            let dayAfterTomString = dayAfterTomHelper.forProjectSet()
+            dateMenu.addItem(withTitle: dayAfterTomString, action: #selector(self.handleSelectDayAfterTom), keyEquivalent: "")
+            
+            let yesterday = todayHelper.getDay(addBy: -1)
+            self.yes = yesterday
+            let yesterdayHelper = dateUtils.init(date: yesterday, relativeIndicator: -1)
+            let yesterdayString = yesterdayHelper.forProjectSet()
+            dateMenu.addItem(withTitle: yesterdayString, action: #selector(self.handleSelectYes), keyEquivalent: "")
+            
+            let dayBeforeYes = todayHelper.getDay(addBy: -2)
+            self.dayBeforeYes = dayBeforeYes
+            let dayBeforeYesHelper = dateUtils.init(date: dayBeforeYes, relativeIndicator: -2)
+            let dayBeforeYesString = dayBeforeYesHelper.forProjectSet()
+            dateMenu.addItem(withTitle: dayBeforeYesString, action: #selector(self.handleSelectDayBeforeYes), keyEquivalent: "")
+        } else {
+            
+            let today = Date.init()
+            self.today = today
+            self.Selected = today
+            let todayHelper = dateUtils.init(date: today, relativeIndicator: 0)
+            let todayString = todayHelper.forProjectSet()
+            dateMenu.addItem(withTitle: todayString, action: #selector(self.handleSelectToday), keyEquivalent: "")
+            customDatePicker.dateValue = today
+            
+            let yesterday = todayHelper.getDay(addBy: -1)
+            self.yes = yesterday
+            let yesterdayHelper = dateUtils.init(date: yesterday, relativeIndicator: -1)
+            let yesterdayString = yesterdayHelper.forProjectSet()
+            dateMenu.addItem(withTitle: yesterdayString, action: #selector(self.handleSelectYes), keyEquivalent: "")
+            
+            let dayBeforeYes = todayHelper.getDay(addBy: -2)
+            self.dayBeforeYes = dayBeforeYes
+            let dayBeforeYesHelper = dateUtils.init(date: dayBeforeYes, relativeIndicator: -2)
+            let dayBeforeYesString = dayBeforeYesHelper.forProjectSet()
+            dateMenu.addItem(withTitle: dayBeforeYesString, action: #selector(self.handleSelectDayBeforeYes), keyEquivalent: "")
+        }
         
         dateMenu.addItem(withTitle: "Custom Date", action: #selector(self.handleCustom)
             , keyEquivalent: "")
         
-       
+        
         
         customDatePicker.isEnabled = false
         customDatePicker.isHidden = true
@@ -104,7 +137,6 @@ class planForDay: NSViewController {
     }
     
     @objc func handleSelectToday() {
-        print("hello world")
         self.Selected = self.today
         customDatePicker.isEnabled = false
         customDatePicker.isHidden = true
@@ -142,8 +174,41 @@ class planForDay: NSViewController {
     @IBAction func sendCustomValue(_ sender: NSDatePicker) {
         self.Selected = sender.dateValue
     }
+    
+    @IBAction func inputPercentage(_ sender: NSTextField) {
+        if Int(sender.stringValue) != nil &&
+            (Int(sender.stringValue)! > 100 || Int(sender.stringValue)! <= 0) {
+            let warning = percentageAssertion.init(nibName: "percentageAssertion", bundle: nil)
+            if !self.forPlan {
+                warning.forPlan = false
+            }
+            self.addChild(warning)
+            self.presentAsSheet(warning )
+        }
+    }
+    
+    
     @IBAction func Confirm(_ sender: Any) {
-        
+        if Int(percentage.stringValue) != nil && (Int(percentage.stringValue)! > 100 || Int(percentage.stringValue)! <= 0) {
+            let warning = percentageAssertion.init(nibName: "percentageAssertion", bundle: nil)
+            if !self.forPlan {
+                warning.forPlan = false
+            }
+            self.addChild(warning)
+            self.presentAsSheet(warning)
+            return
+        }
+        if self.forPlan {
+            let p = plan.newPlan()
+            
+            p.project =
+                (self.parent as! projectStack).p
+            if self.percentage.stringValue != "" {
+                p.percentage = Int16(self.percentage.stringValue)!
+            }
+            p.comment = self.comment.string
+            print(p.comment)
+        }
     }
     
 }

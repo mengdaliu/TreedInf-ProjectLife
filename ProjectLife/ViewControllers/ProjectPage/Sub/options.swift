@@ -32,20 +32,86 @@ class options: NSViewController {
         plan.setText(str: "Plan For Day", color: ThemeColor.red)
         work.setText(str: "Record Work For Day", color: ThemeColor.green)
         archive.setText(str: "Archive", color: ThemeColor.blue)
+        
+       
+        
     }
     
     @IBAction func plan(_ sender: Any) {
-        let p = planForDay.init(nibName: "planForDay", bundle: nil)
-        p.view.translatesAutoresizingMaskIntoConstraints = false 
-        (self.parent!.parent as! projectStack).Stack.insertArrangedSubview(p.view, at: 2)
-        (self.parent!.parent as! projectStack).addChild(p)
-        (self.parent!.parent as! projectStack).Stack.setCustomSpacing(0, after: p.view)
+        if !plan.wantsLayer {
+            if self.droppedDownSetter != nil {
+                handleCollapseSetter()
+            }
+            let p = planForDay.init(nibName: "planForDay", bundle: nil)
+            p.view.translatesAutoresizingMaskIntoConstraints = false
+            (self.parent!.parent as! projectStack).Stack.insertArrangedSubview(p.view, at: 2)
+            (self.parent!.parent as! projectStack).addChild(p)
+            (self.parent!.parent as! projectStack).Stack.setCustomSpacing(0, after: p.view)
+            self.droppedDownSetter = p
+            plan.wantsLayer = true
+            plan.layer?.backgroundColor = .white
+            
+            work.layer?.backgroundColor = .init(gray: 1, alpha: 0)
+            work.wantsLayer = false
+        
+            archive.layer?.backgroundColor = .init(gray: 1, alpha: 0)
+            archive.wantsLayer = false
+            
+        }
     }
     
     @IBAction func work(_ sender: Any) {
+        if !work.wantsLayer {
+            if self.droppedDownSetter != nil {
+                handleCollapseSetter()
+            }
+            
+            let w = planForDay.init(nibName: "planForDay", bundle: nil)
+            w.forPlan = false
+            w.view.translatesAutoresizingMaskIntoConstraints = false
+            (self.parent!.parent as! projectStack).Stack.insertArrangedSubview(w.view, at: 2)
+            (self.parent!.parent as! projectStack).addChild(w)
+            (self.parent!.parent as! projectStack).Stack.setCustomSpacing(0, after: w.view)
+            self.droppedDownSetter = w
+            
+            work.wantsLayer = true
+            work.layer?.backgroundColor = .white
+            archive.layer?.backgroundColor = .init(gray: 1, alpha: 0)
+            archive.wantsLayer = false
+            plan.layer?.backgroundColor = .init(gray: 1, alpha: 0)
+            plan.wantsLayer = false
+        
+        }
     }
     
     @IBAction func archive(_ sender: Any) {
+        if !archive.wantsLayer {
+            if self.droppedDownSetter != nil {
+                handleCollapseSetter()
+            }
+            archive.wantsLayer = true
+            archive.layer?.backgroundColor = .white
+            plan.layer?.backgroundColor = .init(gray: 1, alpha: 0)
+            plan.wantsLayer = false
+            work.layer?.backgroundColor = .init(gray: 1, alpha: 0)
+            work.wantsLayer = false
+            
+        }
     }
     
+    func handleCollapseSetter(){
+        if self.parent?.parent != nil {
+            (self.parent?.parent as! projectStack).Stack.removeView(self.droppedDownSetter!.view)
+            self.droppedDownSetter?.removeFromParent()
+            self.droppedDownSetter = nil
+            archive.layer?.backgroundColor = .init(gray: 1, alpha: 0)
+            archive.wantsLayer  = false
+            plan.layer?.backgroundColor = .init(gray: 1, alpha: 0)
+            plan.wantsLayer = false
+            work.layer?.backgroundColor = .init(gray: 1, alpha: 0)
+            work.wantsLayer = false
+        }
+    }
+    
+   
 }

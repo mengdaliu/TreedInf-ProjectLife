@@ -19,7 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        
         let loadedData = self.userDefaults.data(forKey: "Theme Color")
         if loadedData != nil{
             var loadedColor : NSColor?

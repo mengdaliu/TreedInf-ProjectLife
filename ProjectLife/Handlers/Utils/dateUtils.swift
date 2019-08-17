@@ -62,19 +62,19 @@ class dateUtils {
         var WD : String
         
         switch wkd {
-        case 1:
-            WD = "Monday"
         case 2:
-            WD = "Tuesday"
+            WD = "Monday"
         case 3:
-            WD = "Wednesday"
+            WD = "Tuesday"
         case 4:
-            WD = "Thursday"
+            WD = "Wednesday"
         case 5:
-            WD = "Friday"
+            WD = "Thursday"
         case 6:
-            WD = "Saturday"
+            WD = "Friday"
         case 7:
+            WD = "Saturday"
+        case 1:
             WD = "Sunday"
         default:
             WD = ""
@@ -83,7 +83,7 @@ class dateUtils {
         self.weekDay = WD
         self.month = M
         
-        self.baseString = String(self.month) + " " + String(self.day) + ", " + String(self.year) + "(" + String(self.weekDay) + ")"
+        self.baseString = String(self.month) + " " + String(self.day) + ", " + String(self.year) + " (" + String(self.weekDay) + ")"
         
         
         switch relativeIndicator {
@@ -98,7 +98,7 @@ class dateUtils {
         case -2:
             theDayBeforeYesterday = true
         default:
-             tomorrow = false
+            tomorrow = false
             //nothing true
         }
     }

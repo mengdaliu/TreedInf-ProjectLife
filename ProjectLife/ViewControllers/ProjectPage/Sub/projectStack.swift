@@ -107,6 +107,9 @@ class projectStack: NSViewController {
     }
     
     func handleCollapseOptions(){
+        if (self.optionVC?.children[0] as! options).droppedDownSetter != nil {
+            (self.optionVC?.children[0] as! options).handleCollapseSetter()
+        }
         self.Stack!.removeView(self.optionVC!.view)
         self.optionVC?.removeFromParent()
     }

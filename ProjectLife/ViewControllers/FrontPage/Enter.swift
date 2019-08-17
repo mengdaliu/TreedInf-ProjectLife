@@ -87,19 +87,19 @@ class Enter: NSViewController {
         var WD : String?
         
         switch weekDay {
-        case 1:
-            WD = "Monday"
         case 2:
-            WD = "Tuesday"
+            WD = "Monday"
         case 3:
-            WD = "Wednesday"
+            WD = "Tuesday"
         case 4:
-            WD = "Thursday"
+            WD = "Wednesday"
         case 5:
-            WD = "Friday"
+            WD = "Thursday"
         case 6:
-            WD = "Saturday"
+            WD = "Friday"
         case 7:
+            WD = "Saturday"
+        case 1:
             WD = "Sunday"
         default:
             WD = ""

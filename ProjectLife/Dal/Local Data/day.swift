@@ -14,13 +14,13 @@ class day {
     static var appDelegate = NSApp.delegate as! AppDelegate
     static var container = appDelegate.persistentContainer
     static var defaultUrl = NSPersistentContainer.defaultDirectoryURL()
-    static var context = container.newBackgroundContext()
+    static var context = dalGlobal.context 
     
     static func loadDays() -> [Day]? {
         let req = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Day")
         req.affectedStores = [dalGlobal.userStore!]
         do {
-            let gotData = try context.fetch(req)
+            let gotData = try context!.fetch(req)
             if gotData.count < 1 {
                 return nil
             } else {
@@ -32,11 +32,11 @@ class day {
     }
     
     static func Add(day : Date) -> Day {
-        let date = NSEntityDescription.insertNewObject(forEntityName: "Day", into: context) as! Day
-        context.assign(date, to: dalGlobal.userStore!)
+        let date = NSEntityDescription.insertNewObject(forEntityName: "Day", into: context!) as! Day
+        context!.assign(date, to: dalGlobal.userStore!)
         date.date = day
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -46,7 +46,7 @@ class day {
     static func Add(plan : Plan, to day: Day) {
         day.addToPlans(plan)
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -55,7 +55,7 @@ class day {
     static func Add(done : Done, to day: Day) {
         day.addToDones(done)
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -78,18 +78,18 @@ class day {
     }
     
     static func delete(plan : Plan) {
-        context.delete(plan)
+        context!.delete(plan)
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
     }
     
     static func delete(done : Done) {
-        context.delete(done)
+        context!.delete(done)
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -100,7 +100,7 @@ class day {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         deleteRequest.affectedStores = [dalGlobal.userStore!]
         do {
-            try container.persistentStoreCoordinator.execute(deleteRequest, with: context)
+            try container.persistentStoreCoordinator.execute(deleteRequest, with: context!)
         } catch  {
         }
 
@@ -113,13 +113,13 @@ class plan {
     static var appDelegate = NSApp.delegate as! AppDelegate
     static var container = appDelegate.persistentContainer
     static var defaultUrl = NSPersistentContainer.defaultDirectoryURL()
-    static var context = container.newBackgroundContext()
+    static var context = dalGlobal.context
     
     static func newPlan() -> Plan {
-        let plan = NSEntityDescription.insertNewObject(forEntityName: "Plan", into: context) as! Plan
-        context.assign(plan, to: dalGlobal.userStore!)
+        let plan = NSEntityDescription.insertNewObject(forEntityName: "Plan", into: context!) as! Plan
+        context!.assign(plan, to: dalGlobal.userStore!)
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -144,13 +144,13 @@ class done {
     static var appDelegate = NSApp.delegate as! AppDelegate
     static var container = appDelegate.persistentContainer
     static var defaultUrl = NSPersistentContainer.defaultDirectoryURL()
-    static var context = container.newBackgroundContext()
+    static var context = dalGlobal.context
     
     static func newDone() -> Done {
-        let done = NSEntityDescription.insertNewObject(forEntityName: "Day", into: context) as! Done
-        context.assign(done, to: dalGlobal.userStore!)
+        let done = NSEntityDescription.insertNewObject(forEntityName: "Day", into: context!) as! Done
+        context!.assign(done, to: dalGlobal.userStore!)
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18D42" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Action" representedClassName="Action" syncable="YES" codeGenerationType="class">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="done" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Done" syncable="YES"/>
@@ -41,12 +41,12 @@
         <attribute name="startTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Action" positionX="-54" positionY="81" width="128" height="90"/>
         <element name="Day" positionX="-83.20703125" positionY="-66.44140625" width="128" height="88"/>
         <element name="Done" positionX="-51.03515625" positionY="67.44921875" width="128" height="90"/>
         <element name="Plan" positionX="66.0390625" positionY="-50.03515625" width="128" height="90"/>
         <element name="Project" positionX="-201.3671875" positionY="95.921875" width="128" height="133"/>
         <element name="ProjectHistory" positionX="97.56640625" positionY="101.20703125" width="128" height="75"/>
         <element name="UserInfo" positionX="-225.68359375" positionY="-70.65625" width="128" height="133"/>
-        <element name="Action" positionX="-54" positionY="81" width="128" height="90"/>
     </elements>
 </model>

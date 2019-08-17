@@ -50,6 +50,9 @@
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
+                    <connections>
+                        <action selector="inputPercentage:" target="-2" id="grL-v2-iMD"/>
+                    </connections>
                 </textField>
                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGn-Yf-Ban">
                     <rect key="frame" x="0.0" y="0.0" width="440" height="76"/>
@@ -80,8 +83,8 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <datePicker verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-wo-jyM">
-                    <rect key="frame" x="33" y="79" width="100" height="27"/>
+                <datePicker verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBT-wo-jyM">
+                    <rect key="frame" x="34" y="79" width="100" height="27"/>
                     <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="ft7-R5-CAs">
                         <font key="font" metaFont="system"/>
                         <date key="date" timeIntervalSinceReferenceDate="-595929600">
@@ -106,7 +109,6 @@
             <constraints>
                 <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="FkN-JF-a1Y" secondAttribute="bottom" constant="5" id="023-pG-Rr2"/>
                 <constraint firstItem="5F0-Vc-vhp" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="1" id="AHk-b7-83r"/>
-                <constraint firstItem="QBT-wo-jyM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="efV-U5-AEb" secondAttribute="trailing" constant="5" id="BWy-dt-6Sv"/>
                 <constraint firstItem="FkN-JF-a1Y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5F0-Vc-vhp" secondAttribute="trailing" constant="1" id="CIf-y6-MPh"/>
                 <constraint firstItem="1xG-Gu-1EL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="HKh-KC-7n0"/>
                 <constraint firstItem="efV-U5-AEb" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Hfq-qH-M6V"/>
@@ -114,6 +116,7 @@
                 <constraint firstItem="5F0-Vc-vhp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1xG-Gu-1EL" secondAttribute="trailing" id="MKG-Bw-ega"/>
                 <constraint firstAttribute="bottom" secondItem="PGn-Yf-Ban" secondAttribute="bottom" id="Trx-au-82W"/>
                 <constraint firstItem="QBT-wo-jyM" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Y04-WT-LdB"/>
+                <constraint firstItem="QBT-wo-jyM" firstAttribute="leading" secondItem="efV-U5-AEb" secondAttribute="trailing" constant="1" id="agM-zM-yvT"/>
                 <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="1xG-Gu-1EL" secondAttribute="bottom" constant="5" id="b3Y-nz-Gf1"/>
                 <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="5F0-Vc-vhp" secondAttribute="bottom" constant="5" id="bBi-VV-QqA"/>
                 <constraint firstAttribute="trailing" secondItem="PGn-Yf-Ban" secondAttribute="trailing" id="dQ1-G9-0QB"/>
@@ -124,7 +127,7 @@
                 <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="efV-U5-AEb" secondAttribute="bottom" constant="5" id="uTx-nF-Qal"/>
                 <constraint firstItem="FkN-JF-a1Y" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="un5-Ue-8yI"/>
             </constraints>
-            <point key="canvasLocation" x="164" y="105"/>
+            <point key="canvasLocation" x="25" y="98"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="b2W-Vk-8bS"/>
     </objects>

@@ -18,6 +18,7 @@ class userInfo {
     static var context = container.viewContext
     
     static func setUserStore(id : String) {
+        dalGlobal.setUp()
         let url = defaultUrl.appendingPathComponent(NSString.init(format: "%@.sqlite", id) as String)
         var store = container.persistentStoreCoordinator.persistentStore(for: url)
         if store == nil {

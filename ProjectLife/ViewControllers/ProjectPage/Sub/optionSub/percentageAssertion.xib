@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="percentageAssertion" customModule="ProjectLife" customModuleProvider="target">
+            <connections>
+                <outlet property="assertionLine" destination="mX5-SQ-iMu" id="ifu-Xi-njh"/>
+                <outlet property="secondLine" destination="mX5-SQ-iMu" id="Ye2-CM-epq"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="256"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mX5-SQ-iMu">
+                    <rect key="frame" x="65" y="174" width="351" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="The percentage of a project that you plan to finish on day" id="SIn-Hs-dlN">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Nh0-ZS-oMr">
+                    <rect key="frame" x="112" y="157" width="256" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title=" should be an integer between 1 and 100. " id="R4H-tR-3sa">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SxU-Yp-ImA">
+                    <rect key="frame" x="202" y="189" width="77" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Oops, Sorry" id="s8W-FN-lDN">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-OW-fQo">
+                    <rect key="frame" x="211" y="47" width="59" height="32"/>
+                    <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="l8d-Pe-gDA">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                    </buttonCell>
+                    <connections>
+                        <action selector="pressOk:" target="-2" id="Nug-Il-O4b"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dnP-2K-Kkh">
+                    <rect key="frame" x="149" y="120" width="182" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Simply leave the field empty  " id="XNx-be-JKR">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zGW-pQ-4GF">
+                    <rect key="frame" x="82" y="105" width="317" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="if you prefer not to specify a percentage value here." id="4WU-JF-bd5">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="dnP-2K-Kkh" firstAttribute="top" secondItem="Nh0-ZS-oMr" secondAttribute="bottom" constant="20" id="3AG-rp-6RX"/>
+                <constraint firstItem="qzI-OW-fQo" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" multiplier="1.5" id="8PZ-xu-pyU"/>
+                <constraint firstItem="qzI-OW-fQo" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="DMZ-js-gur"/>
+                <constraint firstItem="Nh0-ZS-oMr" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="TJ9-BE-jqV"/>
+                <constraint firstItem="zGW-pQ-4GF" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="eTj-Na-MfY"/>
+                <constraint firstItem="dnP-2K-Kkh" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="fRc-Op-qyc"/>
+                <constraint firstItem="SxU-Yp-ImA" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="50" id="ine-gT-EjY"/>
+                <constraint firstItem="mX5-SQ-iMu" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="65" id="lvI-Ce-HpU"/>
+                <constraint firstItem="SxU-Yp-ImA" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="mVP-GQ-2Go"/>
+                <constraint firstItem="zGW-pQ-4GF" firstAttribute="top" secondItem="Nh0-ZS-oMr" secondAttribute="bottom" constant="35" id="pev-WS-Ggn"/>
+                <constraint firstItem="mX5-SQ-iMu" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="rPn-BN-dpn"/>
+                <constraint firstItem="Nh0-ZS-oMr" firstAttribute="top" secondItem="SxU-Yp-ImA" secondAttribute="bottom" constant="15" id="tLJ-fJ-4I7"/>
+            </constraints>
+            <point key="canvasLocation" x="-194" y="142"/>
+        </customView>
+    </objects>
+</document>

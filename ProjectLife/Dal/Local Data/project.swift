@@ -14,13 +14,13 @@ class project {
     static var appDelegate = NSApp.delegate as! AppDelegate
     static var container = appDelegate.persistentContainer
     static var defaultUrl = NSPersistentContainer.defaultDirectoryURL()
-    static var context = container.newBackgroundContext()
+    static var context = dalGlobal.context
     
     static func setUpProjectLife(){
         let req = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Project")
         req.affectedStores = [dalGlobal.userStore!]
         do {
-            let gotData = try context.fetch(req)
+            let gotData = try context!.fetch(req)
             if gotData.count < 1 {
                 createProjectLifeObject()
             } else {
@@ -35,25 +35,25 @@ class project {
     
     
     static func createProjectLifeObject(){
-        let projectLife = NSEntityDescription.insertNewObject(forEntityName: "Project", into: context) as! Project
-        context.assign(projectLife, to: dalGlobal.userStore!)
-        projectLife.title = dalGlobal.userInfo!.nickname! + "' " + "Project Life"
+        let projectLife = NSEntityDescription.insertNewObject(forEntityName: "Project", into: context!) as! Project
+        context!.assign(projectLife, to: dalGlobal.userStore!)
+        //projectLife.title = dalGlobal.userInfo!.nickname! + "' " + "Project Life"
         dalGlobal.projectLife = projectLife
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
     }
     
     static func newProject(for parentProject : Project, title : String) -> Project {
-        let project =  NSEntityDescription.insertNewObject(forEntityName: "Project", into: context) as! Project
-        context.assign(project, to: dalGlobal.userStore!)
+        let project =  NSEntityDescription.insertNewObject(forEntityName: "Project", into: context!) as! Project
+        context!.assign(project, to: dalGlobal.userStore!)
         project.title = title
         project.parent = parentProject
         parentProject.addToSubProjects(project)
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -64,7 +64,7 @@ class project {
         proj.title = title
         
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -77,7 +77,7 @@ class project {
         proj.overview = overview
         
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -89,7 +89,7 @@ class project {
         proj.parent!.removeFromSubProjects(proj)
         
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -145,7 +145,7 @@ class project {
         front.append(contentsOf: tail)
         proj.parent!.subProjects = NSOrderedSet.init(array: front)
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -171,7 +171,7 @@ class project {
         proj.parent!.subProjects = NSOrderedSet.init(array: new)
         
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -184,7 +184,7 @@ class project {
         grandParent?.addToSubProjects(proj)
         
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
@@ -197,7 +197,7 @@ class project {
         newParent.addToSubProjects(proj)
         
         do {
-            try context.save()
+            try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }

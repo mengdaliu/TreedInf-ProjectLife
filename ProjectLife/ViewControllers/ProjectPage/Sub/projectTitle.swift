@@ -17,6 +17,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
     var stopScroll = false
     var expandedOptions = false
     
+    
     @IBOutlet weak var textField: projectTextField!
     @IBOutlet var trivialMenu: NSMenu!
     
@@ -186,7 +187,7 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
             }
             if !self.loadedDetail {
                 (self.parent as! projectStack).handleDropDownDetail(VC: detailVC)
-                
+            
                 self.view.layer?.cornerRadius = 0
                 self.loadedDetail = true
                 self.stopScroll = true
@@ -203,7 +204,9 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
         } else if event.deltaY <= -3 {
             if self.loadedDetail {
                 (self.parent as! projectStack).handleCollapseDetail()
-                self.view.layer?.cornerRadius = 10
+                if !self.expandedOptions {
+                     self.view.layer?.cornerRadius = 10
+                }
                 self.loadedDetail = false
                 (self.parent as! projectStack).removeChild(at: 1)
                 let temp = self
@@ -287,9 +290,14 @@ class projectTitle: NSViewController, NSTextFieldDelegate {
             (self.parent as! projectStack).handleCollapseOptions()
             optionSetterGlobal.selectedProjectStack = nil
             self.expandedOptions = false
+            if !self.loadedDetail {
+                self.view.layer?.cornerRadius = 10
+            }
+            
         } else {
             (self.parent as! projectStack).handleLoadOptions()
             optionSetterGlobal.selectedProjectStack = (self.parent as! projectStack);         self.expandedOptions = true
+            self.view.layer?.cornerRadius = 0
         }
     }
     

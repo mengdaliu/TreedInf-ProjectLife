@@ -256,13 +256,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/Dal/Local Data/userInfo.swift"
-            timestampString = "587307553.366026"
+            timestampString = "587756171.480598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "setUserInfoObject(id:)"
-            landmarkType = "7">
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "userInfo"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -336,11 +336,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/ProjectPage/Sub/projectTitle.swift"
-            timestampString = "587636527.722198"
+            timestampString = "587756171.480772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "scrollWheel(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -352,11 +352,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/ProjectPage/Sub/projectTitle.swift"
-            timestampString = "587636527.7222691"
+            timestampString = "587756171.480816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "scrollWheel(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -384,7 +384,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/Dal/Local Data/day.swift"
-            timestampString = "587485779.8900191"
+            timestampString = "587756171.4809099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -448,7 +448,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/Dal/Local Data/project.swift"
-            timestampString = "587530507.120688"
+            timestampString = "587756171.481011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
@@ -464,7 +464,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/ProjectPage/VerticalSplit.swift"
-            timestampString = "587636527.722474"
+            timestampString = "587740075.298431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
@@ -480,12 +480,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/ProjectPage/Sub/projectTitle.swift"
-            timestampString = "587636527.72252"
+            timestampString = "587756171.48133"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "scrollWheel(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/ViewControllers/FrontPage/SignIn.swift"
+            timestampString = "587736314.720066"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "handleCollapse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/ViewControllers/FrontPage/SignIn.swift"
+            timestampString = "587736314.720441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "handleCollapse()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

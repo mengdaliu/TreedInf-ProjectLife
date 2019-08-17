@@ -31,13 +31,15 @@ class RootPage: NSViewController {
         let ProjectLife = projectStack.init(nibName: "projectStack", bundle: nil)
         self.addChild(ProjectLife)
 
-        
-        let nickName = dalGlobal.userInfo?.nickname
-        let title = nickName! + "'s Project Life"
         verticalStack.addProjectItem(VC: ProjectLife)
-        ProjectLife.setTitle(title: title)
-        ProjectLife.p = dalGlobal.projectLife!
-        ProjectLife.p!.subProjects = nil
+        if dalGlobal.projectLife?.title != "" && dalGlobal.projectLife?.title != nil {
+            ProjectLife.setTitle(title: dalGlobal.projectLife!.title!)
+        } else {
+            let nickName = dalGlobal.userInfo?.nickname
+            let title = nickName! + "'s Project Life"
+            ProjectLife.setTitle(title: title)
+        }
+         ProjectLife.p = dalGlobal.projectLife!
         RootPage.instance = self 
     }
     
