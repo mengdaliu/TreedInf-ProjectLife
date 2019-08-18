@@ -204,3 +204,66 @@ class project {
     }
 }
 
+
+class projectHistory {
+    
+    static var appDelegate = NSApp.delegate as! AppDelegate
+    static var container = appDelegate.persistentContainer
+    static var defaultUrl = NSPersistentContainer.defaultDirectoryURL()
+    static var context = dalGlobal.context
+    
+    static func getHistory(for proj : Project, on day : Date) -> ProjectHistory {
+        let history = NSArray(object : proj.history ?? [])
+        let filteringPredicate = NSPredicate.init(format: "date == %@", argumentArray: [day])
+        let result = history.filtered(using: filteringPredicate)
+        if result.count > 0 {
+            return result[0] as! ProjectHistory
+        } else {
+            return createHistory(for: proj, on: day)
+        }
+    }
+    
+    static func createHistory(for proj : Project, on day : Date) -> ProjectHistory {
+        let history = NSEntityDescription.insertNewObject(forEntityName: "ProjectHistory", into: context!) as! ProjectHistory
+        history.date = day
+        proj.addToHistory(history)
+        context!.assign(history, to: dalGlobal.userStore!)
+        do {
+            try context!.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+        return history
+    }
+    
+    static func set(action : Action, for history : ProjectHistory) {
+        history.addToAction(action)
+        do {
+            try context!.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+    }
+    
+    
+    static func createAction(type : String, plan : Plan?, done : Done?) -> Action {
+        let act = NSEntityDescription.insertNewObject(forEntityName: "Action", into: context!) as! Action
+        act.type = type
+        if act.type == "Plan" {
+            act.plan = plan
+        } else if act.type == "Done" {
+            act.done = done
+        }
+        context!.assign(act, to: dalGlobal.userStore!)
+        
+        do {
+            try context!.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+        
+        return act
+    }
+}
+
+

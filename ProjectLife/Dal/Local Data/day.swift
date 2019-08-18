@@ -18,16 +18,52 @@ class day {
     
     static func loadDays() -> [Day]? {
         let req = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Day")
+        let sort = NSSortDescriptor(key: #keyPath(Day.date), ascending: true)
+        req.sortDescriptors = [sort]
         req.affectedStores = [dalGlobal.userStore!]
         do {
             let gotData = try context!.fetch(req)
             if gotData.count < 1 {
                 return nil
             } else {
+                print(gotData.count)
                 return gotData as? [Day]
             }
         } catch {
             return nil 
+        }
+    }
+    
+    static func GetDay(for d : Date) -> Day {
+        let req = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Day")
+        // Get the current calendar with local time zone
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        
+        // Get today's beginning & end
+        let dateFrom = calendar.startOfDay(for: d) // eg. 2016-10-10 00:00:00
+        
+        let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)
+        // Note: Times are printed in UTC. Depending on where you live it won't print 00:00:00 but it will work with UTC times which can be converted to local time
+        
+        // Set predicate as date being today's date
+        let fromPredicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
+        let toPredicate = NSPredicate(format: "date < %@", dateTo! as NSDate)
+        let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
+        req.predicate = datePredicate
+        
+        req.affectedStores = [dalGlobal.userStore!]
+        do {
+            let gotData = try context!.fetch(req)
+            if gotData.count < 1 {
+                print("miss")
+                return Add(day: d)
+            } else {
+                print("hit")
+                return gotData[0] as! Day
+            }
+        } catch {
+            return Add(day: d)
         }
     }
     

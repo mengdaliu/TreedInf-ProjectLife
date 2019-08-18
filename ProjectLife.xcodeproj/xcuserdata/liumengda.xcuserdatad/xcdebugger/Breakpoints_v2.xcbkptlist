@@ -256,13 +256,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/Dal/Local Data/userInfo.swift"
-            timestampString = "587756171.480598"
+            timestampString = "587844234.254738"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "userInfo"
-            landmarkType = "3">
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "setUserInfoObject(id:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -383,22 +383,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ProjectLife/Dal/Local Data/day.swift"
-            timestampString = "587756171.4809099"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "day"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/DaysPage/DayTitle.swift"
             timestampString = "587297929.534539"
             startingColumnNumber = "9223372036854775807"
@@ -448,7 +432,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/Dal/Local Data/project.swift"
-            timestampString = "587756171.481011"
+            timestampString = "587844234.254903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "89"
@@ -496,7 +480,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/FrontPage/SignIn.swift"
-            timestampString = "587736314.720066"
+            timestampString = "587836653.4693919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -512,12 +496,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ProjectLife/ViewControllers/FrontPage/SignIn.swift"
-            timestampString = "587736314.720441"
+            timestampString = "587836653.469427"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
             landmarkName = "handleCollapse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/Dal/Local Data/dalGlobal.swift"
+            timestampString = "587844234.254999"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "dalGlobal"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "globalinit_33_10795994EBB287DE4AC7FD558A440907_func4"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/Projects/TreedInf-ProjectLife/ProjectLife/Dal/Local%20Data/dalGlobal.swift"
+                  timestampString = "587813443.8645051"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ProjectLife.dalGlobal.container.unsafeMutableAddressor : __C.NSPersistentContainer"
+                  moduleName = "ProjectLife"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liumengda/Documents/Projects/TreedInf-ProjectLife/ProjectLife/Dal/Local%20Data/dalGlobal.swift"
+                  timestampString = "587813443.865782"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/ViewControllers/DaysPage/Sub/dailyPlan.swift"
+            timestampString = "587844234.255041"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ProjectLife/ViewControllers/DaysPage/Sub/singlePlan.swift"
+            timestampString = "587844234.25508"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

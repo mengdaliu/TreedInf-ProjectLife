@@ -24,12 +24,12 @@
         <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="history" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectHistory" syncable="YES"/>
+        <relationship name="history" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ProjectHistory" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="subProjects" inverseEntity="Project" syncable="YES"/>
         <relationship name="subProjects" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Project" inverseName="parent" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="ProjectHistory" representedClassName="ProjectHistory" syncable="YES" codeGenerationType="class">
-        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="action" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Action" syncable="YES"/>
     </entity>
     <entity name="UserInfo" representedClassName="UserInfo" syncable="YES" codeGenerationType="class">
@@ -45,7 +45,7 @@
         <element name="Day" positionX="-83.20703125" positionY="-66.44140625" width="128" height="88"/>
         <element name="Done" positionX="-51.03515625" positionY="67.44921875" width="128" height="90"/>
         <element name="Plan" positionX="66.0390625" positionY="-50.03515625" width="128" height="90"/>
-        <element name="Project" positionX="-201.3671875" positionY="95.921875" width="128" height="133"/>
+        <element name="Project" positionX="-201.3671875" positionY="95.921875" width="128" height="135"/>
         <element name="ProjectHistory" positionX="97.56640625" positionY="101.20703125" width="128" height="75"/>
         <element name="UserInfo" positionX="-225.68359375" positionY="-70.65625" width="128" height="133"/>
     </elements>

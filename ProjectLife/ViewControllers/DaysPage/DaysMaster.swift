@@ -35,14 +35,19 @@ class DaysMaster: NSViewController {
         stack.spacing = 0
         DaysMaster.instance = self
         
-        self.last = loadDaysHelper()
-        loadDays()
-        DispatchQueue.global(qos: .background).async {
-            while true {
-                sleep(86400)
-                DispatchQueue.main.async {
-                    self.loadDays()
-                }
+        let today = Date.init()
+        let yesterday = dateUtils.init(date: today, relativeIndicator: 0).getDay(addBy: -1)
+        let tommorrow = dateUtils.init(date: today, relativeIndicator: 0).getDay(addBy: 1)
+        let days = day.loadDays()
+        for day in days ?? [] {
+            print(day.date)
+            let d = DayStack.init(nibName: "DayStack", bundle: nil)
+            self.stack!.addArrangedSubview(d.view)
+            self.addChild(d)
+            NSLayoutConstraint.init(item: d.view, attribute: .width, relatedBy: .equal, toItem: self.stack, attribute: .width, multiplier: 1, constant: 0).isActive = true
+            d.setDay(day: day)
+            if dateUtils.equal(dayA: day.date!, dayB: today) || dateUtils.equal(dayA : day.date!, dayB : tommorrow) || dateUtils.equal(dayA : day.date! , dayB : yesterday) {
+                d.dTitle?.handleToggleDetail()
             }
         }
     }

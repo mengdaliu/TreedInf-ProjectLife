@@ -20,6 +20,7 @@ class planForDay: NSViewController {
     var dayAfterTom : Date!
     var Selected : Date!
     var forPlan = true
+    var loaded = false
     
     @IBOutlet weak var datePicker: NSPopUpButton!
     @IBOutlet weak var customDatePicker: NSDatePicker!
@@ -61,7 +62,10 @@ class planForDay: NSViewController {
     }
     
     override func viewDidAppear() {
-        setUpMenu()
+        if !loaded {
+            loaded = true 
+            setUpMenu()
+        }
     }
     
     func setUpMenu(){
@@ -176,38 +180,56 @@ class planForDay: NSViewController {
     }
     
     @IBAction func inputPercentage(_ sender: NSTextField) {
-        if Int(sender.stringValue) != nil &&
-            (Int(sender.stringValue)! > 100 || Int(sender.stringValue)! <= 0) {
-            let warning = percentageAssertion.init(nibName: "percentageAssertion", bundle: nil)
-            if !self.forPlan {
-                warning.forPlan = false
+        if !percentage.stringValue.isEmpty {
+            if (Int(percentage.stringValue)) == nil || (Int(percentage.stringValue)! > 100 || Int(percentage.stringValue)! <= 0) {
+                let warning = percentageAssertion.init(nibName: "percentageAssertion", bundle: nil)
+                if !self.forPlan {
+                    warning.forPlan = false
+                }
+                self.addChild(warning)
+                self.presentAsSheet(warning)
+                return
             }
-            self.addChild(warning)
-            self.presentAsSheet(warning )
         }
     }
     
     
     @IBAction func Confirm(_ sender: Any) {
-        if Int(percentage.stringValue) != nil && (Int(percentage.stringValue)! > 100 || Int(percentage.stringValue)! <= 0) {
-            let warning = percentageAssertion.init(nibName: "percentageAssertion", bundle: nil)
-            if !self.forPlan {
-                warning.forPlan = false
+        if !percentage.stringValue.isEmpty {
+            if (Int(percentage.stringValue)) == nil || (Int(percentage.stringValue)! > 100 || Int(percentage.stringValue)! <= 0) {
+                let warning = percentageAssertion.init(nibName: "percentageAssertion", bundle: nil)
+                if !self.forPlan {
+                    warning.forPlan = false
+                }
+                self.addChild(warning)
+                self.presentAsSheet(warning)
+                return
             }
-            self.addChild(warning)
-            self.presentAsSheet(warning)
-            return
         }
         if self.forPlan {
             let p = plan.newPlan()
-            
-            p.project =
-                (self.parent as! projectStack).p
+            plan.set(proj: (self.parent as! projectStack).p, for: p)
             if self.percentage.stringValue != "" {
-                p.percentage = Int16(self.percentage.stringValue)!
+               plan.set(percentage: Int16(self.percentage.stringValue)!, for: p)
             }
-            p.comment = self.comment.string
-            print(p.comment)
+            plan.set(comment: self.comment.string, for: p)
+            let act = projectHistory.createAction(type: "Plan", plan: p, done: nil)
+            let his = projectHistory.getHistory(for: (self.parent as! projectStack).p, on: self.Selected)
+            projectHistory.set(action: act, for: his)
+            let da = day.GetDay(for: self.Selected)
+            day.Add(plan : p, to : da)
+        } else {
+            let d = done.newDone()
+            done.set(proj: (self.parent as! projectStack).p, for: d)
+            if self.percentage.stringValue != "" {
+                done.set(percentage: Int16(self.percentage.stringValue)!, for: d)
+            }
+            done.set(comment: self.comment.string, for: d)
+            let act = projectHistory.createAction(type: "Done", plan: nil, done: d)
+            let his = projectHistory.getHistory(for: (self.parent as! projectStack).p, on: self.Selected)
+            projectHistory.set(action: act, for: his)
+            let da = day.GetDay(for: self.Selected)
+            day.Add(done : d, to : da)
         }
     }
     

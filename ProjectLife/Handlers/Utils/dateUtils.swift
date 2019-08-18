@@ -140,4 +140,21 @@ class dateUtils {
     func getDay(addBy : Int) -> Date {
         return Calendar.current.date(byAdding: .day, value: addBy, to: self.date)!
     }
+    
+    static func equal(dayA : Date, dayB : Date) -> Bool {
+        let d_a = Calendar.current.component(.day, from: dayA)
+        let d_b = Calendar.current.component(.day, from: dayB)
+        if d_a == d_b {
+            let m_a = Calendar.current.component(.month, from: dayA)
+            let m_b = Calendar.current.component(.month, from: dayB)
+            if m_a == m_b {
+                let y_a = Calendar.current.component(.year, from: dayA)
+                let y_b = Calendar.current.component(.year, from: dayB)
+                if y_a == y_b {
+                    return true
+                }
+            }
+        }
+       return false
+    }
 }

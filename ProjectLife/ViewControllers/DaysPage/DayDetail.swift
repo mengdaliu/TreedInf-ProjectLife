@@ -19,16 +19,27 @@ class DayDetail: NSSplitViewController {
         self.splitView.dividerStyle = .thin
         splitView.setValue(ColorGetter.getCurrentThemeColor(), forKey: "dividerColor")
         
-        let smallConstraint = NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 200)
-        let largeConstraint = NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: NSScreen.main!.frame.height - 300)
-        smallConstraint.isActive = true
+        self.smallConstraint = NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 200)
+        self.largeConstraint = NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: NSScreen.main!.frame.height - 300)
+        smallConstraint!.isActive = true
         
         
         let plan = NSSplitViewItem.init(viewController : dailyPlan.init(nibName: "dailyPlan", bundle: nil))
         let done = NSSplitViewItem.init(viewController: dailyDone.init(nibName: "dailyDone", bundle: nil))
         self.addSplitViewItem(plan)
+        self.addChild(plan.viewController)
         self.addSplitViewItem(done)
+        self.addChild(done.viewController)
     }
     
+    override func rightMouseDown(with event: NSEvent) {
+        if smallConstraint!.isActive {
+            smallConstraint?.isActive = false
+            largeConstraint?.isActive = true
+        } else {
+            largeConstraint?.isActive = false
+            smallConstraint?.isActive = true
+        }
+    }
     
 }

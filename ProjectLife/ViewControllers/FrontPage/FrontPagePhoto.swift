@@ -55,6 +55,7 @@ class FrontPagePhoto: NSViewController {
         
         GreetingAndButton.boxType = .custom
         GreetingAndButton.borderType = .noBorder
+        //UserDefaults.standard.set(nil, forKey: "UserLoggedIn")
         let userId = UserDefaults.standard.value(forKey: "UserLoggedIn")
         if userId  == nil {
             let signInController = SignIn.init(nibName: "SignIn", bundle : nil)

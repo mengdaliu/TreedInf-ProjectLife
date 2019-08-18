@@ -39,13 +39,17 @@ class dailyPlan: NSViewController {
         NSLayoutConstraint.init(item: stack, attribute: .leading, relatedBy: .equal, toItem: scroll, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint.init(item: stack, attribute: .trailing, relatedBy: .equal, toItem: scroll, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint.init(item: stack, attribute: .top, relatedBy: .equal, toItem: scroll, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        
-        
-        let ab = add.init(nibName: "add", bundle: nil)
-        ab.set(for: "Plans")
-        stack.addArrangedSubview(ab.view)
-        self.addChild(ab)
-
+        print(stack.frame)
+    }
+    
+    override func viewDidAppear() {
+        let plans =  day.getPlan(from: (self.parent?.parent as! DayStack).day!)
+        for plan in plans ?? [] {
+            let pVC = singlePlan.init(nibName : "singlePlan", bundle : nil)
+            pVC.config(project: plan.project!, percent: plan.percentage, comment: plan.comment)
+            self.stack?.addArrangedSubview(pVC.view)
+            self.addChild(pVC)
+        }
     }
     
     
