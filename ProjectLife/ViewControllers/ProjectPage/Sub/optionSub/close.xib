@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="close" customModule="ProjectLife" customModuleProvider="target">
+            <connections>
+                <outlet property="archiveButton" destination="MRf-2U-bts" id="KrA-yH-reg"/>
+                <outlet property="deleteButton" destination="R7g-Sl-t5R" id="FcD-Xr-7KG"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MRf-2U-bts" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                    <rect key="frame" x="-8" y="-7" width="86" height="32"/>
+                    <buttonCell key="cell" type="push" title="Archive" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xdL-H1-jcX">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="pressArchive:" target="-2" id="3DO-zj-jhf"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R7g-Sl-t5R" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                    <rect key="frame" x="65" y="-7" width="80" height="32"/>
+                    <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eRU-bl-VbJ">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="pressDelete:" target="-2" id="KDd-hg-nZX"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="R7g-Sl-t5R" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="1.5" id="DFl-6x-DWo"/>
+                <constraint firstItem="R7g-Sl-t5R" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="NRb-Y5-iuX"/>
+                <constraint firstItem="MRf-2U-bts" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="0.5" id="Po2-am-M8u"/>
+                <constraint firstAttribute="bottom" secondItem="MRf-2U-bts" secondAttribute="bottom" id="Voj-gP-kQl"/>
+                <constraint firstItem="MRf-2U-bts" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="ZOA-cb-zlL"/>
+                <constraint firstAttribute="bottom" secondItem="R7g-Sl-t5R" secondAttribute="bottom" id="e7p-h1-mzG"/>
+            </constraints>
+            <point key="canvasLocation" x="-339" y="196"/>
+        </customView>
+    </objects>
+</document>

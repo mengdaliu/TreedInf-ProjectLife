@@ -141,6 +141,10 @@ class dateUtils {
         return Calendar.current.date(byAdding: .day, value: addBy, to: self.date)!
     }
     
+    func forHistory() -> String {
+        
+    }
+    
     static func equal(dayA : Date, dayB : Date) -> Bool {
         let d_a = Calendar.current.component(.day, from: dayA)
         let d_b = Calendar.current.component(.day, from: dayB)

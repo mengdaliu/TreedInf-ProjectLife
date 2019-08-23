@@ -127,7 +127,7 @@
                 <constraint firstItem="PGn-Yf-Ban" firstAttribute="top" secondItem="efV-U5-AEb" secondAttribute="bottom" constant="5" id="uTx-nF-Qal"/>
                 <constraint firstItem="FkN-JF-a1Y" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="un5-Ue-8yI"/>
             </constraints>
-            <point key="canvasLocation" x="25" y="98"/>
+            <point key="canvasLocation" x="-263" y="102"/>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="b2W-Vk-8bS"/>
     </objects>

@@ -40,7 +40,6 @@ class DaysMaster: NSViewController {
         let tommorrow = dateUtils.init(date: today, relativeIndicator: 0).getDay(addBy: 1)
         let days = day.loadDays()
         for day in days ?? [] {
-            print(day.date)
             let d = DayStack.init(nibName: "DayStack", bundle: nil)
             self.stack!.addArrangedSubview(d.view)
             self.addChild(d)

@@ -11,17 +11,19 @@ import Cocoa
 class dailyDone: NSViewController {
 
     @IBOutlet weak var scroll: NSScrollView!
-    
+    var stack : flippedView!
     @IBOutlet weak var products: NSTextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
 
-        products.font = .labelFont(ofSize: 18)
+        products.font = .labelFont(ofSize: 20)
         products.stringValue = "Products"
         products.textColor = ColorGetter.getCurrentThemeColor()
         
-        let stack = flippedView.init(frame: scroll.documentView!.frame)
+        self.stack = flippedView.init(frame: scroll.documentView!.frame)
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.alignment = .centerX
         
@@ -29,11 +31,17 @@ class dailyDone: NSViewController {
         scroll.drawsBackground = false
         NSLayoutConstraint.init(item: stack, attribute: .leading, relatedBy: .equal, toItem: scroll, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint.init(item: stack, attribute: .trailing, relatedBy: .equal, toItem: scroll, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
-        
-        let ab = add.init(nibName: "add", bundle: nil)
-        ab.set(for: "Dones")
-        stack.addArrangedSubview(ab.view)
-        self.addChild(ab)
+    }
+    
+    
+    override func viewDidAppear() {
+        let dones =  day.getDone(from: (self.parent?.parent as! DayStack).day!)
+        for done in dones ?? [] {
+            let dVC = singleDone.init(nibName : "singleDone", bundle : nil)
+            dVC.config(done : done, project: done.project!, percent: done.percentage, comment: done.comment)
+            self.stack?.addArrangedSubview(dVC.view)
+            self.addChild(dVC)
+        }
     }
     
     func loadDone(from data : [Done]) {

@@ -40,8 +40,8 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9kt-tf-mya" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
-                    <rect key="frame" x="349" y="-7" width="86" height="32"/>
-                    <buttonCell key="cell" type="push" title="Archive" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="new-6m-8ad">
+                    <rect key="frame" x="349" y="-7" width="75" height="32"/>
+                    <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="new-6m-8ad">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -65,7 +65,7 @@
                 <constraint firstItem="gjt-Ei-LkN" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="mFk-iS-Ckj"/>
                 <constraint firstItem="qRx-Xi-Fzg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="o8B-6T-yXR"/>
             </constraints>
-            <point key="canvasLocation" x="636.5" y="251.5"/>
+            <point key="canvasLocation" x="321" y="217"/>
         </customView>
         <popUpButton verticalHuggingPriority="750" id="USh-KM-QgG">
             <rect key="frame" x="0.0" y="0.0" width="100" height="26"/>

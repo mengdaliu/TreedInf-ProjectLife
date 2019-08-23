@@ -39,7 +39,13 @@ class VerticalSplit: NSSplitViewController {
     
     
     func handleLoadChildren(for proj : projectStack) -> VerticalStack {
-        let current = (proj.parent as! VerticalStack).unSelectCurrent(proj : proj)
+        var current : VerticalStack?
+        if proj.p.state == nil {
+            current = (proj.parent as! VerticalStack).unSelectCurrent(proj : proj)
+        } else {
+            current = (proj.parent!.parent as! VerticalStack).unSelectCurrent(proj : proj)
+        }
+        
         removeChildren(current: current)
         
         var newStackVC : VerticalStack
@@ -48,11 +54,24 @@ class VerticalSplit: NSSplitViewController {
         newStackVC = VerticalStack.init(nibName: "VerticalStack", bundle: nil)
         proj.childrenVC = newStackVC
         newStackVC.parentProj = proj.p
-        newStackVC.parentVC = proj.parent as? VerticalStack
+        if proj.p.state == nil {
+            newStackVC.parentVC = proj.parent as! VerticalStack
+        } else {
+            newStackVC.parentVC = proj.parent!.parent as! VerticalStack
+        }
+        
         item = NSSplitViewItem.init(viewController: newStackVC)
         self.addSplitViewItem(item)
+        
         if proj.p.subProjects != nil {
             generateStackView(from: Array(proj.p!.subProjects!) as! [Project], in: newStackVC)
+        }
+        
+        if proj.p.archivedSubProjects?.count != 0 {
+            let archivedStack = ArchivedStack.init(nibName: "ArchivedStack",  bundle: nil)
+            archivedStack.parentP = proj.p!
+            newStackVC.handlePut(deactivatedStack: archivedStack)
+            newStackVC.archivedStack = archivedStack
         }
     
         
@@ -138,7 +157,6 @@ class VerticalSplit: NSSplitViewController {
             i += 1
             last = item.viewController
         }
-        
     }
     
     func handleMove(proj : projectStack, toChildLevelOf otherProj : projectStack) {

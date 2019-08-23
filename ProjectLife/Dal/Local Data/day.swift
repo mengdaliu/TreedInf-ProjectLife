@@ -26,7 +26,6 @@ class day {
             if gotData.count < 1 {
                 return nil
             } else {
-                print(gotData.count)
                 return gotData as? [Day]
             }
         } catch {
@@ -113,7 +112,8 @@ class day {
         }
     }
     
-    static func delete(plan : Plan) {
+    static func delete(plan : Plan, from day : Day) {
+        day.removeFromPlans(plan)
         context!.delete(plan)
         do {
             try context!.save()
@@ -122,7 +122,8 @@ class day {
         }
     }
     
-    static func delete(done : Done) {
+    static func delete(done : Done, from day : Day) {
+        day.removeFromDones(done)
         context!.delete(done)
         do {
             try context!.save()
@@ -183,7 +184,7 @@ class done {
     static var context = dalGlobal.context
     
     static func newDone() -> Done {
-        let done = NSEntityDescription.insertNewObject(forEntityName: "Day", into: context!) as! Done
+        let done = NSEntityDescription.insertNewObject(forEntityName: "Done", into: context!) as! Done
         context!.assign(done, to: dalGlobal.userStore!)
         do {
             try context!.save()

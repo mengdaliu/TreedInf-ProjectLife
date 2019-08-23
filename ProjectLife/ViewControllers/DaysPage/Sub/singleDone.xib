@@ -1,19 +1,81 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="singleDone" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="singleDone" customModule="ProjectLife" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+                <outlet property="del" destination="LrG-zX-x4P" id="4G2-BY-d9B"/>
+                <outlet property="doneCommentField" destination="brz-gV-5zm" id="J0E-Jd-v4y"/>
+                <outlet property="doneTitle" destination="aFK-Ky-djA" id="tCq-cU-47b"/>
+                <outlet property="scroll" destination="qKk-5A-A0C" id="1Q1-ej-bbc"/>
+                <outlet property="view" destination="Owj-5s-MPC" id="3yJ-xp-6yo"/>
             </connections>
         </customObject>
-        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY">
+        <customView id="Owj-5s-MPC">
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKk-5A-A0C" customClass="customScrollView" customModule="ProjectLife" customModuleProvider="target">
+                    <rect key="frame" x="35" y="0.0" width="445" height="250"/>
+                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Fy5-1B-TFd">
+                        <rect key="frame" x="0.0" y="0.0" width="445" height="250"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="brz-gV-5zm">
+                                <rect key="frame" x="0.0" y="0.0" width="445" height="250"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="445" height="250"/>
+                                <size key="maxSize" width="480" height="10000000"/>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="CFZ-xC-rvf">
+                        <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="WFx-Bk-dhP">
+                        <rect key="frame" x="429" y="0.0" width="16" height="250"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aFK-Ky-djA">
+                    <rect key="frame" x="3" y="255" width="37" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ffy-Mr-h6K">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LrG-zX-x4P" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                    <rect key="frame" x="406" y="244" width="80" height="32"/>
+                    <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4V3-YM-Jq0">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <connections>
+                            <action selector="delete:" target="-2" id="z8M-wL-RJm"/>
+                        </connections>
+                    </buttonCell>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="qKk-5A-A0C" secondAttribute="bottom" id="13a-0P-Ee9"/>
+                <constraint firstItem="aFK-Ky-djA" firstAttribute="leading" secondItem="Owj-5s-MPC" secondAttribute="leading" constant="5" id="2Yo-Bc-Q2U"/>
+                <constraint firstItem="aFK-Ky-djA" firstAttribute="top" secondItem="Owj-5s-MPC" secondAttribute="top" id="5gz-CB-6ya"/>
+                <constraint firstItem="qKk-5A-A0C" firstAttribute="leading" secondItem="Owj-5s-MPC" secondAttribute="leading" constant="35" id="W7J-qD-jGg"/>
+                <constraint firstItem="LrG-zX-x4P" firstAttribute="top" secondItem="Owj-5s-MPC" secondAttribute="top" id="gOe-zr-TeC"/>
+                <constraint firstItem="qKk-5A-A0C" firstAttribute="top" secondItem="aFK-Ky-djA" secondAttribute="bottom" constant="5" id="hij-jm-9kG"/>
+                <constraint firstAttribute="trailing" secondItem="qKk-5A-A0C" secondAttribute="trailing" id="mbf-bb-sS4"/>
+                <constraint firstAttribute="trailing" secondItem="LrG-zX-x4P" secondAttribute="trailing" id="nQE-fD-ifP"/>
+            </constraints>
+            <point key="canvasLocation" x="27" y="-56"/>
         </customView>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
     </objects>
 </document>

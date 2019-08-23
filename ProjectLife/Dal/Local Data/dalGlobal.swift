@@ -19,5 +19,6 @@ class dalGlobal {
     
     static func setUp() {
         dalGlobal.context = dalGlobal.container.newBackgroundContext()
+        
     }
 }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="deleteConfirmation" customModule="ProjectLife" customModuleProvider="target">
+            <connections>
+                <outlet property="firstLine" destination="13T-bs-c7l" id="0lM-3i-bA9"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="251"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g3S-wt-3BX">
+                    <rect key="frame" x="113" y="141" width="274" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Are you sure you want to delete this project?" id="13T-bs-c7l">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bcv-ML-dUe">
+                    <rect key="frame" x="20" y="116" width="460" height="17"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="This operation is irreversible and will erase all of the project's sub projects. " id="fUl-dQ-qsC">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qnJ-FJ-Hin">
+                    <rect key="frame" x="218" y="31" width="65" height="32"/>
+                    <buttonCell key="cell" type="push" title="YES" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9N3-3o-zYH">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="pressYes:" target="-2" id="8ks-b0-rsJ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="g3S-wt-3BX" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="93" id="7cm-Ak-0FT"/>
+                <constraint firstItem="qnJ-FJ-Hin" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="AiT-3j-ssg"/>
+                <constraint firstItem="bcv-ML-dUe" firstAttribute="top" secondItem="g3S-wt-3BX" secondAttribute="bottom" constant="8" symbolic="YES" id="BLa-ig-W0Q"/>
+                <constraint firstItem="qnJ-FJ-Hin" firstAttribute="top" secondItem="bcv-ML-dUe" secondAttribute="bottom" constant="57" id="KhR-tm-DIm"/>
+                <constraint firstItem="bcv-ML-dUe" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Q6v-n7-CvL"/>
+                <constraint firstItem="g3S-wt-3BX" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="mT1-Cs-UTB"/>
+            </constraints>
+            <point key="canvasLocation" x="386" y="121"/>
+        </customView>
+    </objects>
+</document>

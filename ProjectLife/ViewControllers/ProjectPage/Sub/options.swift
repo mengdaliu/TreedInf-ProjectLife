@@ -31,8 +31,10 @@ class options: NSViewController {
         archive.showsBorderOnlyWhileMouseInside = true 
         plan.setText(str: "Plan For Day", color: ThemeColor.red)
         work.setText(str: "Record Work For Day", color: ThemeColor.green)
-        archive.setText(str: "Archive", color: ThemeColor.blue)
-        
+        archive.setText(str: "Close", color: ThemeColor.blue)
+        if (self.parent!.parent as! projectStack).p == dalGlobal.projectLife {
+            archive.isEnabled = false 
+        }
        
         
     }
@@ -89,6 +91,14 @@ class options: NSViewController {
             if self.droppedDownSetter != nil {
                 handleCollapseSetter()
             }
+            
+            let c = close.init(nibName: "close", bundle: nil)
+            c.view.translatesAutoresizingMaskIntoConstraints = false
+            (self.parent!.parent as! projectStack).Stack.insertArrangedSubview(c.view, at: 2)
+            (self.parent!.parent as! projectStack).addChild(c)
+            (self.parent!.parent as! projectStack).Stack.setCustomSpacing(0, after: c.view)
+            self.droppedDownSetter = c
+            
             archive.wantsLayer = true
             archive.layer?.backgroundColor = .white
             plan.layer?.backgroundColor = .init(gray: 1, alpha: 0)

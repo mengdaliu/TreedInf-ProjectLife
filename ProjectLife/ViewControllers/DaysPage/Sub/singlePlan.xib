@@ -7,10 +7,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="singlePlan" customModule="ProjectLife" customModuleProvider="target">
             <connections>
-                <outlet property="comment" destination="tOr-O3-ScY" id="hSE-EF-3q9"/>
+                <outlet property="clipView" destination="JLR-YJ-de3" id="gOy-bi-ySJ"/>
                 <outlet property="commentField" destination="tOr-O3-ScY" id="kfr-QJ-rHx"/>
                 <outlet property="del" destination="vHY-2y-QmT" id="0aI-s4-pSW"/>
-                <outlet property="done" destination="mPZ-c8-YDm" id="x0a-q5-z7K"/>
                 <outlet property="planTitle" destination="GuJ-n8-08F" id="KSz-0e-DEu"/>
                 <outlet property="scroll" destination="wcG-R7-7Xb" id="7nk-KO-Xj1"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -22,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView misplaced="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcG-R7-7Xb">
+                <scrollView misplaced="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcG-R7-7Xb" customClass="customScrollView" customModule="ProjectLife" customModuleProvider="target">
                     <rect key="frame" x="37" y="0.0" width="443" height="245"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="JLR-YJ-de3">
                         <rect key="frame" x="0.0" y="0.0" width="443" height="245"/>
@@ -56,18 +55,8 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mPZ-c8-YDm" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
-                    <rect key="frame" x="414" y="244" width="72" height="32"/>
-                    <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lyz-8e-GqH">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="done:" target="-2" id="96g-KQ-v8T"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vHY-2y-QmT" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
-                    <rect key="frame" x="346" y="244" width="80" height="32"/>
+                    <rect key="frame" x="406" y="244" width="80" height="32"/>
                     <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aK3-ql-Hk1">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -78,18 +67,16 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="mPZ-c8-YDm" firstAttribute="leading" secondItem="vHY-2y-QmT" secondAttribute="trailing" id="0he-iC-0br"/>
                 <constraint firstItem="GuJ-n8-08F" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="5" id="13R-j4-wbP"/>
                 <constraint firstItem="wcG-R7-7Xb" firstAttribute="top" secondItem="GuJ-n8-08F" secondAttribute="bottom" constant="5" id="5zm-P1-ro7"/>
-                <constraint firstItem="mPZ-c8-YDm" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="BkX-Cs-QBj"/>
                 <constraint firstAttribute="bottom" secondItem="wcG-R7-7Xb" secondAttribute="bottom" id="BnZ-k4-EZ5"/>
                 <constraint firstAttribute="trailing" secondItem="wcG-R7-7Xb" secondAttribute="trailing" id="Hv2-jR-wsB"/>
                 <constraint firstItem="vHY-2y-QmT" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="S0G-vY-v5y"/>
-                <constraint firstAttribute="trailing" secondItem="mPZ-c8-YDm" secondAttribute="trailing" id="VjS-RZ-jV6"/>
+                <constraint firstAttribute="trailing" secondItem="vHY-2y-QmT" secondAttribute="trailing" id="hHa-fi-ChL"/>
                 <constraint firstItem="wcG-R7-7Xb" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="35" id="hJr-lx-eDX"/>
                 <constraint firstItem="GuJ-n8-08F" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="n2J-VY-XcT"/>
             </constraints>
-            <point key="canvasLocation" x="237" y="-12"/>
+            <point key="canvasLocation" x="202" y="-66"/>
         </customView>
     </objects>
 </document>

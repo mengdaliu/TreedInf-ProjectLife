@@ -24,6 +24,7 @@ class VerticalStack: NSViewController {
     var selected : projectStack?
     var hasParentLoaded = true
     var hasChildrenRemoved = true
+    var archivedStack : ArchivedStack?
     
     
     @IBOutlet weak var test: NSButton!
@@ -69,7 +70,9 @@ class VerticalStack: NSViewController {
         
        self.stack = ProjectStack
         
-      
+        if self.parentProj?.state == "Archived" {
+            self.add.button.isEnabled = false 
+        }
     }
     
     override func viewDidAppear() {
@@ -90,21 +93,37 @@ class VerticalStack: NSViewController {
     
 
     @IBOutlet weak var clipp: NSClipView!
+    
     func addProjectItem() {
         self.items = self.items + 1
         let item = projectStack.init(nibName: "projectStack", bundle: nil)
-        self.stack!.insertView(item.view, at: self.stack!.arrangedSubviews.count - 1, in: .top)
+        if archivedStack == nil {
+            self.stack!.insertView(item.view, at: self.stack!.arrangedSubviews.count - 1, in: .top)
+        } else {
+            self.stack!.insertView(item.view, at: self.stack!.arrangedSubviews.count - 2, in: .top)
+        }
         let newProj = project.newProject(for: self.parentProj!, title: "")
         item.p = newProj
         item.pTitle.setPosition(at: self.items)
         self.addChild(item)
-        self.scroll!.scroll(clipp, to: .init(x: self.stack!.frame.origin.x, y: self.stack!.frame.origin.y + self.stack!.frame.height))
+        if self.archivedStack != nil {
+            self.scroll!.scroll(clipp, to: .init(x: self.stack!.frame.origin.x, y: self.stack!.frame.origin.y + self.stack!.frame.height - self.archivedStack!.stack.frame.height - 120))
+        } else {
+            self.scroll!.scroll(clipp, to: .init(x: self.stack!.frame.origin.x, y: self.stack!.frame.origin.y + self.stack!.frame.height))
+        }
+        
         moveHelperGlobal.projectTitleListening = item.pTitle
     }
     
     func addProjectItem(VC : projectStack) {
         self.items = self.items + 1
-        self.stack!.insertView(VC.view, at: self.stack!.arrangedSubviews.count - 1, in: .top)
+        
+        if archivedStack == nil {
+            self.stack!.insertView(VC.view, at: self.stack!.arrangedSubviews.count - 1, in: .top)
+        } else {
+            self.stack!.insertView(VC.view, at: self.stack!.arrangedSubviews.count - 2, in: .top)
+        }
+        
         self.addChild(VC)
     }
 
@@ -161,9 +180,13 @@ class VerticalStack: NSViewController {
         project.delete(proj: item.p)
     }
     
+    func handleRemove(item : projectStack) {
+        item.removeFromParent()
+        self.stack?.removeView(item.view)
+    }
+    
     func handleMoveUp(item : projectStack){
         var i = 0
-        print("here")
         for ps in self.stack!.arrangedSubviews {
             if ps == item.view {
                 //i is the index of item
@@ -182,15 +205,58 @@ class VerticalStack: NSViewController {
         var i = 0
         for ps in self.stack!.arrangedSubviews {
             if ps == item.view {
-                if !(i >= self.stack!.arrangedSubviews.count - 2) {
-                    self.stack?.removeView(item.view)
-                    self.stack?.insertView(item.view, at: i + 1, in: .top)
+                if self.archivedStack == nil {
+                    if !(i >= self.stack!.arrangedSubviews.count - 2) {
+                        self.stack?.removeView(item.view)
+                        self.stack?.insertView(item.view, at: i + 1, in: .top)
+                    }
+                    break
+                } else {
+                    if !(i >= self.stack!.arrangedSubviews.count - 3) {
+                        self.stack?.removeView(item.view)
+                        self.stack?.insertView(item.view, at: i + 1, in: .top)
+                    }
+                    break
                 }
-                break
+                
             }
             i += 1
         }
         
+    }
+    
+    func deactivate(projectStack : projectStack) {
+        self.stack?.removeView(projectStack.view)
+        if self.archivedStack == nil {
+            let dStack = ArchivedStack.init(nibName: "ArchivedStack", bundle: nil)
+            dStack.parentP = projectStack.p.parent
+            self.handlePut(deactivatedStack: dStack)
+            //dStack.handleAddProjet(item: projectStack)
+            self.archivedStack = dStack
+            self.addChild(dStack)
+        } else {
+            if self.archivedStack!.expanded {
+                self.archivedStack?.handleAddProjet(item: projectStack)
+            }
+        }
+        if self.selected == projectStack {
+            removeChildrenHelper()
+            if self.hasParentLoaded {
+                leftButton.isEnabled = false 
+            }
+        }
+    }
+    
+    func handlePut(deactivatedStack : ArchivedStack) {
+       // deactivatedStack.view.translatesAutoresizingMaskIntoConstraints = false
+        self.stack?.addArrangedSubview(deactivatedStack.view)
+        self.addChild(deactivatedStack)
+        
+    }
+    
+    func handleRemove(deactivatedStack : ArchivedStack) {
+        self.stack?.removeArrangedSubview(deactivatedStack.view)
+        deactivatedStack.removeFromParent()
     }
 }
 

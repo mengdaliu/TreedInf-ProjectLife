@@ -26,6 +26,8 @@ class project {
             } else {
                 dalGlobal.projectLife = gotData[0] as? Project
             }
+            dalGlobal.projectLife?.subProjects = nil
+            dalGlobal.projectLife?.archivedSubProjects = nil
         } catch {
             fatalError("Failure to fetch from context: \(error)")
         }
@@ -52,6 +54,12 @@ class project {
         project.title = title
         project.parent = parentProject
         parentProject.addToSubProjects(project)
+       
+        let today = Date.init()
+        let todayHistory = projectHistory.createHistory(for: project, on: today)
+        let action = Action.init(context: self.context!)
+        action.type = "Create"
+        
         do {
             try context!.save()
         } catch {
@@ -86,6 +94,7 @@ class project {
     
     static func delete(proj : Project) {
     
+        context!.delete(proj)
         proj.parent!.removeFromSubProjects(proj)
         
         do {
@@ -152,23 +161,115 @@ class project {
     }
     
     static func moveDown(proj : Project) {
-        var new : [Project] = []
-        var flip = false
-        for p in (Array(proj.parent!.subProjects ?? []) as! [Project]) {
-            if flip {
-                flip = false
-                new.remove(at: new.count - 1)
-                new.append(p)
-                new.append(proj)
-            } else if proj != p {
-                new.append(p)
-            } else {
-                new.append(p)
-                flip = true
+        if proj.state == nil {
+            var new : [Project] = []
+            var flip = false
+            for p in (Array(proj.parent!.subProjects ?? []) as! [Project]) {
+                if flip {
+                    flip = false
+                    new.remove(at: new.count - 1)
+                    new.append(p)
+                    new.append(proj)
+                } else if proj != p {
+                    new.append(p)
+                } else {
+                    new.append(p)
+                    flip = true
+                }
+            }
+            
+            proj.parent!.subProjects = NSOrderedSet.init(array: new)
+            
+            do {
+                try context!.save()
+            } catch {
+                fatalError("Failure to save context: \(error)")
+            }
+        } else {
+            var new : [Project] = []
+            var flip = false
+            for p in (Array(proj.parent!.archivedSubProjects ?? []) as! [Project]) {
+                if flip {
+                    flip = false
+                    new.remove(at: new.count - 1)
+                    new.append(p)
+                    new.append(proj)
+                } else if proj != p {
+                    new.append(p)
+                } else {
+                    new.append(p)
+                    flip = true
+                }
+            }
+            
+            proj.parent!.archivedSubProjects = NSOrderedSet.init(array: new)
+            
+            do {
+                try context!.save()
+            } catch {
+                fatalError("Failure to save context: \(error)")
+            }
+        }
+    }
+    
+    static func deactivate(proj : Project) {
+        proj.parent?.removeFromSubProjects(proj)
+        proj.parent?.addToArchivedSubProjects(proj)
+        proj.state = "Archived"
+        for item in Array(proj.subProjects ?? []) {
+            deactivate(proj: item as! Project)
+        }
+        
+        
+        let today = Date.init()
+        let history = projectHistory.getHistory(for: proj, on: today)
+        
+        var found = false
+        for act in Array(history.action ?? []) {
+            if (act as! Action).type == "Reactivate" {
+                history.removeFromAction(act as! Action)
+                context?.delete(act as! NSManagedObject)
+                found = true
+                break
             }
         }
         
-        proj.parent!.subProjects = NSOrderedSet.init(array: new)
+        if !found {
+            let act = Action.init(context: self.context!)
+            act.type = "Archive"
+            history.addToAction(act)
+        }
+        
+        do {
+            try context!.save()
+        } catch {
+            fatalError("Failure to save context: \(error)")
+        }
+    }
+    
+    static func reactivate(proj : Project) {
+        proj.parent?.removeFromArchivedSubProjects(proj)
+        proj.parent?.addToSubProjects(proj)
+        proj.state = nil
+        
+        let today = Date.init()
+        let history = projectHistory.getHistory(for: proj, on: today)
+        
+        var found = false
+        for act in Array(history.action ?? []) {
+            if (act as! Action).type == "Archive" {
+                history.removeFromAction(act as! Action)
+                context?.delete(act as! NSManagedObject)
+                found = true
+                break
+            }
+        }
+        
+        if !found {
+            let act = Action.init(context: self.context!)
+            act.type = "Reactivate"
+            history.addToAction(act)
+        }
         
         do {
             try context!.save()
@@ -213,9 +314,27 @@ class projectHistory {
     static var context = dalGlobal.context
     
     static func getHistory(for proj : Project, on day : Date) -> ProjectHistory {
+        
+       
+        // Get the current calendar with local time zone
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        
+        // Get today's beginning & end
+        let dateFrom = calendar.startOfDay(for: day) // eg. 2016-10-10 00:00:00
+        
+        let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)
+        // Note: Times are printed in UTC. Depending on where you live it won't print 00:00:00 but it will work with UTC times which can be converted to local time
+        
+        // Set predicate as date being today's date
+        let fromPredicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
+        let toPredicate = NSPredicate(format: "date < %@", dateTo! as NSDate)
+        let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
+        
+        
+        
         let history = NSArray(object : proj.history ?? [])
-        let filteringPredicate = NSPredicate.init(format: "date == %@", argumentArray: [day])
-        let result = history.filtered(using: filteringPredicate)
+        let result = history.filtered(using: datePredicate)
         if result.count > 0 {
             return result[0] as! ProjectHistory
         } else {
@@ -255,14 +374,33 @@ class projectHistory {
             act.done = done
         }
         context!.assign(act, to: dalGlobal.userStore!)
-        
         do {
             try context!.save()
         } catch {
             fatalError("Failure to save context: \(error)")
         }
-        
         return act
+    }
+    
+    static func delete(action : Action) {
+        context!.delete(action)
+    }
+    
+    static func loadHistory(for proj : Project) -> [ProjectHistory]? {
+        let req = NSFetchRequest<NSFetchRequestResult>.init(entityName: "ProjectHistory")
+        let sort = NSSortDescriptor(key: #keyPath(ProjectHistory.date), ascending: true)
+        req.sortDescriptors = [sort]
+        req.affectedStores = [dalGlobal.userStore!]
+        do {
+            let gotData = try context!.fetch(req)
+            if gotData.count < 1 {
+                return nil
+            } else {
+                return gotData as? [ProjectHistory]
+            }
+        } catch {
+            return nil
+        }
     }
 }
 

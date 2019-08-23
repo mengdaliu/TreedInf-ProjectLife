@@ -110,6 +110,9 @@ class projectStack: NSViewController {
         if (self.optionVC?.children[0] as! options).droppedDownSetter != nil {
             (self.optionVC?.children[0] as! options).handleCollapseSetter()
         }
+        if self.pDetail == nil {
+            self.pTitle.view.layer?.cornerRadius = 10 
+        }
         self.Stack!.removeView(self.optionVC!.view)
         self.optionVC?.removeFromParent()
     }

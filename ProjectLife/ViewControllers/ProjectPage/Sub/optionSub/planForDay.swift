@@ -231,6 +231,7 @@ class planForDay: NSViewController {
             let da = day.GetDay(for: self.Selected)
             day.Add(done : d, to : da)
         }
+        (self.parent as! projectStack).handleCollapseOptions()
     }
     
 }
