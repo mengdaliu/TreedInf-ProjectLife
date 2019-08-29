@@ -10,6 +10,7 @@ import Cocoa
 
 class singleHistory: NSViewController {
 
+    @IBOutlet weak var commentScroll: customScrollView!
     @IBOutlet weak var oneLineDescription: NSTextField!
     @IBOutlet var optionalComment: NSTextView!
     @IBOutlet weak var scroll: NSScrollView!
@@ -25,24 +26,34 @@ class singleHistory: NSViewController {
         self.smallConstraint = NSLayoutConstraint.init(item: scroll!, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 20)
         self.largeConstraint =  NSLayoutConstraint.init(item: scroll!, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 100)
         self.nilConstraint =  NSLayoutConstraint.init(item: scroll!, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 0)
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        //NSLayoutConstraint.init(item: view, attribute: .width, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 800).isActive = true
+        //NSLayoutConstraint.init(item: view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 50).isActive = true
+        //self.smallConstraint.isActive = true
+        self.view.wantsLayer = true
+        self.view.layer?.backgroundColor =  CGColor.init(gray: 0.92, alpha: 0)
+        optionalComment.backgroundColor = NSColor.init(cgColor : CGColor.init(gray: 0.92, alpha: 0))!
+       
     }
+
     
     func setAction(action : Action) {
         self.act = action
     }
     
     override func viewDidAppear() {
+        commentScroll.superScrollFunc = (self.parent!.parent as! HistoryContentScroll).scroll.scrollWheel
         if act.type == "Plan" {
-            oneLineDescription.font = .labelFont(ofSize: 18)
+            oneLineDescription.font = .labelFont(ofSize: 17)
             oneLineDescription.textColor = ThemeColor.red
             if act.plan!.percentage != 0 {
-                oneLineDescription.stringValue = NSString.init(format: "• Planned to Finish %d%%", act.plan!.percentage) as String
+                oneLineDescription.stringValue = NSString.init(format: "• Planned to finish %d%%.", act.plan!.percentage) as String
             } else {
-                oneLineDescription.stringValue = NSString.init(format: "• Planned to Work") as String
+                oneLineDescription.stringValue = NSString.init(format: "• Planned to work on this project.") as String
             }
             
             if self.act.plan!.comment != nil && self.act.plan!.comment != "" {
-                self.optionalComment.font = .labelFont(ofSize: 18)
+                self.optionalComment.font = .labelFont(ofSize: 17)
                 self.optionalComment.string = self.act.plan!.comment!
                 self.smallConstraint.isActive = true
                 self.optionalComment.textColor = ThemeColor.blue
@@ -50,17 +61,17 @@ class singleHistory: NSViewController {
                 self.nilConstraint.isActive = true
             }
         } else if act.type == "Done" {
-            oneLineDescription.font = .labelFont(ofSize: 18)
+            oneLineDescription.font = .labelFont(ofSize: 17)
             oneLineDescription.textColor = ThemeColor.green
             if act.done!.percentage != 0 {
-                oneLineDescription.stringValue = NSString.init(format: "• Finished %d%%", act.plan!.percentage) as String
+                oneLineDescription.stringValue = NSString.init(format: "• Finished %d%%.", act.done!.percentage) as String
             } else {
-                oneLineDescription.stringValue = NSString.init(format: "• Worked") as String
+                oneLineDescription.stringValue = NSString.init(format: "• Worked on this project.") as String
                 
             }
             
             if self.act.done!.comment != nil && self.act.done!.comment != "" {
-                self.optionalComment.font = .labelFont(ofSize: 18)
+                self.optionalComment.font = .labelFont(ofSize: 17)
                 self.optionalComment.string = self.act.done!.comment!
                 self.smallConstraint.isActive = true
                 self.optionalComment.textColor = ThemeColor.blue
@@ -70,21 +81,37 @@ class singleHistory: NSViewController {
         } else if act.type == "Create" {
             let attributes : [NSAttributedString.Key : Any] = [
                 NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : ThemeColor.black,
-                NSAttributedString.Key(rawValue : NSAttributedString.Key.font.rawValue) : NSFont.labelFont(ofSize: 18)
+                NSAttributedString.Key(rawValue : NSAttributedString.Key.font.rawValue) : NSFont.labelFont(ofSize: 17)
             ]
             oneLineDescription.attributedStringValue = NSAttributedString.init(string: "• Created", attributes: attributes)
         } else if act.type == "Archive" {
             let attributes : [NSAttributedString.Key : Any] = [
                 NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : ThemeColor.brown,
-                NSAttributedString.Key(rawValue : NSAttributedString.Key.font.rawValue) : NSFont.labelFont(ofSize: 18)
+                NSAttributedString.Key(rawValue : NSAttributedString.Key.font.rawValue) : NSFont.labelFont(ofSize: 17)
             ]
             oneLineDescription.attributedStringValue = NSAttributedString.init(string: "• Archived", attributes: attributes)
         } else if act.type == "Reactivate" {
             let attributes : [NSAttributedString.Key : Any] = [
                 NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : ThemeColor.peru,
-                NSAttributedString.Key(rawValue : NSAttributedString.Key.font.rawValue) : NSFont.labelFont(ofSize: 18)
+                NSAttributedString.Key(rawValue : NSAttributedString.Key.font.rawValue) : NSFont.labelFont(ofSize: 17)
             ]
             oneLineDescription.attributedStringValue = NSAttributedString.init(string: "• Reactivated", attributes: attributes)
         }
     }
+    
+    
+    override func rightMouseDown(with event: NSEvent) {
+        if !self.nilConstraint.isActive {
+            if self.smallConstraint.isActive {
+                commentScroll.allowScroll = true
+                self.smallConstraint.isActive = false
+                self.largeConstraint.isActive = true
+            } else {
+                commentScroll.allowScroll = false
+                self.largeConstraint.isActive = false
+                self.smallConstraint.isActive = true
+            }
+        }
+    }
+    
 }

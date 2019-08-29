@@ -142,7 +142,7 @@ class dateUtils {
     }
     
     func forHistory() -> String {
-        
+        return ""
     }
     
     static func equal(dayA : Date, dayB : Date) -> Bool {

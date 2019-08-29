@@ -18,18 +18,36 @@ class deleteConfirmation: NSViewController {
     }
     
     func forProject(proj : Project) {
-        if proj.title != nil {
-            firstLine.stringValue = "Are you sure you want to delete " + "\'" + proj.title! + "\'?"
-        }
+        
         projToDelete = proj
+    }
+    
+    override func viewDidAppear() {
+        if projToDelete.title != nil {
+            firstLine.stringValue = "Are you sure you want to delete " + "\'" + projToDelete.title! + "\'?"
+        }
     }
     
     @IBAction func pressYes(_ sender: Any) {
         if project.getState(for: projToDelete) == nil {
-            (self.parent!.parent!.parent as! VerticalStack).handleRemove(item: self.parent!.parent as! projectStack)
+            if (self.parent!.parent!.parent as! VerticalStack).selected == (self.parent!.parent as! projectStack) {
+                 (self.parent!.parent!.parent!.parent as! VerticalSplit).removeChildren(current: (self.parent!.parent!.parent! as! VerticalStack))
+            }
+            (self.parent!.parent!.parent as! VerticalStack).handleDelete(item: self.parent!.parent as! projectStack)
+            
         } else {
-            (self.parent!.parent!.parent as! ArchivedStack).handleRemoveProject(item: self.parent!.parent as! projectStack)
+            if (self.parent!.parent!.parent!.parent!.parent! as! VerticalStack).selected == (self.parent!.parent!.parent as! projectStack) {
+                (self.parent!.parent!.parent!.parent!.parent!.parent as! VerticalSplit).removeChildren(current: (self.parent!.parent!.parent!.parent!.parent as! VerticalStack))
+            }
+            (self.parent!.parent!.parent!.parent as! ArchivedStack).handleDelete(item: self.parent!.parent!.parent as! projectStack)
         }
-        project.delete(proj: self.projToDelete)
+        self.removeFromParent()
+        self.dismiss(nil)
+    }
+    
+    
+    @IBAction func pressCancal(_ sender: Any) {
+        self.removeFromParent()
+        self.dismiss(nil)
     }
 }

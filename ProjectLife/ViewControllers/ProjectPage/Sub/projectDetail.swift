@@ -13,13 +13,18 @@ class projectDetail: NSViewController {
     var largeConstraint : NSLayoutConstraint?
     var expanded = false
     var overview : SectionStack!
+    var history : SectionStack!
     var expandedSectionDetails = [NSViewController].init()
     @IBOutlet weak var Stack: flippedView!
     @IBOutlet weak var scroll: NSScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let stack = flippedView.init()
+        let stack = flippedView.init(frame: scroll.frame)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.orientation = .vertical
+        stack.alignment = .leading
+        stack.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         self.Stack = stack
         Stack.translatesAutoresizingMaskIntoConstraints = false
         scroll.documentView = stack
@@ -34,8 +39,10 @@ class projectDetail: NSViewController {
         //NSLayoutConstraint.init(item: Stack, attribute: .height, relatedBy: .equal, toItem: self.view, attribute: .height, multiplier: 1, constant: 0).isActive = true
         smallConstraint?.isActive = true
         Stack.wantsLayer = true
+        Stack.spacing = 1
     
         //NSLayoutConstraint.init(item: stack, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        
         let overViewStack = SectionStack.init(nibName: "SectionStack", bundle: nil)
         self.Stack.addArrangedSubview(overViewStack.view)
         self.addChild(overViewStack)
@@ -46,7 +53,16 @@ class projectDetail: NSViewController {
         Section.setTitle(title: "Overview")
         overview = overViewStack
         //self.presentAsSheet(description)
-      
+        
+        let historyStack = SectionStack.init(nibName: "SectionStack", bundle: nil)
+        self.Stack.addArrangedSubview(historyStack.view)
+        self.addChild(historyStack)
+        let historySectionTitle = SectionTitle.init(nibName: "SectionTitle", bundle: nil)
+        historyStack.addTitle(titleVC: historySectionTitle)
+        historySectionTitle.setTitle(title: "History")
+        history = historyStack
+
+        
         
         
         let doubleTap  = NSClickGestureRecognizer.init(target: self, action: #selector(handleDoubleTap))

@@ -23,28 +23,28 @@ class close: NSViewController {
         
         archiveButton.font = .labelFont(ofSize: 18)
         deleteButton.font = .labelFont(ofSize: 18)
-        archiveButton.setText(str: "Archive", color: ThemeColor.blue)
+        archiveButton.setText(str: "Archive", color: ThemeColor.brown)
         deleteButton.setText(str: "Delete", color: ThemeColor.red)
         
-        NSLayoutConstraint.init(item: archiveButton!, attribute: .trailing, relatedBy: .lessThanOrEqual, toItem: deleteButton, attribute: .leading, multiplier: 1, constant: -1).isActive = true
+        NSLayoutConstraint.init(item: deleteButton!, attribute: .trailing, relatedBy: .lessThanOrEqual, toItem: archiveButton, attribute: .leading, multiplier: 1, constant: -1).isActive = true
         
         archiveButton.showsBorderOnlyWhileMouseInside = true
         deleteButton.showsBorderOnlyWhileMouseInside = true
     }
     
     @IBAction func pressArchive(_ sender: Any) {
-        
-         project.deactivate(proj: (self.parent as! projectStack).p)
+        let projectToDeactivate = (self.parent as! projectStack).p!
          (self.parent!.parent as! VerticalStack).deactivate(projectStack: self.parent! as! projectStack)
          (self.parent! as! projectStack).handleCollapseOptions()
+         project.deactivate(proj: projectToDeactivate)
          optionSetterGlobal.selectedProjectStack = nil
-        
-       
-        
-        
     }
     
     @IBAction func pressDelete(_ sender: Any) {
+        let deleteWindow = deleteConfirmation.init(nibName: "deleteConfirmation", bundle: nil)
+        deleteWindow.forProject(proj: (self.parent as! projectStack).p)
+        self.presentAsSheet(deleteWindow)
+        self.addChild(deleteWindow)
     }
     
 }

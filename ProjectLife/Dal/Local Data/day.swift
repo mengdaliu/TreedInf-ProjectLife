@@ -55,10 +55,8 @@ class day {
         do {
             let gotData = try context!.fetch(req)
             if gotData.count < 1 {
-                print("miss")
                 return Add(day: d)
             } else {
-                print("hit")
                 return gotData[0] as! Day
             }
         } catch {
@@ -114,7 +112,19 @@ class day {
     
     static func delete(plan : Plan, from day : Day) {
         day.removeFromPlans(plan)
+        
+        let history = projectHistory.getHistory(for: plan.project!, on: day.date!)
+        for act in Array(history.action ?? []) as! [Action] {
+            if act.plan == plan {
+                history.removeFromAction(act)
+                context?.delete(act)
+                break
+            }
+        }
         context!.delete(plan)
+        if (day.dones?.count == 0 || day.dones == nil) && (day.plans?.count == 0 || day.plans == nil) {
+            context!.delete(day)
+        }
         do {
             try context!.save()
         } catch {
@@ -124,7 +134,18 @@ class day {
     
     static func delete(done : Done, from day : Day) {
         day.removeFromDones(done)
+        let history = projectHistory.getHistory(for: done.project!, on: day.date!)
+        for act in Array(history.action ?? []) as! [Action] {
+            if act.done == done {
+                history.removeFromAction(act)
+                context?.delete(act)
+                break
+            }
+        }
         context!.delete(done)
+        if (day.dones?.count == 0 || day.dones == nil) && (day.plans?.count == 0 || day.plans == nil) {
+            context!.delete(day)
+        }
         do {
             try context!.save()
         } catch {

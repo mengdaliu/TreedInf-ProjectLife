@@ -39,7 +39,7 @@ class RootPage: NSViewController {
             let title = nickName! + "'s Project Life"
             ProjectLife.setTitle(title: title)
         }
-         ProjectLife.p = dalGlobal.projectLife!
+        ProjectLife.p = dalGlobal.projectLife!
         RootPage.instance = self 
     }
     

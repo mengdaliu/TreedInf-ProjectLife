@@ -20,7 +20,12 @@ class VerticalSplit: NSSplitViewController {
         super.viewDidLoad()
         // Do view setup here.
         self.splitView.dividerStyle = .thin
-        splitView.setValue(ColorGetter.getCurrentThemeColor(), forKey: "dividerColor")
+        
+        var color = ColorGetter.getCurrentThemeColor()
+        if color == ThemeColor.white {
+            color = ThemeColor.black
+        }
+        splitView.setValue(color, forKey: "dividerColor")
        
         let root = RootPage.init(nibName: "RootPage", bundle: nil)
         let rootSplitItem = NSSplitViewItem.init(viewController: root)
@@ -37,7 +42,22 @@ class VerticalSplit: NSSplitViewController {
         self.view.window?.makeFirstResponder(nil)
     }
     
-    
+    func handleChangeParentName(for parentStack : VerticalStack) {
+        if parentStack != nil {
+            var found = false
+            for item in self.splitViewItems {
+                if found {
+                    (item.viewController as! VerticalStack).parentName.stringValue = (parentStack.selected?.p.title)!
+                    break
+                }
+                if item.viewController == parentStack {
+                    found = true
+                }
+                
+            }
+        }
+        
+    }
     func handleLoadChildren(for proj : projectStack) -> VerticalStack {
         var current : VerticalStack?
         if proj.p.state == nil {
@@ -110,6 +130,7 @@ class VerticalSplit: NSSplitViewController {
             (self.splitViewItems[self.splitViewItems.count-1].viewController as! VerticalStack).hasChildrenRemoved = true
             (self.splitViewItems[self.splitViewItems.count-1].viewController as! VerticalStack).leftButton.isEnabled = false
         }
+        vStack.parentVC?.handleChangeTitleColor()
     }
     
     func generateStackView(from subProjects : [Project], in stack : VerticalStack){
@@ -139,23 +160,45 @@ class VerticalSplit: NSSplitViewController {
     }
     
     func handleMoveToParentLevel(proj : projectStack) {
-        (proj.parent as! VerticalStack).stack!.removeView(proj.view)
-        var i = 0
-        var last : NSViewController?
-        var parent : VerticalStack
-        for item in self.splitViewItems {
-            if item.viewController == proj.parent {
-                if last == nil {
-                    handleLoadParentProject(for: item.viewController as! VerticalStack)
-                    parent = (self.splitViewItems[0].viewController as! VerticalStack)
-                } else {
-                    parent = (self.splitViewItems[i - 1].viewController as! VerticalStack)
+        if proj.p.state == nil {
+            (proj.parent as! VerticalStack).stack!.removeView(proj.view)
+            var i = 0
+            var last : NSViewController?
+            var parent : VerticalStack
+            for item in self.splitViewItems {
+                if item.viewController == proj.parent {
+                    if last == nil {
+                        handleLoadParentProject(for: item.viewController as! VerticalStack)
+                        parent = (self.splitViewItems[0].viewController as! VerticalStack)
+                    } else {
+                        parent = (self.splitViewItems[i - 1].viewController as! VerticalStack)
+                    }
+                    parent.addProjectItem(VC: proj)
+                    break
                 }
-                parent.addProjectItem(VC: proj)
-                break
+                i += 1
+                last = item.viewController
             }
-            i += 1
-            last = item.viewController
+        } else {
+            (proj.parent as! ArchivedStack).stack!.removeView(proj.view)
+            var i = 0
+            var last : NSViewController?
+            var parent : VerticalStack
+            for item in self.splitViewItems {
+                if item.viewController == proj.parent!.parent {
+                    if last == nil {
+                        handleLoadParentProject(for: item.viewController as! VerticalStack)
+                        parent = (self.splitViewItems[0].viewController as! VerticalStack)
+                    } else {
+                        parent = (self.splitViewItems[i - 1].viewController as! VerticalStack)
+                    }
+                    parent.addProjectItem(VC: proj)
+                    parent.deactivate(projectStack: proj)
+                    break
+                }
+                i += 1
+                last = item.viewController
+            }
         }
     }
     
@@ -176,5 +219,22 @@ class VerticalSplit: NSSplitViewController {
             }
         }
     }
+    
+    func changeTitleColor(color : NSColor) {
+        var c : NSColor!
+        if color == ThemeColor.white {
+            c = ThemeColor.black
+        } else {
+            c = color
+        }
+        for item in self.splitViewItems {
+            if item.viewController != RootPage.instance {
+                (item.viewController as! VerticalStack).parentName.textColor = c
+                (item.viewController as! VerticalStack).add.handleChangeColor(color: color)
+                (item.viewController as! VerticalStack).archivedStack?.toggleButton.handleChangeColor(color : color)
+            }
+        }
+    }
+    
 }
 

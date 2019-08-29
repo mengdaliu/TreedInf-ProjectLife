@@ -17,8 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="25"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IJI-xO-C6J">
-                    <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IJI-xO-C6J" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
+                    <rect key="frame" x="192" y="0.0" width="96" height="25"/>
                     <buttonCell key="cell" type="square" title="+ New Project" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1y6-WD-MdU">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -29,12 +29,11 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="IJI-xO-C6J" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="2ZI-WX-4Of"/>
                 <constraint firstItem="IJI-xO-C6J" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="BEa-iB-9hy"/>
                 <constraint firstAttribute="bottom" secondItem="IJI-xO-C6J" secondAttribute="bottom" id="YAA-GT-oWK"/>
-                <constraint firstAttribute="trailing" secondItem="IJI-xO-C6J" secondAttribute="trailing" id="tIf-kV-SXS"/>
+                <constraint firstItem="IJI-xO-C6J" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="gxC-rT-EHM"/>
             </constraints>
-            <point key="canvasLocation" x="55" y="118"/>
+            <point key="canvasLocation" x="6" y="138"/>
         </customView>
     </objects>
 </document>

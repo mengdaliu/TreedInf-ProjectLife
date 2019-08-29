@@ -14,6 +14,9 @@ class ColorGetter {
     static func getCurrentThemeColor() -> NSColor {
         do {
             let loadedData = UserDefaults.standard.data(forKey: "Theme Color")
+            if loadedData == nil {
+                return NSColor.black
+            }
             let loadedColor =  try? NSKeyedUnarchiver.unarchivedObject(ofClasses : [NSColor.self], from: loadedData!) as? NSColor
             if loadedColor != nil {
                 return loadedColor!

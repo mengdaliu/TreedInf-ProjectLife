@@ -138,6 +138,15 @@ class Enter: NSViewController {
     @IBOutlet weak var sentence: NSTextField!
     
     override func viewDidAppear() {
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                self.didAppearHelper()
+            }
+            sleep(60)
+        }
+    }
+    
+    func didAppearHelper(){
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)

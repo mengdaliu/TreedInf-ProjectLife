@@ -36,7 +36,7 @@ class VerticalStack: NSViewController {
         let ProjectStack = flippedView.init(frame: scroll.documentView!.frame)
         ProjectStack.orientation = .vertical
         ProjectStack.translatesAutoresizingMaskIntoConstraints = false
-        
+        ProjectStack.setHuggingPriority(.defaultHigh, for: .horizontal)
         
         
         self.scroll.documentView = ProjectStack
@@ -56,6 +56,9 @@ class VerticalStack: NSViewController {
         parentName.stringValue = self.parentProj?.title ?? ""
         parentName.font = .labelFont(ofSize: 20)
         parentName.textColor = ColorGetter.getCurrentThemeColor()
+        if parentName.textColor == ThemeColor.white {
+            parentName.textColor = ThemeColor.black
+        }
         
        
        
@@ -64,7 +67,10 @@ class VerticalStack: NSViewController {
         ProjectStack.setHuggingPriority(.defaultLow, for: .vertical)
         ProjectStack.spacing = 15
        
-        leftButton.isEnabled = false
+        
+        
+        
+        rightButton.isEnabled = false
         rightButton.isEnabled = true
         
         
@@ -150,6 +156,7 @@ class VerticalStack: NSViewController {
             }
         } else if !hasChildrenRemoved {
             removeChildrenHelper()
+            self.selected = nil 
         }
     }
     
@@ -175,9 +182,16 @@ class VerticalStack: NSViewController {
     }
     
     func handleDelete(item : projectStack) {
+        if self.selected == item {
+            VerticalSplit.instance?.removeChildren(current: item.parent as! VerticalStack)
+        }
         item.removeFromParent()
         self.stack?.removeView(item.view)
+        
         project.delete(proj: item.p)
+        if optionSetterGlobal.selectedProjectStack == item {
+            optionSetterGlobal.selectedProjectStack = nil
+        }
     }
     
     func handleRemove(item : projectStack) {
@@ -257,6 +271,16 @@ class VerticalStack: NSViewController {
     func handleRemove(deactivatedStack : ArchivedStack) {
         self.stack?.removeArrangedSubview(deactivatedStack.view)
         deactivatedStack.removeFromParent()
+        self.archivedStack = nil 
+    }
+    
+    func handleChangeTitleColor() {
+        let color = ColorGetter.getCurrentThemeColor()
+        if color != ThemeColor.white {
+            self.parentName.textColor = color
+        } else {
+            self.parentName.textColor = ThemeColor.black
+        }
     }
 }
 

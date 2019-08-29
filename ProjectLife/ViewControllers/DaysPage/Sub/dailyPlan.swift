@@ -10,7 +10,7 @@ import Cocoa
 
 class dailyPlan: NSViewController {
 
-    @IBOutlet weak var scroll: NSScrollView!
+    @IBOutlet weak var scroll: customScrollView!
     var stack : flippedView?
     
     @IBOutlet weak var plans: NSTextField!
@@ -18,8 +18,8 @@ class dailyPlan: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         plans.stringValue = "Plans"
-        plans.font = .labelFont(ofSize: 20)
-        plans.textColor = ColorGetter.getCurrentThemeColor()
+        plans.font = .labelFont(ofSize: 18)
+        plans.textColor = ThemeColor.red
         
         let stack = flippedView.init(frame: scroll.documentView!.frame)
         self.stack = stack 
@@ -42,6 +42,7 @@ class dailyPlan: NSViewController {
     }
     
     override func viewDidAppear() {
+        scroll.superScrollFunc = (self.parent!.parent!.parent as! DaysMaster).scroll.scrollWheel
         let plans =  day.getPlan(from: (self.parent?.parent as! DayStack).day!)
         for plan in plans ?? [] {
             let pVC = singlePlan.init(nibName : "singlePlan", bundle : nil)
@@ -60,5 +61,34 @@ class dailyPlan: NSViewController {
         let e = edit.init(nibName: "edit", bundle: nil)
         stack!.insertView(e.view, at: stack!.arrangedSubviews.count - 1, in: .top)
         self.addChild(e)
+    }
+    
+    func handleMoveUp(item : singlePlan){
+        var i = 0
+        for ps in self.stack!.arrangedSubviews {
+            if ps == item.view {
+                //i is the index of item
+                if i - 1 >= 0 {
+                    self.stack?.removeView(item.view)
+                    self.stack?.insertView(item.view, at: i - 1, in: .top)
+                }
+                
+                break
+            }
+            i += 1
+        }
+    }
+    
+    func handleMoveDown(item : singlePlan) {
+        var i = 0
+        for ps in self.stack!.arrangedSubviews {
+            if ps == item.view {
+                if !(i >= self.stack!.arrangedSubviews.count - 1) {
+                    self.stack?.removeView(item.view)
+                    self.stack?.insertView(item.view, at: i + 1, in: .top)
+                }
+            }
+            i += 1
+        }
     }
 }

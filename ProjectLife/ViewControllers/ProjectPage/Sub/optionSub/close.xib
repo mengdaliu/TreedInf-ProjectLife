@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MRf-2U-bts" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
-                    <rect key="frame" x="-8" y="-7" width="86" height="32"/>
+                    <rect key="frame" x="62" y="-7" width="86" height="32"/>
                     <buttonCell key="cell" type="push" title="Archive" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xdL-H1-jcX">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -29,7 +29,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R7g-Sl-t5R" customClass="HoverButton" customModule="ProjectLife" customModuleProvider="target">
-                    <rect key="frame" x="65" y="-7" width="80" height="32"/>
+                    <rect key="frame" x="-5" y="-7" width="80" height="32"/>
                     <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eRU-bl-VbJ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -40,9 +40,9 @@
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="R7g-Sl-t5R" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="1.5" id="DFl-6x-DWo"/>
+                <constraint firstItem="R7g-Sl-t5R" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="0.5" id="DFl-6x-DWo"/>
                 <constraint firstItem="R7g-Sl-t5R" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="NRb-Y5-iuX"/>
-                <constraint firstItem="MRf-2U-bts" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="0.5" id="Po2-am-M8u"/>
+                <constraint firstItem="MRf-2U-bts" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" multiplier="1.5" id="Po2-am-M8u"/>
                 <constraint firstAttribute="bottom" secondItem="MRf-2U-bts" secondAttribute="bottom" id="Voj-gP-kQl"/>
                 <constraint firstItem="MRf-2U-bts" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="ZOA-cb-zlL"/>
                 <constraint firstAttribute="bottom" secondItem="R7g-Sl-t5R" secondAttribute="bottom" id="e7p-h1-mzG"/>

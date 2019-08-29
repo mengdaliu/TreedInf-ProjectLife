@@ -102,4 +102,19 @@ class DaysMaster: NSViewController {
         }
         return nil
     }
+    
+    override func mouseDown(with event: NSEvent) {
+        if daySelectGlobal.type == "singlePlan" {
+            (daySelectGlobal.selected as? singlePlan)?.handleReturnNormal()
+        } else if daySelectGlobal.type == "singleDone" {
+            (daySelectGlobal.selected as? singleDone)?.handleReturnNormal()
+        }
+        self.view.window?.makeFirstResponder(nil)
+    }
+    
+    func handleChangeColor(color : NSColor) {
+        for item in self.children {
+            (item as? DayStack)?.dTitle?.DateLabel.textColor = color
+        }
+    }
 }

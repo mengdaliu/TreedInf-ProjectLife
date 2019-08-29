@@ -86,7 +86,7 @@ class projectStack: NSViewController {
         
         optionSetterGlobal.selectedProjectStack = self
         
-        if !self.deactivated {
+        if self.p.state == nil {
             let options = optionWrapper.init(nibName: "optionWrapper", bundle: nil)
             self.Stack!.insertArrangedSubview(options.view, at: 1)
             self.Stack!.setCustomSpacing(0, after: self.pTitle.view)
@@ -98,23 +98,30 @@ class projectStack: NSViewController {
         } else {
             let options = optionWrapper.init(nibName: "optionWrapper", bundle: nil)
             self.Stack!.insertArrangedSubview(options.view, at: 1)
+            self.Stack!.setCustomSpacing(0, after: self.pTitle.view)
             self.Stack!.setCustomSpacing(0, after: options.view)
             self.addChild(options)
             options.setUpForDeactivatedProject()
             self.optionVC = options
         }
-        
+        self.pTitle.expandedOptions = true
     }
     
     func handleCollapseOptions(){
-        if (self.optionVC?.children[0] as! options).droppedDownSetter != nil {
-            (self.optionVC?.children[0] as! options).handleCollapseSetter()
+        if self.p.state == nil {
+            if (self.optionVC?.children[0] as! options).droppedDownSetter != nil {
+                (self.optionVC?.children[0] as! options).handleCollapseSetter()
+            }
         }
+        
         if self.pDetail == nil {
             self.pTitle.view.layer?.cornerRadius = 10 
         }
         self.Stack!.removeView(self.optionVC!.view)
         self.optionVC?.removeFromParent()
+        //self.optionVC = nil
+        self.pTitle.expandedOptions = false
+        optionSetterGlobal.selectedProjectStack = nil 
     }
     
 }

@@ -11,6 +11,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="comment" destination="aKw-B3-i9g" id="cnm-4t-T2e"/>
+                <outlet property="confirm" destination="FkN-JF-a1Y" id="RcJ-PV-Ve4"/>
                 <outlet property="customDatePicker" destination="QBT-wo-jyM" id="lBn-dk-wgI"/>
                 <outlet property="dateMenu" destination="MZN-LR-GFL" id="p4F-Hh-On8"/>
                 <outlet property="datePicker" destination="efV-U5-AEb" id="Emx-MB-yM3"/>

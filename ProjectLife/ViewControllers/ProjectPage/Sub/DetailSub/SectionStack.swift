@@ -15,7 +15,11 @@ class SectionStack: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        
+        Stack.distribution = .gravityAreas
+        Stack.setHuggingPriority(.defaultLow, for: .vertical)
+        Stack.setHuggingPriority(.defaultHigh, for: .horizontal)
+        Stack.alignment = .leading
+        Stack.orientation = .vertical
     }
     
     func addTitle(titleVC : SectionTitle) {
@@ -26,6 +30,12 @@ class SectionStack: NSViewController {
     
     func expandAndEditOverview() {
         self.sTitle.expandAndEditOverview() 
+    }
+    
+    func addHistory(titleVC : SectionTitle) {
+        self.Stack.addArrangedSubview(titleVC.view)
+        self.addChild(sTitle)
+        self.sTitle = titleVC 
     }
     
 }

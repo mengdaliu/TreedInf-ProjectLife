@@ -5,8 +5,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="History" customModule="ProjectLife" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="HistoryContentScroll" customModule="ProjectLife" customModuleProvider="target">
             <connections>
+                <outlet property="historyTextView" destination="EN8-mx-2TG" id="D4T-R0-t2V"/>
+                <outlet property="scroll" destination="gqL-zv-g7n" id="1Pb-ZE-Mod"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -17,17 +19,17 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqL-zv-g7n">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                    <rect key="frame" x="20" y="0.0" width="440" height="272"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="mes-Em-t4u">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="272"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="EN8-mx-2TG">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                                <rect key="frame" x="0.0" y="0.0" width="440" height="272"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="480" height="272"/>
+                                <size key="minSize" width="440" height="272"/>
                                 <size key="maxSize" width="480" height="10000000"/>
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
@@ -38,18 +40,18 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="N2u-vO-5wP">
-                        <rect key="frame" x="464" y="0.0" width="16" height="272"/>
+                        <rect key="frame" x="424" y="0.0" width="16" height="272"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="gqL-zv-g7n" secondAttribute="trailing" id="544-al-e1Z"/>
-                <constraint firstItem="gqL-zv-g7n" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Th7-iy-dsk"/>
+                <constraint firstAttribute="trailing" secondItem="gqL-zv-g7n" secondAttribute="trailing" constant="20" id="HSl-qe-f55"/>
+                <constraint firstItem="gqL-zv-g7n" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="N6h-N5-2z2"/>
                 <constraint firstAttribute="bottom" secondItem="gqL-zv-g7n" secondAttribute="bottom" id="hfG-6W-ecO"/>
-                <constraint firstItem="gqL-zv-g7n" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="hic-gX-zmu"/>
+                <constraint firstItem="gqL-zv-g7n" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="mD1-gg-cHH"/>
             </constraints>
-            <point key="canvasLocation" x="196" y="155"/>
+            <point key="canvasLocation" x="-378" y="97"/>
         </customView>
     </objects>
 </document>

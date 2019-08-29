@@ -65,15 +65,14 @@ class ViewController: NSViewController {
         
         
         
-        let color = ColorGetter.getCurrentThemeColor()
+        var color = ColorGetter.getCurrentThemeColor()
         if color == ThemeColor.white {
-            Project.setText(str: "Projects", color: ThemeColor.black)
-            Days.setText(str: "Days", color: ThemeColor.black)
-            
-        } else {
-            Project.setText(str: "Projects", color: ThemeColor.white)
-            Days.setText(str: "Days", color: ThemeColor.white)
+            color = ThemeColor.black
         }
+        
+        Project.setText(str: "Projects", color: ThemeColor.white)
+        Days.setText(str: "Days", color: ThemeColor.white)
+        
         trivial.setText(str: "Trivial", color: color)
         Project.font = .labelFont(ofSize: 15)
         Days.font = .labelFont(ofSize: 15)
@@ -133,18 +132,15 @@ class ViewController: NSViewController {
         }
        
         wall.handleSelectProjects()
-        let color = ColorGetter.getCurrentThemeColor()
+        var color = ColorGetter.getCurrentThemeColor()
+        if color == ThemeColor.white {
+            color = ThemeColor.black
+        }
         Project.layer = nil
         Days.wantsLayer = true
         Days.layer?.backgroundColor = color.cgColor
-        if color == ThemeColor.white {
-            Days.setText(str: "Days", color : ThemeColor.black)
-             Project.setText(str: "Projects", color: ThemeColor.black)
-            
-        } else {
-            Days.setText(str: "Days", color: ThemeColor.white)
-            Project.setText(str: "Projects", color: color)
-        }
+        Days.setText(str: "Days", color: ThemeColor.white)
+        Project.setText(str: "Projects", color: color)
         self.selected = sender
     }
     
@@ -166,17 +162,17 @@ class ViewController: NSViewController {
         }
     
         wall.handleSelectDays()
-        let color = ColorGetter.getCurrentThemeColor()
+        var color = ColorGetter.getCurrentThemeColor()
+        if color == ThemeColor.white {
+            color = ThemeColor.black
+        }
         Days.layer = nil
         Project.wantsLayer = true
         Project.layer?.backgroundColor = color.cgColor
-        if color == ThemeColor.white {
-            Days.setText(str: "Days", color: ThemeColor.black)
-            Project.setText(str: "Projects", color: ThemeColor.black)
-        } else {
-            Days.setText(str: "Days", color: color)
-            Project.setText(str: "Projects", color: ThemeColor.white)
-        }
+        
+        Days.setText(str: "Days", color: color)
+        Project.setText(str: "Projects", color: ThemeColor.white)
+     
         self.selected = sender
     }
     @IBOutlet weak var Project: HoverButton!
@@ -209,8 +205,11 @@ class ViewController: NSViewController {
     
     func Unselect() {
         self.selected = nil
-        changeTabColor(color: ColorGetter.getCurrentThemeColor())
-       
+        var color = ColorGetter.getCurrentThemeColor()
+        if color == ThemeColor.white {
+            color = ThemeColor.black
+        }
+        changeTabColor(color: color)
     }
     
     func DeactivateAll() {

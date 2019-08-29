@@ -19,8 +19,11 @@ class DayTitle: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        DateLabel.font = .labelFont(ofSize: 18)
+        DateLabel.font = .labelFont(ofSize: 19)
         DateLabel.textColor = ColorGetter.getCurrentThemeColor()
+        if DateLabel.textColor == ThemeColor.white {
+            DateLabel.textColor = ThemeColor.black
+        }
         NSLayoutConstraint.init(item: self.view, attribute: .height, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 30).isActive = true
         self.view.wantsLayer = true
         self.view.layer?.backgroundColor = .init(gray: 0.9, alpha: 1)
@@ -34,10 +37,20 @@ class DayTitle: NSViewController {
     
     
     func setDate(date : Date) {
-        let formatter = DateFormatter.init()
-        formatter.dateFormat = "MM/dd/yyyy"
-        let dString = formatter.string(from: date)
-        self.DateLabel.stringValue = dString
+        let today = Date.init()
+        let todayUtil = dateUtils.init(date: today, relativeIndicator: 0)
+        let yesterday = todayUtil.getDay(addBy: -1)
+        let tommorrow = todayUtil.getDay(addBy: 1)
+        if dateUtils.equal(dayA: date, dayB: today) {
+            self.DateLabel.stringValue = todayUtil.forDayPage()
+        } else if dateUtils.equal(dayA: date, dayB: yesterday) {
+            self.DateLabel.stringValue = dateUtils.init(date: yesterday, relativeIndicator: -1).forDayPage()
+        } else if dateUtils.equal(dayA: date, dayB: tommorrow) {
+            self.DateLabel.stringValue = dateUtils.init(date: tommorrow, relativeIndicator: 1).forDayPage()
+        } else {
+            self.DateLabel.stringValue = dateUtils.init(date: date, relativeIndicator: 10).forDayPage()
+        }
+        
     }
     
     @objc func handleToggleDetail(){
@@ -51,12 +64,15 @@ class DayTitle: NSViewController {
             if (self.parent as! DayStack).day!.dones != nil {
                 
             }
+            (self.parent as! DayStack).addChild(detail)
             (self.parent as! DayStack).stack.setCustomSpacing(0, after: self.view)
             self.detail = detail
         } else {
             (self.parent as! DayStack).stack.removeView(self.detail!.view)
             (self.parent as! DayStack).removeChild(at: 1)
+            self.detail?.removeFromParent()
             self.detail = nil
         }
+        daySelectGlobal.selected = nil 
     }
 }

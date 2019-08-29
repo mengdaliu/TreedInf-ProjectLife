@@ -12,6 +12,8 @@ class DayDetail: NSSplitViewController {
     
     var smallConstraint : NSLayoutConstraint?
     var largeConstraint : NSLayoutConstraint?
+    var plan : dailyPlan?
+    var done : dailyDone?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,8 @@ class DayDetail: NSSplitViewController {
         
         let plan = NSSplitViewItem.init(viewController : dailyPlan.init(nibName: "dailyPlan", bundle: nil))
         let done = NSSplitViewItem.init(viewController: dailyDone.init(nibName: "dailyDone", bundle: nil))
+        self.plan = (plan.viewController as! dailyPlan)
+        self.done = (done.viewController as! dailyDone)
         self.addSplitViewItem(plan)
         self.addChild(plan.viewController)
         self.addSplitViewItem(done)
@@ -36,9 +40,13 @@ class DayDetail: NSSplitViewController {
         if smallConstraint!.isActive {
             smallConstraint?.isActive = false
             largeConstraint?.isActive = true
+            self.plan?.scroll.allowScroll = true
+            self.done?.scroll.allowScroll = true
         } else {
             largeConstraint?.isActive = false
             smallConstraint?.isActive = true
+            self.plan?.scroll.allowScroll = false
+            self.done?.scroll.allowScroll = false
         }
     }
     

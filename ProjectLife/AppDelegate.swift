@@ -63,7 +63,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func handleChangeMainWindowColor(color : NSColor) {
-        window?.backgroundColor = color
+        if color != ThemeColor.white {
+            window?.backgroundColor = color
+        } else {
+            window?.backgroundColor = ThemeColor.black
+        }
+        
         let rootVC = NSApp.mainWindow?.contentViewController as? ViewController
         rootVC?.projectLifeTitle.textColor = NSColor.init(cgColor: .white)
     }

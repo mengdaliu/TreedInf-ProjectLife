@@ -14,6 +14,7 @@ class ArchivedStack: NSViewController {
     @IBOutlet weak var stack: flippedView!
     var expanded = false
     var parentP : Project!
+    var toggleButton : ShowArchivedProjectsButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class ArchivedStack: NSViewController {
         initialButton.view.translatesAutoresizingMaskIntoConstraints = false 
         stack.addArrangedSubview(initialButton.view)
         self.addChild(initialButton)
+        self.toggleButton = initialButton
     }
     
     
@@ -100,6 +102,7 @@ class ArchivedStack: NSViewController {
             self.handleAddProjet(item: newPStack)
             newPStack.setTitle(title: (item as! Project).title ?? "")
             newPStack.p = (item as! Project)
+            moveHelperGlobal.projectTitleListening = newPStack.pTitle
         }
     }
     
@@ -110,6 +113,21 @@ class ArchivedStack: NSViewController {
                 self.stack.removeView(v)
             }
             i += 1
+        }
+    }
+    
+    func handleDelete(item : projectStack) {
+        if (self.parent as! VerticalStack).selected == item {
+            VerticalSplit.instance?.removeChildren(current: self.parent as! VerticalStack)
+        }
+        item.removeFromParent()
+        self.stack?.removeView(item.view)
+        project.delete(proj: item.p)
+        if self.stack.arrangedSubviews.count == 1 {
+            (self.parent as! VerticalStack).handleRemove(deactivatedStack: self)
+        }
+        if optionSetterGlobal.selectedProjectStack == item {
+            optionSetterGlobal.selectedProjectStack = nil 
         }
     }
 }

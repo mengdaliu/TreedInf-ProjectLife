@@ -65,7 +65,7 @@
                 <constraint firstItem="gjt-Ei-LkN" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="mFk-iS-Ckj"/>
                 <constraint firstItem="qRx-Xi-Fzg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="o8B-6T-yXR"/>
             </constraints>
-            <point key="canvasLocation" x="321" y="217"/>
+            <point key="canvasLocation" x="533" y="202"/>
         </customView>
         <popUpButton verticalHuggingPriority="750" id="USh-KM-QgG">
             <rect key="frame" x="0.0" y="0.0" width="100" height="26"/>

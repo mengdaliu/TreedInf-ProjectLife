@@ -13,6 +13,7 @@ class planForDay: NSViewController {
     @IBOutlet weak var percentage: NSTextField!
     @IBOutlet var comment: PlaceholderTextView!
     @IBOutlet weak var dateMenu: NSMenu!
+    @IBOutlet weak var confirm: NSButton!
     var today : Date!
     var tom : Date!
     var yes : Date!
@@ -39,13 +40,18 @@ class planForDay: NSViewController {
         initialPercentage.isActive = true
         let attributes : [NSAttributedString.Key : Any] = [
             NSAttributedString.Key(rawValue: NSAttributedString.Key.foregroundColor.rawValue) : NSColor.gray,
-            NSAttributedString.Key(rawValue : NSAttributedString.Key.font.rawValue) : NSFont.labelFont(ofSize: 14)
+            NSAttributedString.Key(rawValue : NSAttributedString.Key.font.rawValue) : NSFont.labelFont(ofSize: 17)
         ]
+        datePicker.font = .labelFont(ofSize: 17)
+        customDatePicker.font = .labelFont(ofSize: 17)
+        percentage.font = .labelFont(ofSize: 17)
+        confirm.font = .labelFont(ofSize: 17)
         
         NSLayoutConstraint.init(item: datePicker!, attribute: .width, relatedBy: .equal, toItem: .none, attribute: .notAnAttribute, multiplier: 1, constant: 200).isActive = true
         comment.placeholderAttributedString = NSAttributedString.init(string: "optional comment", attributes: attributes)
         comment.drawsBackground = true
         comment.backgroundColor = NSColor.init(cgColor: CGColor.init(gray: 0.92, alpha: 0.5))!
+        comment.font = .labelFont(ofSize: 17)
         //comment.placeholderAttributedString =  NSAttributedString(string: "optional   comment on plan", attributes: attributes)
         
         datePicker.translatesAutoresizingMaskIntoConstraints = false
@@ -232,6 +238,7 @@ class planForDay: NSViewController {
             day.Add(done : d, to : da)
         }
         (self.parent as! projectStack).handleCollapseOptions()
+        optionSetterGlobal.selectedProjectStack = nil
     }
     
 }

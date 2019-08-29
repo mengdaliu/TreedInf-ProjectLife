@@ -26,12 +26,9 @@ class project {
             } else {
                 dalGlobal.projectLife = gotData[0] as? Project
             }
-            dalGlobal.projectLife?.subProjects = nil
-            dalGlobal.projectLife?.archivedSubProjects = nil
         } catch {
             fatalError("Failure to fetch from context: \(error)")
         }
-        //treeTraversal(from: dalGlobal.projectLife!)
     }
     
     
@@ -41,6 +38,12 @@ class project {
         context!.assign(projectLife, to: dalGlobal.userStore!)
         //projectLife.title = dalGlobal.userInfo!.nickname! + "' " + "Project Life"
         dalGlobal.projectLife = projectLife
+        let today = Date.init()
+        let todayHistory = projectHistory.createHistory(for : projectLife, on: today)
+        let action = NSEntityDescription.insertNewObject(forEntityName: "Action", into: context!) as! Action
+        action.type = "Create"
+        context!.assign(action, to: dalGlobal.userStore!)
+        todayHistory.addToAction(action)
         do {
             try context!.save()
         } catch {
@@ -54,12 +57,12 @@ class project {
         project.title = title
         project.parent = parentProject
         parentProject.addToSubProjects(project)
-       
         let today = Date.init()
-        let todayHistory = projectHistory.createHistory(for: project, on: today)
-        let action = Action.init(context: self.context!)
+        let todayHistory = projectHistory.createHistory(for : project, on: today)
+        let action = NSEntityDescription.insertNewObject(forEntityName: "Action", into: context!) as! Action
         action.type = "Create"
-        
+        context!.assign(action, to: dalGlobal.userStore!)
+        todayHistory.addToAction(action)
         do {
             try context!.save()
         } catch {
@@ -87,16 +90,15 @@ class project {
         do {
             try context!.save()
         } catch {
-            fatalError("Failure to save context: \(error)")
+            //fatalError("Failure to save context: \(error)")
         }
     }
     
     
     static func delete(proj : Project) {
-    
         context!.delete(proj)
         proj.parent!.removeFromSubProjects(proj)
-        
+        proj.parent!.removeFromArchivedSubProjects(proj)
         do {
             try context!.save()
         } catch {
@@ -213,9 +215,15 @@ class project {
     }
     
     static func deactivate(proj : Project) {
+        
+        
+       
         proj.parent?.removeFromSubProjects(proj)
         proj.parent?.addToArchivedSubProjects(proj)
         proj.state = "Archived"
+        
+        
+        
         for item in Array(proj.subProjects ?? []) {
             deactivate(proj: item as! Project)
         }
@@ -223,6 +231,7 @@ class project {
         
         let today = Date.init()
         let history = projectHistory.getHistory(for: proj, on: today)
+    
         
         var found = false
         for act in Array(history.action ?? []) {
@@ -235,10 +244,12 @@ class project {
         }
         
         if !found {
-            let act = Action.init(context: self.context!)
-            act.type = "Archive"
-            history.addToAction(act)
+            let action = NSEntityDescription.insertNewObject(forEntityName: "Action", into: context!) as! Action
+            action.type = "Archive"
+            context!.assign(action, to: dalGlobal.userStore!)
+            history.addToAction(action)
         }
+        
         
         do {
             try context!.save()
@@ -266,9 +277,10 @@ class project {
         }
         
         if !found {
-            let act = Action.init(context: self.context!)
-            act.type = "Reactivate"
-            history.addToAction(act)
+            let action = NSEntityDescription.insertNewObject(forEntityName: "Action", into: context!) as! Action
+            action.type = "Reactivate"
+            context!.assign(action, to: dalGlobal.userStore!)
+            history.addToAction(action)
         }
         
         do {
@@ -280,9 +292,17 @@ class project {
     
     static func moveToParentLevel(proj : Project) {
         let parent = proj.parent
-        parent!.removeFromSubProjects(proj)
+        
         let grandParent = parent!.parent
-        grandParent?.addToSubProjects(proj)
+        if proj.state == nil {
+            parent!.removeFromSubProjects(proj)
+            grandParent?.addToSubProjects(proj)
+        } else {
+            parent!.removeFromArchivedSubProjects(proj)
+            grandParent?.addToArchivedSubProjects(proj)
+        }
+       
+        proj.parent = grandParent
         
         do {
             try context!.save()
@@ -296,6 +316,8 @@ class project {
         let parent = proj.parent
         parent!.removeFromSubProjects(proj)
         newParent.addToSubProjects(proj)
+        proj.parent = newParent
+        
         
         do {
             try context!.save()
@@ -314,8 +336,7 @@ class projectHistory {
     static var context = dalGlobal.context
     
     static func getHistory(for proj : Project, on day : Date) -> ProjectHistory {
-        
-       
+
         // Get the current calendar with local time zone
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
@@ -330,11 +351,16 @@ class projectHistory {
         let fromPredicate = NSPredicate(format: "date >= %@", dateFrom as NSDate)
         let toPredicate = NSPredicate(format: "date < %@", dateTo! as NSDate)
         let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [fromPredicate, toPredicate])
+        let history = Array(proj.history ?? []) as! [ProjectHistory]
+        var result : [ProjectHistory] = []
+        if history != nil {
+            for hist in history {
+                if dateUtils.equal(dayA: hist.date!, dayB: day) {
+                    result.append(hist)
+                }
+            }
+        }
         
-        
-        
-        let history = NSArray(object : proj.history ?? [])
-        let result = history.filtered(using: datePredicate)
         if result.count > 0 {
             return result[0] as! ProjectHistory
         } else {
@@ -387,20 +413,12 @@ class projectHistory {
     }
     
     static func loadHistory(for proj : Project) -> [ProjectHistory]? {
-        let req = NSFetchRequest<NSFetchRequestResult>.init(entityName: "ProjectHistory")
+
         let sort = NSSortDescriptor(key: #keyPath(ProjectHistory.date), ascending: true)
-        req.sortDescriptors = [sort]
-        req.affectedStores = [dalGlobal.userStore!]
-        do {
-            let gotData = try context!.fetch(req)
-            if gotData.count < 1 {
-                return nil
-            } else {
-                return gotData as? [ProjectHistory]
-            }
-        } catch {
-            return nil
-        }
+        let histories = proj.history
+        let sortedHistories = histories?.sortedArray(using: [sort])
+        
+        return sortedHistories as? [ProjectHistory]
     }
 }
 

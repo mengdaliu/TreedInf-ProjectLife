@@ -134,6 +134,7 @@ class SignIn: NSViewController {
             googleButton.setFrameSize(.init(width: 463.1558, height: 175.308))
             googleButton.imageScaling = .scaleProportionallyDown
             googleButton.image?.alignmentRect = googleButton.frame
+            googleButton.isHidden = true 
             
             DispatchQueue.main.async {
                 NSAnimationContext.current.duration = 0.5

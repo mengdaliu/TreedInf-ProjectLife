@@ -33,7 +33,7 @@
                 <constraint firstAttribute="bottom" secondItem="2eM-hg-RUR" secondAttribute="bottom" id="Fh6-x0-IRp"/>
                 <constraint firstItem="2eM-hg-RUR" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="bH4-ne-fbB"/>
             </constraints>
-            <point key="canvasLocation" x="173" y="156"/>
+            <point key="canvasLocation" x="-26" y="147"/>
         </customView>
     </objects>
 </document>

@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="singleHistory" customModule="ProjectLife" customModuleProvider="target">
             <connections>
+                <outlet property="commentScroll" destination="fhF-h0-rPC" id="RiK-OB-0G6"/>
                 <outlet property="oneLineDescription" destination="tgq-NA-04x" id="S6F-ed-Nqq"/>
                 <outlet property="optionalComment" destination="Sxs-x7-UBb" id="smt-Tu-zjI"/>
                 <outlet property="scroll" destination="fhF-h0-rPC" id="SgY-Ie-Vye"/>
@@ -19,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhF-h0-rPC">
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhF-h0-rPC" customClass="customScrollView" customModule="ProjectLife" customModuleProvider="target">
                     <rect key="frame" x="20" y="0.0" width="460" height="249"/>
                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="0wh-Wu-9xl">
                         <rect key="frame" x="0.0" y="0.0" width="460" height="249"/>
@@ -62,7 +63,7 @@
                 <constraint firstAttribute="bottom" secondItem="fhF-h0-rPC" secondAttribute="bottom" id="fon-mu-mhr"/>
                 <constraint firstAttribute="trailing" secondItem="fhF-h0-rPC" secondAttribute="trailing" id="z4L-48-ibb"/>
             </constraints>
-            <point key="canvasLocation" x="-14" y="38"/>
+            <point key="canvasLocation" x="-56" y="-31"/>
         </customView>
     </objects>
 </document>

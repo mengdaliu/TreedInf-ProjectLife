@@ -12,10 +12,11 @@ class DetailContentScroll: NSViewController, NSTextViewDelegate {
 
     @IBOutlet weak var scroll: NSScrollView!
     var textField : NSTextView?
-    var shiftPressed = false
     var expanded = false
+    var shiftPressed = false
     var smallConstraint : NSLayoutConstraint!
     var largeConstraint : NSLayoutConstraint!
+    var parentP : Project!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +24,13 @@ class DetailContentScroll: NSViewController, NSTextViewDelegate {
         
         let detailEnter = myTextView.init()
         detailEnter.drawsBackground = true
-        detailEnter.font = .labelFont(ofSize: 15)
+        detailEnter.font = .labelFont(ofSize: 17)
         detailEnter.isEditable = true
         //detailEnter.isGrammarCheckingEnabled = true
         //detailEnter.isContinuousSpellCheckingEnabled = true
         //detailEnter.isIncrementalSearchingEnabled = true
         //detailEnter.isAutomaticLinkDetectionEnabled = true
-        //detailEnter.isAutomaticSpellingCorrectionEnabled = true
+        detailEnter.isAutomaticSpellingCorrectionEnabled = true
         detailEnter.isVerticallyResizable = true
         detailEnter.backgroundColor = NSColor.init(cgColor: CGColor.init(gray: 0.92, alpha: 0.5))!
         scroll.borderType = .noBorder
@@ -47,13 +48,21 @@ class DetailContentScroll: NSViewController, NSTextViewDelegate {
         self.textField = detailEnter
         detailEnter.delegate = self
         detailEditingGlobal.editingTextView = self
+        
+        
+    }
+    
+    override func viewDidAppear() {
+        parentP = (self.parent!.parent!.parent as! projectStack).p
     }
     
     
     override func flagsChanged(with event: NSEvent) {
         if event.modifierFlags.contains(.shift) {
+            moveHelperGlobal.shiftPressed = true
             self.shiftPressed = true
         } else {
+            moveHelperGlobal.shiftPressed = false
             self.shiftPressed = false
         }
     }
@@ -110,8 +119,9 @@ class DetailContentScroll: NSViewController, NSTextViewDelegate {
     @objc override func storeEditing() {
         let stringValue = self.textField?.string
         if stringValue != nil {
-            let proj = (self.parent!.parent!.parent as! projectStack).p
-            project.setOverview(for: proj!, overview: stringValue!)
+            do {
+                try project.setOverview(for: self.parentP, overview: stringValue!)
+            } catch {}
         }
     }
 }

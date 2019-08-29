@@ -11,7 +11,8 @@ import Cocoa
 class ShowArchivedProjectsButton: NSViewController {
 
     @IBOutlet weak var button: HoverButton!
-    var show = true 
+    var show = true
+    var color : NSColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +25,33 @@ class ShowArchivedProjectsButton: NSViewController {
         button.showsBorderOnlyWhileMouseInside  = true
         button.layer?.masksToBounds =  true
         button.layer?.cornerRadius = 20
+        
+        var color = ColorGetter.getCurrentThemeColor()
+        if color == ThemeColor.white {
+            color = ThemeColor.black
+        }
+        self.color = color
+        button.setText(str: "Show Archived Projects", color: color)
     }
     
     
     @IBAction func toggle(_ sender: Any) {
         if show {
-            button.setText(str: "Hide Archived Projects", color: ThemeColor.black)
+            button.setText(str: "Hide Archived Projects", color: self.color)
             show = false
         } else {
-            button.setText(str: "Show Archived Projects", color: ThemeColor.black)
+            button.setText(str: "Show Archived Projects", color: self.color)
             show = true
         }
         (self.parent as! ArchivedStack).handleToggle()
+    }
+    
+    func handleChangeColor(color : NSColor) {
+        self.color = color
+        if show {
+            button.setText(str: "Show Archived Projects", color: self.color)
+        } else {
+            button.setText(str: "Hide Archived Projects", color: self.color)
+        }
     }
 }

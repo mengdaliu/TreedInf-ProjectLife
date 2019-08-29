@@ -48,13 +48,30 @@ class SectionTitle: NSViewController {
                     if (self.parent!.parent!.parent as! projectStack).p.overview != nil {
                         detail.textField!.string = (self.parent!.parent!.parent as! projectStack).p.overview!
                     }
+                    self.detail = detail
                 }
-                (self.parent as! SectionStack).Stack.setCustomSpacing(0, after: self.view)
+               
+            case "History" :
+                let detail = HistoryContentScroll.init(nibName: "HistoryContentScroll", bundle: nil)
+                if (self.parent!.parent!.parent as! projectStack).p.history != nil {
+                    detail.setProject(project: (self.parent!.parent!.parent as! projectStack).p)
+                    //detail.loadHistory()
+                }
+                self.parent?.addChild(detail)
+                (self.parent as! SectionStack).Stack.addArrangedSubview(detail.view)
+                
+               
+               
+                
+                
+                
                 self.detail = detail
-                self.expanded = true
             default :
                 break
             }
+            (self.parent as! SectionStack).Stack.setCustomSpacing(0, after: self.view)
+            
+            self.expanded = true
         } else {
             (self.parent as! SectionStack).Stack.removeView(self.detail!.view)
             self.expanded = false

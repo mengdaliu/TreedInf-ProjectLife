@@ -24,9 +24,9 @@
         <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="archivedSubProjects" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Project" inverseName="parent" inverseEntity="Project" syncable="YES"/>
+        <relationship name="archivedSubProjects" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Project" syncable="YES"/>
         <relationship name="history" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ProjectHistory" syncable="YES"/>
-        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="archivedSubProjects" inverseEntity="Project" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" syncable="YES"/>
         <relationship name="subProjects" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Project" syncable="YES"/>
     </entity>
     <entity name="ProjectHistory" representedClassName="ProjectHistory" syncable="YES" codeGenerationType="class">

@@ -102,7 +102,6 @@ class FrontPagePhoto: NSViewController {
         while FrontPagePhoto.instance != nil {
             for image in self.urls {
                 //print(image)
-                print("loading")
                 if FrontPagePhoto.instance == nil {
                     break
                 }

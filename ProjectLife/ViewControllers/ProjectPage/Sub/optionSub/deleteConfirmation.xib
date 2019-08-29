@@ -33,9 +33,22 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CfI-z8-5PV">
+                    <rect key="frame" x="159" y="31" width="82" height="32"/>
+                    <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MyK-Ce-vfj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        <connections>
+                            <action selector="pressCancal:" target="-2" id="biF-UG-3Bs"/>
+                        </connections>
+                    </buttonCell>
+                </button>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qnJ-FJ-Hin">
-                    <rect key="frame" x="218" y="31" width="65" height="32"/>
-                    <buttonCell key="cell" type="push" title="YES" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9N3-3o-zYH">
+                    <rect key="frame" x="268" y="31" width="65" height="32"/>
+                    <buttonCell key="cell" type="push" title="YES" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9N3-3o-zYH">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -46,13 +59,15 @@
             </subviews>
             <constraints>
                 <constraint firstItem="g3S-wt-3BX" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="93" id="7cm-Ak-0FT"/>
-                <constraint firstItem="qnJ-FJ-Hin" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="AiT-3j-ssg"/>
                 <constraint firstItem="bcv-ML-dUe" firstAttribute="top" secondItem="g3S-wt-3BX" secondAttribute="bottom" constant="8" symbolic="YES" id="BLa-ig-W0Q"/>
                 <constraint firstItem="qnJ-FJ-Hin" firstAttribute="top" secondItem="bcv-ML-dUe" secondAttribute="bottom" constant="57" id="KhR-tm-DIm"/>
+                <constraint firstItem="qnJ-FJ-Hin" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" constant="50" id="MHr-zb-XHQ"/>
                 <constraint firstItem="bcv-ML-dUe" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Q6v-n7-CvL"/>
                 <constraint firstItem="g3S-wt-3BX" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="mT1-Cs-UTB"/>
+                <constraint firstItem="CfI-z8-5PV" firstAttribute="top" secondItem="bcv-ML-dUe" secondAttribute="bottom" constant="57" id="pBy-9O-OKd"/>
+                <constraint firstItem="CfI-z8-5PV" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" constant="-50" id="uXW-ar-RYo"/>
             </constraints>
-            <point key="canvasLocation" x="386" y="121"/>
+            <point key="canvasLocation" x="-73" y="115"/>
         </customView>
     </objects>
 </document>
